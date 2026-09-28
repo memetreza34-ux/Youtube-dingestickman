@@ -31,8 +31,27 @@ Chronologisches Register ausdrücklicher Kanalentscheidungen. Neuere Entscheidun
 - Ausgangsfrage am Ende tatsächlich beantworten.
 - Skript muss vor Bildplanung alleine funktionieren.
 
-## 2026-09-28 — Bildwelt
+## 2026-09-28 — Bildwelt V1 freigegeben
 
-- Bildwelt ist noch offen.
-- Keine alte Bildwelt und keine automatische Stickman-Annahme übernehmen.
-- Nutzer liefert die konkrete visuelle Richtung später.
+- Verbindlicher Style: `history-stickman-adaptive-v1`.
+- Grundwelt: handgezeichnete 2D-History-Explainer-Illustration.
+- Stickman-Figuren bleiben ein wichtiger Bestandteil, dürfen aber nicht leer, identisch oder langweilig wirken.
+- Historische Figuren dürfen Haare, Bärte, Schnurrbärte, Augenbrauen, Helme, Kronen, Hüte, Hauben, Kapuzen, Tücher, Rüstung, Kleidung, Schmuck, Werkzeuge und Props besitzen.
+- Persönlichkeit und Gefühl sollen über einfache Mimik, Blickrichtung, Kopfhaltung, Gestik und Körpersprache sichtbar werden.
+- Der Grundstil bleibt konstant; Stimmung, Epoche, Beleuchtung, Kamera und Komposition dürfen sich an den Inhalt anpassen.
+- Nicht jedes Bild braucht Figuren.
+- Karten, Architektur, Landschaften, Objekte, Systeme, Symbolbilder, Vergleiche, Übersichten und Aufstieg-/Fall-Darstellungen sind gleichwertige Bildformen.
+- Nicht-Figuren-Bilder müssen im selben Zeichen-, Farb-, Schattierungs- und Texturuniversum wie Figurenszenen bleiben.
+- Generierter sichtbarer Text ist standardmäßig nicht erlaubt.
+- Keine Bildnummern oder Wasserzeichen im Bild.
+- Remotion erzeugt standardmäßig keinen sichtbaren Erklärungstext.
+- Historische Plausibilität hat Vorrang vor dekorativer Coolness.
+
+## 2026-09-28 — Google Flow
+
+- Mehrere Bilder sollen bevorzugt als ein sauber strukturierter Flow-Batch geplant werden.
+- Der gemeinsame Channel-Style wird pro Batch **einmal** definiert.
+- Einzelne Szenenprompts bleiben kurz und konkret.
+- Flow darf Figuren nicht automatisch in jede Szene setzen.
+- Vor dem Prompt wird die passende Visual-Form gewählt: z. B. Character Scene, Karte, Objekt, Architektur, System, Vergleich oder Symbolbild.
+- Alle Bilder eines Batches müssen sichtbar wie Arbeiten desselben Illustrators für denselben Kanal wirken.
