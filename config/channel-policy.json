@@ -1,0 +1,50 @@
+{
+  "channelPolicyVersion": 1,
+  "channelType": "history",
+  "language": "de",
+  "status": "CHANNEL_DNA_V1_VISUAL_PENDING",
+  "positioning": "History x Storytelling x Curiosity",
+  "corePromise": "Historische Fragen und Entwicklungen spannend, verständlich und kausal erklären.",
+  "targetDurationMinutes": {
+    "preferredMin": 8,
+    "preferredMax": 15,
+    "contentDriven": true
+  },
+  "topicPillars": [
+    "empires_countries_civilizations",
+    "daily_life_in_the_past",
+    "historical_turning_points",
+    "people_and_power",
+    "strange_and_lesser_known_history"
+  ],
+  "scriptRules": {
+    "coldOpenRequired": true,
+    "greetingIntroForbidden": true,
+    "coldOpenTargetSeconds": [20, 30],
+    "causeEffectPreferred": true,
+    "factListStyleDiscouraged": true,
+    "humanExamplesPreferred": true,
+    "organicMiniHooksPreferred": true,
+    "fakeClickbaitHooksForbidden": true,
+    "answerOpeningQuestionAtEnd": true,
+    "scriptMustWorkBeforeVisualPlanning": true
+  },
+  "researchRules": {
+    "sourceDocumentationRequired": true,
+    "uncertaintyMustBeMarked": true,
+    "inventedQuotesForbidden": true,
+    "inventedThoughtsAsFactsForbidden": true,
+    "centralContestedClaimsNeedCare": true
+  },
+  "channelSeparation": {
+    "generalPhilosophyPsychologyWhatIf": "other_future_channel",
+    "modernCIAdayInLifeWithoutHistoricalCore": "other_future_channel"
+  },
+  "visualSystem": {
+    "status": "UNSET",
+    "doNotInferFromRepositoryName": true,
+    "doNotInheritOtherRepoStyles": true,
+    "doNotCopyReferenceChannelIdentity": true
+  },
+  "brainIndex": "channel/00-BRAIN-INDEX.md"
+}
