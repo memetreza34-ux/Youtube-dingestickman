@@ -1,54 +1,101 @@
 VISUAL_POLICY_FILE: config/visual-policy.json
-ACTIVE_STYLE_ID: UNSET
+VISUAL_SYSTEM_FILE: channel/06-VISUAL-SYSTEM.md
+VISUAL_GRAMMAR_FILE: channel/07-VISUAL-GRAMMAR.md
+FLOW_GUIDE_FILE: channel/08-FLOW-PROMPTING.md
+ACTIVE_STYLE_ID: history-stickman-adaptive-v1
 
 GOOGLE FLOW MASTER PROMPT — [VIDEO-TITEL]
 
 IMPORTANT
-- This repository intentionally contains NO inherited visual world.
-- Before generating real assets, define the new visual world in `config/visual-policy.json` and replace `ACTIVE_STYLE_ID: UNSET` with the new style ID.
-- Do not copy visual rules, characters, palettes, prompts, topics or examples from any other repository.
+- Load the channel visual policy and visual grammar before planning images.
+- Keep one consistent hand-drawn 2D historical explainer art style across the full video.
+- Style stays constant; scene type, historical era, mood, lighting and composition may adapt.
+- Human characters are NOT required in every image.
+- Never copy the visual identity of another channel or repository.
 
 GOAL
 Generate only Bild 01 through Bild NN for this project.
-NN is content-driven and must come from Phase 1 planning.
+NN is content-driven and comes from Phase 1 planning.
 
 COVER RULE
-- Bild 01 is the cover AND the first video scene.
+- Bild 01 is the cover AND first video scene.
 - Generate Bild 01 exactly THREE times as temporary cover candidates.
-- Select exactly ONE winner and rename it `Bild 01.png`.
-- Discard the other two candidates.
-- Do not create Bild 00.
-- Do not create a separate thumbnail image.
+- Select one winner and rename it `Bild 01.png`.
+- Discard the other two.
+- No Bild 00.
+- No separate thumbnail image.
 
 NON-COVER RULE
 - Generate Bild 02 through Bild NN exactly ONCE each.
-- No automatic alternate versions.
 - Maximum five active generations at once.
 - Rename each accepted image exactly once to `Bild NN.png`.
 
 FINAL FOLDER
-All final images must be flat in:
 `00-bildprompts/images/`
 
 Only `Bild 01.png` through `Bild NN.png` may remain there.
 
-VISUAL PLANNING RULE
-For every image, choose the clearest form for the current spoken idea and concrete topic.
-Do not force a specific actor type, composition, complexity level or illustration form unless the NEW visual policy explicitly requires it.
+VISUAL DECISION RULE
+Before writing each image prompt:
+1. Identify the spoken idea.
+2. Choose the best visual function.
+3. Choose the best visual form.
+4. Only then write the composition and prompt.
 
-Simple is allowed when simple is clearest.
-Complex is allowed when complexity genuinely improves understanding.
+Supported forms include:
+- character scene
+- environment only
+- map / geography
+- object focus
+- architecture / city
+- system / hierarchy
+- cause → effect
+- process / sequence
+- comparison
+- symbolic metaphor
+- battle / city overview
+- rise / fall lifecycle
 
-Each image block must contain:
-- Audio Anchor
-- Visual Purpose
-- Topic Anchor
-- Visual Form
-- Planned Hold
-- Prompt
+Do NOT force stickman characters into every image.
+
+CHANNEL STYLE — USE ONCE PER FLOW BATCH
+Use one consistent hand-drawn 2D historical explainer style across all images in the batch.
+
+When people are needed, use expressive historical stickman characters from the same character family: simple round or slightly oval warm off-white heads, slim simplified bodies, clean dark ink outlines, flat muted historical colors, subtle cel shading and a light handmade ink-and-paper texture.
+
+Characters may differ through historically appropriate hair, beards, moustaches, eyebrows, helmets, crowns, hats, hoods, head coverings, clothing, armor, accessories, tools and body language. Faces stay simple but emotions must be readable. Characters must feel alive and individual, not like blank identical mannequins.
+
+When people are NOT needed, use maps, architecture, landscapes, objects, systems, symbolic scenes or historical overviews in the exact same line, color, shading and texture language.
+
+Mature historical documentary/explainer feeling. Not childish, not goofy.
+
+Do not use photorealism, realistic portrait faces, 3D rendering, Pixar style, anime, painterly realism, graphic-novel realism, modern corporate infographic style, image numbers, pseudo-text or watermarks.
+
+Default: no visible text inside generated images.
+
+FLOW BATCH FORMAT
+For each Flow batch, define CHANNEL STYLE only once, then keep every individual image block short and concrete.
+
+Example structure:
+
+Create [N] separate 16:9 historical explainer illustrations.
+
+CHANNEL STYLE:
+[shared channel style above]
+
+IMAGE 1 — [SHORT NAME]
+[scene / map / object / system description]
+
+IMAGE 2 — [SHORT NAME]
+[scene / map / object / system description]
+
+[continue]
+
+IMPORTANT:
+All images must clearly look like they were illustrated by the same artist for the same YouTube channel.
 
 IMAGE DENSITY
-- No fixed target image count.
+- No fixed image count.
 - One image = one clear visual purpose.
 - Split when a new core idea, cause/effect step, era, place, actor, route, example or independent visual explanation begins.
 - Target average hold: about 4.5–7.5 seconds.
@@ -56,10 +103,6 @@ IMAGE DENSITY
 - Prefer a meaningful split above 11 seconds.
 - Hard maximum: 16 seconds.
 - No filler images.
-
-VISIBLE TEXT
-For a German project, all readable text in generated images must be German unless the project metadata explicitly says otherwise.
-Avoid pseudo-text.
 
 BILDPLAN
 
@@ -69,7 +112,7 @@ Visual Purpose: [ONE CLEAR PURPOSE]
 Topic Anchor: [CONCRETE TOPIC-SPECIFIC ELEMENT]
 Visual Form: [BEST FORM FOR THIS IDEA]
 Planned Hold: [SECONDS]
-Prompt: [COMPLETE IMAGE PROMPT USING ONLY THE NEW VISUAL POLICY]
+Prompt: [SHORT CONCRETE SCENE DESCRIPTION; DO NOT REPEAT FULL STYLE BLOCK]
 
 Bild 02 · [A–E] · [PLANZEIT]
 Audio Anchor: [EXACT SCRIPT ANCHOR]
@@ -77,19 +120,25 @@ Visual Purpose: [ONE CLEAR PURPOSE]
 Topic Anchor: [CONCRETE TOPIC-SPECIFIC ELEMENT]
 Visual Form: [BEST FORM FOR THIS IDEA]
 Planned Hold: [SECONDS]
-Prompt: [COMPLETE IMAGE PROMPT USING ONLY THE NEW VISUAL POLICY]
+Prompt: [SHORT CONCRETE SCENE DESCRIPTION; DO NOT REPEAT FULL STYLE BLOCK]
 
 [CONTINUE THROUGH BILD NN]
 
 FINAL CHECK
-- new repository visual policy loaded
-- no inherited visual-world traces
+- ACTIVE_STYLE_ID = history-stickman-adaptive-v1
+- same art universe across all images
+- style constant, staging adaptive
+- characters only when useful
+- character scenes have expressive, individual historical stickmen
+- non-character scenes use same visual language
+- no accidental modern infographic look
+- no inherited foreign-channel visual identity
 - Bild 01 = cover + first scene
 - exactly 3 cover candidates, 1 winner
 - Bild 02–NN exactly once each
 - no Bild 00
-- no reference-image inheritance unless the NEW visual policy explicitly introduces it
 - image count follows content density
 - each image has one clear visual purpose
-- every image matches both the spoken sentence and the concrete video topic
+- each image matches both the spoken sentence and concrete historical topic
+- no unnecessary visible text
 - all final images are in one flat folder
