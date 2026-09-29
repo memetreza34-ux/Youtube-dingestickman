@@ -20,7 +20,13 @@
     "firstSceneIsCover": true,
     "coverImageNumber": 1,
     "coverCandidateCount": 3,
-    "separateThumbnailForbidden": true
+    "separateThumbnailForbidden": true,
+    "coverTextRequired": true,
+    "coverText": "ZU SPÄT FÜR POMPEJI?",
+    "coverTextLanguage": "de",
+    "coverTextMustBeHighContrast": true,
+    "coverTextMustNotCoverMainSubject": true,
+    "rejectMisspelledCoverText": true
   },
   "imageDensityPolicy": {
     "contentDrivenImageCountRequired": true,
@@ -54,5 +60,5 @@
   "audioReady": false,
   "renderReady": false,
   "createdAt": "2026-09-29T17:05:00Z",
-  "updatedAt": "2026-09-29T17:05:00Z"
+  "updatedAt": "2026-09-29T20:01:00+02:00"
 }
