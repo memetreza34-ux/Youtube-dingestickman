@@ -1,9 +1,11 @@
+ACTIVE_STYLE_ID: history-stickman-adaptive-v1
+
 GOOGLE FLOW MASTER PROMPT — Warum Pompeji dem Vesuv kaum entkommen konnte
 
 Create 16 separate 16:9 historical explainer illustrations for one coherent German YouTube video about Pompeii during the eruption of Mount Vesuvius in 79 CE.
 
 CHANNEL STYLE:
-Use one consistent hand-drawn 2D historical explainer style across the entire batch. Clean dark ink outlines, flat muted historical colors, subtle cel shading and a light handmade ink-and-paper texture. When people are needed, use expressive historical stickman characters from the same character family: simple warm off-white round or slightly oval heads, slim simplified bodies, simple readable faces, historically appropriate Roman hairstyles, tunics, stola/palla, sandals and props. Mature historical documentary feeling, not childish or goofy. When people are not needed, use architecture, objects, landscapes and volcanic scenes in the exact same visual language.
+Use one consistent hand-drawn 2D historical explainer style across the entire video. Clean dark ink outlines, flat muted historical colors, subtle cel shading and a light handmade ink-and-paper texture. When people are needed, use expressive historical stickman characters from the same character family: simple warm off-white round or slightly oval heads, slim simplified bodies, simple readable faces, historically appropriate Roman hairstyles, tunics, stola/palla, sandals and props. Mature historical documentary feeling, not childish or goofy. When people are not needed, use architecture, objects, landscapes and volcanic scenes in the exact same visual language.
 
 VIDEO WORLD LOCK:
 Use one consistent stylized version of Pompeii in 79 CE throughout the video. The recurring street has gray stone paving blocks with visible wheel ruts, low Roman shopfronts, plastered walls in muted cream and faded red-ochre, terracotta roof tiles and Mount Vesuvius visible at the far end whenever the angle allows it. Reuse the same street geometry, house facades and colors whenever the street returns. The recurring house has one cream plaster facade, a dark wooden doorway and a terracotta-tiled sloping roof. A recurring male resident has short dark hair, a short dark beard and a muted rust-red tunic. A recurring female resident has dark tied-back hair, a cream stola with a muted blue-gray palla. Keep them visually identical whenever they return.
@@ -12,7 +14,7 @@ Keep each image simple and strong: one dominant subject, only a few necessary su
 
 COVER TEXT:
 Use exactly this German cover text on Bild 01: "ZU SPÄT FÜR POMPEJI?"
-Make the text large, clean and immediately readable. Place it in a calm area of the composition without covering Vesuvius, the eruption column or the main foreground figures. Use strong contrast against the actual background: light lettering on dark areas, dark lettering on light areas, with a restrained outline or shadow only if needed. All three cover candidates must use exactly the same correctly spelled text.
+Make the text large, clean and immediately readable. Place it in a calm area of the composition without covering Vesuvius, the eruption column or the main foreground figures. Use strong contrast against the actual background. All three cover candidates must use exactly the same correctly spelled text.
 
 BILD 01
 A strong cinematic wide view down the recurring Pompeii street at the moment Mount Vesuvius begins its violent eruption. Make the towering eruption column above the mountain the clear dominant subject while the Roman street and rooftops frame the lower part of the image. Show only two or three residents in the foreground looking toward the volcano. Keep the image dramatic, clean and immediately readable, suitable as the first scene and cover image. Integrate the exact German cover text "ZU SPÄT FÜR POMPEJI?" prominently in a clean area of the image with strong contrast and without covering the main subject.
@@ -67,5 +69,19 @@ Keep every image visually consistent with the same channel style, the same recur
 
 Bild 01 MUST contain exactly the German text "ZU SPÄT FÜR POMPEJI?". Bild 02 through Bild 16 contain no visible text. Do not invent labels, English words, pseudo-writing or decorative lettering.
 
-GENERATION RULES:
-Generate Bild 01 three times as temporary cover alternatives using exactly the same cover text, reject any candidate with misspelled or poorly readable text, choose one winner and keep it as `Bild 01.png`. Generate Bild 02 through Bild 16 once each after prompt approval. Maximum five active generations at once. The final image folder must contain only `Bild 01.png` through `Bild 16.png`.
+GENERATION WORKFLOW — MANDATORY:
+
+STAGE 1 — COVER ONLY
+- Generate exactly THREE alternatives for Bild 01 using exactly the same cover text "ZU SPÄT FÜR POMPEJI?".
+- Reject and regenerate any candidate with missing, misspelled or poorly readable text.
+- Once three acceptable candidates exist, STOP IMMEDIATELY.
+- DO NOT generate Bild 02–16 yet.
+- DO NOT choose a winner yourself.
+- Wait for the user to explicitly select one cover candidate.
+
+STAGE 2 — ONLY AFTER USER SELECTS THE COVER
+- The selected candidate becomes `Bild 01.png`.
+- Use the selected cover as an additional visual reference for the same Pompeii world/style.
+- Only then generate Bild 02 through Bild 16 exactly once each.
+- Maximum five active generations at once.
+- Final image folder contains only `Bild 01.png` through `Bild 16.png`.
