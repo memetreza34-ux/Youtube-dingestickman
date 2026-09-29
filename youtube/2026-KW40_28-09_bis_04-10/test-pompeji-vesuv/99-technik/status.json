@@ -1,12 +1,16 @@
 {
   "schemaVersion": 1,
-  "phase1": "READY",
-  "phase2": "WAITING-FOR-NEW-IMAGES-AND-USER-VOICE",
+  "phase1": "READY-COVER-TEXT-AND-USER-GATE",
+  "phase2": "WAITING-FOR-3-COVER-CANDIDATES-THEN-USER-SELECTION",
   "phase3": "BLOCKED-WAITING-PHASE2",
   "imagesReady": false,
   "audioReady": false,
   "renderReady": false,
+  "coverText": "ZU SPÄT FÜR POMPEJI?",
+  "coverCandidateCount": 3,
+  "selectedCoverCandidate": null,
+  "flowMayGenerateRemainingImages": false,
   "approvedPromptFile": "00-bildprompts/google-flow-prompt.txt",
-  "approvedVisualRulesVersion": "history-stickman-adaptive-v1 / direct-flow-prompt-v1",
-  "requiredAction": "Generate Bild 01-16 with the approved direct Google Flow prompt, review continuity and image quality, then add the user's final voiceover."
+  "approvedVisualRulesVersion": "history-stickman-adaptive-v1 / manual-cover-gate-v1",
+  "requiredAction": "Nur drei Bild-01-Cover mit exakt ZU SPÄT FÜR POMPEJI? erzeugen. Danach stoppen und auf Nutzer-Auswahl warten. Erst nach Auswahl Bild 02-16 generieren."
 }
