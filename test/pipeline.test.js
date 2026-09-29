@@ -7,7 +7,7 @@ import test from 'node:test';
 import { evaluateTopic } from '../src/cli/check-youtube-topic.js';
 import { normalizeText, similarity } from '../src/lib/pipeline.js';
 
-test('Repo besitzt freigegebene History-Bildwelt und leere Themenregistry', async () => {
+test('Repo besitzt freigegebene History-Bildwelt und gültige Themenregistry', async () => {
   const visual = JSON.parse(await readFile('config/visual-policy.json', 'utf8'));
   const channel = JSON.parse(await readFile('config/channel-policy.json', 'utf8'));
   const registry = JSON.parse(await readFile('config/topic-registry.json', 'utf8'));
@@ -17,7 +17,13 @@ test('Repo besitzt freigegebene History-Bildwelt und leere Themenregistry', asyn
   assert.equal(channel.visualSystem?.styleId, visual.styleId);
   assert.equal(channel.targetDurationMinutes?.shortTestVideosAllowed, true);
   assert.equal(channel.targetDurationMinutes?.shortTestMaximumSeconds, 120);
-  assert.deepEqual(registry.entries, []);
+  assert.ok(Array.isArray(registry.entries));
+  for (const entry of registry.entries) {
+    assert.ok(entry.id);
+    assert.ok(entry.title);
+    assert.ok(Array.isArray(entry.aliases));
+    assert.ok(entry.status);
+  }
 });
 
 test('Pipeline behält allgemeine Produktionsregeln', async () => {
