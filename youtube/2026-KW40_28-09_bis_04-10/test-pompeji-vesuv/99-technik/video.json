@@ -8,7 +8,7 @@
   "topic": "Warum die wechselnden Gefahren der Vesuv-Eruption 79 n. Chr. Pompeji so schwer zu überleben machten",
   "language": "de",
   "aspectRatio": "16:9",
-  "status": "phase1-ready-waiting-assets",
+  "status": "phase1-ready-waiting-cover-selection",
   "testMode": true,
   "testMaximumSeconds": 120,
   "visualPolicyFile": "config/visual-policy.json",
@@ -26,7 +26,11 @@
     "coverTextLanguage": "de",
     "coverTextMustBeHighContrast": true,
     "coverTextMustNotCoverMainSubject": true,
-    "rejectMisspelledCoverText": true
+    "rejectMisspelledCoverText": true,
+    "userSelectsCover": true,
+    "flowMustStopAfterCoverCandidates": true,
+    "selectedCoverRequiredBeforeRemainingImages": true,
+    "selectedCoverCandidate": null
   },
   "imageDensityPolicy": {
     "contentDrivenImageCountRequired": true,
@@ -60,5 +64,5 @@
   "audioReady": false,
   "renderReady": false,
   "createdAt": "2026-09-29T17:05:00Z",
-  "updatedAt": "2026-09-29T20:01:00+02:00"
+  "updatedAt": "2026-09-29T20:21:00+02:00"
 }
