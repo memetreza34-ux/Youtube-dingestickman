@@ -1,9 +1,14 @@
 {
   "schemaVersion": 1,
-  "phase1": "READY",
-  "phase2": "WAITING-ASSETS-AND-USER-VOICE",
+  "phase1": "READY-REVISED-IMAGE-PROMPTS",
+  "phase2": "REGENERATE-ALL-IMAGES-THEN-ADD-USER-VOICE",
   "phase3": "BLOCKED-WAITING-PHASE2",
   "imagesReady": false,
   "audioReady": false,
-  "renderReady": false
+  "renderReady": false,
+  "previousFlowBatchAccepted": false,
+  "previousFlowBatchReason": "Zu ueberladen, teilweise Wimmelbild-/Lehrbuchcharakter, schwache Bildhierarchie, inkonsistente Ortsdarstellung und unerwuenschte englische/Pseudo-Beschriftungen.",
+  "approvedPromptFile": "00-bildprompts/google-flow-prompt.txt",
+  "approvedVisualRulesVersion": "history-stickman-adaptive-v1 / prompt-quality-v1.1",
+  "requiredAction": "Alle 18 Bilder mit dem ueberarbeiteten Prompt neu generieren. Alte Testbilder nicht weiterverwenden."
 }
