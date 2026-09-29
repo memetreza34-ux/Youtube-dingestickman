@@ -1,6 +1,6 @@
 # Video Blueprint — Geschichts-Kanal V1
 
-Diese Datei verbindet Themen-, Recherche- und Skript-System mit der bestehenden Produktionspipeline.
+Diese Datei verbindet Themen-, Recherche-, Skript- und Visual-System mit der bestehenden Produktionspipeline.
 
 ## Phase A — Thema
 
@@ -47,25 +47,44 @@ Nach `03-SCRIPT-BIBLE.md` schreiben.
 
 Anschließend Script-QC durchführen.
 
-## Phase E — Übergabe an Bildplanung
+**Gate:** Das Skript muss ohne Bilder interessant, verständlich und historisch belastbar funktionieren.
+
+## Phase E — Bildplanung
 
 Erst nach bestandenem Skript:
 
-- Bildmomente bestimmen
-- Audio-Anker setzen
-- Visual Purpose definieren
-- Topic Anchor definieren
-- passende Visual Form auswählen
+1. jeden Abschnitt auf seine Kernaussage prüfen
+2. `Visual Purpose` bestimmen
+3. `Topic Anchor` bestimmen
+4. nach `07-VISUAL-GRAMMAR.md` die beste `Visual Form` wählen
+5. eindeutigen Audio-Anker setzen
+6. Bilddauer planen
+7. kurze konkrete Szenenbeschreibung schreiben
 
-**Wichtig:** Konkrete Visual Forms und Stilentscheidungen werden erst verbindlich, nachdem das Visual System V1 definiert wurde.
+Verbindliche Bildwelt: `history-stickman-adaptive-v1` nach `06-VISUAL-SYSTEM.md` und `config/visual-policy.json`.
 
-## Phase F — Assets / Audio / Render
+**Wichtig:** Figuren sind nur eine Visual-Form. Karten, Architektur, Objekte, Systeme, Vergleiche, Übersichten und Symbolbilder sind gleichwertig, wenn sie den Satz besser erklären.
 
-Danach greift die vorhandene technische Pipeline:
+## Phase F — Google Flow / Assets
+
+Google-Flow-Aufträge nach `08-FLOW-PROMPTING.md` bauen:
+
+- gemeinsamer Channel Style einmal pro Batch
+- einzelne Bildblöcke kurz und konkret
+- keine Bildnummern im generierten Bild
+- standardmäßig kein sichtbarer Text
+- alle Bilder müssen wie derselbe Kanal aussehen
+- Bild 01 ist Cover + erste Szene und erhält drei Kandidaten
+- Bild 02–NN jeweils ein finaler Kandidat
+
+Nach Generierung Bilder visuell prüfen, bevor Phase 2 als fertig gilt.
+
+## Phase G — Nutzer-Voice / Render
+
+Danach greift die technische Pipeline:
 
 ```text
-Bildgenerierung
-→ finale Nutzerstimme
+finale Nutzerstimme
 → Audiooptimierung
 → Whisper Alignment
 → Timeline
@@ -73,6 +92,12 @@ Bildgenerierung
 → Remotion
 → Export QC
 ```
+
+## Kurze Testvideos
+
+Der langfristige Kanalrahmen liegt bei ungefähr 8–15 Minuten, wenn der Inhalt es trägt. Für Pipeline-, Stil- und Qualitätsprüfungen sind bewusst kurze Testvideos bis maximal **120 Sekunden** erlaubt.
+
+Bei Testvideos gelten dieselben Qualitätsregeln für Recherche, Skript und Bildwelt; nur Umfang und Zahl der Story-Schritte sind kleiner.
 
 ## Produktionsprinzip
 
