@@ -42,7 +42,6 @@ Chronologisches Register ausdrücklicher Kanalentscheidungen. Neuere Entscheidun
 - Nicht jedes Bild braucht Figuren.
 - Karten, Architektur, Landschaften, Objekte, Systeme, Symbolbilder, Vergleiche, Übersichten und Aufstieg-/Fall-Darstellungen sind gleichwertige Bildformen.
 - Nicht-Figuren-Bilder müssen im selben Zeichen-, Farb-, Schattierungs- und Texturuniversum wie Figurenszenen bleiben.
-- Generierter sichtbarer Text ist standardmäßig nicht erlaubt.
 - Keine Bildnummern oder Wasserzeichen im Bild.
 - Remotion erzeugt standardmäßig keinen sichtbaren Erklärungstext.
 - Historische Plausibilität hat Vorrang vor dekorativer Coolness.
@@ -53,30 +52,35 @@ Chronologisches Register ausdrücklicher Kanalentscheidungen. Neuere Entscheidun
 - Der gemeinsame Channel-Style wird pro Batch **einmal** definiert.
 - Einzelne Szenenprompts bleiben kurz und konkret.
 - Flow darf Figuren nicht automatisch in jede Szene setzen.
-- Vor dem Prompt wird die passende Visual-Form gewählt: z. B. Character Scene, Karte, Objekt, Architektur, System, Vergleich oder Symbolbild.
+- Vor dem Prompt wird die passende Visual-Form gewählt.
 - Alle Bilder eines Batches müssen sichtbar wie Arbeiten desselben Illustrators für denselben Kanal wirken.
 
 ## 2026-09-29 — Bildprompt-Qualität V1.1
-
-Nach dem ersten Kenilworth-Flow-Test wurden die Bildregeln verschärft.
 
 - Keine Wimmelbilder, überfüllten Menschenmengen, Museumstafeln, Schulbuchposter oder Lexikonplatten als Standard.
 - Jedes Bild besitzt genau **eine Kernaussage** und **ein dominantes Hauptmotiv**.
 - Maximal **1–3 unterstützende Elemente** pro Bild.
 - Das Motiv muss groß und auch in kleiner YouTube-Darstellung sofort lesbar sein.
-- Wiederkehrende Orte, Figuren, Räume und Props werden innerhalb eines Videos nicht neu erfunden, sondern über einen **VIDEO WORLD / CONTINUITY LOCK** konstant gehalten.
-- Bei Zustandsänderungen möglichst denselben Ort und Blickwinkel wiederverwenden, z. B. volles Lager → halb leer → fast leer.
-- Standard bleibt: kein sichtbarer KI-Text.
-- Wenn sichtbarer Text ausdrücklich nötig ist, ausschließlich kurz, exakt vorgegeben und **auf Deutsch**; keine englischen Labels oder Pseudo-Schrift.
+- Wiederkehrende Orte, Figuren, Räume und Props werden innerhalb eines Videos über einen **VIDEO WORLD / CONTINUITY LOCK** konstant gehalten.
+- Bei Zustandsänderungen möglichst denselben Ort und Blickwinkel wiederverwenden.
 
 ## 2026-09-29 — Google-Flow-Ausgabe V1.2
 
-Nach Vergleich mit den eigenen funktionierenden Erklär-/Object-Talk-Workflows wird die Prompt-Ausgabe korrigiert:
-
-- **Interne Bildplanung und der finale Google-Flow-Prompt werden strikt getrennt.**
+- Interne Bildplanung und der finale Google-Flow-Prompt werden strikt getrennt.
 - Audio Anchor, Visual Purpose, Visual Form, Kernaussage, Dominant Subject, Supporting Elements, Kamera, Continuity und QC dürfen intern weiter ausführlich geplant werden.
-- Diese technischen Felder werden **nicht** mehr als Formular in `google-flow-prompt.txt` ausgegeben.
+- Diese technischen Felder werden nicht mehr als Formular in `google-flow-prompt.txt` ausgegeben.
 - Der finale Flow-Prompt enthält nur einen gemeinsamen `CHANNEL STYLE`, einen `VIDEO WORLD LOCK` und danach `BILD NN` mit jeweils einem natürlichen direkten Fließtext-Prompt.
-- Labels wie `VIEWER MUST IMMEDIATELY UNDERSTAND`, `SHOW`, `SUPPORTING ELEMENTS`, `CAMERA / COMPOSITION`, `CONTINUITY LOCK` und `Audio Anchor` sind im finalen Flow-Prompt verboten.
 - Einzelprompts sollen wie klare Regieanweisungen an einen Illustrator klingen.
-- Der Kenilworth-Testprompt wurde direkt auf dieses neue Format umgebaut.
+
+## 2026-09-29 — Cover-Text ist Pflicht
+
+- **Bild 01 ist immer Cover + erste Szene und enthält immer passenden deutschen Text.**
+- Cover-Text ist idealerweise 2–5 Wörter lang.
+- Er muss zum konkreten Thema/Hook passen und muss nicht identisch mit dem vollständigen Videotitel sein.
+- Der exakte Wortlaut wird vor der Bildgenerierung festgelegt.
+- Alle drei Cover-Kandidaten verwenden denselben exakten Text.
+- Schreibfehler, unvollständiger oder schlecht lesbarer Text führen zur Ablehnung des Kandidaten.
+- Text muss starken Kontrast zum Hintergrund haben: hell auf dunkel, dunkel auf hell.
+- Text darf das Hauptmotiv nicht verdecken.
+- Bild 02–NN bleiben standardmäßig ohne sichtbaren Text.
+- Für das Pompeji-Testvideo lautet der Cover-Text: `ZU SPÄT FÜR POMPEJI?`.
