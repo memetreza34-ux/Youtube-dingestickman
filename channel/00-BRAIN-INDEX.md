@@ -40,7 +40,10 @@ Verbindliche Bildwelt: `history-stickman-adaptive-v1`. Definiert Figuren, Render
 Entscheidet, **welche Bildform** einen Skriptsatz am besten erklärt: Figur, Karte, Objekt, Architektur, System, Vergleich, Symbolbild, Übersicht usw.
 
 ### `08-FLOW-PROMPTING.md`
-Verbindliche Google-Flow-Promptstruktur. Gemeinsamen Stil pro Batch einmal definieren, Einzelbilder kurz und konkret beschreiben, Figuren nicht erzwingen.
+Verbindliche Google-Flow-Batchlogik und Kontinuitätsregeln.
+
+### `09-IMAGE-PROMPT-TEMPLATE.md`
+Verbindliche Struktur für starke Einzelbildprompts: Kernaussage, dominantes Hauptmotiv, maximal 1–3 unterstützende Elemente, Kamera/Komposition, Continuity Lock und Textregel.
 
 ### `99-DECISION-LOG.md`
 Chronologisches Register fester Kanalentscheidungen.
@@ -54,6 +57,7 @@ Für Bildplanung oder Bildgenerierung immer mindestens lesen:
 - `channel/06-VISUAL-SYSTEM.md`
 - `channel/07-VISUAL-GRAMMAR.md`
 - `channel/08-FLOW-PROMPTING.md`
+- `channel/09-IMAGE-PROMPT-TEMPLATE.md`
 - `config/visual-policy.json`
 
 Keine alten Kanalregeln aus anderen Repositories übernehmen. Keine fehlenden Kanalentscheidungen stillschweigend erfinden.

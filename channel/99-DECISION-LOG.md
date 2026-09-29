@@ -55,3 +55,18 @@ Chronologisches Register ausdrücklicher Kanalentscheidungen. Neuere Entscheidun
 - Flow darf Figuren nicht automatisch in jede Szene setzen.
 - Vor dem Prompt wird die passende Visual-Form gewählt: z. B. Character Scene, Karte, Objekt, Architektur, System, Vergleich oder Symbolbild.
 - Alle Bilder eines Batches müssen sichtbar wie Arbeiten desselben Illustrators für denselben Kanal wirken.
+
+## 2026-09-29 — Bildprompt-Qualität V1.1
+
+Nach dem ersten Kenilworth-Flow-Test wurden die Bildregeln verschärft.
+
+- Keine Wimmelbilder, überfüllten Menschenmengen, Museumstafeln, Schulbuchposter oder Lexikonplatten als Standard.
+- Jedes Bild besitzt genau **eine Kernaussage** und **ein dominantes Hauptmotiv**.
+- Maximal **1–3 unterstützende Elemente** pro Bild.
+- Das Motiv muss groß und auch in kleiner YouTube-Darstellung sofort lesbar sein.
+- Wiederkehrende Orte, Figuren, Räume und Props werden innerhalb eines Videos nicht neu erfunden, sondern über einen **VIDEO CONTINUITY LOCK** konstant gehalten.
+- Bei Zustandsänderungen möglichst denselben Ort und Blickwinkel wiederverwenden, z. B. volles Lager → halb leer → fast leer.
+- Google-Flow-Einzelprompts folgen jetzt der Struktur `VIEWER MUST IMMEDIATELY UNDERSTAND → SHOW → DOMINANT VISUAL ACTION / STATE → SUPPORTING ELEMENTS → CAMERA / COMPOSITION → CONTINUITY LOCK → VISIBLE TEXT`.
+- Standard bleibt: kein sichtbarer KI-Text.
+- Wenn sichtbarer Text ausdrücklich nötig ist, ausschließlich kurz, exakt vorgegeben und **auf Deutsch**; keine englischen Labels oder Pseudo-Schrift.
+- Das erste Testvideo wurde mit diesen Regeln komplett neu gepromptet.

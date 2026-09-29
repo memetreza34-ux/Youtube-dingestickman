@@ -111,7 +111,7 @@ Verbindlich:
 - flat colors
 - subtle cel shading
 - light handmade ink-and-paper texture
-- moderater Detailgrad
+- kontrollierter Detailgrad
 - klare Hauptaussage
 - visuell erwachsen, aber zugänglich
 
@@ -119,7 +119,71 @@ Die Umgebung darf detaillierter sein als die Figuren, darf aber niemals den Foku
 
 ---
 
-## 4. Adaptive Stimmung
+## 4. Bildhierarchie — V1.1
+
+Jedes Bild muss in **weniger als einer Sekunde** verständlich sein.
+
+Verbindlich:
+
+- genau **eine Kernaussage**
+- genau **ein dominantes Hauptmotiv**
+- maximal **1–3 unterstützende Elemente**
+- Hauptmotiv groß und YouTube-tauglich
+- klare Vordergrund-/Hintergrund-Hierarchie
+- wichtige Information nicht in vielen kleinen Details verstecken
+
+Nicht verwenden als Standard:
+
+- Wimmelbilder
+- überfüllte Menschenmengen
+- Museumstafeln
+- Schulbuchposter
+- Lexikonplatten
+- viele Mini-Figuren mit gleicher Wichtigkeit
+- viele Pfeile, Symbole oder Labels gleichzeitig
+- Collagen / Multi-Panel-Kompositionen
+- unnötige Querschnitte
+- extrem kleinteilige Erklärbilder
+
+Wenn ein Satz zwei gleich wichtige visuelle Aussagen enthält, wird er lieber auf zwei Bilder verteilt.
+
+---
+
+## 5. Video-Continuity-Lock
+
+**Innerhalb eines Videos ist Kontinuität wichtiger als künstliche Variation.**
+
+Wiederkehrende Orte behalten:
+
+- gleiche Silhouette
+- gleiche Architektur
+- gleiche Tor-/Fenster-/Mauerlogik
+- gleiche Stein- und Grundfarbigkeit
+- gleiche zentrale Props
+
+Wiederkehrende Figuren behalten:
+
+- Haare / Bart
+- Kopfbedeckung
+- Kleidung / Rüstung
+- Farbgebung
+- Stickman-Grundkonstruktion
+
+Wiederkehrende Räume und Zustandsveränderungen sollen möglichst den **gleichen Blickwinkel** benutzen, wenn das Verständnis dadurch stärker wird.
+
+Beispiel:
+
+```text
+volles Lager
+→ dasselbe Lager halb leer
+→ dasselbe Lager fast leer
+```
+
+Eine Burg darf innerhalb desselben Videos nicht in jeder Szene wie eine andere Burg aussehen.
+
+---
+
+## 6. Adaptive Stimmung
 
 Die **Kunsttechnik bleibt gleich**, die Stimmung darf sich anpassen.
 
@@ -158,7 +222,7 @@ Die **Kunsttechnik bleibt gleich**, die Stimmung darf sich anpassen.
 
 ---
 
-## 5. Farbwelt
+## 7. Farbwelt
 
 Keine starre Palette pro Szene, aber gemeinsamer Charakter:
 
@@ -177,7 +241,7 @@ Die Epoche und Stimmung dürfen die Gewichtung der Farben verändern.
 
 ---
 
-## 6. Historische Lesbarkeit
+## 8. Historische Lesbarkeit
 
 Historische Kleidung, Waffen, Architektur, Karten, Werkzeuge und Symbole sollen zur behandelten Epoche passen.
 
@@ -194,24 +258,7 @@ Wenn die genaue Darstellung unsicher ist, lieber neutraler visualisieren als fal
 
 ---
 
-## 7. Komposition
-
-Jedes Bild braucht einen klaren visuellen Zweck.
-
-- ein klarer Fokus
-- keine unnötige Überladung
-- genug Raum für Lesbarkeit auf YouTube
-- starke Silhouetten
-- natürliche Tiefenstaffelung
-- Figuren nicht immer frontal nebeneinander aufstellen
-- unterschiedliche sinnvolle Kameradistanzen verwenden
-- visuelle Aussage muss innerhalb weniger Sekunden erfassbar sein
-
-Wiederholte Schablonen vermeiden.
-
----
-
-## 8. Text im Bild
+## 9. Text im Bild
 
 Standard: **kein generierter sichtbarer Text**.
 
@@ -220,15 +267,20 @@ Insbesondere verboten:
 - Bildnummern im Bild
 - unnötige Labels
 - pseudo-lesbarer KI-Text
+- englische Beschriftungen in einem deutschen Video
 - Wasserzeichen
 
-Nur wenn ein konkretes Video es ausdrücklich benötigt, dürfen kurze historische Beschriftungen verwendet werden. Dann müssen sie korrekt und auf Deutsch sein.
+Nur wenn ein konkretes Bild ohne Beschriftung nicht verständlich wäre und die Produktion es ausdrücklich verlangt, dürfen kurze Beschriftungen verwendet werden. Dann:
+
+- ausschließlich Deutsch
+- exakt vorgegebener Wortlaut
+- maximal 1–3 kurze Begriffe
 
 Remotion soll nicht automatisch sichtbaren Erklärungstext erzeugen.
 
 ---
 
-## 9. Verbotene Stilwechsel
+## 10. Verbotene Stilwechsel
 
 Nicht verwenden:
 
@@ -246,25 +298,25 @@ Nicht verwenden:
 
 ---
 
-## 10. Google-Flow-Prinzip
+## 11. Google-Flow-Prinzip
 
-Bei mehreren Bildern in einem Flow-Auftrag wird der **gemeinsame CHANNEL STYLE nur einmal** definiert. Danach werden die einzelnen Bilder/Szenen kurz beschrieben.
+Bei mehreren Bildern in einem Flow-Auftrag wird der **gemeinsame CHANNEL STYLE nur einmal** definiert.
 
-Nicht für jedes Bild den kompletten Style-Block wiederholen.
+Zusätzlich wird pro Video ein **VIDEO CONTINUITY LOCK** definiert.
 
-Die Szenenbeschreibung entscheidet, ob gebraucht werden:
+Danach enthält jeder Einzelbildblock mindestens:
 
-- Figuren
-- keine Figuren
-- Karte
-- Objektfokus
-- Architektur
-- Systemdarstellung
-- Symbolbild
-- Übersicht
-- Vergleich
+```text
+VIEWER MUST IMMEDIATELY UNDERSTAND
+SHOW
+DOMINANT VISUAL ACTION / STATE
+SUPPORTING ELEMENTS
+CAMERA / COMPOSITION
+CONTINUITY LOCK
+VISIBLE TEXT
+```
 
-Flow soll den Stil beibehalten, aber nicht jede Szene nach derselben Kompositionsschablone bauen.
+Siehe `channel/09-IMAGE-PROMPT-TEMPLATE.md`.
 
 ---
 
@@ -273,12 +325,15 @@ Flow soll den Stil beibehalten, aber nicht jede Szene nach derselben Komposition
 Bei jedem Bild prüfen:
 
 1. Gehört es sichtbar zum selben Kanal?
-2. Ist die historische Aussage sofort verständlich?
-3. Passt der Visual-Typ wirklich zum gesprochenen Satz?
-4. Sind Figuren lebendig statt leer/generisch, falls Figuren vorkommen?
-5. Wäre das Bild auch ohne unnötigen Text verständlich?
-6. Sind historische Details plausibel?
-7. Wiederholt die Komposition nicht unnötig vorherige Bilder?
+2. Ist die historische Aussage in weniger als einer Sekunde verständlich?
+3. Gibt es genau ein dominantes Hauptmotiv?
+4. Sind maximal 1–3 unterstützende Elemente nötig?
+5. Passt der Visual-Typ wirklich zum gesprochenen Satz?
+6. Sind Figuren lebendig statt leer/generisch, falls Figuren vorkommen?
+7. Bleiben wiederkehrende Orte/Figuren konsistent?
+8. Ist sichtbarer Text vermieden oder korrektes, ausdrücklich gefordertes Deutsch?
+9. Sind historische Details plausibel?
+10. Wirkt das Bild wie eine starke YouTube-Szene und nicht wie eine Lehrbuchtafel?
 
 ## Status
 

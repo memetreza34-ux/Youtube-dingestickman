@@ -2,176 +2,219 @@ VISUAL_POLICY_FILE: config/visual-policy.json
 VISUAL_SYSTEM_FILE: channel/06-VISUAL-SYSTEM.md
 VISUAL_GRAMMAR_FILE: channel/07-VISUAL-GRAMMAR.md
 FLOW_GUIDE_FILE: channel/08-FLOW-PROMPTING.md
+IMAGE_PROMPT_TEMPLATE_FILE: channel/09-IMAGE-PROMPT-TEMPLATE.md
 ACTIVE_STYLE_ID: history-stickman-adaptive-v1
 
 GOOGLE FLOW MASTER PROMPT — Warum Hunger eine Burg besiegen konnte
 
-Create 18 separate 16:9 historical explainer illustrations for one coherent YouTube video.
+Create 18 separate 16:9 historical explainer illustrations for ONE coherent YouTube video.
 
 CHANNEL STYLE:
-Use one consistent hand-drawn 2D historical explainer style across the full set. Human characters, when needed, belong to the same expressive historical stickman family: simple round or slightly oval warm off-white heads, slim simplified bodies, clean dark ink outlines, flat muted historical colors, subtle cel shading and a light handmade ink-and-paper texture. Characters may differ through historically appropriate hair, beards, eyebrows, helmets, hoods, clothing, armor, tools and body language. Faces stay simple but expressive.
+Use one consistent hand-drawn 2D historical explainer style. Clean dark ink outlines, flat muted historical colors, subtle cel shading, light handmade ink-and-paper texture. Human characters use the same expressive historical stickman family: simple warm off-white round/oval heads, slim simplified bodies, simple readable faces, historically appropriate hair, beards, hoods, helmets, clothing and props. Mature and cinematic, not childish.
 
-Non-character images such as castles, maps, objects, supply systems and overviews must use the exact same line, color, shading and texture language. Mature historical documentary/explainer feeling, not childish or goofy. Historical plausibility is more important than decorative fantasy.
+Every image must have ONE dominant subject and no more than 1–3 supporting elements. Keep important forms large and easy to read on YouTube. Do NOT create wimmelbilder, museum infographics, textbook posters, encyclopedia plates, dense crowds, tiny central subjects, dozens of mini-figures, many labels, arrows everywhere, collages, multi-panel layouts, unnecessary cutaways or excessive micro-detail.
 
-Do not use photorealism, 3D, Pixar, anime, realistic portrait faces, painterly realism, graphic-novel realism, modern corporate infographic style, pseudo-text, watermarks or image numbers inside the images. Default: no visible text.
+No photorealism, 3D, Pixar, anime, realistic portrait faces, painterly realism, graphic-novel realism, fantasy armor, modern objects, logo, watermark or image numbers.
 
-IMPORTANT GENERATION RULES:
-- Bild 01 is cover + first scene. Generate exactly 3 temporary candidates for Bild 01, choose the strongest one, keep only the winner as `Bild 01.png`.
-- Bild 02 through Bild 18: generate exactly one accepted final image each.
-- Work in batches of maximum 5 active generations.
-- All accepted images must look like the same illustrator made them for the same channel.
-- Characters are NOT required in every image.
+VISIBLE TEXT:
+None by default. Do not invent English labels or pseudo-text. If any visible text is ever explicitly requested, it must be short, exact and German.
 
-Bild 01 — COVER / KENILWORTH SURROUNDED
+VIDEO CONTINUITY LOCK:
+This entire video takes place around the same visual version of Kenilworth Castle in 1266. Exterior continuity: pale tan-gray medieval stone, massive central keep, strong curtain walls, broad gatehouse, surrounding water/moat landscape and the same overall castle silhouette in every exterior view. Interior continuity: dark stone walls, heavy timber shelves, rough wooden barrels and grain sacks. When the storage cellar returns, reuse the SAME room layout and nearly the SAME camera angle so depletion is obvious. Recurring defenders keep the same clothing, hair, beards and colors when shown again. Do not redesign the castle, gate, cellar or recurring people from scene to scene.
+
+GENERATION RULES:
+- Bild 01 is cover + first scene. Generate exactly 3 candidates, choose 1 winner, keep only `Bild 01.png`.
+- Bild 02–18: exactly one accepted final image each.
+- Maximum 5 active generations at once.
+- All accepted images must look like the same illustrator created the same historical world.
+
+IMAGE 01 — KENILWORTH BLOCKADED
 Audio Anchor: Im Juni 1266 schlossen königliche Truppen die massive Burg Kenilworth ein.
-Visual Purpose: Establish the concrete siege immediately and work as a strong cover image.
-Topic Anchor: Kenilworth Castle 1266, royal siege encirclement.
-Visual Form: battle-city-overview
-Planned Hold: 7s
-Prompt: Dramatic wide view of a massive 13th-century English castle surrounded by a royal siege camp, siege engines and blocked roads. Castle remains imposing and intact. Strong clear focal point, tense overcast atmosphere, no text.
+VIEWER MUST IMMEDIATELY UNDERSTAND: A powerful castle is trapped by a blockade.
+SHOW: Kenilworth Castle as the large dominant subject, seen from a low-medium wide angle, with one blocked road leading toward the gate.
+DOMINANT VISUAL ACTION / STATE: The castle remains strong, but access is visibly cut off.
+SUPPORTING ELEMENTS: one royal barricade on the road, two or three siege tents, light smoke from one campfire.
+CAMERA / COMPOSITION: castle fills most of the frame; road creates a strong leading line; no tiny army covering the landscape.
+CONTINUITY LOCK: establish the exact castle silhouette and gate design used later.
+VISIBLE TEXT: None.
 
-Bild 02 — PEOPLE BEHIND THE WALLS
+IMAGE 02 — TOO MANY PEOPLE INSIDE
 Audio Anchor: Hinter den Mauern befanden sich mehr als 1.200 Menschen.
-Visual Purpose: Make the large number of trapped people human and tangible.
-Topic Anchor: crowded inner castle with soldiers, families and servants.
-Visual Form: character-scene
-Planned Hold: 5s
-Prompt: Busy inner courtyard inside the besieged castle with many expressive historical stickman soldiers, families, servants and children sharing limited space. Different hair, beards, hoods and clothing, worried but controlled mood.
+VIEWER MUST IMMEDIATELY UNDERSTAND: Too many people are sharing limited space inside the castle.
+SHOW: five clearly readable foreground stickman characters squeezed into a narrow inner-courtyard passage: soldier, servant, mother, child, older man.
+DOMINANT VISUAL ACTION / STATE: people move past each other in cramped space.
+SUPPORTING ELEMENTS: stone wall, one doorway, one supply barrel.
+CAMERA / COMPOSITION: medium-wide, large foreground figures; only soft simplified silhouettes deeper in the courtyard, not a dense crowd.
+CONTINUITY LOCK: same castle stone and clothing palette as Image 01.
+VISIBLE TEXT: None.
 
-Bild 03 — PREPARED STORES
+IMAGE 03 — FULL STORE
 Audio Anchor: Die Verteidiger hatten sich vorbereitet:
-Visual Purpose: Show that the defenders were well prepared at the start.
-Topic Anchor: stocked cellars and defensive supplies.
-Visual Form: object-focus
-Planned Hold: 7s
-Prompt: Well-stocked medieval castle storage cellar with sacks of grain, bread, barrels, preserved food, tools, bolts and repair materials arranged in the same hand-drawn channel style. No people needed.
+VIEWER MUST IMMEDIATELY UNDERSTAND: The castle begins the siege with strong food reserves.
+SHOW: one large row of full grain sacks and barrels dominating the same stone cellar.
+DOMINANT VISUAL ACTION / STATE: supplies are abundant and tightly packed.
+SUPPORTING ELEMENTS: timber shelf with bread, one clay water jug, cellar archway.
+CAMERA / COMPOSITION: eye-level medium-wide; large foreground sacks and barrels; clean readable room.
+CONTINUITY LOCK: this exact cellar layout and camera angle must return in Images 08 and 11.
+VISIBLE TEXT: None.
 
-Bild 04 — WALLS STILL STANDING
+IMAGE 04 — STRONG WALLS, WEAK PEOPLE
 Audio Anchor: Trotzdem kapitulierten sie am Ende.
-Visual Purpose: Contrast intact fortifications with eventual surrender.
-Topic Anchor: intact castle walls, opened gate, exhausted defenders.
-Visual Form: architecture-city
-Planned Hold: 6s
-Prompt: Massive castle walls still standing and largely intact while the main gate is slowly opened from inside. A few exhausted defenders visible near the entrance. The architecture looks strong; the human condition looks weak.
+VIEWER MUST IMMEDIATELY UNDERSTAND: The castle itself is still strong even though the defenders are exhausted.
+SHOW: the same massive gatehouse dominating the frame, with three exhausted defenders opening the gate from inside.
+DOMINANT VISUAL ACTION / STATE: heavy gate slowly opens while weapons stay lowered.
+SUPPORTING ELEMENTS: one torch, one shield resting against wall, outer road beyond gate.
+CAMERA / COMPOSITION: gate fills most of image; defenders large enough to read emotionally.
+CONTINUITY LOCK: exact gate design from Image 01.
+VISIBLE TEXT: None.
 
-Bild 05 — THE LOGIC OF A SIEGE
+IMAGE 05 — WHAT A SIEGE DOES
 Audio Anchor: Genau das war die grausame Logik vieler mittelalterlicher Belagerungen.
-Visual Purpose: Move from Kenilworth to the general siege mechanism.
-Topic Anchor: walled medieval stronghold completely encircled.
-Visual Form: battle-city-overview
-Planned Hold: 6s
-Prompt: Elevated wide view of a medieval fortified town completely surrounded by an organized siege ring, camps and controlled roads. Make encirclement visually obvious without labels.
+VIEWER MUST IMMEDIATELY UNDERSTAND: A siege works by isolating a fortress from the outside world.
+SHOW: the same castle centered, with only three visible approach roads all cut before reaching it.
+DOMINANT VISUAL ACTION / STATE: every route ends at a blockade.
+SUPPORTING ELEMENTS: three simple blockade points, one distant supply cart, moat/water landscape.
+CAMERA / COMPOSITION: elevated but simple overview; castle large; roads clearly readable; no sprawling camp full of miniatures.
+CONTINUITY LOCK: same Kenilworth silhouette.
+VISIBLE TEXT: None.
 
-Bild 06 — WAIT INSTEAD OF STORM
+IMAGE 06 — WAITING OUTSIDE
 Audio Anchor: Ein Angreifer musste eine Festung nicht unbedingt stürmen.
-Visual Purpose: Show blockade as an alternative to direct assault.
-Topic Anchor: besiegers waiting outside intact walls.
-Visual Form: environment-only
-Planned Hold: 6s
-Prompt: Calm but tense siege camp outside intact castle walls. Fires, tents, stacked equipment and idle siege troops waiting rather than attacking. Emphasize patience and containment, not action spectacle.
+VIEWER MUST IMMEDIATELY UNDERSTAND: Attackers can win by waiting instead of storming the walls.
+SHOW: one calm royal soldier seated beside a campfire in the foreground, intact castle walls large in the background.
+DOMINANT VISUAL ACTION / STATE: soldier waits while the castle remains untouched.
+SUPPORTING ELEMENTS: one tent, stacked spear and shield, campfire.
+CAMERA / COMPOSITION: medium shot foreground soldier; castle occupies upper background; quiet tension.
+CONTINUITY LOCK: same castle and royal clothing palette.
+VISIBLE TEXT: None.
 
-Bild 07 — CUT THE ROADS
+IMAGE 07 — SUPPLY CART STOPPED
 Audio Anchor: Er konnte Straßen blockieren, Nachschub abfangen und warten.
-Visual Purpose: Explain supply interdiction spatially.
-Topic Anchor: blocked access road and stopped supply carts.
-Visual Form: cause-effect
-Planned Hold: 6s
-Prompt: Castle in the distance with every access road controlled by siege positions. A supply cart is forced to stop before reaching the gate. Use geography and composition to show the broken connection without arrows or text.
+VIEWER MUST IMMEDIATELY UNDERSTAND: Supplies cannot reach the castle.
+SHOW: one food cart stopped at a wooden road barricade, with the castle visible beyond it.
+DOMINANT VISUAL ACTION / STATE: cart cannot continue toward the gate.
+SUPPORTING ELEMENTS: two royal guards, barricade, distant castle.
+CAMERA / COMPOSITION: cart large foreground subject; road points directly to castle; simple uncluttered scene.
+CONTINUITY LOCK: same road/gate direction as Image 01 where possible.
+VISIBLE TEXT: None.
 
-Bild 08 — EVERY MEAL SHRINKS THE STORE
+IMAGE 08 — THE SAME STORE SHRINKS
 Audio Anchor: Jede Mahlzeit innerhalb der Mauern machte die Vorräte kleiner
-Visual Purpose: Show gradual depletion rather than sudden collapse.
-Topic Anchor: food stores progressively shrinking.
-Visual Form: process-sequence
-Planned Hold: 6s
-Prompt: One continuous medieval storeroom composition showing full shelves and grain sacks on the left gradually becoming sparse and nearly empty toward the right. No text, no numbers, no modern infographic styling.
+VIEWER MUST IMMEDIATELY UNDERSTAND: The same reserves are steadily disappearing.
+SHOW: EXACT SAME cellar and camera angle as Image 03, now with roughly half the sacks and barrels missing.
+DOMINANT VISUAL ACTION / STATE: visible empty spaces have appeared on the shelves and floor.
+SUPPORTING ELEMENTS: same shelf, same clay jug, same archway.
+CAMERA / COMPOSITION: match Image 03 as closely as possible.
+CONTINUITY LOCK: strict continuity with Image 03.
+VISIBLE TEXT: None.
 
-Bild 09 — FOOD AND WATER AS DEFENCE
+IMAGE 09 — FOOD IS A WEAPON TOO
 Audio Anchor: Deshalb gehörten Lebensmittel und Wasser zu den wichtigsten Waffen der Verteidiger.
-Visual Purpose: Present food and water as strategic defence resources.
-Topic Anchor: grain, bread and water beside weapons.
-Visual Form: object-focus
-Planned Hold: 6s
-Prompt: Strong object-focused still life: sacks of grain, bread, water barrel and clay jugs arranged beside a shield, crossbow and bolts in a medieval castle storeroom. Equal visual importance between supplies and weapons.
+VIEWER MUST IMMEDIATELY UNDERSTAND: Food and water are as strategically important as weapons.
+SHOW: one large grain sack, one water barrel and one crossbow arranged together on a rough wooden surface.
+DOMINANT VISUAL ACTION / STATE: supplies and weapon share equal visual weight.
+SUPPORTING ELEMENTS: a few bolts only.
+CAMERA / COMPOSITION: close object-focused composition, three large forms, dark cellar background softly simplified.
+CONTINUITY LOCK: same material/color language as the castle cellar.
+VISIBLE TEXT: None.
 
-Bild 10 — CASTLE SUPPLY SYSTEM
+IMAGE 10 — HOW THE CASTLE STAYS SUPPLIED
 Audio Anchor: Burgen legten Vorräte an, nutzten Brunnen und Zisternen
-Visual Purpose: Explain how a castle tried to remain self-sufficient.
-Topic Anchor: storage cellar, well and cistern inside one fortress.
-Visual Form: system-hierarchy
-Planned Hold: 6s
-Prompt: Cutaway-like hand-drawn castle environment showing a food cellar, internal well and rainwater cistern as connected parts of one defensive living system. No labels, no people required.
+VIEWER MUST IMMEDIATELY UNDERSTAND: A castle needs stored food and internal water sources to survive isolation.
+SHOW: a castle courtyard with one large stone well as dominant subject; open cellar doorway visible behind it.
+DOMINANT VISUAL ACTION / STATE: bucket rope descends into the well while stored barrels are visible through the doorway.
+SUPPORTING ELEMENTS: cellar doorway with barrels, simple rain channel leading toward a covered cistern opening.
+CAMERA / COMPOSITION: medium-wide courtyard, well large foreground, no cutaway diagram.
+CONTINUITY LOCK: same castle interior architecture and stone color as prior scenes.
+VISIBLE TEXT: None.
 
-Bild 11 — STORES RUN OUT
+IMAGE 11 — ALMOST EMPTY
 Audio Anchor: Doch selbst große Lager waren endlich.
-Visual Purpose: Prepare the turning point through scarcity.
-Topic Anchor: nearly empty medieval storage cellar.
-Visual Form: object-focus
-Planned Hold: 5s
-Prompt: Same type of medieval storage cellar now almost empty: a few sacks, one small loaf, nearly empty barrels, bare wooden shelves. Quiet ominous atmosphere, no people.
+VIEWER MUST IMMEDIATELY UNDERSTAND: The reserves are nearly exhausted.
+SHOW: EXACT SAME cellar and camera angle as Images 03 and 08, now almost empty.
+DOMINANT VISUAL ACTION / STATE: bare floor and empty shelves dominate where supplies used to stand.
+SUPPORTING ELEMENTS: one half-empty sack, one nearly empty barrel, same clay jug.
+CAMERA / COMPOSITION: strict visual match to Image 03.
+CONTINUITY LOCK: strict continuity with Images 03 and 08.
+VISIBLE TEXT: None.
 
-Bild 12 — MONTHS OF BLOCKADE
+IMAGE 12 — THE SIEGE DRAGS ON
 Audio Anchor: Bei Kenilworth dauerte die Belagerung 172 Tage.
-Visual Purpose: Make long duration visible without written dates.
-Topic Anchor: Kenilworth under continuing blockade through changing season/weather.
-Visual Form: process-sequence
-Planned Hold: 6s
-Prompt: Continuous panoramic view of the same castle and siege ring transitioning subtly from summer greenery on one side toward cold late-year weather on the other, while the encirclement remains in place. No text or numbers.
+VIEWER MUST IMMEDIATELY UNDERSTAND: The blockade has lasted for months.
+SHOW: same castle and same siege position in cold wet late-year weather, with worn tents and muddy ground.
+DOMINANT VISUAL ACTION / STATE: both sides remain in place despite worsening season.
+SUPPORTING ELEMENTS: one weathered tent, muddy road, leafless tree.
+CAMERA / COMPOSITION: wide but simple; castle remains recognizable and large.
+CONTINUITY LOCK: same exterior angle/silhouette as Image 01 as much as possible.
+VISIBLE TEXT: None.
 
-Bild 13 — BOMBARDMENT
+IMAGE 13 — ONE ENGINE, ONE IMPACT
 Audio Anchor: König Heinrich der Dritte ließ die Burg mit Belagerungsmaschinen bombardieren
-Visual Purpose: Show active military pressure without implying it alone ended the siege.
-Topic Anchor: 13th-century siege engines firing at Kenilworth.
-Visual Form: battle-city-overview
-Planned Hold: 7s
-Prompt: 13th-century royal siege engines launching stones toward Kenilworth's walls while defenders respond from the battlements. Historically grounded equipment, tense action, no fantasy machinery, no excessive gore.
+VIEWER MUST IMMEDIATELY UNDERSTAND: Royal forces are physically pressuring the castle with siege engines.
+SHOW: one historically plausible 13th-century stone-throwing siege engine large in the foreground, castle wall behind.
+DOMINANT VISUAL ACTION / STATE: one stone is released toward the wall.
+SUPPORTING ELEMENTS: two operators, one pile of stones, castle wall.
+CAMERA / COMPOSITION: dynamic three-quarter view; engine large and readable; no field full of machines.
+CONTINUITY LOCK: same castle wall materials.
+VISIBLE TEXT: None.
 
-Bild 14 — HUNGER AND DISEASE
+IMAGE 14 — HUNGER INSIDE
 Audio Anchor: Mit der Zeit wurden jedoch die Vorräte knapp.
-Visual Purpose: Show resources and health collapsing together.
-Topic Anchor: empty stores and exhausted/sick people behind the walls.
-Visual Form: cause-effect
-Planned Hold: 6s
-Prompt: Inside the castle, nearly empty food containers in the foreground and several weakened historical stickman defenders and civilians sitting or leaning in the background. Pale tired expressions, lowered posture, restrained serious mood, no gore.
+VIEWER MUST IMMEDIATELY UNDERSTAND: Hunger is weakening the people inside the castle.
+SHOW: one exhausted recurring defender seated against a stone wall holding an empty wooden bowl.
+DOMINANT VISUAL ACTION / STATE: shoulders lowered, tired face, no energy left.
+SUPPORTING ELEMENTS: empty food sack, nearly empty water jug, one second weakened person softly in background.
+CAMERA / COMPOSITION: intimate medium shot; defender large in frame; restrained serious mood.
+CONTINUITY LOCK: use clothing/hair from a defender already shown earlier.
+VISIBLE TEXT: None.
 
-Bild 15 — SURRENDER
+IMAGE 15 — SURRENDER
 Audio Anchor: Als die Verteidiger im Dezember aufgaben
-Visual Purpose: Show the human turning point.
-Topic Anchor: exhausted defenders opening the castle gate.
-Visual Form: character-scene
-Planned Hold: 6s
-Prompt: Exhausted medieval defenders with varied hair, beards, hoods and simple armor open the fortress gate and step outside cautiously. Their weapons are lowered. The castle itself still looks formidable.
+VIEWER MUST IMMEDIATELY UNDERSTAND: The defenders surrender even though the fortress still stands.
+SHOW: three exhausted defenders step through the same gatehouse with lowered weapons.
+DOMINANT VISUAL ACTION / STATE: they walk out slowly while the intact gate towers above them.
+SUPPORTING ELEMENTS: lowered spear, one shield, open gate.
+CAMERA / COMPOSITION: low-medium angle making the strong gate large and the weakened defenders clear.
+CONTINUITY LOCK: exact gate from Image 04 and same recurring defenders.
+VISIBLE TEXT: None.
 
-Bild 16 — WALLS VS SUPPLIES
+IMAGE 16 — THE REAL WEAKNESS
 Audio Anchor: Das zeigt, warum eine Belagerung nicht nur ein Kampf zwischen Mauern und Waffen war.
-Visual Purpose: Condense the core idea into one grounded comparison.
-Topic Anchor: strong fortification versus empty food store.
-Visual Form: comparison
-Planned Hold: 6s
-Prompt: Visually balanced composition within the same castle: on one side a thick stone wall and defensive weapons remain strong; on the other an almost empty storeroom and dry containers reveal the real weakness. No split-screen border or text.
+VIEWER MUST IMMEDIATELY UNDERSTAND: Strong walls are useless if the people behind them run out of supplies.
+SHOW: inside the castle, one massive intact stone wall fills the background while one collapsed empty grain sack dominates the foreground.
+DOMINANT VISUAL ACTION / STATE: fortification remains strong; supply is gone.
+SUPPORTING ELEMENTS: resting crossbow, empty barrel.
+CAMERA / COMPOSITION: strong depth contrast between empty foreground resources and solid wall behind; no split-screen.
+CONTINUITY LOCK: same castle materials and cellar props.
+VISIBLE TEXT: None.
 
-Bild 17 — WHAT WALLS CAN STOP
+IMAGE 17 — WHAT THE WALL CAN STOP
 Audio Anchor: Eine hohe Mauer konnte Pfeile und Steine aufhalten.
-Visual Purpose: Show the real strength of fortifications before stating their limit.
-Topic Anchor: missiles stopped by strong castle wall.
-Visual Form: architecture-city
-Planned Hold: 5s
-Prompt: Close cinematic view of a massive stone castle wall successfully resisting arrows and thrown stones. The wall is solid and imposing, reinforcing that the fortification itself still works.
+VIEWER MUST IMMEDIATELY UNDERSTAND: The wall can successfully stop physical attacks.
+SHOW: one section of the same massive stone wall as a large dominant subject.
+DOMINANT VISUAL ACTION / STATE: one stone impact and a few arrows fail to penetrate it.
+SUPPORTING ELEMENTS: one shielded defender silhouette on battlement, small dust from impact.
+CAMERA / COMPOSITION: close low angle; wall fills frame; simple powerful geometry.
+CONTINUITY LOCK: same wall design as Images 01, 13 and 16.
+VISIBLE TEXT: None.
 
-Bild 18 — THE SIDE THAT STAYS SUPPLIED
+IMAGE 18 — SUPPLY LINE WINS
 Audio Anchor: Und manchmal gewann deshalb nicht die stärkere Armee, sondern die Seite, die länger versorgt blieb.
-Visual Purpose: Finish with logistics as the decisive concept.
-Topic Anchor: opposing sides with unequal supply continuity.
-Visual Form: comparison
-Planned Hold: 7s
-Prompt: Wide historical composition showing two opposing medieval forces around a fortress: one side still connected to a steady line of food carts and supplies, the other surrounded by empty crates and exhausted conditions. Make the logistics difference immediately readable without text.
+VIEWER MUST IMMEDIATELY UNDERSTAND: The side that keeps receiving supplies can outlast the isolated fortress.
+SHOW: one large food wagon arriving along an open road into the royal siege camp, with the isolated castle visible in the distance.
+DOMINANT VISUAL ACTION / STATE: fresh supplies move freely toward the besiegers while the castle remains cut off.
+SUPPORTING ELEMENTS: two pack animals, one receiving soldier, distant castle.
+CAMERA / COMPOSITION: wagon large foreground, road creates leading line, castle small but recognizable in background; strong final visual.
+CONTINUITY LOCK: same castle silhouette and royal palette as the rest of the video.
+VISIBLE TEXT: None.
 
 FINAL CHECK:
-- ACTIVE_STYLE_ID = history-stickman-adaptive-v1
 - all 18 accepted images share one art universe
-- no automatic figures when unnecessary
-- no image numbers inside images
-- no visible text or pseudo-text
-- no photorealism, 3D or modern infographic look
-- Bild 01 receives 3 temporary cover candidates; only one final winner remains
-- Bild 02–18 each have exactly one final accepted image
+- same Kenilworth silhouette, gate, cellar and recurring defenders remain consistent
+- one dominant subject per image
+- maximum 1–3 supporting elements
+- no wimmelbilder, museum posters, textbook plates or dense mini-detail scenes
+- no English labels, pseudo-text, image numbers or watermarks
+- visible text is NONE in this test unless explicitly overridden
+- Bild 01 gets 3 candidates; keep only one winner
+- Bild 02–18 each get one accepted final image

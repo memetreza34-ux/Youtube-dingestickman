@@ -1,8 +1,8 @@
 {
-  "visualPolicyVersion": 2,
+  "visualPolicyVersion": 3,
   "status": "READY",
   "styleId": "history-stickman-adaptive-v1",
-  "description": "Konsistente handgezeichnete 2D-History-Explainer-Bildwelt mit ausdrucksstarken Stickman-Figuren und gleichwertigen Nicht-Figuren-Visuals wie Karten, Architektur, Objekten, Systemen und Symbolbildern.",
+  "description": "Konsistente handgezeichnete 2D-History-Explainer-Bildwelt mit ausdrucksstarken Stickman-Figuren und gleichwertigen Nicht-Figuren-Visuals. Fokus auf klare, YouTube-taugliche Einzelmotive statt Wimmelbild- oder Lehrbuchästhetik.",
   "rules": [
     "Der grundlegende Zeichenstil bleibt über alle Videos und Szenen konstant; nur Inszenierung, Stimmung, Epoche und Komposition dürfen sich anpassen.",
     "Menschen verwenden dieselbe stilisierte Stickman-Grundkonstruktion mit einfachen Köpfen, schlanken vereinfachten Körpern, sauberen dunklen Ink-Konturen, flachen gedämpften Farben, subtiler Cel-Schattierung und leichter Papier-/Tuschetextur.",
@@ -11,13 +11,16 @@
     "Figuren dürfen niemals automatisch erzwungen werden. Karten, Architektur, Landschaften, Objekte, Systeme, Symbolbilder, Übersichten, Vergleiche sowie Aufstieg-und-Fall-Darstellungen sind gleichwertige Visual-Formen.",
     "Nicht-Figuren-Visuals verwenden dieselbe Linien-, Farb-, Schattierungs- und Texturlogik wie Figurenszenen.",
     "Historische Lesbarkeit und Plausibilität haben Vorrang vor dekorativer Coolness.",
-    "Jedes Bild hat genau einen klaren visuellen Zweck und muss in wenigen Sekunden verständlich sein.",
-    "Die Umgebung darf detaillierter als Figuren sein, darf aber den Hauptfokus nicht überladen.",
+    "Jedes Bild hat genau eine klare Kernaussage und genau ein dominantes Hauptmotiv.",
+    "Pro Bild höchstens ein bis drei wirklich notwendige unterstützende Elemente; keine Wimmelbilder oder überfüllten Lehrbuch-/Museumstafeln.",
+    "Die Aussage muss in weniger als einer Sekunde erfassbar sein und auch in kleiner YouTube-Darstellung funktionieren.",
+    "Wiederkehrende Orte, Figuren, Räume und Objekte bleiben innerhalb desselben Videos visuell konsistent. Gleiche Burg, gleiches Tor, gleiche Figur, gleicher Lagerraum und gleiche Grundarchitektur werden nicht bei jedem Bild neu erfunden.",
+    "Entwicklungen möglichst mit demselben Blickwinkel zeigen, wenn das Verständnis davon profitiert, zum Beispiel volles Lager → halb leeres Lager → fast leeres Lager.",
     "Farbwelt: gedämpfte historische Töne wie Sand, Beige, Stein, Grau, Lederbraun, gedämpftes Rot, Oliv, Graublau, Pergament und zurückhaltendes Gold.",
     "Krieg, Alltag, Politik, Expansion oder Zerfall dürfen unterschiedliche Stimmung und Beleuchtung haben, ohne den Illustrationsstil zu wechseln.",
     "Generierter sichtbarer Text ist standardmäßig nicht erlaubt. Keine Bildnummern, unnötigen Labels, Pseudo-Texte oder Wasserzeichen im Bild.",
-    "Wenn kurze sichtbare Beschriftung ausdrücklich nötig ist, muss sie korrekt und bei deutschen Videos auf Deutsch sein.",
-    "Google Flow soll den gemeinsamen Channel-Style pro Batch nur einmal erhalten; einzelne Bildblöcke bleiben kurz und beschreiben primär Inhalt, Funktion, Stimmung und Komposition.",
+    "Wenn kurze sichtbare Beschriftung ausdrücklich nötig ist, muss sie korrekt, kurz und bei deutschen Videos ausschließlich auf Deutsch sein.",
+    "Google Flow soll den gemeinsamen Channel-Style pro Batch nur einmal erhalten; jeder Einzelbildblock definiert danach Kernaussage, Hauptmotiv, dominante Handlung/Zustand, maximal 1–3 unterstützende Elemente, Komposition und gegebenenfalls Continuity Lock.",
     "Remotion erzeugt standardmäßig keinen sichtbaren Erklärungstext."
   ],
   "forbidden": [
@@ -32,7 +35,16 @@
     "modern corporate infographic style",
     "childish chibi proportions",
     "fantasy details presented as historical fact",
+    "overcrowded scene",
+    "busy wimmelbild",
+    "museum infographic",
+    "textbook poster",
+    "encyclopedia plate",
+    "dozens of tiny figures",
+    "excessive micro-detail",
+    "unnecessary cutaway",
     "unnecessary visible text",
+    "English labels in German videos",
     "image numbers inside images",
     "watermarks",
     "pseudo-text"
@@ -40,6 +52,9 @@
   "visibleTextLanguage": "de",
   "defaultVisibleText": "NONE",
   "humanCharactersRequired": false,
+  "maxSupportingElementsPerImage": 3,
+  "oneDominantSubjectRequired": true,
+  "videoContinuityLockRequired": true,
   "supportedVisualForms": [
     "character-scene",
     "environment-only",
@@ -58,6 +73,7 @@
     "Ausführliche Regeln: channel/06-VISUAL-SYSTEM.md",
     "Visual-Auswahl: channel/07-VISUAL-GRAMMAR.md",
     "Google-Flow-Prompting: channel/08-FLOW-PROMPTING.md",
+    "Einzelbild-Promptstruktur: channel/09-IMAGE-PROMPT-TEMPLATE.md",
     "Referenzkanäle dienen nur als Inspiration; keine fremde Markenidentität kopieren."
   ]
 }

@@ -2,15 +2,17 @@ VISUAL_POLICY_FILE: config/visual-policy.json
 VISUAL_SYSTEM_FILE: channel/06-VISUAL-SYSTEM.md
 VISUAL_GRAMMAR_FILE: channel/07-VISUAL-GRAMMAR.md
 FLOW_GUIDE_FILE: channel/08-FLOW-PROMPTING.md
+IMAGE_PROMPT_TEMPLATE_FILE: channel/09-IMAGE-PROMPT-TEMPLATE.md
 ACTIVE_STYLE_ID: history-stickman-adaptive-v1
 
 GOOGLE FLOW MASTER PROMPT — [VIDEO-TITEL]
 
 IMPORTANT
-- Load the channel visual policy and visual grammar before planning images.
+- Load the channel visual policy, visual grammar and image prompt template before planning images.
 - Keep one consistent hand-drawn 2D historical explainer art style across the full video.
-- Style stays constant; scene type, historical era, mood, lighting and composition may adapt.
+- Keep recurring places, figures, rooms and props visually consistent inside the same video.
 - Human characters are NOT required in every image.
+- One image = one immediately readable visual statement.
 - Never copy the visual identity of another channel or repository.
 
 GOAL
@@ -40,7 +42,12 @@ Before writing each image prompt:
 1. Identify the spoken idea.
 2. Choose the best visual function.
 3. Choose the best visual form.
-4. Only then write the composition and prompt.
+4. Reduce it to ONE clear visual statement.
+5. Choose ONE dominant subject.
+6. Add no more than 1–3 necessary supporting elements.
+7. Define camera/composition.
+8. Apply continuity lock for recurring places/figures/rooms/objects.
+9. Only then write the prompt.
 
 Supported forms include:
 - character scene
@@ -69,30 +76,45 @@ When people are NOT needed, use maps, architecture, landscapes, objects, systems
 
 Mature historical documentary/explainer feeling. Not childish, not goofy.
 
-Do not use photorealism, realistic portrait faces, 3D rendering, Pixar style, anime, painterly realism, graphic-novel realism, modern corporate infographic style, image numbers, pseudo-text or watermarks.
+Avoid: overcrowded scene, busy crowd, wimmelbild, museum infographic, textbook poster, encyclopedia plate, tiny central subject, dozens of small figures, many labels, arrows everywhere, pseudo-text, English labels, fake handwriting, collage, multi-panel layout, split-screen border, unnecessary cutaway, excessive micro-detail, photorealism, realistic portrait, 3D render, Pixar, anime, painterly realism, graphic-novel realism, fantasy armor, modern objects, logo, watermark, image number.
 
-Default: no visible text inside generated images.
+Default visible text: NONE.
+If short text is absolutely required, it must be explicitly requested, exact, brief and German.
+
+VIDEO CONTINUITY LOCK
+Before generating the first batch, define recurring visual anchors for this video:
+- recurring location architecture / silhouette
+- recurring rooms and camera angles
+- recurring figure appearance
+- recurring props
+- base palette / weather / time-of-day logic
+
+Once established, do not redesign them from image to image.
 
 FLOW BATCH FORMAT
-For each Flow batch, define CHANNEL STYLE only once, then keep every individual image block short and concrete.
 
-Example structure:
-
-Create [N] separate 16:9 historical explainer illustrations.
+Create [N] separate 16:9 historical explainer illustrations for one coherent YouTube video.
 
 CHANNEL STYLE:
 [shared channel style above]
 
+VIDEO CONTINUITY LOCK:
+[short description of recurring visual anchors]
+
 IMAGE 1 — [SHORT NAME]
-[scene / map / object / system description]
+VIEWER MUST IMMEDIATELY UNDERSTAND: [ONE VISUAL STATEMENT]
+SHOW: [ONE DOMINANT SUBJECT]
+DOMINANT VISUAL ACTION / STATE: [ONE CLEAR ACTION OR STATE]
+SUPPORTING ELEMENTS: [MAX 1–3]
+CAMERA / COMPOSITION: [CLEAR LARGE-SUBJECT COMPOSITION]
+CONTINUITY LOCK: [REUSE PRIOR LOCATION / FIGURE / ROOM / OBJECT OR NONE]
+VISIBLE TEXT: None.
 
 IMAGE 2 — [SHORT NAME]
-[scene / map / object / system description]
-
-[continue]
+[repeat structure]
 
 IMPORTANT:
-All images must clearly look like they were illustrated by the same artist for the same YouTube channel.
+All images must clearly look like they were illustrated by the same artist for the same YouTube channel and the same historical world.
 
 IMAGE DENSITY
 - No fixed image count.
@@ -112,21 +134,21 @@ Visual Purpose: [ONE CLEAR PURPOSE]
 Topic Anchor: [CONCRETE TOPIC-SPECIFIC ELEMENT]
 Visual Form: [BEST FORM FOR THIS IDEA]
 Planned Hold: [SECONDS]
-Prompt: [SHORT CONCRETE SCENE DESCRIPTION; DO NOT REPEAT FULL STYLE BLOCK]
-
-Bild 02 · [A–E] · [PLANZEIT]
-Audio Anchor: [EXACT SCRIPT ANCHOR]
-Visual Purpose: [ONE CLEAR PURPOSE]
-Topic Anchor: [CONCRETE TOPIC-SPECIFIC ELEMENT]
-Visual Form: [BEST FORM FOR THIS IDEA]
-Planned Hold: [SECONDS]
-Prompt: [SHORT CONCRETE SCENE DESCRIPTION; DO NOT REPEAT FULL STYLE BLOCK]
+Viewer Must Immediately Understand: [ONE STATEMENT]
+Dominant Subject: [ONE SUBJECT]
+Supporting Elements: [MAX 1–3]
+Continuity Lock: [WHAT MUST STAY IDENTICAL]
+Prompt: [SHORT CONCRETE FLOW SCENE DESCRIPTION]
 
 [CONTINUE THROUGH BILD NN]
 
 FINAL CHECK
 - ACTIVE_STYLE_ID = history-stickman-adaptive-v1
 - same art universe across all images
+- same recurring locations/figures/rooms/props inside one video
+- one dominant subject per image
+- maximum 1–3 supporting elements
+- no wimmelbild / museum poster / textbook plate look
 - style constant, staging adaptive
 - characters only when useful
 - character scenes have expressive, individual historical stickmen
@@ -138,7 +160,6 @@ FINAL CHECK
 - Bild 02–NN exactly once each
 - no Bild 00
 - image count follows content density
-- each image has one clear visual purpose
 - each image matches both the spoken sentence and concrete historical topic
-- no unnecessary visible text
+- visible text is NONE unless explicitly required; if required, German only
 - all final images are in one flat folder
