@@ -84,3 +84,15 @@ Chronologisches Register ausdrücklicher Kanalentscheidungen. Neuere Entscheidun
 - Text darf das Hauptmotiv nicht verdecken.
 - Bild 02–NN bleiben standardmäßig ohne sichtbaren Text.
 - Für das Pompeji-Testvideo lautet der Cover-Text: `ZU SPÄT FÜR POMPEJI?`.
+- Für das Kenilworth-Testvideo lautet der Cover-Text: `HUNGER BESIEGT BURGEN?`.
+
+## 2026-09-29 — Manueller Cover-Gate
+
+- Google Flow erzeugt zuerst **nur drei BILD-01-Cover-Kandidaten**.
+- Danach muss Flow vollständig stoppen.
+- Flow darf **keinen Gewinner selbst auswählen**.
+- Der Nutzer wählt den Cover-Kandidaten persönlich aus.
+- Vor dieser ausdrücklichen Nutzerwahl dürfen **BILD 02 bis BILD NN nicht generiert werden**.
+- Der ausgewählte Kandidat wird `Bild 01.png`.
+- Erst danach startet die restliche Bildgenerierung.
+- Der ausgewählte Cover-Look dient zusätzlich als visuelle Referenz für den restlichen Video-Batch.
