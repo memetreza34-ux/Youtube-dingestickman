@@ -1,30 +1,26 @@
 {
-  "visualPolicyVersion": 4,
+  "visualPolicyVersion": 5,
   "status": "READY",
   "styleId": "history-stickman-adaptive-v1",
-  "description": "Konsistente handgezeichnete 2D-History-Explainer-Bildwelt mit ausdrucksstarken Stickman-Figuren und gleichwertigen Nicht-Figuren-Visuals. Fokus auf klare, YouTube-taugliche Einzelmotive statt Wimmelbild- oder Lehrbuchästhetik.",
+  "description": "Konsistente handgezeichnete 2D-History-Explainer-Bildwelt mit klaren YouTube-tauglichen Einzelmotiven, verpflichtendem deutschem Cover-Text und manueller Nutzerwahl des Covers vor der restlichen Bildgenerierung.",
   "rules": [
     "Der grundlegende Zeichenstil bleibt über alle Videos und Szenen konstant; nur Inszenierung, Stimmung, Epoche und Komposition dürfen sich anpassen.",
     "Menschen verwenden dieselbe stilisierte Stickman-Grundkonstruktion mit einfachen Köpfen, schlanken vereinfachten Körpern, sauberen dunklen Ink-Konturen, flachen gedämpften Farben, subtiler Cel-Schattierung und leichter Papier-/Tuschetextur.",
-    "Figuren dürfen individuell sein: historisch passende Haare, Bärte, Schnurrbärte, Augenbrauen, Helme, Kronen, Hüte, Hauben, Kapuzen, Tücher, Kleidung, Rüstung, Schmuck, Werkzeuge und andere Props sind ausdrücklich erlaubt.",
-    "Gesichter bleiben einfach, müssen aber über Augen, Augenbrauen, Mund, Kopfhaltung, Blickrichtung und Körpersprache klar Emotion und Persönlichkeit vermitteln.",
-    "Figuren dürfen niemals automatisch erzwungen werden. Karten, Architektur, Landschaften, Objekte, Systeme, Symbolbilder, Übersichten, Vergleiche sowie Aufstieg-und-Fall-Darstellungen sind gleichwertige Visual-Formen.",
-    "Nicht-Figuren-Visuals verwenden dieselbe Linien-, Farb-, Schattierungs- und Texturlogik wie Figurenszenen.",
-    "Historische Lesbarkeit und Plausibilität haben Vorrang vor dekorativer Coolness.",
+    "Figuren dürfen individuell sein und historisch passende Haare, Bärte, Kopfbedeckungen, Kleidung, Rüstung, Schmuck, Werkzeuge und Props besitzen.",
+    "Figuren dürfen niemals automatisch erzwungen werden. Karten, Architektur, Landschaften, Objekte, Systeme, Symbolbilder, Übersichten und Vergleiche sind gleichwertige Visual-Formen.",
     "Jedes Bild hat genau eine klare Kernaussage und genau ein dominantes Hauptmotiv.",
     "Pro Bild höchstens ein bis drei wirklich notwendige unterstützende Elemente; keine Wimmelbilder oder überfüllten Lehrbuch-/Museumstafeln.",
-    "Die Aussage muss in weniger als einer Sekunde erfassbar sein und auch in kleiner YouTube-Darstellung funktionieren.",
     "Wiederkehrende Orte, Figuren, Räume und Objekte bleiben innerhalb desselben Videos visuell konsistent.",
-    "Entwicklungen möglichst mit demselben Blickwinkel zeigen, wenn das Verständnis davon profitiert.",
-    "Farbwelt: gedämpfte historische Töne wie Sand, Beige, Stein, Grau, Lederbraun, gedämpftes Rot, Oliv, Graublau, Pergament und zurückhaltendes Gold.",
     "Bild 01 ist immer Cover und erste Szene und enthält immer einen kurzen passenden deutschen Cover-Text.",
     "Cover-Text ist idealerweise 2–5 Wörter lang, exakt vorgegeben, korrekt geschrieben, groß und sofort lesbar.",
-    "Cover-Text muss starken Kontrast zum tatsächlichen Hintergrund haben: hell auf dunkel, dunkel auf hell; Outline/Schatten nur zurückhaltend bei Bedarf.",
-    "Cover-Text darf das Hauptmotiv nicht verdecken.",
-    "Bild 02 bis Bild NN enthalten standardmäßig keinen sichtbaren Text. Keine Bildnummern, unnötigen Labels, Pseudo-Texte oder Wasserzeichen im Bild.",
-    "Wenn außerhalb des Covers kurze sichtbare Beschriftung ausdrücklich nötig ist, muss sie korrekt, kurz und bei deutschen Videos ausschließlich auf Deutsch sein.",
+    "Cover-Text muss starken Kontrast zum Hintergrund haben und darf das Hauptmotiv nicht verdecken.",
+    "Google Flow erzeugt zuerst ausschließlich drei Cover-Kandidaten für Bild 01.",
+    "Nach den drei Cover-Kandidaten muss Google Flow vollständig stoppen und auf die ausdrückliche Auswahl des Nutzers warten.",
+    "Google Flow darf niemals selbst einen Cover-Gewinner auswählen.",
+    "Bild 02 bis Bild NN dürfen erst nach ausdrücklicher Nutzerwahl des Cover-Kandidaten erzeugt werden.",
+    "Der vom Nutzer gewählte Cover-Kandidat wird zu Bild 01 und dient zusätzlich als visuelle Referenz für den restlichen Video-Batch.",
+    "Bild 02 bis Bild NN enthalten standardmäßig keinen sichtbaren Text.",
     "Interne Bildplanung und finaler Google-Flow-Prompt sind strikt getrennt.",
-    "Der finale Google-Flow-Prompt besteht aus einem gemeinsamen Channel-Style, einem Video-World-Lock und danach natürlichen direkten Fließtext-Prompts für BILD 01 bis BILD NN.",
     "Remotion erzeugt standardmäßig keinen sichtbaren Erklärungstext."
   ],
   "forbidden": [
@@ -51,7 +47,9 @@
     "English labels in German videos",
     "image numbers inside images",
     "watermarks",
-    "pseudo-text"
+    "pseudo-text",
+    "automatic cover winner selection by Flow",
+    "generating Bild 02 or later before user cover selection"
   ],
   "visibleTextLanguage": "de",
   "defaultVisibleText": "NONE_EXCEPT_REQUIRED_COVER_TEXT",
@@ -61,11 +59,15 @@
   "coverTextMustBeHighContrast": true,
   "coverTextMustNotCoverMainSubject": true,
   "rejectMisspelledCoverText": true,
+  "coverCandidateCount": 3,
+  "userSelectsCover": true,
+  "flowMustStopAfterCoverCandidates": true,
+  "selectedCoverRequiredBeforeRemainingImages": true,
   "humanCharactersRequired": false,
   "maxSupportingElementsPerImage": 3,
   "oneDominantSubjectRequired": true,
   "videoContinuityLockRequired": true,
-  "finalFlowPromptFormat": "STYLE_ONCE_WORLD_LOCK_ONCE_THEN_NATURAL_IMAGE_PROMPTS",
+  "finalFlowPromptFormat": "STYLE_WORLD_COVER_THEN_USER_GATE_THEN_REMAINING_IMAGES",
   "supportedVisualForms": [
     "character-scene",
     "environment-only",
@@ -83,7 +85,7 @@
   "notes": [
     "Ausführliche Regeln: channel/06-VISUAL-SYSTEM.md",
     "Visual-Auswahl: channel/07-VISUAL-GRAMMAR.md",
-    "Google-Flow-Prompting: channel/08-FLOW-PROMPTING.md",
-    "Trennung interne Planung vs. finaler Prompt: channel/09-IMAGE-PROMPT-TEMPLATE.md"
+    "Google-Flow-Prompting und manueller Cover-Gate: channel/08-FLOW-PROMPTING.md",
+    "Promptstruktur: channel/09-IMAGE-PROMPT-TEMPLATE.md"
   ]
 }
