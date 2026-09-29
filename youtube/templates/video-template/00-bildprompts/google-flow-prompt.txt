@@ -5,35 +5,47 @@ GOOGLE FLOW MASTER PROMPT — [VIDEO-TITEL]
 Create [N] separate 16:9 historical explainer illustrations for one coherent German YouTube video.
 
 CHANNEL STYLE:
-Use one consistent hand-drawn 2D historical explainer style across the full batch. Clean dark ink outlines, flat muted historical colors, subtle cel shading and a light handmade ink-and-paper texture. When people are needed, use expressive historical stickman characters from the same character family: simple warm off-white round or slightly oval heads, slim simplified bodies, simple readable faces, historically appropriate hair, beards, hats, hoods, helmets, clothing, armor and props. Human characters are NOT required in every image. When people are not needed, use architecture, maps, objects, landscapes or symbolic scenes in the exact same visual language. Mature historical documentary feeling, not childish or goofy.
+Use one consistent hand-drawn 2D historical explainer style across the full video. Clean dark ink outlines, flat muted historical colors, subtle cel shading and a light handmade ink-and-paper texture. When people are needed, use expressive historical stickman characters from the same character family. Human characters are NOT required in every image. Mature historical documentary feeling, not childish or goofy.
 
 VIDEO WORLD LOCK:
-[Define recurring places, architecture/silhouettes, recurring rooms, recurring figure appearance, important props, base palette, weather/time logic. Once established, keep them visually consistent throughout the video.]
+[Define recurring places, architecture, rooms, recurring figures, important props, base palette and time/weather logic. Keep them visually consistent throughout the video.]
 
 COVER TEXT:
-Use the exact German cover text: "[COVER-TEXT]". Keep it short, ideally 2–5 words. Make it large and immediately readable. Use strong contrast against the actual background: light text on dark background, dark text on light background. A restrained outline/shadow is allowed when needed. Never cover the main subject. All three Bild-01 candidates use exactly the same correctly spelled cover text.
+Use exactly this German cover text: "[COVER-TEXT]". Keep it short, ideally 2–5 words. Make it large, correctly spelled and immediately readable. Use strong contrast and never cover the main subject. All three cover candidates must contain exactly the same text.
 
 BILD 01
-[Write one natural, direct cover-image prompt as flowing prose. Describe the concrete scene, dominant subject, action/state and composition naturally. Explicitly integrate the exact German cover text from COVER TEXT into a clean area of the composition. Do not output internal planning labels.]
+[Write one natural direct cover prompt. Integrate the exact German COVER TEXT prominently into a clean area of the composition.]
 
 BILD 02
-[Write one natural, direct image prompt as flowing prose. No visible text.]
+[Write one natural direct image prompt. No visible text.]
 
 BILD 03
-[Write one natural, direct image prompt as flowing prose. No visible text.]
+[Write one natural direct image prompt. No visible text.]
 
 [Continue through BILD NN]
 
 GLOBAL RULES:
-Keep the same art universe across all images. One clear visual idea per image, one dominant subject, only a few necessary supporting elements. Avoid overcrowded scenes, wimmelbilder, museum infographics, textbook posters, encyclopedia plates, tiny central subjects, dense crowds, many mini-figures, unnecessary cutaways, collages, multi-panel layouts and excessive micro-detail. No photorealism, 3D render, Pixar, anime, realistic portrait faces, painterly realism, graphic-novel realism, fantasy armor, modern objects, logos, watermarks or image numbers.
+Keep the same art universe across all images. One clear visual idea per image, one dominant subject, only a few necessary supporting elements. Avoid overcrowded scenes, wimmelbilder, museum infographics, textbook posters, dense crowds, unnecessary cutaways, collages and excessive micro-detail. No photorealism, 3D render, Pixar, anime, realistic portrait faces, painterly realism, modern objects, logos, watermarks or image numbers.
 
-Bild 01 ALWAYS contains the exact short German cover text defined above. Bild 02 through Bild NN contain NO visible text unless a later explicit production decision requires exact German text. Never invent English labels, pseudo-text or decorative lettering.
+Bild 01 ALWAYS contains the exact short German cover text. Bild 02 through Bild NN contain NO visible text unless explicitly required later. Never invent English labels or pseudo-text.
 
 No fixed image count: NN is content-driven and determined during planning.
 
-GENERATION RULES:
-- Bild 01 is the cover and first scene: generate exactly 3 temporary alternatives using the same exact cover text, select 1 winner and keep it as `Bild 01.png`.
-- Reject any Bild-01 candidate with misspelled, incomplete or poorly readable cover text.
-- Generate Bild 02 through Bild NN exactly once each after prompt approval.
-- Maximum 5 active generations at once.
+GENERATION WORKFLOW — MANDATORY TWO-STAGE GATE:
+
+STAGE 1 — COVER ONLY
+- Generate exactly THREE alternatives for Bild 01.
+- Every candidate must use exactly the same German cover text.
+- Reject and regenerate any candidate with misspelled, incomplete or poorly readable cover text.
+- After the three acceptable cover candidates exist, STOP IMMEDIATELY.
+- DO NOT generate Bild 02 or any later image yet.
+- DO NOT choose a winner yourself.
+- Tell the user that you are waiting for their cover selection.
+- Wait for the user to explicitly select one of the three candidates.
+
+STAGE 2 — ONLY AFTER USER SELECTION
+- The user-selected candidate becomes `Bild 01.png`.
+- Use the selected cover as an additional visual reference for the same video world/style.
+- Only now generate Bild 02 through Bild NN, exactly once each.
+- Maximum five active generations at once.
 - Final image folder contains only `Bild 01.png` through `Bild NN.png`.
