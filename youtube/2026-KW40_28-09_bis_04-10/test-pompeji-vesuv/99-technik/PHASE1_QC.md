@@ -25,10 +25,20 @@
 - gleiche Straße / gleiches Haus / gleiche Figuren wiederverwenden: [x]
 - Natur-, Figuren-, Architektur- und Objektbilder gemischt: [x]
 
+## Cover
+- Bild 01 = Cover + erste Szene: [x]
+- exakter Cover-Text: `ZU SPÄT FÜR POMPEJI?`: [x]
+- deutscher Text: [x]
+- kurz und zum Thema passend: [x]
+- alle drei Kandidaten verwenden denselben Text: [x]
+- starke Kontrastregel definiert: [x]
+- Hauptmotiv darf nicht vom Text verdeckt werden: [x]
+- falsch geschriebener/unlesbarer Text führt zur Ablehnung: [x]
+
 ## Flow
 - finaler Flow-Prompt enthält nur Style/World Lock + direkte natürliche Bildprompts: [x]
 - interne Audio-Anker/QC-Felder bleiben außerhalb des Flow-Prompts: [x]
-- kein sichtbarer KI-Text: [x]
+- Bild 02–16 enthalten keinen sichtbaren Text: [x]
 - keine englischen Labels/Pseudo-Schrift: [x]
 
 ## Status
