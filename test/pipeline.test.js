@@ -13,6 +13,8 @@ test('Repo besitzt freigegebene History-Bildwelt und gültige Themenregistry', a
   const registry = JSON.parse(await readFile('config/topic-registry.json', 'utf8'));
   assert.equal(visual.status, 'READY');
   assert.equal(visual.styleId, 'history-stickman-adaptive-v1');
+  assert.equal(visual.coverTextRequired, true);
+  assert.equal(visual.coverTextLanguage, 'de');
   assert.equal(channel.visualSystem?.status, 'READY');
   assert.equal(channel.visualSystem?.styleId, visual.styleId);
   assert.equal(channel.targetDurationMinutes?.shortTestVideosAllowed, true);
@@ -30,6 +32,9 @@ test('Pipeline behält allgemeine Produktionsregeln', async () => {
   const policy = JSON.parse(await readFile('config/pipeline.json', 'utf8'));
   assert.equal(policy.coverPolicy.firstSceneIsCover, true);
   assert.equal(policy.coverPolicy.coverCandidateCount, 3);
+  assert.equal(policy.coverPolicy.coverTextRequired, true);
+  assert.equal(policy.coverPolicy.coverTextLanguage, 'de');
+  assert.equal(policy.coverPolicy.rejectMisspelledCoverText, true);
   assert.equal(policy.imagePolicy.fixedImageCountForbidden, true);
   assert.equal(policy.imagePolicy.nonCoverGenerationCount, 1);
   assert.deepEqual(policy.imagePolicy.targetAverageHoldSeconds, [4.5, 7.5]);
@@ -45,10 +50,14 @@ test('Projekt-Template nutzt aktive Kanalbildwelt ohne fertiges Videothema', asy
   assert.equal(meta.visualStyleId, 'UNSET');
   assert.equal(meta.topic, '');
   assert.equal(meta.title, '');
+  assert.equal(meta.coverPolicy?.coverTextRequired, true);
+  assert.equal(meta.coverPolicy?.coverTextLanguage, 'de');
   assert.match(prompt, /ACTIVE_STYLE_ID:\s*history-stickman-adaptive-v1/);
   assert.match(prompt, /Human characters are NOT required in every image/i);
   assert.match(prompt, /No fixed image count/i);
   assert.match(prompt, /same art universe across all images/i);
+  assert.match(prompt, /COVER TEXT:/i);
+  assert.match(prompt, /Bild 01 ALWAYS contains the exact short German cover text/i);
 });
 
 test('Textnormalisierung und Ähnlichkeit funktionieren', () => {
