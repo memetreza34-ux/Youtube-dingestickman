@@ -1,14 +1,16 @@
 {
-  "channelPolicyVersion": 1,
+  "channelPolicyVersion": 2,
   "channelType": "history",
   "language": "de",
-  "status": "CHANNEL_DNA_V1_VISUAL_PENDING",
+  "status": "CHANNEL_DNA_V1_VISUAL_V1_READY",
   "positioning": "History x Storytelling x Curiosity",
   "corePromise": "Historische Fragen und Entwicklungen spannend, verständlich und kausal erklären.",
   "targetDurationMinutes": {
     "preferredMin": 8,
     "preferredMax": 15,
-    "contentDriven": true
+    "contentDriven": true,
+    "shortTestVideosAllowed": true,
+    "shortTestMaximumSeconds": 120
   },
   "topicPillars": [
     "empires_countries_civilizations",
@@ -41,7 +43,13 @@
     "modernCIAdayInLifeWithoutHistoricalCore": "other_future_channel"
   },
   "visualSystem": {
-    "status": "UNSET",
+    "status": "READY",
+    "styleId": "history-stickman-adaptive-v1",
+    "visualPolicyFile": "config/visual-policy.json",
+    "visualSystemFile": "channel/06-VISUAL-SYSTEM.md",
+    "visualGrammarFile": "channel/07-VISUAL-GRAMMAR.md",
+    "flowPromptingFile": "channel/08-FLOW-PROMPTING.md",
+    "humanCharactersRequired": false,
     "doNotInferFromRepositoryName": true,
     "doNotInheritOtherRepoStyles": true,
     "doNotCopyReferenceChannelIdentity": true
