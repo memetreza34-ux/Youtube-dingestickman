@@ -7,11 +7,16 @@ import test from 'node:test';
 import { evaluateTopic } from '../src/cli/check-youtube-topic.js';
 import { normalizeText, similarity } from '../src/lib/pipeline.js';
 
-test('Repo startet ohne vorgegebene Bildwelt und ohne Themenbestand', async () => {
+test('Repo besitzt freigegebene History-Bildwelt und leere Themenregistry', async () => {
   const visual = JSON.parse(await readFile('config/visual-policy.json', 'utf8'));
+  const channel = JSON.parse(await readFile('config/channel-policy.json', 'utf8'));
   const registry = JSON.parse(await readFile('config/topic-registry.json', 'utf8'));
-  assert.equal(visual.status, 'UNSET');
-  assert.equal(visual.styleId, 'UNSET');
+  assert.equal(visual.status, 'READY');
+  assert.equal(visual.styleId, 'history-stickman-adaptive-v1');
+  assert.equal(channel.visualSystem?.status, 'READY');
+  assert.equal(channel.visualSystem?.styleId, visual.styleId);
+  assert.equal(channel.targetDurationMinutes?.shortTestVideosAllowed, true);
+  assert.equal(channel.targetDurationMinutes?.shortTestMaximumSeconds, 120);
   assert.deepEqual(registry.entries, []);
 });
 
@@ -28,15 +33,16 @@ test('Pipeline behält allgemeine Produktionsregeln', async () => {
   assert.equal(policy.endHoldPolicy.targetSeconds, 1.3);
 });
 
-test('Projekt-Template ist neutral', async () => {
+test('Projekt-Template nutzt aktive Kanalbildwelt ohne fertiges Videothema', async () => {
   const meta = JSON.parse(await readFile('youtube/templates/video-template/99-technik/video.json', 'utf8'));
   const prompt = await readFile('youtube/templates/video-template/00-bildprompts/google-flow-prompt.txt', 'utf8');
   assert.equal(meta.visualStyleId, 'UNSET');
   assert.equal(meta.topic, '');
   assert.equal(meta.title, '');
-  assert.match(prompt, /ACTIVE_STYLE_ID: UNSET/);
-  assert.match(prompt, /NO inherited visual world/i);
-  assert.match(prompt, /No fixed target image count/i);
+  assert.match(prompt, /ACTIVE_STYLE_ID:\s*history-stickman-adaptive-v1/);
+  assert.match(prompt, /Human characters are NOT required in every image/i);
+  assert.match(prompt, /No fixed image count/i);
+  assert.match(prompt, /same art universe across all images/i);
 });
 
 test('Textnormalisierung und Ähnlichkeit funktionieren', () => {
@@ -45,7 +51,7 @@ test('Textnormalisierung und Ähnlichkeit funktionieren', () => {
 });
 
 test('Themeneditor arbeitet nur mit Daten des aktuellen Repositories', async () => {
-  const temp = await mkdtemp(path.join(tmpdir(), 'clean-youtube-pipeline-'));
+  const temp = await mkdtemp(path.join(tmpdir(), 'history-youtube-pipeline-'));
   try {
     await mkdir(path.join(temp, 'config'), { recursive: true });
     await mkdir(path.join(temp, 'youtube'), { recursive: true });
@@ -57,7 +63,7 @@ test('Themeneditor arbeitet nur mit Daten des aktuellen Repositories', async () 
   }
 });
 
-test('Keine Alt-Themen oder Alt-Bildwelt wurden in die zentrale Konfiguration übernommen', async () => {
+test('Keine Alt-Themen oder fremde Alt-Bildwelt wurden in die zentrale Konfiguration übernommen', async () => {
   const files = [
     'README.md',
     'config/pipeline.json',
@@ -74,8 +80,7 @@ test('Keine Alt-Themen oder Alt-Bildwelt wurden in die zentrale Konfiguration ü
     'konservatismus',
     'anarchismus',
     'kaliningrad',
-    'zwei koreas',
-    'römische reich'
+    'zwei koreas'
   ];
   for (const value of forbidden) assert.equal(text.includes(value), false, `Altspur gefunden: ${value}`);
 });
