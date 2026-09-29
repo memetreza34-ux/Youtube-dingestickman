@@ -1,4 +1,4 @@
-# History Image Prompt Template — Google Flow V1.2
+# History Image Prompt Template — Google Flow V1.3
 
 Dieses Dokument definiert die Trennung zwischen **interner Bildplanung** und dem **finalen Google-Flow-Prompt**.
 
@@ -20,9 +20,7 @@ Planned Hold
 QC
 ```
 
-Diese Informationen helfen beim Denken und Prüfen.
-
-**Sie dürfen nicht 1:1 in den finalen `google-flow-prompt.txt` kopiert werden.**
+Diese Informationen helfen beim Denken und Prüfen. Sie dürfen nicht 1:1 in den finalen `google-flow-prompt.txt` kopiert werden.
 
 ## 2. Finaler Flow-Prompt
 
@@ -31,28 +29,35 @@ Der finale Prompt soll wie eine klare Regieanweisung für einen Illustrator klin
 ### Grundformat
 
 ```text
+COVER TEXT:
+Use exactly this German cover text: "[2–5 Wörter]".
+
 BILD 01
-[ein natürlicher direkter Bildprompt als Fließtext]
+[ein natürlicher direkter Cover-Prompt als Fließtext; exakten Cover-Text integrieren]
 
 BILD 02
-[ein natürlicher direkter Bildprompt als Fließtext]
+[ein natürlicher direkter Bildprompt als Fließtext; kein sichtbarer Text]
 ```
 
-### Beispiel
+## 3. Cover-Text — Pflicht
 
-```text
-BILD 03
-Inside the same stone storage cellar at Kenilworth Castle. Large grain sacks and wooden barrels fill most of the room, with a rough wooden shelf holding bread and one clay water jug. Keep the composition simple and the supplies large and clearly readable. Establish this exact room layout and camera angle because the same cellar will return later with fewer supplies.
-```
+BILD 01 ist Cover + erste Szene und bekommt **immer** einen passenden kurzen deutschen Text.
 
-Später:
+Der Text:
 
-```text
-BILD 08
-Return to exactly the same storage cellar and the same camera angle as Bild 03. About half of the grain sacks and barrels are now gone, leaving clearly visible empty spaces on the floor and shelves. Keep all remaining architecture, props and lighting consistent with the earlier image.
-```
+- passt zum Thema/Hook des Videos
+- ist idealerweise 2–5 Wörter lang
+- wird exakt im Flow-Prompt angegeben
+- bleibt bei allen drei Cover-Kandidaten identisch
+- muss korrekt geschrieben sein
+- ist groß und sofort lesbar
+- verdeckt kein wichtiges Hauptmotiv
+- erhält je nach Hintergrund automatisch starken Kontrast: hell auf dunkel oder dunkel auf hell
+- darf bei Bedarf einen dezenten Rand/Schatten besitzen
 
-## 3. Was nicht in den finalen Prompt gehört
+Keine zweite Textzeile mit Zusatzinformationen, keine englischen Labels, keine Bildnummern, kein Logo und keine Pseudo-Schrift.
+
+## 4. Was nicht in den finalen Prompt gehört
 
 Nicht ausgeben:
 
@@ -70,9 +75,7 @@ Topic Anchor:
 Planned Hold:
 ```
 
-Diese Labels sind nur Denk- und QC-Hilfen.
-
-## 4. Gemeinsamer Style-Block
+## 5. Gemeinsamer Style-Block
 
 Der Channel Style wird pro Batch **nur einmal** vor den Einzelbildern angegeben.
 
@@ -88,7 +91,7 @@ Er enthält knapp:
 - gleiche Zeichenlogik für Figuren, Architektur, Karten und Objekte
 - kein Photorealismus, 3D, Anime, Pixar oder painterly realism
 
-## 5. Video World Lock
+## 6. Video World Lock
 
 Ebenfalls nur einmal pro Video/Batch definieren:
 
@@ -101,9 +104,9 @@ Ebenfalls nur einmal pro Video/Batch definieren:
 
 Danach in Einzelprompts einfach auf `the same ...` verweisen.
 
-## 6. Einzelbild-Regeln
+## 7. Einzelbild-Regeln
 
-Intern muss weiterhin gelten:
+Intern gilt weiterhin:
 
 - genau eine Kernaussage
 - genau ein dominantes Hauptmotiv
@@ -114,28 +117,24 @@ Intern muss weiterhin gelten:
 - keine unnötigen Querschnitte oder Collagen
 - bei zwei gleich wichtigen Aussagen lieber zwei Bilder
 
-## 7. Textregel
-
-Standard global:
+## 8. Textregel
 
 ```text
-No visible text in any image unless explicitly requested.
+BILD 01: exact short German cover text REQUIRED.
+BILD 02–NN: no visible text by default.
 ```
 
-Wenn Text nötig ist:
+Außerhalb des Covers darf sichtbarer Text nur bei ausdrücklicher Notwendigkeit vorkommen und muss dann exakt auf Deutsch vorgegeben sein.
 
-- nur exakt vorgegebener kurzer deutscher Text
-- keine englischen Labels
-- keine KI-Pseudo-Schrift
-- keine Bildnummern oder Wasserzeichen im Bild
-
-## 8. Freigabe
+## 9. Freigabe
 
 Der finale `google-flow-prompt.txt` ist erst fertig, wenn:
 
 1. er direkt in Google Flow kopiert werden kann,
 2. keine internen Planungslabels mehr sichtbar sind,
 3. Style und World Lock einmalig definiert sind,
-4. jeder Bildblock natürlich und direkt formuliert ist,
-5. wiederkehrende Elemente konsistent bleiben,
-6. die Bilder klar statt überladen geplant sind.
+4. BILD 01 einen passenden 2–5-Wort-Covertext auf Deutsch besitzt,
+5. der Covertext kontrastreich und fehlerfrei ist,
+6. jeder Bildblock natürlich und direkt formuliert ist,
+7. wiederkehrende Elemente konsistent bleiben,
+8. BILD 02–NN keinen unnötigen sichtbaren Text enthalten.
