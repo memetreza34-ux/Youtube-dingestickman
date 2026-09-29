@@ -27,6 +27,7 @@ async function main() {
   await copyDirectory(templateDir, destination);
 
   const visual = await readJson(path.resolve('config/visual-policy.json'));
+  const activeStyleId = visual.styleId ?? 'UNSET';
   const now = new Date().toISOString();
   const metaPath = path.join(destination, '99-technik', 'video.json');
   const meta = await readJson(metaPath);
@@ -36,16 +37,17 @@ async function main() {
     topicSlug: slug,
     title,
     topic,
-    visualStyleId: visual.styleId ?? 'UNSET',
+    visualStyleId: activeStyleId,
     createdAt: now,
     updatedAt: now
   });
   await writeJson(metaPath, meta);
 
   const promptPath = path.join(destination, '00-bildprompts', 'google-flow-prompt.txt');
-  const prompt = (await readFile(promptPath, 'utf8'))
+  const promptTemplate = await readFile(promptPath, 'utf8');
+  const prompt = promptTemplate
     .replace('[VIDEO-TITEL]', title)
-    .replace('ACTIVE_STYLE_ID: UNSET', `ACTIVE_STYLE_ID: ${visual.styleId ?? 'UNSET'}`);
+    .replace(/^ACTIVE_STYLE_ID:\s*.*$/m, `ACTIVE_STYLE_ID: ${activeStyleId}`);
   await writeFile(promptPath, prompt, 'utf8');
 
   const registryPath = path.resolve('config/topic-registry.json');
@@ -55,7 +57,7 @@ async function main() {
 
   console.log(`Projekt erstellt: ${path.relative(process.cwd(), destination)}`);
   if (visual.status !== 'READY' || !visual.styleId || visual.styleId === 'UNSET') {
-    console.log('Hinweis: Die neue Bildwelt ist noch UNSET. Phase 1 bleibt bis zur Definition in config/visual-policy.json blockiert.');
+    console.log('Hinweis: Die Bildwelt ist noch UNSET. Phase 1 bleibt bis zur Definition in config/visual-policy.json blockiert.');
   }
 }
 
