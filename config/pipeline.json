@@ -20,7 +20,11 @@
     "coverTextMustMatchVideo": true,
     "coverTextMustBeHighContrast": true,
     "coverTextMustNotCoverMainSubject": true,
-    "rejectMisspelledCoverText": true
+    "rejectMisspelledCoverText": true,
+    "userSelectsCover": true,
+    "flowMustStopAfterCoverCandidates": true,
+    "selectedCoverRequiredBeforeRemainingImages": true,
+    "flowMayNotAutoSelectCover": true
   },
   "imagePolicy": {
     "fixedImageCountForbidden": true,
