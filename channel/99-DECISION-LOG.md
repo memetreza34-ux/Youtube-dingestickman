@@ -64,9 +64,19 @@ Nach dem ersten Kenilworth-Flow-Test wurden die Bildregeln verschärft.
 - Jedes Bild besitzt genau **eine Kernaussage** und **ein dominantes Hauptmotiv**.
 - Maximal **1–3 unterstützende Elemente** pro Bild.
 - Das Motiv muss groß und auch in kleiner YouTube-Darstellung sofort lesbar sein.
-- Wiederkehrende Orte, Figuren, Räume und Props werden innerhalb eines Videos nicht neu erfunden, sondern über einen **VIDEO CONTINUITY LOCK** konstant gehalten.
+- Wiederkehrende Orte, Figuren, Räume und Props werden innerhalb eines Videos nicht neu erfunden, sondern über einen **VIDEO WORLD / CONTINUITY LOCK** konstant gehalten.
 - Bei Zustandsänderungen möglichst denselben Ort und Blickwinkel wiederverwenden, z. B. volles Lager → halb leer → fast leer.
-- Google-Flow-Einzelprompts folgen jetzt der Struktur `VIEWER MUST IMMEDIATELY UNDERSTAND → SHOW → DOMINANT VISUAL ACTION / STATE → SUPPORTING ELEMENTS → CAMERA / COMPOSITION → CONTINUITY LOCK → VISIBLE TEXT`.
 - Standard bleibt: kein sichtbarer KI-Text.
 - Wenn sichtbarer Text ausdrücklich nötig ist, ausschließlich kurz, exakt vorgegeben und **auf Deutsch**; keine englischen Labels oder Pseudo-Schrift.
-- Das erste Testvideo wurde mit diesen Regeln komplett neu gepromptet.
+
+## 2026-09-29 — Google-Flow-Ausgabe V1.2
+
+Nach Vergleich mit den eigenen funktionierenden Erklär-/Object-Talk-Workflows wird die Prompt-Ausgabe korrigiert:
+
+- **Interne Bildplanung und der finale Google-Flow-Prompt werden strikt getrennt.**
+- Audio Anchor, Visual Purpose, Visual Form, Kernaussage, Dominant Subject, Supporting Elements, Kamera, Continuity und QC dürfen intern weiter ausführlich geplant werden.
+- Diese technischen Felder werden **nicht** mehr als Formular in `google-flow-prompt.txt` ausgegeben.
+- Der finale Flow-Prompt enthält nur einen gemeinsamen `CHANNEL STYLE`, einen `VIDEO WORLD LOCK` und danach `BILD NN` mit jeweils einem natürlichen direkten Fließtext-Prompt.
+- Labels wie `VIEWER MUST IMMEDIATELY UNDERSTAND`, `SHOW`, `SUPPORTING ELEMENTS`, `CAMERA / COMPOSITION`, `CONTINUITY LOCK` und `Audio Anchor` sind im finalen Flow-Prompt verboten.
+- Einzelprompts sollen wie klare Regieanweisungen an einen Illustrator klingen.
+- Der Kenilworth-Testprompt wurde direkt auf dieses neue Format umgebaut.

@@ -1,169 +1,160 @@
-# Google Flow Prompting — History Visual System V1.1
+# Google Flow Prompting — History Visual System V1.2
 
 ## Ziel
 
-Google Flow soll pro Batch mehrere Bilder erzeugen, die klar zum selben Kanal und innerhalb eines Videos zur selben Welt gehören. Die Bilder müssen stark, klar und YouTube-tauglich sein — nicht wie Wimmelbilder, Lehrbuchtafeln oder Museumsplakate.
+Google Flow bekommt am Ende **einen sauberen Copy-Paste-Prompt**. Interne Planung und der tatsächliche Flow-Prompt werden strikt getrennt.
 
-## Wichtigste Regel
+## Goldene Regel
 
-**Nicht direkt vom Skriptsatz zu einem langen Bildprompt springen.**
+**Interne Bildplanung darf technisch und ausführlich sein. Der finale Google-Flow-Prompt nicht.**
 
-Immer:
+### Ebene A — intern, NICHT an Google Flow
+
+Diese Informationen helfen der Pipeline beim Planen und Prüfen:
+
+- Audio Anchor
+- Visual Purpose
+- Visual Function
+- Visual Form
+- Kernaussage
+- Dominant Subject
+- Supporting Elements
+- Kamera / Komposition
+- Continuity-Hinweise
+- geplante Dauer
+- QC
+
+Diese Felder gehören in technische Planungsdateien, Mapping-Dateien und QC — **nicht** in `google-flow-prompt.txt`.
+
+### Ebene B — finaler Google-Flow-Prompt
+
+Der tatsächliche Flow-Prompt besteht nur aus:
+
+1. einer kurzen Aufgabe
+2. **einem** gemeinsamen `CHANNEL STYLE`
+3. **einem** `VIDEO WORLD LOCK` für wiederkehrende Orte/Figuren/Props
+4. pro Bild einer Überschrift `BILD NN`
+5. darunter einem **natürlichen direkten Bildprompt als Fließtext**
+6. einer kurzen globalen Negativ-/Textregel
+
+Keine internen Analysefelder im finalen Prompt.
+
+## Verboten im finalen Flow-Prompt
+
+Diese Labels dürfen dort nicht mehr auftauchen:
 
 ```text
-Skriptaussage
-→ Visual Function
-→ Visual Form
-→ eine Kernaussage
-→ ein dominantes Hauptmotiv
-→ maximal 1–3 unterstützende Elemente
-→ Kamera/Komposition
-→ Continuity Lock
-→ Prompt
+Audio Anchor:
+VIEWER MUST IMMEDIATELY UNDERSTAND:
+SHOW:
+DOMINANT VISUAL ACTION / STATE:
+SUPPORTING ELEMENTS:
+CAMERA / COMPOSITION:
+CONTINUITY LOCK:
+Visual Purpose:
+Visual Form:
+Topic Anchor:
+Planned Hold:
 ```
 
-## Grundaufbau eines Flow-Batches
+Sie können intern weiterhin verwendet werden.
+
+## Empfohlenes finales Format
 
 ```text
-Create N separate 16:9 historical explainer illustrations for one coherent YouTube video.
+Create 5 separate 16:9 historical explainer illustrations for one coherent YouTube video.
 
 CHANNEL STYLE:
-[ein gemeinsamer Style-Block]
+[gemeinsamer kurzer Stilblock]
 
-VIDEO CONTINUITY LOCK:
-[wiederkehrende Orte, Figuren, Architektur, Räume und Props festlegen]
+VIDEO WORLD LOCK:
+[gleiche Burg / gleiche Figur / gleiche Räume / gleiche Props]
 
-IMAGE 1 — [kurzer Name]
-VIEWER MUST IMMEDIATELY UNDERSTAND: ...
-SHOW: ...
-DOMINANT VISUAL ACTION / STATE: ...
-SUPPORTING ELEMENTS: ...
-CAMERA / COMPOSITION: ...
-CONTINUITY LOCK: ...
-VISIBLE TEXT: None.
+BILD 01
+A wide historical illustration of ... Keep the castle large in frame ...
 
-...
+BILD 02
+Inside the same castle courtyard ...
 
-IMPORTANT:
-All images must look like they were illustrated by the same artist for the same YouTube channel and the same historical world.
+BILD 03
+Inside the same stone storage cellar ...
+
+GLOBAL RULES:
+No visible text unless explicitly requested. If text is required, it must be exact German text. No watermarks, image numbers or pseudo-text.
 ```
 
-## Gemeinsamer Channel-Style
+## Prompt-Stil pro Bild
 
-Der Style-Block beschreibt einmalig:
+Ein guter Einzelprompt klingt wie eine klare Regieanweisung an einen Illustrator, nicht wie ein Formular.
 
-- 2D hand-drawn historical explainer illustration
-- expressive historical stickman characters, wenn Menschen gebraucht werden
-- konsistente Stickman-Grundanatomie
-- individuelle Haare, Bärte, Kopfbedeckungen, Kleidung und Props erlaubt
-- simple, aber gut lesbare Emotionen
-- clean dark ink outlines
-- flat muted historical colors
-- subtle cel shading
-- slight handmade ink-and-paper texture
-- mature, not childish
-- gleiche Zeichenlogik bei Karten, Architektur, Objekten und Systembildern
-- kein Photorealismus, 3D, Anime, Pixar oder painterly realism
+Gut:
 
-## Bildkomposition
+> Inside the same stone storage cellar at Kenilworth Castle. Large grain sacks and wooden barrels fill most of the room. A rough wooden shelf with bread and one clay water jug sits against the back wall. Keep the room simple, the supplies large and clearly readable. Establish this exact room and camera angle because it will return later with fewer supplies.
 
-Jedes Bild braucht:
+Nicht gut:
 
-- **ein dominantes Hauptmotiv**
-- **eine Kernaussage**
-- maximal **1–3 unterstützende Elemente**
-- eine klare Vordergrund-/Hintergrund-Hierarchie
-- große, gut lesbare Formen
-- möglichst keine wichtigen Mini-Details
+> VIEWER MUST IMMEDIATELY UNDERSTAND: Strong reserves. SHOW: grain sacks. SUPPORTING ELEMENTS: barrels. CAMERA: medium-wide.
 
-Verboten als Standard:
+## Stil- und World-Lock
 
-- Wimmelbild
-- große Menschenmenge mit vielen gleich wichtigen Figuren
-- Museumstafel
-- Schulbuchposter
-- Lexikonplatte
-- überladene Querschnitte
-- viele Mini-Labels oder Pfeile
-- Collage-/Multi-Panel-Look
+Der `CHANNEL STYLE` wird pro Batch nur einmal geschrieben.
 
-Wenn mehrere Aussagen nötig sind, lieber zusätzliche Bilder planen.
+Der `VIDEO WORLD LOCK` legt innerhalb eines Videos fest:
 
-## Video Continuity Lock
+- wiederkehrende Architektur und Silhouette
+- wiederkehrende Räume und Blickwinkel
+- wiederkehrende Figurenmerkmale
+- zentrale Props
+- Grundfarbigkeit / Wetter / Zeitlogik
 
-Innerhalb eines Videos dürfen wiederkehrende Motive nicht jedes Mal neu erfunden werden.
+Danach genügt in Einzelprompts Formulierung wie:
 
-Beispiele:
+- `the same castle`
+- `the same gatehouse`
+- `the same defender`
+- `return to exactly the same cellar and camera angle`
 
-- dieselbe Burg behält Silhouette, Torform, Steinfarbe und Grundarchitektur
-- derselbe Lagerraum behält Regale, Fasspositionen und Blickwinkel
-- wiederkehrende Figuren behalten Haare, Bart, Kleidung und Rüstung
-- wiederkehrende Orte behalten Farbtemperatur und zentrale Props
+## Bildhierarchie
 
-Bei Entwicklungen ist ein wiederholter Blickwinkel oft stärker als Abwechslung:
+Die interne Planung stellt weiterhin sicher:
 
-```text
-volles Lager
-→ dasselbe Lager halb leer
-→ dasselbe Lager fast leer
-```
+- ein Bild = eine Kernaussage
+- ein dominantes Hauptmotiv
+- höchstens 1–3 wirklich notwendige Nebenelemente
+- keine Wimmelbilder
+- keine Lehrbuch-/Museumstafeln
+- große, YouTube-taugliche Formen
+
+Diese Regeln werden im finalen Prompt **natürlich beschrieben**, nicht als technische Formularfelder ausgegeben.
 
 ## Text im Bild
 
-Standard:
+Standard für den gesamten Batch:
 
 ```text
-VISIBLE TEXT: None.
+No visible text in any image unless explicitly requested.
 ```
 
 Falls Text zwingend nötig ist:
 
-- nur exakt vorgegebener kurzer deutscher Text
+- exakten Wortlaut nennen
+- nur Deutsch bei deutschen Videos
+- kurz halten
 - keine englischen Labels
-- keine automatisch erfundenen Beschriftungen
-- keine Bildnummern
-- keine Überschrift, wenn sie nicht ausdrücklich gefordert ist
+- keine Bildnummern im eigentlichen Bild
+- keine Pseudo-Schrift
 
 ## Figuren nicht erzwingen
 
-Vor jedem Bild prüfen:
+Einzelprompts dürfen vollständig ohne Figuren auskommen. Karten, Architektur, Räume, Gegenstände, Landschaften und Systemdarstellungen bleiben gleichwertige Visuals, solange sie dieselbe Channel-Bildwelt verwenden.
 
-- Braucht die Aussage wirklich Menschen?
-- Ist ein einzelnes Objekt, eine Architekturansicht, eine Karte oder ein Raum klarer?
-- Muss eine Menschenmenge wirklich sichtbar sein oder reichen wenige repräsentative Figuren plus angedeuteter Hintergrund?
+## Qualitätscheck vor Übergabe an Flow
 
-## Gute Einzelbild-Logik
-
-Statt:
-
-> Busy courtyard with hundreds of people, carts, food, soldiers, children, tents and many historical details.
-
-Besser:
-
-> VIEWER MUST IMMEDIATELY UNDERSTAND: Too many people are trapped inside limited castle space.
-> SHOW: Five clearly readable foreground figures squeezed into a narrow courtyard passage, with only soft simplified silhouettes behind them.
-> SUPPORTING ELEMENTS: stone wall, one supply barrel, one doorway.
-> CAMERA / COMPOSITION: medium-wide, foreground figures large, background simplified.
-
-## Negativlogik
-
-Am Ende des gemeinsamen Style-Blocks ausdrücklich vermeiden:
-
-```text
-overcrowded scene, busy crowd, wimmelbild, museum infographic, textbook poster, encyclopedia plate, tiny central subject, dozens of small figures, many labels, arrows everywhere, pseudo-text, English labels, fake handwriting, collage, multi-panel layout, split-screen border, unnecessary cutaway, excessive micro-detail, photorealism, realistic portrait, 3D render, Pixar, anime, painterly realism, graphic-novel realism, fantasy armor, modern objects, logo, watermark, image number
-```
-
-## Qualitätsregeln
-
-- alle Bilder eines Videos bleiben im selben Artstyle
-- wiederkehrende Orte/Figuren/Objekte bleiben visuell konsistent
-- ein Bild = eine Kernaussage
-- ein Bild = ein dominantes Hauptmotiv
-- höchstens 1–3 unterstützende Elemente
-- keine Wimmelbilder
-- keine Lehrbuch-/Museumstafel-Ästhetik
-- keine unnötigen Querschnitte
-- keine englischen Beschriftungen
-- sichtbarer Text nur, wenn ausdrücklich nötig, dann Deutsch
-- Figuren nur, wenn sie die Aussage verbessern
-- Bild muss auch klein auf YouTube sofort verständlich sein
+1. Ist `google-flow-prompt.txt` direkt kopierbar?
+2. Stehen dort keine internen Analysefelder mehr?
+3. Ist der Channel-Style nur einmal definiert?
+4. Ist der Video-World-Lock nur einmal definiert?
+5. Ist jeder `BILD NN`-Prompt ein natürlicher direkter Bildprompt?
+6. Bleiben wiederkehrende Orte/Figuren/Props konsistent?
+7. Ist jedes Bild klar statt überladen?
+8. Ist sichtbarer Text vermieden oder exakt auf Deutsch vorgegeben?
