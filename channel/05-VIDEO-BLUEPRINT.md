@@ -43,9 +43,7 @@ Nicht jedes Thema benötigt exakt dieselben Kapitel. Struktur folgt der Geschich
 
 ## Phase D — Voice-over-Skript
 
-Nach `03-SCRIPT-BIBLE.md` schreiben.
-
-Anschließend Script-QC durchführen.
+Nach `03-SCRIPT-BIBLE.md` schreiben. Anschließend Script-QC durchführen.
 
 **Gate:** Das Skript muss ohne Bilder interessant, verständlich und historisch belastbar funktionieren.
 
@@ -60,6 +58,17 @@ Erst nach bestandenem Skript:
 5. eindeutigen Audio-Anker setzen
 6. Bilddauer planen
 7. kurze konkrete Szenenbeschreibung schreiben
+8. **für Bild 01 einen passenden deutschen Cover-Text festlegen**
+
+Cover-Text-Regel:
+
+- Bild 01 ist Cover + erste Szene
+- Cover-Text ist Pflicht
+- idealerweise 2–5 Wörter
+- passend zum konkreten Hook/Thema, nicht automatisch voller Videotitel
+- exakt vorgeben und korrekt schreiben
+- stark kontrastreich zum tatsächlichen Hintergrund
+- darf Hauptmotiv nicht verdecken
 
 Verbindliche Bildwelt: `history-stickman-adaptive-v1` nach `06-VISUAL-SYSTEM.md` und `config/visual-policy.json`.
 
@@ -70,14 +79,17 @@ Verbindliche Bildwelt: `history-stickman-adaptive-v1` nach `06-VISUAL-SYSTEM.md`
 Google-Flow-Aufträge nach `08-FLOW-PROMPTING.md` bauen:
 
 - gemeinsamer Channel Style einmal pro Batch
+- Video World Lock einmal pro Batch
 - einzelne Bildblöcke kurz und konkret
+- Bild 01 enthält immer den exakt vorgegebenen deutschen Cover-Text
+- alle drei Bild-01-Kandidaten verwenden denselben Cover-Text
+- Bild 02–NN standardmäßig ohne sichtbaren Text
 - keine Bildnummern im generierten Bild
-- standardmäßig kein sichtbarer Text
 - alle Bilder müssen wie derselbe Kanal aussehen
 - Bild 01 ist Cover + erste Szene und erhält drei Kandidaten
 - Bild 02–NN jeweils ein finaler Kandidat
 
-Nach Generierung Bilder visuell prüfen, bevor Phase 2 als fertig gilt.
+Nach Generierung Bilder visuell prüfen, bevor Phase 2 als fertig gilt. Ein Cover mit falsch geschriebenem, schlecht lesbarem oder kontrastarmem Text wird verworfen.
 
 ## Phase G — Nutzer-Voice / Render
 
