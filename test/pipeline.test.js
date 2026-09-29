@@ -15,6 +15,9 @@ test('Repo besitzt freigegebene History-Bildwelt und gültige Themenregistry', a
   assert.equal(visual.styleId, 'history-stickman-adaptive-v1');
   assert.equal(visual.coverTextRequired, true);
   assert.equal(visual.coverTextLanguage, 'de');
+  assert.equal(visual.userSelectsCover, true);
+  assert.equal(visual.flowMustStopAfterCoverCandidates, true);
+  assert.equal(visual.selectedCoverRequiredBeforeRemainingImages, true);
   assert.equal(channel.visualSystem?.status, 'READY');
   assert.equal(channel.visualSystem?.styleId, visual.styleId);
   assert.equal(channel.targetDurationMinutes?.shortTestVideosAllowed, true);
@@ -28,13 +31,17 @@ test('Repo besitzt freigegebene History-Bildwelt und gültige Themenregistry', a
   }
 });
 
-test('Pipeline behält allgemeine Produktionsregeln', async () => {
+test('Pipeline behält allgemeine Produktionsregeln und Cover-Gate', async () => {
   const policy = JSON.parse(await readFile('config/pipeline.json', 'utf8'));
   assert.equal(policy.coverPolicy.firstSceneIsCover, true);
   assert.equal(policy.coverPolicy.coverCandidateCount, 3);
   assert.equal(policy.coverPolicy.coverTextRequired, true);
   assert.equal(policy.coverPolicy.coverTextLanguage, 'de');
   assert.equal(policy.coverPolicy.rejectMisspelledCoverText, true);
+  assert.equal(policy.coverPolicy.userSelectsCover, true);
+  assert.equal(policy.coverPolicy.flowMustStopAfterCoverCandidates, true);
+  assert.equal(policy.coverPolicy.selectedCoverRequiredBeforeRemainingImages, true);
+  assert.equal(policy.coverPolicy.flowMayNotAutoSelectCover, true);
   assert.equal(policy.imagePolicy.fixedImageCountForbidden, true);
   assert.equal(policy.imagePolicy.nonCoverGenerationCount, 1);
   assert.deepEqual(policy.imagePolicy.targetAverageHoldSeconds, [4.5, 7.5]);
@@ -44,7 +51,7 @@ test('Pipeline behält allgemeine Produktionsregeln', async () => {
   assert.equal(policy.endHoldPolicy.targetSeconds, 1.3);
 });
 
-test('Projekt-Template nutzt aktive Kanalbildwelt ohne fertiges Videothema', async () => {
+test('Projekt-Template nutzt aktive Kanalbildwelt und stoppt nach Cover-Kandidaten', async () => {
   const meta = JSON.parse(await readFile('youtube/templates/video-template/99-technik/video.json', 'utf8'));
   const prompt = await readFile('youtube/templates/video-template/00-bildprompts/google-flow-prompt.txt', 'utf8');
   assert.equal(meta.visualStyleId, 'UNSET');
@@ -52,12 +59,19 @@ test('Projekt-Template nutzt aktive Kanalbildwelt ohne fertiges Videothema', asy
   assert.equal(meta.title, '');
   assert.equal(meta.coverPolicy?.coverTextRequired, true);
   assert.equal(meta.coverPolicy?.coverTextLanguage, 'de');
+  assert.equal(meta.coverPolicy?.userSelectsCover, true);
+  assert.equal(meta.coverPolicy?.flowMustStopAfterCoverCandidates, true);
+  assert.equal(meta.coverPolicy?.selectedCoverRequiredBeforeRemainingImages, true);
   assert.match(prompt, /ACTIVE_STYLE_ID:\s*history-stickman-adaptive-v1/);
   assert.match(prompt, /Human characters are NOT required in every image/i);
   assert.match(prompt, /No fixed image count/i);
   assert.match(prompt, /same art universe across all images/i);
   assert.match(prompt, /COVER TEXT:/i);
   assert.match(prompt, /Bild 01 ALWAYS contains the exact short German cover text/i);
+  assert.match(prompt, /STOP IMMEDIATELY/i);
+  assert.match(prompt, /DO NOT choose a winner yourself/i);
+  assert.match(prompt, /Wait for the user to explicitly select/i);
+  assert.match(prompt, /ONLY AFTER USER SELECTION/i);
 });
 
 test('Textnormalisierung und Ähnlichkeit funktionieren', () => {
