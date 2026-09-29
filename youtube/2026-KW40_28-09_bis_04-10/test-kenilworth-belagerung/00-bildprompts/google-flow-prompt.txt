@@ -1,0 +1,177 @@
+VISUAL_POLICY_FILE: config/visual-policy.json
+VISUAL_SYSTEM_FILE: channel/06-VISUAL-SYSTEM.md
+VISUAL_GRAMMAR_FILE: channel/07-VISUAL-GRAMMAR.md
+FLOW_GUIDE_FILE: channel/08-FLOW-PROMPTING.md
+ACTIVE_STYLE_ID: history-stickman-adaptive-v1
+
+GOOGLE FLOW MASTER PROMPT — Warum Hunger eine Burg besiegen konnte
+
+Create 18 separate 16:9 historical explainer illustrations for one coherent YouTube video.
+
+CHANNEL STYLE:
+Use one consistent hand-drawn 2D historical explainer style across the full set. Human characters, when needed, belong to the same expressive historical stickman family: simple round or slightly oval warm off-white heads, slim simplified bodies, clean dark ink outlines, flat muted historical colors, subtle cel shading and a light handmade ink-and-paper texture. Characters may differ through historically appropriate hair, beards, eyebrows, helmets, hoods, clothing, armor, tools and body language. Faces stay simple but expressive.
+
+Non-character images such as castles, maps, objects, supply systems and overviews must use the exact same line, color, shading and texture language. Mature historical documentary/explainer feeling, not childish or goofy. Historical plausibility is more important than decorative fantasy.
+
+Do not use photorealism, 3D, Pixar, anime, realistic portrait faces, painterly realism, graphic-novel realism, modern corporate infographic style, pseudo-text, watermarks or image numbers inside the images. Default: no visible text.
+
+IMPORTANT GENERATION RULES:
+- Bild 01 is cover + first scene. Generate exactly 3 temporary candidates for Bild 01, choose the strongest one, keep only the winner as `Bild 01.png`.
+- Bild 02 through Bild 18: generate exactly one accepted final image each.
+- Work in batches of maximum 5 active generations.
+- All accepted images must look like the same illustrator made them for the same channel.
+- Characters are NOT required in every image.
+
+Bild 01 — COVER / KENILWORTH SURROUNDED
+Audio Anchor: Im Juni 1266 schlossen königliche Truppen die massive Burg Kenilworth ein.
+Visual Purpose: Establish the concrete siege immediately and work as a strong cover image.
+Topic Anchor: Kenilworth Castle 1266, royal siege encirclement.
+Visual Form: battle-city-overview
+Planned Hold: 7s
+Prompt: Dramatic wide view of a massive 13th-century English castle surrounded by a royal siege camp, siege engines and blocked roads. Castle remains imposing and intact. Strong clear focal point, tense overcast atmosphere, no text.
+
+Bild 02 — PEOPLE BEHIND THE WALLS
+Audio Anchor: Hinter den Mauern befanden sich mehr als 1.200 Menschen.
+Visual Purpose: Make the large number of trapped people human and tangible.
+Topic Anchor: crowded inner castle with soldiers, families and servants.
+Visual Form: character-scene
+Planned Hold: 5s
+Prompt: Busy inner courtyard inside the besieged castle with many expressive historical stickman soldiers, families, servants and children sharing limited space. Different hair, beards, hoods and clothing, worried but controlled mood.
+
+Bild 03 — PREPARED STORES
+Audio Anchor: Die Verteidiger hatten sich vorbereitet:
+Visual Purpose: Show that the defenders were well prepared at the start.
+Topic Anchor: stocked cellars and defensive supplies.
+Visual Form: object-focus
+Planned Hold: 7s
+Prompt: Well-stocked medieval castle storage cellar with sacks of grain, bread, barrels, preserved food, tools, bolts and repair materials arranged in the same hand-drawn channel style. No people needed.
+
+Bild 04 — WALLS STILL STANDING
+Audio Anchor: Trotzdem kapitulierten sie am Ende.
+Visual Purpose: Contrast intact fortifications with eventual surrender.
+Topic Anchor: intact castle walls, opened gate, exhausted defenders.
+Visual Form: architecture-city
+Planned Hold: 6s
+Prompt: Massive castle walls still standing and largely intact while the main gate is slowly opened from inside. A few exhausted defenders visible near the entrance. The architecture looks strong; the human condition looks weak.
+
+Bild 05 — THE LOGIC OF A SIEGE
+Audio Anchor: Genau das war die grausame Logik vieler mittelalterlicher Belagerungen.
+Visual Purpose: Move from Kenilworth to the general siege mechanism.
+Topic Anchor: walled medieval stronghold completely encircled.
+Visual Form: battle-city-overview
+Planned Hold: 6s
+Prompt: Elevated wide view of a medieval fortified town completely surrounded by an organized siege ring, camps and controlled roads. Make encirclement visually obvious without labels.
+
+Bild 06 — WAIT INSTEAD OF STORM
+Audio Anchor: Ein Angreifer musste eine Festung nicht unbedingt stürmen.
+Visual Purpose: Show blockade as an alternative to direct assault.
+Topic Anchor: besiegers waiting outside intact walls.
+Visual Form: environment-only
+Planned Hold: 6s
+Prompt: Calm but tense siege camp outside intact castle walls. Fires, tents, stacked equipment and idle siege troops waiting rather than attacking. Emphasize patience and containment, not action spectacle.
+
+Bild 07 — CUT THE ROADS
+Audio Anchor: Er konnte Straßen blockieren, Nachschub abfangen und warten.
+Visual Purpose: Explain supply interdiction spatially.
+Topic Anchor: blocked access road and stopped supply carts.
+Visual Form: cause-effect
+Planned Hold: 6s
+Prompt: Castle in the distance with every access road controlled by siege positions. A supply cart is forced to stop before reaching the gate. Use geography and composition to show the broken connection without arrows or text.
+
+Bild 08 — EVERY MEAL SHRINKS THE STORE
+Audio Anchor: Jede Mahlzeit innerhalb der Mauern machte die Vorräte kleiner
+Visual Purpose: Show gradual depletion rather than sudden collapse.
+Topic Anchor: food stores progressively shrinking.
+Visual Form: process-sequence
+Planned Hold: 6s
+Prompt: One continuous medieval storeroom composition showing full shelves and grain sacks on the left gradually becoming sparse and nearly empty toward the right. No text, no numbers, no modern infographic styling.
+
+Bild 09 — FOOD AND WATER AS DEFENCE
+Audio Anchor: Deshalb gehörten Lebensmittel und Wasser zu den wichtigsten Waffen der Verteidiger.
+Visual Purpose: Present food and water as strategic defence resources.
+Topic Anchor: grain, bread and water beside weapons.
+Visual Form: object-focus
+Planned Hold: 6s
+Prompt: Strong object-focused still life: sacks of grain, bread, water barrel and clay jugs arranged beside a shield, crossbow and bolts in a medieval castle storeroom. Equal visual importance between supplies and weapons.
+
+Bild 10 — CASTLE SUPPLY SYSTEM
+Audio Anchor: Burgen legten Vorräte an, nutzten Brunnen und Zisternen
+Visual Purpose: Explain how a castle tried to remain self-sufficient.
+Topic Anchor: storage cellar, well and cistern inside one fortress.
+Visual Form: system-hierarchy
+Planned Hold: 6s
+Prompt: Cutaway-like hand-drawn castle environment showing a food cellar, internal well and rainwater cistern as connected parts of one defensive living system. No labels, no people required.
+
+Bild 11 — STORES RUN OUT
+Audio Anchor: Doch selbst große Lager waren endlich.
+Visual Purpose: Prepare the turning point through scarcity.
+Topic Anchor: nearly empty medieval storage cellar.
+Visual Form: object-focus
+Planned Hold: 5s
+Prompt: Same type of medieval storage cellar now almost empty: a few sacks, one small loaf, nearly empty barrels, bare wooden shelves. Quiet ominous atmosphere, no people.
+
+Bild 12 — MONTHS OF BLOCKADE
+Audio Anchor: Bei Kenilworth dauerte die Belagerung 172 Tage.
+Visual Purpose: Make long duration visible without written dates.
+Topic Anchor: Kenilworth under continuing blockade through changing season/weather.
+Visual Form: process-sequence
+Planned Hold: 6s
+Prompt: Continuous panoramic view of the same castle and siege ring transitioning subtly from summer greenery on one side toward cold late-year weather on the other, while the encirclement remains in place. No text or numbers.
+
+Bild 13 — BOMBARDMENT
+Audio Anchor: König Heinrich der Dritte ließ die Burg mit Belagerungsmaschinen bombardieren
+Visual Purpose: Show active military pressure without implying it alone ended the siege.
+Topic Anchor: 13th-century siege engines firing at Kenilworth.
+Visual Form: battle-city-overview
+Planned Hold: 7s
+Prompt: 13th-century royal siege engines launching stones toward Kenilworth's walls while defenders respond from the battlements. Historically grounded equipment, tense action, no fantasy machinery, no excessive gore.
+
+Bild 14 — HUNGER AND DISEASE
+Audio Anchor: Mit der Zeit wurden jedoch die Vorräte knapp.
+Visual Purpose: Show resources and health collapsing together.
+Topic Anchor: empty stores and exhausted/sick people behind the walls.
+Visual Form: cause-effect
+Planned Hold: 6s
+Prompt: Inside the castle, nearly empty food containers in the foreground and several weakened historical stickman defenders and civilians sitting or leaning in the background. Pale tired expressions, lowered posture, restrained serious mood, no gore.
+
+Bild 15 — SURRENDER
+Audio Anchor: Als die Verteidiger im Dezember aufgaben
+Visual Purpose: Show the human turning point.
+Topic Anchor: exhausted defenders opening the castle gate.
+Visual Form: character-scene
+Planned Hold: 6s
+Prompt: Exhausted medieval defenders with varied hair, beards, hoods and simple armor open the fortress gate and step outside cautiously. Their weapons are lowered. The castle itself still looks formidable.
+
+Bild 16 — WALLS VS SUPPLIES
+Audio Anchor: Das zeigt, warum eine Belagerung nicht nur ein Kampf zwischen Mauern und Waffen war.
+Visual Purpose: Condense the core idea into one grounded comparison.
+Topic Anchor: strong fortification versus empty food store.
+Visual Form: comparison
+Planned Hold: 6s
+Prompt: Visually balanced composition within the same castle: on one side a thick stone wall and defensive weapons remain strong; on the other an almost empty storeroom and dry containers reveal the real weakness. No split-screen border or text.
+
+Bild 17 — WHAT WALLS CAN STOP
+Audio Anchor: Eine hohe Mauer konnte Pfeile und Steine aufhalten.
+Visual Purpose: Show the real strength of fortifications before stating their limit.
+Topic Anchor: missiles stopped by strong castle wall.
+Visual Form: architecture-city
+Planned Hold: 5s
+Prompt: Close cinematic view of a massive stone castle wall successfully resisting arrows and thrown stones. The wall is solid and imposing, reinforcing that the fortification itself still works.
+
+Bild 18 — THE SIDE THAT STAYS SUPPLIED
+Audio Anchor: Und manchmal gewann deshalb nicht die stärkere Armee, sondern die Seite, die länger versorgt blieb.
+Visual Purpose: Finish with logistics as the decisive concept.
+Topic Anchor: opposing sides with unequal supply continuity.
+Visual Form: comparison
+Planned Hold: 7s
+Prompt: Wide historical composition showing two opposing medieval forces around a fortress: one side still connected to a steady line of food carts and supplies, the other surrounded by empty crates and exhausted conditions. Make the logistics difference immediately readable without text.
+
+FINAL CHECK:
+- ACTIVE_STYLE_ID = history-stickman-adaptive-v1
+- all 18 accepted images share one art universe
+- no automatic figures when unnecessary
+- no image numbers inside images
+- no visible text or pseudo-text
+- no photorealism, 3D or modern infographic look
+- Bild 01 receives 3 temporary cover candidates; only one final winner remains
+- Bild 02–18 each have exactly one final accepted image

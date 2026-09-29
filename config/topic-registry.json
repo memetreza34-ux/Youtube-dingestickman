@@ -1,4 +1,13 @@
 {
   "version": 1,
-  "entries": []
+  "entries": [
+    {
+      "id": "2026-KW40_28-09_bis_04-10_test-kenilworth-belagerung",
+      "title": "Warum Hunger eine Burg besiegen konnte",
+      "aliases": [
+        "Warum Hunger mittelalterliche Belagerungen entscheiden konnte – Kenilworth 1266"
+      ],
+      "status": "test"
+    }
+  ]
 }
