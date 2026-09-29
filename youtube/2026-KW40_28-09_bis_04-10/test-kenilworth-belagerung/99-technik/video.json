@@ -8,7 +8,7 @@
   "topic": "Warum Hunger mittelalterliche Belagerungen entscheiden konnte – Kenilworth 1266",
   "language": "de",
   "aspectRatio": "16:9",
-  "status": "phase1-ready-waiting-assets",
+  "status": "phase1-ready-waiting-cover-selection",
   "testMode": true,
   "testMaximumSeconds": 120,
   "visualPolicyFile": "config/visual-policy.json",
@@ -20,7 +20,17 @@
     "firstSceneIsCover": true,
     "coverImageNumber": 1,
     "coverCandidateCount": 3,
-    "separateThumbnailForbidden": true
+    "separateThumbnailForbidden": true,
+    "coverTextRequired": true,
+    "coverText": "HUNGER BESIEGT BURGEN?",
+    "coverTextLanguage": "de",
+    "coverTextMustBeHighContrast": true,
+    "coverTextMustNotCoverMainSubject": true,
+    "rejectMisspelledCoverText": true,
+    "userSelectsCover": true,
+    "flowMustStopAfterCoverCandidates": true,
+    "selectedCoverRequiredBeforeRemainingImages": true,
+    "selectedCoverCandidate": null
   },
   "imageDensityPolicy": {
     "contentDrivenImageCountRequired": true,
@@ -54,5 +64,5 @@
   "audioReady": false,
   "renderReady": false,
   "createdAt": "2026-09-29T03:20:00Z",
-  "updatedAt": "2026-09-29T03:20:00Z"
+  "updatedAt": "2026-09-29T20:21:00+02:00"
 }
