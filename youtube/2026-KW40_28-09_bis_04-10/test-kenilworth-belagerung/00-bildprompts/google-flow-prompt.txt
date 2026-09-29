@@ -1,71 +1,91 @@
+ACTIVE_STYLE_ID: history-stickman-adaptive-v1
+
 GOOGLE FLOW MASTER PROMPT — Warum Hunger eine Burg besiegen konnte
 
 Create 18 separate 16:9 historical explainer illustrations for one coherent German YouTube video about the siege of Kenilworth Castle in 1266.
 
 CHANNEL STYLE:
-Use one consistent hand-drawn 2D historical explainer style across the entire batch. Clean dark ink outlines, flat muted historical colors, subtle cel shading and a light handmade ink-and-paper texture. When people are needed, use expressive historical stickman characters from the same character family: simple warm off-white round or slightly oval heads, slim simplified bodies, simple readable faces, historically appropriate hair, beards, hoods, helmets, clothing, armor and props. Mature historical documentary feeling, not childish or goofy. When people are not needed, use architecture, objects, landscapes or symbolic scenes in the exact same visual language.
+Use one consistent hand-drawn 2D historical explainer style across the entire video. Clean dark ink outlines, flat muted historical colors, subtle cel shading and a light handmade ink-and-paper texture. When people are needed, use expressive historical stickman characters from the same character family: simple warm off-white round or slightly oval heads, slim simplified bodies, readable simple faces, historically appropriate hair, beards, hoods, helmets, clothing, armor and props. Mature historical documentary feeling, not childish or goofy. When people are not needed, use architecture, objects, landscapes or symbolic scenes in the same visual language.
 
 VIDEO WORLD LOCK:
-Use one consistent stylized interpretation of Kenilworth Castle in 1266 throughout the video: pale tan-gray medieval stone, a massive central keep, strong curtain walls, a broad gatehouse and surrounding water defenses. Keep the same overall castle silhouette, gate design and stone color every time the exterior returns. The interior storage cellar always has dark stone walls, heavy timber shelves, rough wooden barrels, grain sacks and one clay water jug. When the cellar returns, reuse the same room layout and almost the same camera angle. Recurring defenders keep the same hair, beards, clothing and color palette whenever they appear again.
+Use one consistent stylized interpretation of Kenilworth Castle in 1266 throughout the video: pale tan-gray medieval stone, a massive central keep, strong curtain walls, a broad gatehouse and surrounding water defenses. Keep the same castle silhouette, gate design and stone color every time the exterior returns. The storage cellar always has dark stone walls, heavy timber shelves, rough wooden barrels, grain sacks and one clay water jug. When the cellar returns, reuse the same room layout and almost the same camera angle. Recurring defenders keep the same hair, beards, clothing and color palette whenever they appear again.
+
+COVER TEXT:
+Use exactly this German cover text on every Bild-01 candidate: "HUNGER BESIEGT BURGEN?"
+Make the text large, clean, correctly spelled and immediately readable. Put it in a calm area of the image without covering the castle, gate or other main subject. Use strong contrast against the actual background: dark lettering on light sky/stone, or light lettering on dark areas. No second line of explanatory text, no English text, no logo.
 
 BILD 01
-A strong wide view of Kenilworth Castle under blockade in 1266. Make the castle the clear dominant subject, large in frame, with one road leading toward the main gate but blocked before it reaches the walls. Add only a small royal barricade, two or three siege tents and a little campfire smoke. The image should immediately feel like a powerful fortress that has been cut off from the outside world, not like a crowded battlefield.
+A strong wide view of Kenilworth Castle under blockade in 1266. Make the castle the clear dominant subject, large in frame, with one road leading toward the main gate but blocked before it reaches the walls. Add only a small royal barricade, two or three siege tents and a little campfire smoke. The image should immediately feel like a powerful fortress cut off from the outside world, not like a crowded battlefield. Integrate the exact German cover text "HUNGER BESIEGT BURGEN?" prominently in a clean high-contrast area without covering the castle.
 
 BILD 02
-Inside the same castle, show five clearly readable people moving through a narrow inner-courtyard passage: a soldier, a servant, a mother, a child and an older man. They should feel cramped together without turning the scene into a crowd. Keep the figures fairly large, with a stone wall, one doorway and one supply barrel as the only important background elements.
+Inside the same castle, show five clearly readable people moving through a narrow inner-courtyard passage: a soldier, a servant, a mother, a child and an older man. They should feel cramped together without turning the scene into a crowd. Keep the figures fairly large, with a stone wall, one doorway and one supply barrel as the only important background elements. No visible text.
 
 BILD 03
-Inside the same stone storage cellar at Kenilworth Castle, show large grain sacks and wooden barrels filling most of the room. A rough timber shelf holds bread and one clay water jug. Keep the composition simple and the supplies large and clearly readable. Establish this exact room layout and camera angle because the same cellar will return later with fewer supplies.
+Inside the same stone storage cellar at Kenilworth Castle, show large grain sacks and wooden barrels filling most of the room. A rough timber shelf holds bread and one clay water jug. Keep the composition simple and the supplies large and clearly readable. Establish this exact room layout and camera angle because the same cellar will return later with fewer supplies. No visible text.
 
 BILD 04
-At the same broad gatehouse, show three exhausted defenders slowly opening the heavy gate from inside even though the stone fortress still looks intact and powerful. Keep the gate large and dominant in the frame. One lowered shield and one torch are enough to support the scene. The contrast should be clear: the castle is still strong, but the people are not.
+At the same broad gatehouse, show three exhausted defenders slowly opening the heavy gate from inside even though the stone fortress still looks intact and powerful. Keep the gate large and dominant in the frame. One lowered shield and one torch are enough to support the scene. No visible text.
 
 BILD 05
-Show the same castle from a simple elevated angle with three approach roads visible around it. Each road is blocked before it can reach the fortress. Keep the castle large enough to remain the dominant subject. Use only a few simple blockade points and one distant supply cart to make the isolation easy to understand without turning the image into an infographic.
+Show the same castle from a simple elevated angle with three approach roads visible around it. Each road is blocked before it can reach the fortress. Keep the castle large enough to remain the dominant subject. Use only a few simple blockade points and one distant supply cart. No visible text.
 
 BILD 06
-Show one calm royal soldier sitting beside a small campfire outside the castle while the intact fortress walls rise in the background. The soldier is waiting rather than attacking. Add only one tent and a spear with shield beside him. The mood should feel patient and tense, showing that attackers can simply wait for a fortress to weaken.
+Show one calm royal soldier sitting beside a small campfire outside the castle while the intact fortress walls rise in the background. The soldier is waiting rather than attacking. Add only one tent and a spear with shield beside him. No visible text.
 
 BILD 07
-Show one food cart stopped at a wooden road barricade on the way to the castle. Make the cart large in the foreground, with two royal guards at the barrier and the same Kenilworth gate visible farther down the road. The road should visually lead toward the fortress, making it obvious that supplies cannot get through.
+Show one food cart stopped at a wooden road barricade on the way to the castle. Make the cart large in the foreground, with two royal guards at the barrier and the same Kenilworth gate visible farther down the road. No visible text.
 
 BILD 08
-Return to exactly the same storage cellar and almost the same camera angle as Bild 03. About half of the grain sacks and barrels are now gone, leaving clearly visible empty spaces on the floor and shelves. Keep the same shelf, clay jug, archway, lighting and room design so the loss of supplies is immediately obvious.
+Return to exactly the same storage cellar and almost the same camera angle as Bild 03. About half of the grain sacks and barrels are now gone, leaving clearly visible empty spaces on the floor and shelves. Keep the same shelf, clay jug, archway, lighting and room design. No visible text.
 
 BILD 09
-Create a clean object-focused historical image inside the same castle world: one large grain sack, one water barrel and one crossbow arranged together on a rough wooden surface. Keep the background simple and dark. The three objects should have strong visual weight, showing that food and water can matter as much as weapons during a siege.
+Create a clean object-focused historical image inside the same castle world: one large grain sack, one water barrel and one crossbow arranged together on a rough wooden surface. Keep the background simple and dark. No visible text.
 
 BILD 10
-Inside the same castle courtyard, make one large stone well the main subject. A bucket rope descends into the well, while an open cellar doorway behind it reveals a few stored barrels. Add only a simple rain channel leading toward a covered cistern opening. Keep the scene natural and architectural, not like a cutaway diagram or textbook illustration.
+Inside the same castle courtyard, make one large stone well the main subject. A bucket rope descends into the well, while an open cellar doorway behind it reveals a few stored barrels. Add only a simple rain channel leading toward a covered cistern opening. No visible text.
 
 BILD 11
-Return again to exactly the same cellar and camera angle used in Bild 03 and Bild 08. The room is now almost empty. Show mostly bare floor and empty shelves, with only one half-empty sack, one nearly empty barrel and the same clay water jug left behind. Keep all architecture, lighting and props consistent with the earlier cellar images.
+Return again to exactly the same cellar and camera angle used in Bild 03 and Bild 08. The room is now almost empty. Show mostly bare floor and empty shelves, with only one half-empty sack, one nearly empty barrel and the same clay water jug left behind. No visible text.
 
 BILD 12
-Show the same Kenilworth Castle and the same general siege position much later in cold, wet weather. The ground is muddy, one tent looks worn and a leafless tree stands nearby. Keep the castle clearly recognizable and large enough in frame. The scene should communicate that the blockade has dragged on for months without filling the image with people.
+Show the same Kenilworth Castle and the same general siege position much later in cold, wet weather. The ground is muddy, one tent looks worn and a leafless tree stands nearby. Keep the castle clearly recognizable and large enough in frame. No visible text.
 
 BILD 13
-Show one historically plausible 13th-century stone-throwing siege engine large in the foreground, aimed toward the same castle wall. Two operators work the machine as one stone is released. Add only a small pile of stones beside it. Keep the image focused on one engine and one impact, not a field full of siege machines.
+Show one historically plausible 13th-century stone-throwing siege engine large in the foreground, aimed toward the same castle wall. Two operators work the machine as one stone is released. Add only a small pile of stones beside it. No visible text.
 
 BILD 14
-Inside the castle, show one recurring defender sitting exhausted against a stone wall with an empty wooden bowl in his hands. Use the same hair, beard and clothing as when this defender appeared earlier. Add one empty food sack and one nearly empty water jug nearby. Keep the shot intimate and serious, with the weakened defender filling much of the frame.
+Inside the castle, show one recurring defender sitting exhausted against a stone wall with an empty wooden bowl in his hands. Use the same hair, beard and clothing as when this defender appeared earlier. Add one empty food sack and one nearly empty water jug nearby. No visible text.
 
 BILD 15
-At the same gatehouse seen earlier, show three exhausted defenders walking slowly out through the open gate with lowered weapons. Keep the intact gate and walls towering above them so the fortress still looks physically strong. Reuse the same recurring defenders and the exact same gate design from earlier scenes.
+At the same gatehouse seen earlier, show three exhausted defenders walking slowly out through the open gate with lowered weapons. Keep the intact gate and walls towering above them. Reuse the same recurring defenders and exact same gate design. No visible text.
 
 BILD 16
-Inside the castle, show one collapsed empty grain sack as the large foreground subject while a massive intact stone wall rises behind it. Add only an empty barrel and a resting crossbow. The visual contrast should be simple and powerful: the wall still stands, but the supplies are gone.
+Inside the castle, show one collapsed empty grain sack as the large foreground subject while a massive intact stone wall rises behind it. Add only an empty barrel and a resting crossbow. No visible text.
 
 BILD 17
-Show a close low-angle view of the same massive stone wall as arrows and one heavy stone strike it without breaking through. Keep the wall as the dominant shape. Add only a small amount of dust from the impact and one simple defender silhouette on the battlement. The image should feel strong and uncluttered.
+Show a close low-angle view of the same massive stone wall as arrows and one heavy stone strike it without breaking through. Keep the wall as the dominant shape. Add only a small amount of dust and one simple defender silhouette on the battlement. No visible text.
 
 BILD 18
-Show one large food wagon arriving along an open road into the royal siege camp while the isolated castle remains visible in the distance. Add two pack animals and one receiving soldier, but keep the wagon as the clear foreground subject. The open supply route should feel active and secure, while the castle remains cut off in the background. This should be a strong final image showing that the side with continuing supplies can simply last longer.
+Show one large food wagon arriving along an open road into the royal siege camp while the isolated castle remains visible in the distance. Add two pack animals and one receiving soldier, but keep the wagon as the clear foreground subject. No visible text.
 
 GLOBAL RULES:
-Keep every image visually consistent with the same channel style and the same Kenilworth world. One clear visual idea per image, one dominant subject, only a few necessary supporting elements. Avoid overcrowded scenes, wimmelbilder, museum infographics, textbook posters, encyclopedia plates, tiny central subjects, dense crowds, many mini-figures, unnecessary cutaways, collages, multi-panel layouts and excessive micro-detail. No photorealism, 3D render, Pixar, anime, realistic portrait faces, painterly realism, graphic-novel realism, fantasy armor, modern objects, logos, watermarks or image numbers.
+Keep every image visually consistent with the same channel style and same Kenilworth world. One clear visual idea per image, one dominant subject, only a few necessary supporting elements. Avoid overcrowded scenes, wimmelbilder, museum infographics, textbook posters, tiny central subjects, dense crowds, many mini-figures, unnecessary cutaways, collages and excessive micro-detail. No photorealism, 3D render, Pixar, anime, realistic portrait faces, painterly realism, graphic-novel realism, fantasy armor, modern objects, logos, watermarks or image numbers.
 
-No visible text in any image. Do not invent labels, English words, pseudo-writing or decorative lettering.
+Bild 01 MUST contain exactly the German text "HUNGER BESIEGT BURGEN?". Bild 02 through Bild 18 contain no visible text. Never invent labels, English words, pseudo-writing or decorative lettering.
 
-GENERATION RULES:
-Generate Bild 01 three times as temporary cover alternatives, choose one winner and keep it as `Bild 01.png`. Generate Bild 02 through Bild 18 once each after prompt approval. Maximum five active generations at once. The final image folder must contain only `Bild 01.png` through `Bild 18.png`.
+GENERATION WORKFLOW — MANDATORY:
+
+STAGE 1 — COVER ONLY
+- Generate exactly THREE alternatives for Bild 01 using exactly the same text "HUNGER BESIEGT BURGEN?".
+- Reject and regenerate any cover candidate with missing, misspelled or poorly readable text.
+- Once three acceptable candidates exist, STOP IMMEDIATELY.
+- DO NOT generate Bild 02–18 yet.
+- DO NOT choose a winner yourself.
+- Wait for the user to explicitly select one cover candidate.
+
+STAGE 2 — ONLY AFTER USER SELECTS THE COVER
+- The selected candidate becomes `Bild 01.png`.
+- Use the selected cover as an additional visual reference for the same Kenilworth world/style.
+- Only then generate Bild 02 through Bild 18 exactly once each.
+- Maximum five active generations at once.
+- Final image folder contains only `Bild 01.png` through `Bild 18.png`.
