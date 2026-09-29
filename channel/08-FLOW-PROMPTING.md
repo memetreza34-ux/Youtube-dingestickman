@@ -1,103 +1,80 @@
-# Google Flow Prompting — History Visual System V1.3
+# Google Flow Prompting — History Visual System V1.4
 
 ## Ziel
 
-Google Flow bekommt am Ende **einen sauberen Copy-Paste-Prompt**. Interne Planung und der tatsächliche Flow-Prompt werden strikt getrennt.
+Google Flow bekommt einen sauberen Copy-Paste-Prompt. Interne Planung und tatsächlicher Flow-Prompt bleiben strikt getrennt.
 
 ## Goldene Regel
 
-**Interne Bildplanung darf technisch und ausführlich sein. Der finale Google-Flow-Prompt nicht.**
+**Google Flow arbeitet in zwei getrennten Generierungsstufen.**
 
-### Ebene A — intern, NICHT an Google Flow
+### STUFE 1 — nur Cover
 
-Intern dürfen Audio Anchor, Visual Purpose, Visual Function, Visual Form, Kernaussage, Dominant Subject, Supporting Elements, Kamera/Komposition, Continuity-Hinweise, geplante Dauer und QC verwendet werden.
+1. `CHANNEL STYLE` einmal laden.
+2. `VIDEO WORLD LOCK` einmal laden.
+3. Exakten deutschen `COVER TEXT` laden.
+4. **Nur drei Varianten von BILD 01 erzeugen.**
+5. Alle drei Varianten müssen exakt denselben korrekt geschriebenen Cover-Text enthalten.
+6. Danach **STOPPEN**.
+7. Keine Bilder 02–NN erzeugen.
+8. Google Flow darf keinen Cover-Gewinner selbst auswählen.
+9. Auf die ausdrückliche Auswahl des Nutzers warten.
 
-### Ebene B — finaler Google-Flow-Prompt
+Der Nutzer entscheidet, welcher der drei Cover-Kandidaten verwendet wird.
 
-Der tatsächliche Flow-Prompt besteht nur aus:
+### MANUELLER COVER-GATE
 
-1. kurzer Aufgabe
-2. einem gemeinsamen `CHANNEL STYLE`
-3. einem `VIDEO WORLD LOCK`
-4. einem festen `COVER TEXT`
-5. `BILD 01` bis `BILD NN`
-6. pro Bild einem natürlichen direkten Fließtext-Prompt
-7. kurzer globaler Negativ-/Textregel
-
-Keine internen Analysefelder im finalen Prompt.
-
-## Verboten im finalen Flow-Prompt
+Nach den drei Cover-Kandidaten lautet der Status:
 
 ```text
-Audio Anchor:
-VIEWER MUST IMMEDIATELY UNDERSTAND:
-SHOW:
-DOMINANT VISUAL ACTION / STATE:
-SUPPORTING ELEMENTS:
-CAMERA / COMPOSITION:
-CONTINUITY LOCK:
-Visual Purpose:
-Visual Form:
-Topic Anchor:
-Planned Hold:
+WAITING_FOR_USER_COVER_SELECTION
 ```
 
-## Cover-Regel — verbindlich
+Bis der Nutzer einen Kandidaten ausgewählt hat, ist jede weitere Bildgenerierung verboten.
+
+Erst nach einer ausdrücklichen Nachricht wie `Cover 2 nehmen`, `das mittlere nehmen` oder einer gleichwertigen Auswahl darf Flow fortfahren.
+
+Der ausgewählte Kandidat wird zu `Bild 01.png` und ist die visuelle Referenz für die weitere Produktion.
+
+### STUFE 2 — restliche Bilder
+
+Erst nach Nutzerfreigabe:
+
+- ausgewählten Cover-Kandidaten als BILD 01 festhalten
+- dessen Stil-/World-Lock als visuelle Referenz beibehalten
+- BILD 02 bis BILD NN erzeugen
+- Nicht-Cover-Bilder jeweils nur einmal erzeugen
+- maximal fünf aktive Generierungen gleichzeitig
+
+## Cover-Regel
 
 **BILD 01 ist immer Cover + erste Szene und enthält immer passenden deutschen Text.**
 
-Regeln:
-
-- Text muss zum konkreten Video passen
 - ideal 2–5 Wörter
-- nicht automatisch den kompletten Videotitel übernehmen
-- exakten Wortlaut im Prompt vorgeben
-- alle drei Cover-Kandidaten benutzen denselben exakten Text
-- Schreibfehler = Kandidat verwerfen
-- Text groß und sofort lesbar
-- Text darf Hauptmotiv/Gesicht/entscheidende Aktion nicht verdecken
+- passend zu Thema/Hook
+- exakter Wortlaut im Prompt
+- groß und sofort lesbar
 - Hintergrund hell → dunkle Schrift
 - Hintergrund dunkel → helle Schrift
-- falls nötig dezenter Rand/Schatten für Kontrast
-- kein zusätzlicher Untertitel, keine englische Zweitzeile, kein Logo
+- Hauptmotiv nicht verdecken
+- kein zusätzlicher englischer Text
+- keine Pseudo-Schrift
+- Schreibfehler/unlesbarer Text = Kandidat verwerfen und neu erzeugen
 
-## Empfohlenes finales Format
+## Finaler Flow-Prompt
 
-```text
-ACTIVE_STYLE_ID: history-stickman-adaptive-v1
+Der echte Flow-Prompt enthält nur:
 
-Create N separate 16:9 historical explainer illustrations for one coherent German YouTube video.
+1. `ACTIVE_STYLE_ID`
+2. kurze Aufgabe
+3. `CHANNEL STYLE`
+4. `VIDEO WORLD LOCK`
+5. `COVER TEXT`
+6. `BILD 01` bis `BILD NN` als natürliche direkte Fließtext-Prompts
+7. globale Regeln
+8. **zweistufige Generation Rules mit manuellem Cover-Gate**
 
-CHANNEL STYLE:
-[gemeinsamer Stilblock]
-
-VIDEO WORLD LOCK:
-[wiederkehrende Orte/Figuren/Props]
-
-COVER TEXT:
-Use exactly this German cover text: "[2–5 Wörter]".
-
-BILD 01
-[starker natürlicher Cover-Prompt + exakter Cover-Text + Platzierung/Kontrast]
-
-BILD 02
-[natürlicher direkter Bildprompt, kein Text]
-
-...
-
-GLOBAL RULES:
-Bild 01 contains the exact German cover text. Bild 02 through Bild NN contain no visible text unless explicitly required later.
-```
-
-## Prompt-Stil pro Bild
-
-Ein guter Einzelprompt klingt wie eine klare Regieanweisung an einen Illustrator, nicht wie ein Formular.
-
-## Stil- und World-Lock
-
-Der `CHANNEL STYLE` wird pro Batch nur einmal geschrieben. Der `VIDEO WORLD LOCK` legt wiederkehrende Architektur, Räume, Figurenmerkmale, Props, Grundfarbigkeit und Wetter-/Zeitlogik fest.
-
-Danach genügt in Einzelprompts z. B. `the same castle`, `the same street`, `the same defender` oder `return to exactly the same room and camera angle`.
+Interne Felder wie Audio Anchor, Visual Purpose, Visual Form, Supporting Elements, Planned Hold oder QC bleiben außerhalb des finalen Flow-Prompts.
 
 ## Bildhierarchie
 
@@ -114,19 +91,14 @@ Intern weiterhin sicherstellen:
 
 - **BILD 01:** deutscher Cover-Text ist Pflicht
 - **BILD 02–NN:** standardmäßig kein sichtbarer Text
-- außerhalb des Covers nur bei ausdrücklicher Notwendigkeit und dann exakt auf Deutsch
-- keine englischen Labels
-- keine Bildnummern im eigentlichen Bild
-- keine Pseudo-Schrift
+- außerhalb des Covers nur bei ausdrücklicher Notwendigkeit und exakt auf Deutsch
 
-## Qualitätscheck vor Übergabe an Flow
+## Qualitätscheck
 
-1. Ist `google-flow-prompt.txt` direkt kopierbar?
-2. Stehen dort keine internen Analysefelder mehr?
-3. Ist der Channel-Style nur einmal definiert?
-4. Ist der Video-World-Lock nur einmal definiert?
-5. Hat BILD 01 einen passenden kurzen deutschen Cover-Text?
-6. Ist der Cover-Text exakt geschrieben, kontrastreich und frei vom Hauptmotiv platziert?
-7. Ist jeder Bildprompt natürlich und direkt formuliert?
-8. Bleiben wiederkehrende Orte/Figuren/Props konsistent?
-9. Sind BILD 02–NN frei von unnötigem sichtbarem Text?
+1. Sind genau drei Cover-Kandidaten vorgesehen?
+2. Haben alle drei exakt denselben deutschen Cover-Text?
+3. Muss Flow nach BILD 01 ausdrücklich stoppen?
+4. Ist Nutzerwahl vor BILD 02 zwingend?
+5. Darf Flow niemals selbst einen Gewinner auswählen?
+6. Bleibt der ausgewählte Cover-Look Referenz für die restlichen Bilder?
+7. Sind die übrigen Bildprompts natürlich und direkt formuliert?
