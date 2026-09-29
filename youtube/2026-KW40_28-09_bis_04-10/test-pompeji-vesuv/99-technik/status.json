@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "phase1": "READY",
+  "phase2": "WAITING-FOR-NEW-IMAGES-AND-USER-VOICE",
+  "phase3": "BLOCKED-WAITING-PHASE2",
+  "imagesReady": false,
+  "audioReady": false,
+  "renderReady": false,
+  "approvedPromptFile": "00-bildprompts/google-flow-prompt.txt",
+  "approvedVisualRulesVersion": "history-stickman-adaptive-v1 / direct-flow-prompt-v1",
+  "requiredAction": "Generate Bild 01-16 with the approved direct Google Flow prompt, review continuity and image quality, then add the user's final voiceover."
+}

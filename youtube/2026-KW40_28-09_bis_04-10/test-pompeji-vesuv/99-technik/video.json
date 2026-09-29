@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "pipelineVersion": 1,
+  "videoId": "2026-KW40_28-09_bis_04-10_test-pompeji-vesuv",
+  "weekFolder": "2026-KW40_28-09_bis_04-10",
+  "topicSlug": "test-pompeji-vesuv",
+  "title": "Warum Pompeji dem Vesuv kaum entkommen konnte",
+  "topic": "Warum die wechselnden Gefahren der Vesuv-Eruption 79 n. Chr. Pompeji so schwer zu überleben machten",
+  "language": "de",
+  "aspectRatio": "16:9",
+  "status": "phase1-ready-waiting-assets",
+  "testMode": true,
+  "testMaximumSeconds": 120,
+  "visualPolicyFile": "config/visual-policy.json",
+  "visualStyleId": "history-stickman-adaptive-v1",
+  "targetDurationSeconds": 95,
+  "targetDurationRangeSeconds": [80, 120],
+  "plannedImageCount": 16,
+  "coverPolicy": {
+    "firstSceneIsCover": true,
+    "coverImageNumber": 1,
+    "coverCandidateCount": 3,
+    "separateThumbnailForbidden": true
+  },
+  "imageDensityPolicy": {
+    "contentDrivenImageCountRequired": true,
+    "fixedImageCountForbidden": true,
+    "oneImageOneVisualPurpose": true,
+    "targetAverageHoldSeconds": [4.5, 7.5],
+    "reviewAboveSeconds": 9,
+    "preferSplitAboveSeconds": 11,
+    "hardMaximumSeconds": 16,
+    "minimumUsefulHoldSeconds": 2.5,
+    "fillerImagesForbidden": true
+  },
+  "audioPolicy": {
+    "singleFinalVoiceoverRequired": true,
+    "userOriginalMustRemainUntouched": true,
+    "playbackRate": 1.1,
+    "loudnessTargetLufs": -16,
+    "truePeakDbtp": -1.5,
+    "sampleRateHz": 48000
+  },
+  "renderPolicy": {
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "endHoldSeconds": 1.3,
+    "backgroundMusic": false,
+    "subtitles": false
+  },
+  "phase1Ready": true,
+  "imagesReady": false,
+  "audioReady": false,
+  "renderReady": false,
+  "createdAt": "2026-09-29T17:05:00Z",
+  "updatedAt": "2026-09-29T17:05:00Z"
+}
