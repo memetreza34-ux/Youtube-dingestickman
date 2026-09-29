@@ -26,7 +26,11 @@
     "coverTextMaxWords": 5,
     "coverTextMustBeHighContrast": true,
     "coverTextMustNotCoverMainSubject": true,
-    "rejectMisspelledCoverText": true
+    "rejectMisspelledCoverText": true,
+    "userSelectsCover": true,
+    "flowMustStopAfterCoverCandidates": true,
+    "selectedCoverRequiredBeforeRemainingImages": true,
+    "selectedCoverCandidate": null
   },
   "imageDensityPolicy": {
     "contentDrivenImageCountRequired": true,
