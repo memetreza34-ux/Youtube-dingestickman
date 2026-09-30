@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "phase1": "READY-COVER-TEXT-AND-USER-GATE",
-  "phase2": "WAITING-FOR-3-COVER-CANDIDATES-THEN-USER-SELECTION",
+  "phase1": "BLOCKED-LEGACY-PROMPT-V1-NEEDS-V2-REBUILD",
+  "phase2": "BLOCKED-WAITING-FOR-VISUAL-DIRECTOR-V2-REBUILD",
   "phase3": "BLOCKED-WAITING-PHASE2",
   "imagesReady": false,
   "audioReady": false,
@@ -11,8 +11,8 @@
   "selectedCoverCandidate": null,
   "flowMayGenerateRemainingImages": false,
   "previousFlowBatchAccepted": false,
-  "previousFlowBatchReason": "Cover ohne verpflichtenden Text und Flow lief vor Nutzer-Auswahl bereits mit weiteren Bildern weiter.",
-  "approvedPromptFile": "00-bildprompts/google-flow-prompt.txt",
-  "approvedVisualRulesVersion": "history-stickman-adaptive-v1 / manual-cover-gate-v1",
-  "requiredAction": "Nur drei neue Bild-01-Cover mit exakt HUNGER BESIEGT BURGEN? erzeugen. Danach stoppen und auf Nutzer-Auswahl warten. Erst nach Auswahl Bild 02-18 generieren."
+  "previousFlowBatchReason": "Legacy V1 prompt planning: image ideas were too inventory-like and could lose the planned visual form between mapping and final prompt.",
+  "approvedPromptFile": null,
+  "approvedVisualRulesVersion": "history-stickman-adaptive-v1 / visual-director-v2",
+  "requiredAction": "Rebuild BILD_AUDIO_ZUORDNUNG.json as Scene Card Schema V2, rewrite all image prompts with Visual Director V2, require Prompt QC >= 8/10, then validate Phase 1 again before generating any cover or remaining image."
 }
