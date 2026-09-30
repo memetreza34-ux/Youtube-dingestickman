@@ -1,5 +1,5 @@
 {
-  "pipelineVersion": 1,
+  "pipelineVersion": 2,
   "projectSchemaVersion": 1,
   "languageDefault": "de",
   "aspectRatio": "16:9",
@@ -37,6 +37,22 @@
     "maxConcurrentGenerations": 5,
     "nonCoverGenerationCount": 1,
     "finalImageDirectory": "00-bildprompts/images"
+  },
+  "phase3AssetPolicy": {
+    "existingImagesOnly": true,
+    "imageGenerationForbidden": true,
+    "imageRegenerationForbidden": true,
+    "imageEditingForbidden": true,
+    "imageReplacementForbidden": true,
+    "imageDeletionForbidden": true,
+    "imageAdditionForbidden": true,
+    "abortOnMissingImage": true,
+    "abortOnInvalidImage": true,
+    "abortOnCountMismatch": true,
+    "abortOnImageMutation": true,
+    "agentMustReportErrorInsteadOfRepairing": true,
+    "lockManifest": "99-technik/PHASE3_IMAGE_LOCK.json",
+    "sourceDirectory": "00-bildprompts/images"
   },
   "audioPolicy": {
     "playbackRate": 1.1,
