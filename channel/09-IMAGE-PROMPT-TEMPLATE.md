@@ -1,212 +1,272 @@
-# History Image Prompt Template — Google Flow V2
+# History Image Prompt Template — Flow Compiler V3
 
-Dieses Dokument definiert die Trennung zwischen **interner Bildplanung** und dem **finalen Google-Flow-Prompt**.
+## Zweck
 
-## 1. Interne Planung — Scene Card V2
+Dieses Dokument beschreibt, **wie die interne Scene Card in den finalen Google-Flow-Prompt übersetzt wird**.
 
-Vor dem Schreiben eines finalen Prompts ist pro Bild eine Scene Card nach `11-VISUAL-DIRECTOR.md` Pflicht.
-
-```text
-Audio Anchor
-Viewer Takeaway
-Visual Purpose
-Topic Anchor
-Visual Form
-Visual Concept
-Dominant Subject
-Action / State
-Composition
-Camera
-Depth Plan
-Lighting / Mood
-Supporting Elements
-Continuity Note
-Historical Accuracy Note
-Planned Hold
-Prompt QC Score
-```
-
-Diese Informationen helfen beim Denken und Prüfen. Sie dürfen nicht 1:1 als Formular in den finalen `google-flow-prompt.txt` kopiert werden.
-
-## 2. Prompt-Compiler-Reihenfolge
-
-Der finale natürliche Bildprompt wird aus der Scene Card in dieser Reihenfolge gebaut:
+Neue Produktionen schreiben `google-flow-prompt.txt` nicht mehr manuell. Die verbindliche Implementierung liegt in:
 
 ```text
-1. konkrete Bildidee / Hauptaussage
-2. dominantes Motiv + Handlung/Zustand
-3. räumliche Komposition
-4. Kamera/Perspektive
-5. Vordergrund / Mittelgrund / Hintergrund, wenn relevant
-6. Licht/Stimmung/Farbakzent
-7. notwendige historische Details
-8. Continuity-Verweis
-9. sichtbarer Text oder No-Text-Regel
+src/lib/flow-prompt.js
+src/cli/build-youtube-flow-prompt.js
 ```
 
-Nicht jeder Punkt braucht einen eigenen Satz. Der Prompt soll natürlich lesen, aber die Bildregie muss konkret bleiben.
+Build-Befehl:
 
-## 3. Finaler Flow-Prompt
+```bash
+npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
+```
 
-Der finale Prompt soll wie eine klare Regieanweisung für einen Illustrator klingen.
+## 1. Eingaben des Compilers
 
-### Grundformat
+Der Compiler benötigt vier Quellen:
 
 ```text
-COVER TEXT:
-Use exactly this German cover text: "[2–5 Wörter]".
-
-BILD 01
-[natürlicher direkter Cover-Prompt; Bildidee + Komposition + Kamera + Stimmung + exakten Cover-Text integrieren]
-
-BILD 02
-[natürlicher direkter Bildprompt; Bildidee + Komposition + Kamera/Depth/Mood soweit nötig; kein sichtbarer Text]
+99-technik/video.json
+99-technik/BILD_AUDIO_ZUORDNUNG.json
+99-technik/FLOW_WORLD_LOCK.json
+config/flow-style-lock.json
 ```
 
-## 4. Mindestqualität eines Einzelprompts
+### video.json
 
-Ein finaler Prompt darf nicht nur sagen, **was** im Bild vorkommt. Er muss auch ausreichend erklären, **wie die Elemente zusammen die Aussage sichtbar machen**.
+Liefert unter anderem:
 
-Unzureichend:
+- Titel
+- Thema
+- Style-ID
+- Bildzahl
+- Seitenverhältnis
+- exakten deutschen Cover-Text
+
+### BILD_AUDIO_ZUORDNUNG.json
+
+Enthält die Scene Card V2 pro Bild:
 
 ```text
-Show a soldier at a campfire. Add one tent and the castle in the background. No visible text.
+viewerTakeaway
+visualPurpose
+topicAnchor
+visualForm
+visualConcept
+dominantSubject
+actionState
+composition
+camera
+depthPlan
+lightingMood
+supportingElements
+continuityNote
+historicalAccuracyNote
+promptQcScore
 ```
 
-Stärker:
+### FLOW_WORLD_LOCK.json
+
+Fixiert die videospezifische Welt und muss vor dem Build `READY` sein.
+
+### flow-style-lock.json
+
+Fixiert die kanalweite Rendering-DNA und muss `READY` sein.
+
+## 2. Compiler-Reihenfolge pro Bild
+
+Jeder natürliche Einzelprompt wird inhaltlich in dieser Reihenfolge zusammengesetzt:
 
 ```text
-Use a slightly low medium-wide view from behind one waiting royal soldier in the darker foreground, with his small campfire as the only warm accent. Leave a broad empty stretch of road across the middle ground before the intact pale castle walls rise in the distance, making patience and isolation the visual idea rather than attack. Keep one tent and the resting spear secondary. No visible text.
+1. kompakter unveränderlicher Style Anchor
+2. Visual Concept / Bildidee
+3. Dominant Subject + Action/State
+4. Composition
+5. Camera
+6. Depth Plan
+7. Lighting / Mood
+8. maximal 1–3 Supporting Elements
+9. Visual-Form-Guard, falls nötig
+10. Continuity Note
+11. Historical Accuracy Note
+12. Cover-Text oder No-Text-Regel
 ```
 
-Die zweite Version definiert visuelle Beziehung, Tiefe, Kamera und Aussage — nicht nur Inventar.
+Die internen Feldnamen werden nicht als Formular ausgegeben. Das Ergebnis bleibt ein natürlicher direkter Prompt.
 
-## 5. Visual-Form-Treue
+## 3. Warum der Style Anchor pro Bild Pflicht ist
 
-Der Prompt muss die gewählte Visual Form erhalten.
+Der lange `CHANNEL STYLE — IMMUTABLE` wird einmal für den gesamten Batch definiert.
 
-- `comparison`: beide Pole sichtbar und klar gegeneinandergestellt
-- `cause-effect`: Ursache und Folge sichtbar verbunden
-- `process-sequence`: Zustandsänderung klar lesbar
-- `system-hierarchy`: räumliche Hierarchie/Beziehung sichtbar
-- `battle-city-overview`: räumliche Lage bleibt Hauptaussage
-- `object-focus`: Objekt bleibt Hauptträger der Aussage
-- `character-scene`: Haltung, Handlung oder Beziehung trägt den Gedanken
+Zusätzlich beginnt jeder Bildprompt mit demselben kurzen Style Anchor aus `config/flow-style-lock.json`.
 
-Wenn die Form beim Schreiben verloren geht, Prompt zurückweisen.
-
-## 6. Cover-Text — Pflicht
-
-BILD 01 ist Cover + erste Szene und bekommt **immer** einen passenden kurzen deutschen Text.
-
-Der Text:
-
-- passt zum Thema/Hook des Videos
-- ist idealerweise 2–5 Wörter lang
-- wird exakt im Flow-Prompt angegeben
-- bleibt bei allen drei Cover-Kandidaten identisch
-- muss korrekt geschrieben sein
-- ist groß und sofort lesbar
-- verdeckt kein wichtiges Hauptmotiv
-- erhält je nach Hintergrund automatisch starken Kontrast: hell auf dunkel oder dunkel auf hell
-- darf bei Bedarf einen dezenten Rand/Schatten besitzen
-
-Keine zweite Textzeile mit Zusatzinformationen, keine englischen Labels, keine Bildnummern, kein Logo und keine Pseudo-Schrift.
-
-## 7. Was nicht in den finalen Prompt gehört
-
-Nicht als Formular ausgeben:
+Dadurch ist die Priorität eindeutig:
 
 ```text
-Viewer Takeaway:
-Visual Purpose:
-Visual Form:
-Visual Concept:
-Dominant Subject:
-Supporting Elements:
-Camera:
-Depth Plan:
-Continuity Note:
-Prompt QC Score:
+Rendering-DNA bleibt gleich
+→ Szene und Epoche dürfen wechseln
+→ Kamera und Stimmung dürfen wechseln
+→ Stil darf nicht wechseln
 ```
 
-Die Inhalte dieser Felder müssen trotzdem im natürlichen Prompt wirksam werden.
+Der Anchor ist absichtlich kompakt. Einzelprompts dürfen nicht mit immer neuen Style-Synonymen aufgebläht werden.
 
-## 8. Gemeinsamer Style-Block
+## 4. Style-Drift-Sperre
 
-Der Channel Style wird pro Batch **nur einmal** vor den Einzelbildern angegeben.
-
-Er enthält knapp:
-
-- 2D hand-drawn historical explainer style
-- expressive historical stickman family, falls Figuren benötigt werden
-- clean dark ink outlines
-- muted historical colors
-- flat colors
-- subtle cel shading
-- light ink/paper texture
-- mature, not childish
-- gleiche Zeichenlogik für Figuren, Architektur, Karten und Objekte
-- Detailhierarchie nach `10-STYLE-DNA-V2.md`
-- kein Photorealismus, 3D, Anime, Pixar oder painterly realism
-
-## 9. Video World Lock
-
-Ebenfalls nur einmal pro Video/Batch definieren:
-
-- wiederkehrende Orte
-- Architektur/Silhouetten
-- wiederkehrende Räume
-- wiederkehrende Figurenmerkmale
-- wichtige Props
-- Grundfarbigkeit, Wetter und Zeitlogik
-
-Danach in Einzelprompts einfach auf `the same ...` verweisen.
-
-## 10. Einzelbild-Regeln
-
-Intern gilt weiterhin:
-
-- genau eine Kernaussage
-- genau ein dominantes Hauptmotiv
-- maximal 1–3 unterstützende Elemente
-- Hauptmotiv groß genug für YouTube
-- keine Wimmelbilder
-- keine Museumstafel-/Schulbuchposter-Ästhetik
-- keine unnötigen Querschnitte oder Collagen
-- bei zwei gleich wichtigen Aussagen lieber zwei Bilder
-- wenige Elemente sind kein Ersatz für starke Komposition
-
-## 11. Textregel
+Folgende generische Wörter sind in den Scene Cards für V3 unerwünscht und werden durch den Compiler/Validator blockiert:
 
 ```text
-BILD 01: exact short German cover text REQUIRED.
-BILD 02–NN: no visible text by default.
+cinematic
+epic
+ultra detailed
+hyper detailed
+photographic
+realistic lighting
+depth of field
+bokeh
 ```
 
-Außerhalb des Covers darf sichtbarer Text nur bei ausdrücklicher Notwendigkeit vorkommen und muss dann exakt auf Deutsch vorgegeben sein.
+Warum: Diese Wörter steuern oft einen allgemeinen Render-Look statt die konkrete Bildaussage.
 
-## 12. Prompt-QC
-
-Jeder Prompt wird nach `12-PROMPT-QC.md` bewertet.
+Besser:
 
 ```text
-Minimum: 8/10
+slightly elevated wide view
+cool overcast daylight
+hard side shadow from the gate tower
+large empty middle ground
+small warm fire as the only warm accent
 ```
 
-Aussage-Treue, Visual-Form-Treue oder Komposition dürfen nicht 0 Punkte erhalten.
+## 5. Visual-Form-Guards
 
-## 13. Freigabe
+Der Compiler schützt Visual Forms, die besonders leicht verloren gehen.
 
-Der finale `google-flow-prompt.txt` ist erst fertig, wenn:
+### comparison
+Beide Pole bleiben sichtbar und klar räumlich gegeneinandergestellt.
 
-1. er direkt in Google Flow kopiert werden kann,
-2. keine internen Planungslabels mehr sichtbar sind,
-3. Style und World Lock einmalig definiert sind,
-4. BILD 01 einen passenden 2–5-Wort-Covertext auf Deutsch besitzt,
-5. jeder Bildblock eine konkrete visuelle Idee statt nur eine Inventarliste enthält,
-6. Visual Form und Viewer Takeaway aus der Scene Card erhalten bleiben,
-7. Komposition/Kamera/Depth/Mood die Aussage ausreichend konkret machen,
-8. wiederkehrende Elemente konsistent bleiben,
-9. BILD 02–NN keinen unnötigen sichtbaren Text enthalten,
-10. jeder Bildprompt Prompt-QC >= 8/10 erreicht.
+### cause-effect
+Ursache und Folge bleiben sichtbar verbunden.
+
+### process-sequence
+Die Zustandsänderung bleibt sofort lesbar; bei Bedarf derselbe Ort und fast derselbe Blickwinkel.
+
+### system-hierarchy
+Hierarchie entsteht über Höhe, Distanz, Wege, Gruppierung und Beziehungen statt Corporate-Pfeile.
+
+### battle-city-overview
+Die räumliche Lage bleibt Hauptidee; kein zufälliger Figuren-Close-up.
+
+### object-focus
+Das Objekt trägt die Aussage wirklich und bleibt groß; Hintergrund ruhig.
+
+### character-scene
+Haltung, Handlung, Blick oder Beziehung der Figuren trägt den Gedanken.
+
+## 6. Cover
+
+BILD 01 ist Cover + erste Szene.
+
+Der Compiler verlangt einen echten Cover-Text aus `video.json`.
+
+Regeln:
+
+- 2–5 Wörter
+- Deutsch
+- exakt vorgegeben
+- groß und sofort lesbar
+- hoher Kontrast
+- Hauptmotiv nicht verdecken
+- keine zweite Textzeile
+- kein Logo
+- keine Bildnummer
+- keine Pseudo-Schrift
+
+## 7. Bilder 02–NN
+
+Jeder Nicht-Cover-Prompt endet explizit mit einer No-Text-Regel.
+
+```text
+No visible text, labels, letters, numbers, logos, watermarks or pseudo-writing anywhere in the image.
+```
+
+Das ist bewusst strenger als nur `No visible text`.
+
+## 8. World Lock
+
+`FLOW_WORLD_LOCK.json` muss mindestens enthalten:
+
+- `status: READY`
+- `settingName`
+- `settingDescription`
+
+Optional, aber bei wiederkehrenden Elementen erwünscht:
+
+- recurringPlaces
+- recurringCharacters
+- recurringProps
+- basePalette
+- timeWeatherLogic
+- continuityRules
+
+Platzhalter sind beim Validator verboten.
+
+## 9. Supporting Elements
+
+Maximal drei.
+
+Sie dürfen nur bleiben, wenn sie eine Funktion haben:
+
+- Ursache
+- Folge
+- Maßstab
+- Ort/Epoche
+- Blickführung
+- Kontinuität
+
+Dekoration ohne Aussage wird entfernt.
+
+## 10. Prompt-QC vor dem Build
+
+Der Compiler akzeptiert nur:
+
+```text
+promptQcScore >= 8
+promptQcScore <= 10
+```
+
+Ein schlechter Prompt darf nicht dadurch „repariert“ werden, dass der Compiler mehr Wörter anhängt. Die Scene Card muss vorher verbessert werden.
+
+## 11. Finaler Master-Prompt
+
+Der Compiler erzeugt automatisch:
+
+```text
+ACTIVE_STYLE_ID
+PROMPT_SYSTEM: flow-compiler-v3
+CHANNEL STYLE — IMMUTABLE
+STYLE CONSISTENCY RULE
+STYLE REFERENCES / INGREDIENTS
+VIDEO WORLD LOCK — IMMUTABLE WITHIN THIS VIDEO
+COVER TEXT
+BILD 01 ... BILD NN
+GLOBAL NEGATIVE STYLE RULE
+GLOBAL COMPOSITION RULES
+TEXT RULE
+TWO-STAGE COVER GATE
+```
+
+Diese Struktur ist für Google Flow direkt kopierbar.
+
+## 12. Nachträgliche Änderungen
+
+Der finale `google-flow-prompt.txt` ist ein **Build-Artefakt**.
+
+Nicht direkt editieren.
+
+Bei Änderungsbedarf:
+
+```text
+Scene Card / World Lock / Cover-Text ändern
+→ Prompt-QC neu prüfen
+→ build:youtube-flow erneut ausführen
+→ validate:youtube-phase1 erneut ausführen
+```
+
+Damit bleibt die Produktion reproduzierbar und Agenten können die Bildwelt nicht durch freie Prompt-Improvisation verwässern.
