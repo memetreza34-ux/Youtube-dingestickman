@@ -4,6 +4,8 @@
 
 Dieses Dokument präzisiert die bestehende Bildwelt. Es ersetzt **nicht** den grundlegenden Stil `history-stickman-adaptive-v1`, sondern macht ihn reproduzierbarer und promptbar.
 
+Für Flow Compiler V3 ist `config/flow-style-lock.json` die maschinenlesbare Umsetzung dieses Dokuments.
+
 Die wichtigste Regel lautet:
 
 > Ein Bild darf nicht nur historisch korrekt und sauber sein. Es muss eine klare visuelle Idee, starke Hierarchie und erkennbare Regie besitzen.
@@ -43,6 +45,8 @@ Detail folgt Bedeutung:
 3. Hintergrund: reduziert und ruhiger
 
 Gebäude dürfen detaillierter sein als Figuren, aber niemals detailreicher wirken als die eigentliche Aussage des Bildes.
+
+Die maschinenlesbaren Detailbudgets stehen zusätzlich in `config/flow-style-lock.json`.
 
 ## 4. Raum und Tiefe
 
@@ -97,6 +101,8 @@ Licht dient der Geschichte, nicht dem Fotorealismus.
 
 Warmes Akzentlicht darf gezielt eingesetzt werden, z. B. Feuer gegen kalte Umgebung.
 
+Generische Stilbegriffe wie `cinematic` oder `realistic lighting` ersetzen diese konkrete Beschreibung nicht und werden in Flow Compiler V3 als Drift-Risiko behandelt.
+
 ## 8. Farb-DNA
 
 Grundpalette:
@@ -138,13 +144,18 @@ Innerhalb eines Videos bleiben wiederkehrende Orte, Räume, Figuren und Props ko
 
 Über mehrere Videos bleibt die Zeichen-DNA konstant, auch wenn Epoche, Wetter, Architektur und Stimmung wechseln.
 
-## 12. Style-Referenzen
+Für Flow Compiler V3 wird die videospezifische Kontinuität zusätzlich in `99-technik/FLOW_WORLD_LOCK.json` maschinenlesbar festgehalten.
+
+## 12. Style-Referenzen und Autorität
 
 Sobald ein freigegebenes Style-Reference-Pack existiert, gilt folgende Priorität:
 
-1. freigegebene Referenzbilder
-2. dieses Style-DNA-Dokument
-3. `06-VISUAL-SYSTEM.md`
-4. freie Modellinterpretation
+1. freigegebene Style-Reference-Ingredients
+2. `config/flow-style-lock.json`
+3. dieses Style-DNA-Dokument
+4. `06-VISUAL-SYSTEM.md`
+5. freie Modellinterpretation
 
 Ein Referenzbild ist kein Anlass, Motiv oder Epoche zu kopieren. Es fixiert nur Zeichenlogik, Proportionen, Linien, Flächen, Textur, Detailgrad und allgemeine visuelle Sprache.
+
+Der maschinenlesbare Style Lock und die Referenzbilder müssen sich ergänzen, nicht widersprechen.
