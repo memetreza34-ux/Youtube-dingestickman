@@ -70,6 +70,9 @@ Verpflichtende Zwischenstufe zwischen Skript und Prompt. Erzwingt Viewer Takeawa
 ### `12-PROMPT-QC.md`
 Prüft die geplante Szene vor dem Build. Mindestscore: **8/10**. Aussage-, Visual-Form- oder Kompositionsverlust mit 0 Punkten ist immer ein Fail.
 
+### `14-PHASE3-ASSET-LOCK.md`
+Harte Phase-3-Regel: ausschließlich bereits vorhandene Bilder verwenden. Keine Bildgenerierung, Regeneration, Bearbeitung oder automatische Reparatur. Fehlende/fehlerhafte Assets führen zum sofortigen Abbruch und werden dem Nutzer gemeldet.
+
 ### `99-DECISION-LOG.md`
 Chronologisches Register fester Kanalentscheidungen.
 
@@ -84,6 +87,9 @@ Harter Google-Flow-Style-Lock mit Figurenkonstruktion, Detailbudget, Style Ancho
 ### `99-technik/FLOW_WORLD_LOCK.json`
 Videospezifischer Lock für Orte, Figuren, Props, lokale Farbigkeit und Zeit-/Wetterkontinuität.
 
+### `99-technik/PHASE3_IMAGE_LOCK.json`
+Wird beim Start von Phase 3 aus den bereits vorhandenen finalen Bildern erzeugt. Speichert Dateiname, Größe und SHA-256 jedes Bildes und macht den Bildbestand für Phase 3 technisch unveränderlich.
+
 ## Pflicht für Agenten
 
 Vor Bildplanung oder Bildgenerierung mindestens lesen:
@@ -97,6 +103,12 @@ Vor Bildplanung oder Bildgenerierung mindestens lesen:
 - `channel/12-PROMPT-QC.md`
 - `config/visual-policy.json`
 - `config/flow-style-lock.json`
+
+Vor Phase 3 zusätzlich zwingend beachten:
+
+- `channel/14-PHASE3-ASSET-LOCK.md`
+- `config/pipeline.json` → `phase3AssetPolicy`
+- `GEMINI.md` / `AGENTS.md`
 
 ## Verbindlicher Visual-Pfad
 
@@ -116,5 +128,18 @@ Script
 → Phase-1-Validator
 → Google Flow
 ```
+
+## Phase-3-Pfad
+
+```text
+vorhandene finale Bilder
+→ Phase-2-Validator
+→ PHASE3_IMAGE_LOCK
+→ Audio / Alignment / Timeline / Pacing
+→ Remotion-Render
+→ Export-QC
+```
+
+Ab `PHASE3_IMAGE_LOCK` ist `00-bildprompts/images/` read-only. Bei einem Asset-Fehler: **abbrechen und melden, niemals automatisch ein Bild erzeugen.**
 
 Keine alten Kanalregeln aus anderen Repositories übernehmen. Keine fehlenden Kanalentscheidungen stillschweigend erfinden. Den kompilierten `google-flow-prompt.txt` nicht manuell umschreiben; Änderungen erfolgen an Scene Card, World Lock, Cover-Text oder Style Lock und werden anschließend neu gebaut.
