@@ -11,7 +11,12 @@ Thema
 → Recherche
 → Story Outline
 → Voice-over-Skript
-→ Visual Grammar / Bildplanung
+→ Viewer Takeaway
+→ Visual Concept
+→ Visual Grammar / Visual Form
+→ Composition / Camera / Mood
+→ Prompt Compiler
+→ Prompt QC >= 8/10
 → Google-Flow-Bildgenerierung
 → finale Nutzer-Voice-over-Datei
 → Audio-Optimierung
@@ -28,6 +33,9 @@ Aktive Bildwelt:
 
 - `config/visual-policy.json` → `READY`
 - Style-ID: `history-stickman-adaptive-v1`
+- Prompt-System: `visual-director-v2`
+- Scene-Planning-Schema: `2`
+- Prompt-QC-Mindestscore: `8/10`
 
 Lokal benötigt:
 
@@ -82,10 +90,9 @@ Phase 1 erstellt bzw. füllt:
 - Voice-over-Skript
 - Bildplan
 - Audio-Anker pro Bild
-- `Visual Purpose`
-- `Topic Anchor`
-- `Visual Form`
+- vollständige Scene Card V2
 - Google-Flow-Prompt
+- Prompt-QC-Score pro Bild
 - Render-/SFX-Plan
 - Metadaten
 
@@ -93,10 +100,15 @@ Verbindliche Reihenfolge für Visuals:
 
 ```text
 Script
+→ Viewer Takeaway
+→ Visual Concept
 → Visual Function
 → Visual Form
 → Composition
+→ Camera
+→ Depth / Mood
 → Prompt
+→ Prompt QC >= 8/10
 ```
 
 Dafür gelten:
@@ -104,7 +116,33 @@ Dafür gelten:
 - `channel/06-VISUAL-SYSTEM.md`
 - `channel/07-VISUAL-GRAMMAR.md`
 - `channel/08-FLOW-PROMPTING.md`
+- `channel/09-IMAGE-PROMPT-TEMPLATE.md`
+- `channel/10-STYLE-DNA-V2.md`
+- `channel/11-VISUAL-DIRECTOR.md`
+- `channel/12-PROMPT-QC.md`
 - `config/visual-policy.json`
+
+### Scene Card V2
+
+Neue Projekte verwenden `BILD_AUDIO_ZUORDNUNG.json` Schema V2.
+
+Pflichtfelder pro Bild:
+
+- viewerTakeaway
+- visualPurpose
+- topicAnchor
+- visualForm
+- visualConcept
+- dominantSubject
+- actionState
+- composition
+- camera
+- depthPlan
+- lightingMood
+- supportingElements
+- continuityNote
+- historicalAccuracyNote
+- promptQcScore
 
 ### Bildplan-Regeln
 
@@ -117,17 +155,37 @@ Dafür gelten:
 - ab 11 s Split stark bevorzugen
 - 16 s Hard-Max
 - keine Füllbilder
+- maximal 1–3 notwendige Supporting Elements
+- wenige Elemente allein sind kein Ersatz für starke Komposition
 - Bild 01 = Cover + erste Videoszene
 - Bild 01 wird 3× als Cover-Kandidat erzeugt; genau 1 Gewinner bleibt
 - Bild 02–NN jeweils nur 1×
 - standardmäßig kein sichtbarer Text im Bild
 - keine Bildnummern, Pseudo-Texte oder Wasserzeichen im Bild
 
+### Visual-Form-Treue
+
+- `comparison` → beide Seiten sichtbar
+- `cause-effect` → Ursache und Folge sichtbar verbunden
+- `process-sequence` → Zustandsänderung klar lesbar
+- `system-hierarchy` → räumliche Hierarchie verständlich
+- `battle-city-overview` → räumliche Lage bleibt Hauptidee
+
 Vor Asset-Erzeugung:
 
 ```bash
 npm run validate:youtube-phase1 -- --dir "youtube/<week>/<slug>"
 ```
+
+Der Validator blockiert neue Projekte unter anderem bei:
+
+- fehlenden Scene-Card-V2-Feldern
+- nicht unterstützter Visual Form
+- mehr als drei Supporting Elements
+- Prompt-QC unter 8/10
+- zu knappem finalen Prompt
+- fehlender konkreter Kamera-/Kompositionssprache
+- Comparison-Visual ohne erkennbare Vergleichsinszenierung
 
 ## 4. Phase 2 — Assets
 
@@ -152,6 +210,8 @@ Vor Phase 3 Bilder zusätzlich visuell prüfen auf:
 - konsistente Kanalbildwelt
 - historische Plausibilität
 - klare Hauptaussage
+- geplante Visual Form tatsächlich sichtbar
+- starke Komposition statt bloßer Objektauflistung
 - keine fehlerhafte KI-Schrift
 - keine groben Anatomie-/Objektfehler
 - keine unnötigen Doppelungen
@@ -200,11 +260,13 @@ npm run phase3:youtube -- --dir "youtube/<week>/<slug>" --prepare-only
 - True Peak max. −1,5 dBTP
 - 48 kHz
 
-Die 1,10×-Geschwindigkeit wird anhand echter Testvideos auf Eignung für den History-Ton geprüft und kann später bewusst angepasst werden.
-
 ## Schluss-Hold
 
 Nach dem letzten gesprochenen Wort bleibt das letzte Bild standardmäßig **1,3 s** sichtbar. Zulässig sind 1,2–1,5 s.
+
+## Style-Reference-Pack
+
+`channel/13-STYLE-REFERENCE-PACK.md` definiert neun Master-Referenzen. Das Pack ist aktuell `PLANNED`. Bis zur ausdrücklichen Nutzerfreigabe aller neun Referenzen gilt `channel/10-STYLE-DNA-V2.md` als stärkste textliche Style-Autorität.
 
 ## Testvideo-Modus
 
@@ -221,7 +283,9 @@ Ein Video ist fertig, wenn:
 - Skript-QC bestanden ist
 - aktive Bildwelt korrekt geladen ist
 - Bildanzahl inhaltsgetrieben ist
-- Visual Forms bewusst gewählt wurden
+- Scene Cards V2 vollständig sind
+- Visual Forms bewusst gewählt und im Prompt erhalten wurden
+- jeder Prompt mindestens 8/10 erreicht
 - Bild 01 Cover + erste Szene ist
 - finale Bilder sauber benannt und visuell geprüft sind
 - genau eine Nutzerstimme vorliegt
