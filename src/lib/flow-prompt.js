@@ -141,7 +141,7 @@ export function compileScenePrompt(scene, { styleLock, coverText = '', isCover =
     sentence(styleLock.sceneStyleAnchor),
     sentence(scene.visualConcept),
     sentence(`Make ${scene.dominantSubject} the unmistakable dominant subject; ${scene.actionState}`),
-    sentence(`Compose the image so ${scene.composition}`),
+    sentence(scene.composition),
     sentence(`Use ${scene.camera}`),
     sentence(`Organize depth as follows: ${scene.depthPlan}`),
     sentence(`Lighting and mood: ${scene.lightingMood}`)
@@ -155,7 +155,7 @@ export function compileScenePrompt(scene, { styleLock, coverText = '', isCover =
   if (guard) parts.push(sentence(guard));
 
   parts.push(sentence(scene.continuityNote));
-  parts.push(sentence(`Keep this historical constraint: ${scene.historicalAccuracyNote}`));
+  parts.push(sentence(scene.historicalAccuracyNote));
 
   if (isCover) {
     const exactCover = text(coverText);
