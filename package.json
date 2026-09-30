@@ -10,6 +10,8 @@
     "build:youtube-flow": "node src/cli/build-youtube-flow-prompt.js",
     "validate:youtube-phase1": "node src/cli/validate-youtube-phase1.js",
     "validate:youtube-phase2": "node src/cli/validate-youtube-phase2.js",
+    "lock:youtube-phase3-images": "node src/cli/phase3-image-lock.js",
+    "verify:youtube-phase3-images": "node src/cli/phase3-image-lock.js --verify",
     "preflight:youtube": "node src/cli/preflight-youtube.js",
     "optimize:youtube-audio": "node src/cli/optimize-youtube-audio.js",
     "auto-align:youtube": "node src/cli/auto-align-youtube.js",
