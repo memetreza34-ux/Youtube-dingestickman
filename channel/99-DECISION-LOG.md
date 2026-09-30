@@ -118,4 +118,38 @@ Die Tests mit Kenilworth und Pompeji haben gezeigt: Die Bildwelt wurde semantisc
 - Neue Projekte verwenden `BILD_AUDIO_ZUORDNUNG.json` Schema V2.
 - Der Phase-1-Validator prüft Scene-Card-Pflichtfelder, Supporting-Element-Limit, QC-Score und konkrete Kamera-/Kompositionssprache.
 - Der bisherige case-sensitive Bildmarker-Check wurde korrigiert, damit `BILD 01` zuverlässig erkannt wird.
-- Zusätzlich wird nach `channel/13-STYLE-REFERENCE-PACK.md` ein Satz aus neun ausdrücklich freigegebenen Master-Referenzbildern aufgebaut. Bis dieses Pack `READY` ist, ist `10-STYLE-DNA-V2.md` die stärkste textliche Style-Autorität.
+- Zusätzlich wird nach `channel/13-STYLE-REFERENCE-PACK.md` ein Satz aus neun ausdrücklich freigegebenen Master-Referenzbildern aufgebaut.
+
+## 2026-09-30 — Google Flow Compiler V3
+
+Die V2-Regeln waren inhaltlich stark, aber ein Agent konnte den finalen `google-flow-prompt.txt` weiterhin frei formulieren. Damit blieb zwischen guter Scene Card und tatsächlichem Flow-Prompt eine Interpretationslücke. Diese Lücke wird mit V3 geschlossen.
+
+Ab jetzt gilt für **neue Produktionen**:
+
+- Prompt-System: `flow-compiler-v3`.
+- `config/flow-style-lock.json` ist die maschinenlesbare unveränderliche Channel-Style-DNA.
+- Der Style Lock enthält konkrete Figurenkonstruktion, Rendering-Regeln, Detailbudget, Palette, Negativregeln, Style Anchor und Style-Drift-Risikowörter.
+- Jedes Video besitzt zusätzlich `99-technik/FLOW_WORLD_LOCK.json` für Orte, Figuren, Props, lokale Farbigkeit und Zeit-/Wetterkontinuität.
+- `FLOW_WORLD_LOCK.json` muss vor dem Prompt-Build `READY` sein und darf keine Platzhalter enthalten.
+- Der finale `google-flow-prompt.txt` wird nicht mehr frei geschrieben, sondern mit `npm run build:youtube-flow` aus Style Lock, World Lock, `video.json` und den Scene Cards kompiliert.
+- Der lange Channel Style Lock erscheint einmal pro Master-Prompt.
+- Zusätzlich wiederholt jeder `BILD NN`-Prompt denselben kompakten `sceneStyleAnchor`, damit die Rendering-DNA bei langen Batches nicht driftet.
+- Der Compiler erhält Visual Concept, Dominant Subject, Action/State, Composition, Camera, Depth, Lighting/Mood, Continuity und historische Plausibilität aus der Scene Card.
+- Für empfindliche Visual Forms fügt der Compiler zusätzliche Guards ein, damit `comparison`, `cause-effect`, `process-sequence`, `system-hierarchy`, `battle-city-overview`, `object-focus` und `character-scene` nicht beim Prompt-Schreiben verwässern.
+- `BILD 01` erhält automatisch den exakten deutschen Cover-Text.
+- `BILD 02–NN` erhalten automatisch eine explizite No-Text-Regel.
+- Generische Render-Wörter wie `cinematic`, `epic`, `ultra detailed`, `hyper detailed`, `photographic`, `realistic lighting`, `depth of field` und `bokeh` gelten in Scene Cards als Style-Drift-Risiko und werden in V3 blockiert.
+- Kamera, Licht und Stimmung werden stattdessen konkret beschrieben.
+- Der kompilierten Datei wird `PROMPT_SYSTEM: flow-compiler-v3` mitgegeben.
+- `video.json.flowPromptBuiltAt` wird beim Build gesetzt.
+- Der Phase-1-Validator blockiert V3 bei fehlendem World Lock, fehlendem Build-Zeitpunkt, falscher Style-ID, Platzhaltern, fehlendem Style Anchor, fehlendem Cover-Text, fehlender No-Text-Regel oder anderen V3-Verstößen.
+- Der erzeugte `google-flow-prompt.txt` ist ein Build-Artefakt und wird nicht direkt manuell editiert. Änderungen erfolgen an der Quelle und werden erneut kompiliert.
+
+### Style-Reference-Pack nach V3
+
+- Das Reference Pack bleibt geplant und ergänzt den textual/machine Style Lock später visuell.
+- Nach `READY` werden pro Generierung nur die 2–4 passendsten freigegebenen Master-Referenzen als Google-Flow-Ingredients genutzt.
+- Referenzen sollen sauber sein und möglichst keine unnötigen Motive enthalten, die Flow versehentlich übernehmen könnte.
+- Textprompt und Ingredients dürfen sich nicht widersprechen.
+- Referenzen fixieren Linien, Proportionen, Textur, Schattierung, Detailhierarchie und Farbcharakter; sie sollen nicht automatisch Motiv, Epoche oder Komposition kopieren.
+- Visuelle Style-Priorität nach Freigabe: `approved reference ingredients → config/flow-style-lock.json → channel/10-STYLE-DNA-V2.md → channel/06-VISUAL-SYSTEM.md → freie Modellinterpretation`.
