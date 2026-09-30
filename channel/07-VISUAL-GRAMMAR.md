@@ -6,6 +6,8 @@ Die Bildwelt ist nicht nur ein Stil, sondern ein Auswahl-System. Für jeden gesp
 
 Keine Regel verlangt automatisch eine Figur.
 
+Wichtig: Eine Visual Form ist nur die Kategorie. Vor dem finalen Prompt muss zusätzlich ein **Visual Concept** und eine konkrete **Composition** nach `11-VISUAL-DIRECTOR.md` entstehen.
+
 ## Visual-Formen
 
 ### 1. Character Scene
@@ -61,7 +63,7 @@ Beispiele:
 - Versorgung einer Armee
 - Machtverteilung zwischen König und Adel
 
-Keine moderne Business-Infografik. System über historische Räume, Objekte und Beziehungen zeigen.
+Keine moderne Business-Infografik. System über historische Räume, Objekte, Wege, Höhe und Beziehungen zeigen.
 
 ### 7. Cause → Effect
 Nutzen, wenn mehrere Faktoren eine Folge verursachen.
@@ -69,7 +71,7 @@ Nutzen, wenn mehrere Faktoren eine Folge verursachen.
 Beispiel:
 Steuerausfälle + teure Armee + Grenzdruck → geschwächtes Reich.
 
-Nicht als Textdiagramm, sondern als visuelle Beziehung.
+Nicht als Textdiagramm, sondern als visuelle Beziehung. Ursache und Folge müssen beide im Bild oder in einer klar verbundenen räumlichen Situation lesbar sein.
 
 ### 8. Process / Sequence
 Nutzen, wenn ein Ablauf erklärt wird.
@@ -79,6 +81,8 @@ Beispiele:
 - Münzentwertung
 - Aufbau eines römischen Marschlagers
 
+Bei wiederkehrenden Zuständen möglichst denselben Ort und fast denselben Blickwinkel nutzen, damit Veränderung sofort sichtbar wird.
+
 ### 9. Comparison
 Nutzen bei klaren Gegensätzen.
 
@@ -86,6 +90,8 @@ Beispiele:
 - Reich vs arm
 - Rom früher vs später
 - Ostrom vs Westrom
+
+Harte Regel: Wenn `comparison` gewählt wurde, müssen **beide Vergleichspole** visuell vorkommen. Ein Einzelmotiv ist kein Vergleich.
 
 ### 10. Symbolic Metaphor
 Nur nutzen, wenn eine reale Szene die abstrakte Aussage nicht gut erklärt.
@@ -104,22 +110,30 @@ Beispiele:
 - Flottenpositionen
 - Armeewege
 
+Übersicht heißt nicht: alles klein machen. Das zentrale räumliche Verhältnis muss auch in kleiner YouTube-Darstellung klar bleiben.
+
 ### 12. Rise / Fall Lifecycle
 Nutzen für zeitliche Entwicklung ohne viele Einzelbilder.
 
 Beispiel:
 Siedlung → prosperierende Stadt → Verfall.
 
+Nur nutzen, wenn mehrere Zustände in einem Bild wirklich verständlicher sind als getrennte Bilder.
+
 ## Auswahlregel
 
 Vor jedem Prompt:
 
 1. Was ist die Kernaussage des Satzes?
-2. Muss ein Mensch sichtbar sein, um sie zu verstehen?
-3. Wenn nein: Welche Nicht-Figuren-Visual-Form erklärt sie klarer?
-4. Welche Epoche/Ort/Details müssen historisch erkennbar sein?
-5. Welche Stimmung unterstützt den Satz?
-6. Was ist der eine klare visuelle Fokus?
+2. Was muss der Zuschauer in weniger als einer Sekunde verstehen?
+3. Muss ein Mensch sichtbar sein, um sie zu verstehen?
+4. Wenn nein: Welche Nicht-Figuren-Visual-Form erklärt sie klarer?
+5. Welche Epoche/Ort/Details müssen historisch erkennbar sein?
+6. Welche Stimmung unterstützt den Satz?
+7. Was ist das eine klare visuelle Fokusmotiv?
+8. Welche **visuelle Beziehung** macht die Aussage sichtbar?
+
+Danach wird nach `11-VISUAL-DIRECTOR.md` das Visual Concept und die Komposition gebaut.
 
 ## Anti-Monotonie
 
@@ -138,8 +152,24 @@ Abwechslung entsteht durch **Visual-Funktion**, nicht durch Stilwechsel:
 
 Der gemeinsame Kanalstil bleibt dabei unverändert.
 
+## Visual-Form-Treue
+
+Die gewählte Form ist ein Vertrag zwischen Planung und Prompt.
+
+Vor Freigabe prüfen:
+
+- `comparison` → sind beide Seiten sichtbar?
+- `cause-effect` → sind Ursache und Folge verbunden?
+- `process-sequence` → ist die Zustandsänderung lesbar?
+- `system-hierarchy` → ist die Struktur räumlich verständlich?
+- `battle-city-overview` → ist das räumliche Verhältnis dominant?
+- `object-focus` → trägt das Objekt wirklich die Aussage?
+- `character-scene` → zeigt Körpersprache/Handlung den Gedanken?
+
+Wenn nicht, Prompt neu schreiben oder Visual Form bewusst ändern und die Scene Card aktualisieren.
+
 ## Harte Regel
 
-**Script → Visual Function → Visual Form → Composition → Prompt**
+**Script → Viewer Takeaway → Visual Concept → Visual Function → Visual Form → Composition → Camera → Prompt → QC.**
 
-Nicht direkt vom Satz zu einem zufälligen Bildprompt springen.
+Nicht direkt vom Satz zu einem zufälligen oder rein beschreibenden Bildprompt springen.
