@@ -1,31 +1,46 @@
 ACTIVE_STYLE_ID: history-stickman-adaptive-v1
+PROMPT_SYSTEM: visual-director-v2
 
 GOOGLE FLOW MASTER PROMPT — [VIDEO-TITEL]
 
 Create [N] separate 16:9 historical explainer illustrations for one coherent German YouTube video.
 
 CHANNEL STYLE:
-Use one consistent hand-drawn 2D historical explainer style across the full video. Clean dark ink outlines, flat muted historical colors, subtle cel shading and a light handmade ink-and-paper texture. When people are needed, use expressive historical stickman characters from the same character family. Human characters are NOT required in every image. Mature historical documentary feeling, not childish or goofy.
+Use one consistent hand-drawn 2D historical explainer universe across the full video. Clean dark ink outlines, flat muted historical colors, subtle cel shading and a light handmade ink-and-paper texture. When people are needed, use expressive historical stickman characters from the same family: simple round or slightly oval warm off-white heads, slim simplified bodies, restrained readable faces and historically appropriate hair, clothing, armor and props. Keep proportions, line logic, shading and detail hierarchy consistent. Foreground subjects may carry slightly stronger contrast and detail than supporting background forms. Mature historical documentary feeling, never childish, goofy, glossy, photorealistic or 3D.
+
+The visual direction must feel authored rather than templated. Every image needs one clear visual idea, a deliberately dominant subject and purposeful spatial composition. Do not merely list objects. Use camera angle, foreground/midground/background, negative space, scale, leading lines, contrast, posture, light or spatial relationships when they help communicate the meaning.
 
 VIDEO WORLD LOCK:
-[Define recurring places, architecture, rooms, recurring figures, important props, base palette and time/weather logic. Keep them visually consistent throughout the video.]
+[Define recurring places, architecture, rooms, recurring figures, important props, base palette and time/weather logic. Keep them visually consistent throughout the video. For before/after or changing-state scenes, preserve the same location and nearly the same camera angle whenever that makes the change clearer.]
 
 COVER TEXT:
 Use exactly this German cover text: "[COVER-TEXT]". Keep it short, ideally 2–5 words. Make it large, correctly spelled and immediately readable. Use strong contrast and never cover the main subject. All three cover candidates must contain exactly the same text.
 
 BILD 01
-[Write one natural direct cover prompt. Integrate the exact German COVER TEXT prominently into a clean area of the composition.]
+[Write one natural direct cover prompt derived from Scene Card V2. It must express the visual idea, dominant subject, action/state, spatial composition and a purposeful camera choice. Add foreground/midground/background, light/mood or negative space when useful. Integrate the exact German COVER TEXT prominently into a clean area of the composition.]
 
 BILD 02
-[Write one natural direct image prompt. No visible text.]
+[Write one natural direct image prompt derived from Scene Card V2. Preserve the planned Visual Form and Viewer Takeaway. Do not reduce the scene to an inventory list. No visible text.]
 
 BILD 03
-[Write one natural direct image prompt. No visible text.]
+[Write one natural direct image prompt derived from Scene Card V2. Preserve composition, camera, continuity and the planned visual relationship. No visible text.]
 
 [Continue through BILD NN]
 
+VISUAL-FORM FIDELITY — MANDATORY:
+- comparison: both comparison poles must actually be visible and clearly opposed.
+- cause-effect: cause and consequence must be visually connected.
+- process-sequence: the changing state must be immediately readable, preferably through continuity of place/angle.
+- system-hierarchy: hierarchy must be expressed through space, height, routes or relationships, not corporate arrows.
+- battle-city-overview: spatial situation remains the main idea, not a random close character shot.
+- object-focus: the object must genuinely carry the statement.
+- character-scene: posture, action or relationship must communicate the point.
+
+PROMPT QUALITY — MANDATORY:
+Each image prompt has already passed internal Prompt QC >= 8/10 before being placed here. Preserve that intent. A prompt is not acceptable if it only says "show X, add Y, keep X large" without meaningful visual direction. Keep prompts concrete and model-readable rather than bloated with style synonyms.
+
 GLOBAL RULES:
-Keep the same art universe across all images. One clear visual idea per image, one dominant subject, only a few necessary supporting elements. Avoid overcrowded scenes, wimmelbilder, museum infographics, textbook posters, dense crowds, unnecessary cutaways, collages and excessive micro-detail. No photorealism, 3D render, Pixar, anime, realistic portrait faces, painterly realism, modern objects, logos, watermarks or image numbers.
+Keep the same art universe across all images. One clear visual idea per image, one dominant subject, only a few necessary supporting elements. Supporting elements must serve cause, consequence, scale, place, continuity or eye direction. Avoid overcrowded scenes, wimmelbilder, museum infographics, textbook posters, dense crowds, unnecessary cutaways, collages and excessive micro-detail. No photorealism, 3D render, Pixar, anime, realistic portrait faces, painterly realism, modern objects, logos, watermarks or image numbers.
 
 Bild 01 ALWAYS contains the exact short German cover text. Bild 02 through Bild NN contain NO visible text unless explicitly required later. Never invent English labels or pseudo-text.
 
