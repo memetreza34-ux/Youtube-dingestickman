@@ -160,6 +160,7 @@ export function projectPaths(projectDirectory) {
     flowWorldLock: path.join(projectDir, '99-technik', 'FLOW_WORLD_LOCK.json'),
     renderPlan: path.join(projectDir, '99-technik', 'YOUTUBE_RENDER_PLAN.json'),
     status: path.join(projectDir, '99-technik', 'status.json'),
+    phase3ImageLock: path.join(projectDir, '99-technik', 'PHASE3_IMAGE_LOCK.json'),
     optimizedAudio: path.join(projectDir, '99-technik', 'YOUTUBE_AUDIO_OPTIMIZED.wav'),
     alignmentEvidence: path.join(projectDir, '99-technik', 'WHISPER_ALIGNMENT.json'),
     timeline: path.join(projectDir, '99-technik', 'FINAL_TIMELINE.json'),
