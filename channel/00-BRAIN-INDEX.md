@@ -18,17 +18,19 @@ Externe Kanäle dienen nur als Inspiration/Analyse, niemals als automatisch zu k
 
 ## Spezielle Autorität für die Bildwelt
 
-Für Google-Flow-Generierungen gilt zusätzlich eine klare Style-Hierarchie:
+Für Google-Flow-Generierungen gilt:
 
 ```text
-freigegebene Style-Reference-Ingredients, sobald READY
-→ config/flow-style-lock.json
+config/flow-style-lock.json
 → channel/10-STYLE-DNA-V2.md
 → channel/06-VISUAL-SYSTEM.md
-→ freie Modellinterpretation
+→ Scene Card / videospezifische Regie
+→ freie Modellinterpretation nur innerhalb dieser Grenzen
 ```
 
-`config/flow-style-lock.json` ist die maschinenlesbare Quelle für die unveränderliche Rendering-DNA.
+Es gibt bewusst **keine globalen festen Master-Referenzbilder**. Die Rendering-DNA wird textlich und maschinenlesbar fixiert, während Kamera, Perspektive, Komposition, Licht und Stimmung pro Szene variieren dürfen.
+
+`config/flow-style-lock.json` ist die maschinenlesbare Quelle für die konstante Rendering-DNA.
 
 ## Dateien
 
@@ -54,22 +56,19 @@ Grundbildwelt `history-stickman-adaptive-v1`: Figuren, Rendering, Farbwelt, Text
 Entscheidet, welche Bildform einen Skriptsatz am besten erklärt: Figur, Karte, Objekt, Architektur, System, Vergleich, Symbolbild, Übersicht usw.
 
 ### `08-FLOW-PROMPTING.md`
-Verbindliches Google-Flow-System V3: Style Lock, World Lock, Scene Direction, Compiler, Style Anchor, Ingredients und zweistufiges Cover-Gate.
+Verbindliches Google-Flow-System V3: Style Lock, World Lock, individuelle Scene Direction, kontrollierte Variation, Compiler und zweistufiges Cover-Gate.
 
 ### `09-IMAGE-PROMPT-TEMPLATE.md`
 Spezifikation, wie Scene Cards durch Flow Compiler V3 in den finalen natürlichen Prompt übersetzt werden. Der finale Prompt wird nicht manuell geschrieben.
 
 ### `10-STYLE-DNA-V2.md`
-Menschlich lesbare Präzisierung von Figurenproportionen, Linien, Flächen, Detailhierarchie, Raum, Kamera, Komposition, Licht und Farbe.
+Menschlich lesbare Präzisierung von Figurenproportionen, Linien, Flächen, Detailhierarchie, Raum, Kamera, Komposition, Licht, Farbe und kontrollierter Variation.
 
 ### `11-VISUAL-DIRECTOR.md`
 Verpflichtende Zwischenstufe zwischen Skript und Prompt. Erzwingt Viewer Takeaway, Visual Concept, Dominant Subject, Action/State, Composition, Camera, Depth, Mood und Continuity.
 
 ### `12-PROMPT-QC.md`
 Prüft die geplante Szene vor dem Build. Mindestscore: **8/10**. Aussage-, Visual-Form- oder Kompositionsverlust mit 0 Punkten ist immer ein Fail.
-
-### `13-STYLE-REFERENCE-PACK.md`
-Spezifikation für neun vom Nutzer freizugebende Master-Referenzen. Nach `READY` werden passende Referenzen zusätzlich als Google-Flow-Ingredients genutzt.
 
 ### `99-DECISION-LOG.md`
 Chronologisches Register fester Kanalentscheidungen.
@@ -80,7 +79,7 @@ Chronologisches Register fester Kanalentscheidungen.
 Zentrale Visual-Policy und aktive Prompt-System-Version.
 
 ### `config/flow-style-lock.json`
-Harter Google-Flow-Style-Lock mit Figurenkonstruktion, Detailbudget, Style Anchor, Negativregeln und Drift-Risikowörtern.
+Harter Google-Flow-Style-Lock mit Figurenkonstruktion, Detailbudget, Style Anchor, Negativregeln, Drift-Risikowörtern und kontrollierter Variation.
 
 ### `99-technik/FLOW_WORLD_LOCK.json`
 Videospezifischer Lock für Orte, Figuren, Props, lokale Farbigkeit und Zeit-/Wetterkontinuität.
@@ -96,7 +95,6 @@ Vor Bildplanung oder Bildgenerierung mindestens lesen:
 - `channel/10-STYLE-DNA-V2.md`
 - `channel/11-VISUAL-DIRECTOR.md`
 - `channel/12-PROMPT-QC.md`
-- `channel/13-STYLE-REFERENCE-PACK.md`
 - `config/visual-policy.json`
 - `config/flow-style-lock.json`
 
@@ -111,6 +109,7 @@ Script
 → Camera
 → Depth / Mood
 → Continuity
+→ Anti-Gleichförmigkeitscheck
 → Prompt QC >= 8/10
 → READY FLOW_WORLD_LOCK
 → Flow Compiler V3
