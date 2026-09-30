@@ -58,7 +58,7 @@ Chronologisches Register ausdrücklicher Kanalentscheidungen. Neuere Entscheidun
 ## 2026-09-29 — Bildprompt-Qualität V1.1
 
 - Keine Wimmelbilder, überfüllten Menschenmengen, Museumstafeln, Schulbuchposter oder Lexikonplatten als Standard.
-- Jedes Bild besitzt genau **eine Kernaussage** und **ein dominantes Hauptmotiv**.
+- Jedes Bild besitzt genau **eine Kernaussage** und ein dominantes Hauptmotiv.
 - Maximal **1–3 unterstützende Elemente** pro Bild.
 - Das Motiv muss groß und auch in kleiner YouTube-Darstellung sofort lesbar sein.
 - Wiederkehrende Orte, Figuren, Räume und Props werden innerhalb eines Videos über einen **VIDEO WORLD / CONTINUITY LOCK** konstant gehalten.
@@ -96,3 +96,26 @@ Chronologisches Register ausdrücklicher Kanalentscheidungen. Neuere Entscheidun
 - Der ausgewählte Kandidat wird `Bild 01.png`.
 - Erst danach startet die restliche Bildgenerierung.
 - Der ausgewählte Cover-Look dient zusätzlich als visuelle Referenz für den restlichen Video-Batch.
+
+## 2026-09-30 — Visual Director / Prompt-System V2
+
+Die Tests mit Kenilworth und Pompeji haben gezeigt: Die Bildwelt wurde semantisch verstanden, aber die finalen Einzelprompts waren häufig zu mechanisch und inventarartig. Deshalb gilt ab jetzt:
+
+- Die Grund-Style-ID `history-stickman-adaptive-v1` bleibt bestehen; die Prompt- und Regielogik wird auf **Visual Director V2** angehoben.
+- `channel/10-STYLE-DNA-V2.md` präzisiert Figurenproportionen, Linien, Flächen, Detailhierarchie, Raum, Kamera, Komposition, Licht und Farbe.
+- Vor jedem finalen Prompt ist eine Scene Card V2 nach `channel/11-VISUAL-DIRECTOR.md` Pflicht.
+- Der verbindliche Pfad lautet: `Script → Aussage → Visual Concept → Visual Form → Composition → Camera → Mood/Light → Continuity → Prompt → Prompt QC`.
+- Eine reine Inventarliste wie `Show X, add Y, keep X large` reicht nicht mehr als finale Bildregie.
+- Jede Scene Card benötigt Viewer Takeaway, Visual Concept, Dominant Subject, Action/State, Composition, Camera, Depth Plan, Lighting/Mood, Continuity und historische Plausibilitätsnotiz.
+- Die intern gewählte Visual Form darf beim Prompt-Schreiben nicht verloren gehen.
+- `comparison` muss beide Vergleichspole sichtbar machen.
+- `cause-effect` muss Ursache und Folge visuell verbinden.
+- `process-sequence` muss die Zustandsänderung unmittelbar lesbar machen.
+- `system-hierarchy` muss seine Struktur räumlich und nicht als Corporate-Diagramm erklären.
+- Jeder finale Bildprompt wird nach `channel/12-PROMPT-QC.md` mit maximal 10 Punkten bewertet.
+- Mindestscore zur Freigabe: **8/10**.
+- Aussage-Treue, Visual-Form-Treue und Komposition dürfen niemals 0 Punkte erhalten.
+- Neue Projekte verwenden `BILD_AUDIO_ZUORDNUNG.json` Schema V2.
+- Der Phase-1-Validator prüft Scene-Card-Pflichtfelder, Supporting-Element-Limit, QC-Score und konkrete Kamera-/Kompositionssprache.
+- Der bisherige case-sensitive Bildmarker-Check wurde korrigiert, damit `BILD 01` zuverlässig erkannt wird.
+- Zusätzlich wird nach `channel/13-STYLE-REFERENCE-PACK.md` ein Satz aus neun ausdrücklich freigegebenen Master-Referenzbildern aufgebaut. Bis dieses Pack `READY` ist, ist `10-STYLE-DNA-V2.md` die stärkste textliche Style-Autorität.
