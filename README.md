@@ -19,7 +19,12 @@ Empfohlene Reihenfolge für Menschen und KI-Agenten:
 7. `channel/06-VISUAL-SYSTEM.md`
 8. `channel/07-VISUAL-GRAMMAR.md`
 9. `channel/08-FLOW-PROMPTING.md`
-10. `channel/99-DECISION-LOG.md`
+10. `channel/09-IMAGE-PROMPT-TEMPLATE.md`
+11. `channel/10-STYLE-DNA-V2.md`
+12. `channel/11-VISUAL-DIRECTOR.md`
+13. `channel/12-PROMPT-QC.md`
+14. `channel/13-STYLE-REFERENCE-PACK.md`
+15. `channel/99-DECISION-LOG.md`
 
 Maschinenlesbare Kernregeln stehen zusätzlich in `config/channel-policy.json` und `config/visual-policy.json`.
 
@@ -30,7 +35,12 @@ Thema
 → Recherche
 → Story Outline
 → Voice-over-Skript
-→ Bildplanung / Visual Grammar
+→ Viewer Takeaway
+→ Visual Concept
+→ Visual Form
+→ Composition / Camera / Mood
+→ Prompt Compiler
+→ Prompt QC >= 8/10
 → Google-Flow-Bildgenerierung
 → finale Nutzer-Voice
 → Audio-Optimierung
@@ -52,9 +62,10 @@ Die technische Dokumentation liegt in `youtube/WORKFLOW.md`.
 - Themen-System: **V1 READY**
 - Recherche-System: **V1 READY**
 - Skript-System: **V1 READY**
-- Bildwelt: **V1 READY**
-- Visual Grammar: **V1 READY**
-- Google-Flow-System: **V1 READY**
+- Grundbildwelt: **V1 READY**
+- Visual Director / Prompt-System: **V2 READY**
+- Prompt-QC: **V2 READY — Mindestscore 8/10**
+- Style-Reference-Pack: **PLANNED**
 - aktive Style-ID: `history-stickman-adaptive-v1`
 
 ## Bildwelt in einem Satz
@@ -62,6 +73,27 @@ Die technische Dokumentation liegt in `youtube/WORKFLOW.md`.
 Konsistente handgezeichnete 2D-History-Explainer-Welt mit ausdrucksstarken historischen Stickman-Figuren und gleichwertigen Nicht-Figuren-Visuals wie Karten, Architektur, Objekten, Systemen und Symbolbildern.
 
 **Stil bleibt konstant; Inszenierung, Epoche, Stimmung und Visual-Form dürfen sich an den Inhalt anpassen.**
+
+## Neue harte Bildprompt-Regel
+
+Ein Bildprompt darf nicht nur aufzählen, was sichtbar sein soll.
+
+Verbindlich ist:
+
+```text
+Script
+→ Aussage
+→ Visual Concept
+→ Visual Form
+→ Composition
+→ Camera
+→ Mood / Light
+→ Continuity
+→ Prompt
+→ Prompt QC >= 8/10
+```
+
+Neue Projekte verwenden `BILD_AUDIO_ZUORDNUNG.json` Schema V2 mit vollständiger Scene Card. Phase 1 schlägt fehl, wenn Pflichtfelder, Kompositionssprache oder der Mindest-QC-Score fehlen.
 
 ## Testvideos
 
@@ -72,6 +104,9 @@ Der langfristige Arbeitsrahmen liegt bei ungefähr 8–15 Minuten, wenn ein Them
 - keine Bildwelt aus anderen Repositories übernehmen
 - keine Referenzkanal-Identität kopieren
 - Figuren nicht in jede Szene erzwingen
+- keine Inventarlisten-Prompts als finalen Google-Flow-Prompt akzeptieren
+- geplante Visual Form beim Prompt-Schreiben nicht verlieren
+- kein Prompt unter 8/10 Prompt-QC freigeben
 - kein sichtbarer Remotion-Erklärungstext als Standard
 - keine Bildnummern oder Pseudo-Texte im generierten Bild
 - Nutzer-Voice bleibt die einzige finale Sprecherquelle
