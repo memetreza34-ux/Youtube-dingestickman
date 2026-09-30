@@ -1,196 +1,296 @@
-# Script Bible — Geschichts-Kanal V1
+# Script Bible — Geschichts-Kanal V2
 
 ## Oberste Regel
 
-**Das Skript muss als reine Geschichte funktionieren, bevor ein einziges Bild geplant wird.**
+**Das Skript muss wie eine Geschichte klingen, nicht wie ein vorgelesener Lexikonartikel.**
 
-Gute Bilder dürfen kein schwaches Skript retten müssen.
-
----
-
-# 1. Cold Open / Einstieg
-
-## Ziel
-
-Die ersten ungefähr **20–30 Sekunden** müssen sofort Interesse erzeugen.
-
-Keine Begrüßung, kein Kanalintro, kein unnötiges Vorwort.
-
-Nicht:
-
-> „Hallo und willkommen zu einem neuen Video. Heute schauen wir uns das Römische Reich an.“
-
-Bevorzugte Hook-Logik:
-
-**Situation → bemerkenswerter Fakt/Größe → Gegensatz/Problem → zentrale Frage → implizites Versprechen**
-
-Beispielstruktur:
-
-> „Im Jahr 117 kontrollierte Rom fast fünf Millionen Quadratkilometer. Seine Armeen standen von Schottland bis Ägypten. Für seine Feinde musste dieses Reich unbesiegbar wirken. Doch nur wenige Jahrhunderte später war der Westen Roms verschwunden. Die entscheidende Frage ist deshalb nicht, warum Rom mächtig wurde – sondern warum ein scheinbar unbesiegbares Reich plötzlich nicht mehr funktionierte.“
-
-## Einstiegsregeln
-
-- sofort ins Thema
-- früh eine konkrete Situation, Zahl, Person oder Vorstellung erzeugen
-- möglichst einen Gegensatz oder ungelöste Frage etablieren
-- keine künstliche Übertreibung
-- nichts versprechen, was das Video später nicht beantwortet
+Es soll auch ohne Bilder funktionieren. Gute Visuals verstärken eine starke Erzählung; sie dürfen kein schwaches Skript retten müssen.
 
 ---
 
-# 2. Kontext
+## 1. Einstieg: zuerst ein Moment, dann die Erklärung
 
-Nach dem Hook nur den Kontext liefern, den der Zuschauer zum Verständnis braucht.
+Der Zuschauer soll möglichst zuerst **in einer konkreten historischen Situation landen**.
 
-Keine komplette Vorgeschichte erzählen, wenn drei Sätze reichen.
+Bevorzugt:
 
-Jeder Kontextblock muss eine Funktion für die folgende Geschichte haben.
+```text
+konkreter Moment
+→ Problem / Überraschung
+→ zentrale Frage
+→ erst dann notwendiger Kontext
+```
 
----
+Nicht mit abstrakter Erklärung beginnen:
 
-# 3. Ursache und Wirkung statt Faktenliste
-
-Nicht:
-
-> „Rom hatte wirtschaftliche Probleme, politische Instabilität, Barbareneinfälle und eine schwächere Armee.“
+> „Römische Marschlager waren temporäre militärische Einrichtungen, die ..."
 
 Besser:
 
-> „Mehrere Krisen trafen Rom gleichzeitig. Kaiser wurden immer schneller ersetzt. Die Armee kostete enorme Summen. Gleichzeitig drangen neue Gruppen über die Grenzen. Rom musste also mehr Soldaten bezahlen, während ihm immer weniger Geld zur Verfügung stand.“
+> „Der Marsch ist vorbei. Die Soldaten sind müde, das Licht wird schwächer – aber schlafen dürfen sie noch lange nicht. Bevor die erste Nacht beginnt, muss aus offenem Gelände ein befestigtes Lager werden. Warum betrieben die Römer diesen Aufwand sogar für nur eine Nacht?"
 
-**Der Zuschauer soll Zusammenhänge verstehen, nicht bloß Stichpunkte hören.**
+### Hook-Ziel
+
+- Kurzvideo/Testvideo: zentrale Spannung in etwa **6–15 Sekunden** etablieren.
+- Längeres Video: Cold Open meist **15–30 Sekunden**.
+- Keine Begrüßung.
+- Kein Kanalintro.
+- Kein künstliches „Du wirst nicht glauben ...".
+- Frage oder Problem früh klar machen.
 
 ---
 
-# 4. Menschen in die Geschichte holen
+## 2. Geschichte vor Erklärung
 
-Große Entwicklungen nach Möglichkeit an konkreten Menschen sichtbar machen.
+Wenn möglich nicht zuerst das System erklären und danach ein Beispiel liefern.
 
-Nicht nur:
+Bevorzugt:
 
-> „476 wurde der letzte weströmische Kaiser abgesetzt.“
+```text
+Mensch / Ort / konkretes Problem
+→ was passiert jetzt?
+→ warum passiert es?
+→ was verändert sich dadurch?
+→ größere historische Bedeutung
+```
 
-Sondern, wenn historisch belegbar, erklären:
+Der Zuschauer soll das historische System **aus der Geschichte heraus verstehen**.
 
-- Wer war diese Person?
-- Wie mächtig oder machtlos war sie?
-- Wer traf die eigentliche Entscheidung?
-- Warum war der Moment symbolisch oder praktisch wichtig?
+---
+
+## 3. Jeder Absatz muss etwas verändern
+
+Ein neuer Absatz braucht einen Fortschritt.
+
+Mindestens eines davon sollte sich ändern:
+
+- Situation
+- Ort
+- Zeit
+- handelnde Person
+- Problem
+- Entscheidung
+- Ursache
+- Folge
+- Machtverhältnis
+- Erkenntnis des Zuschauers
+
+Wenn ein Absatz nur denselben Gedanken anders formuliert, kürzen oder streichen.
+
+---
+
+## 4. Problem → Entscheidung → Folge
+
+Historische Erzählungen werden besonders verständlich, wenn Kausalität sichtbar bleibt.
+
+Beispiel:
+
+```text
+Problem: offene Fläche ist ungeschützt.
+Entscheidung: Graben und Wall werden gebaut.
+Folge: ein Überraschungsangriff wird schwieriger.
+Neues Problem: die Soldaten müssen diese Arbeit nach dem Marsch noch leisten.
+```
+
+Nicht bloß Fakten nebeneinanderstellen.
+
+---
+
+## 5. Zwischen Mensch und großem Bild wechseln
+
+Ein guter Geschichtskanal zoomt.
+
+```text
+nah:
+Ein Legionär wirft nach einem langen Marsch sein Gepäck ab.
+
+weit:
+Tausende Soldaten wiederholen denselben Ablauf auf Feldzügen immer wieder.
+
+nah:
+Er greift trotzdem zur Schaufel.
+
+weit:
+Aus dieser Routine entsteht ein mobiles militärisches System.
+```
+
+So bleibt Geschichte menschlich, ohne den größeren Zusammenhang zu verlieren.
+
+---
+
+## 6. Konkrete historische Details statt abstrakter Sprache
+
+Bevorzugen:
+
+- einen Ort
+- eine Person oder Gruppe
+- einen Gegenstand
+- eine Handlung
+- eine sichtbare Folge
+- eine relevante Zahl
+
+Nicht:
+
+> „Die defensive Infrastruktur erhöhte die operative Sicherheit."
+
+Besser:
+
+> „Zwischen einem Angreifer und den Zelten lagen nun zuerst Graben, Wall und bewachte Zugänge."
+
+---
+
+## 7. Mini-Hooks aus der Geschichte selbst
+
+Alle ungefähr 30–60 Sekunden – bei kurzen Videos entsprechend häufiger – sollte ein neuer Grund zum Weiterhören entstehen.
+
+Gute Formen:
+
+> „Doch der Graben war nur der Anfang."
+
+> „Das Überraschende war nicht, dass die Römer Lager bauten – sondern wie schnell daraus immer wieder dieselbe Ordnung entstand."
+
+> „Am Morgen passierte dann etwas, das diesen Aufwand noch erstaunlicher macht."
+
+Keine künstlichen Clickbait-Sätze.
+
+---
+
+## 8. Prozess-Themen brauchen Bewegung
+
+Bei Themen wie Belagerung, Bau, Reise, Aufstieg, Zerfall oder Schlacht soll das Skript Zustände verändern.
+
+Nicht:
+
+```text
+Es gab Gräben.
+Es gab Wälle.
+Es gab Zelte.
+Es gab Wachen.
+```
+
+Besser:
+
+```text
+Zuerst wird das Gelände markiert.
+Dann schneiden die Soldaten den Graben in den Boden.
+Die Erde landet nicht irgendwo: Sie wird nach innen geworfen und bildet den Wall.
+Erst dahinter entstehen die Zelte.
+```
+
+Der Zuschauer soll das Geschehen mental mitverfolgen können.
+
+---
+
+## 9. Menschen in die Geschichte holen
+
+Wenn historisch sinnvoll, konkrete Menschen oder klar umrissene Gruppen benutzen.
+
+Fragen:
+
+- Wer muss jetzt handeln?
+- Was steht für diese Person oder Gruppe auf dem Spiel?
+- Welche Entscheidung verändert die Situation?
+- Wer profitiert oder verliert dadurch?
 
 Keine erfundenen Gedanken, Gefühle oder Dialoge als Fakten ausgeben.
 
 ---
 
-# 5. Mini-Hooks / Fortschritt
+## 10. Kontext nur dann, wenn er gebraucht wird
 
-Etwa alle **30–60 Sekunden** sollte die Geschichte einen neuen Grund zum Weiterhören liefern — aber organisch aus dem Inhalt.
+Nicht erst die gesamte Vorgeschichte erklären.
 
-Gute Formen:
-
-> „Doch damit löste er ein Problem und schuf gleichzeitig ein neues.“
-
-> „Genau hier änderte sich das Kräfteverhältnis.“
-
-> „Was zunächst wie eine Lösung wirkte, machte den Westen später verwundbarer.“
-
-Vermeiden:
-
-> „Was dann geschah, wirst du nicht glauben!“
-
-> „Aber es wird noch verrückter!“
-
-Keine mechanische Hook-Pflicht alle X Sekunden; Storyfluss geht vor.
+Kontext möglichst **just in time** liefern: genau dann, wenn der Zuschauer ihn für den nächsten Story-Schritt benötigt.
 
 ---
 
-# 6. Eskalation und Wendepunkt
+## 11. Satzrhythmus
 
-Das Video soll auf etwas hinarbeiten.
-
-Je nach Thema:
-
-- Probleme verstärken sich
-- Macht verschiebt sich
-- eine Entscheidung löst Folgen aus
-- mehrere Entwicklungen treffen zusammen
-- ein Wendepunkt verändert die Lage
-
-Der Höhepunkt muss aus der zuvor erzählten Kausalkette verständlich werden.
-
----
-
-# 7. Antwort auf die Ausgangsfrage
-
-Das Video darf nicht nach dem letzten historischen Ereignis einfach enden.
-
-Am Ende die zentrale Frage klar beantworten und die wichtigsten Ursachen gewichten.
-
-Nicht so tun, als hätte ein komplexes historisches Ereignis nur **einen** Grund, wenn die Forschung mehrere Faktoren sieht.
-
----
-
-# 8. Schluss
-
-Kurz und stark.
-
-Mögliche Funktionen:
-
-- Ausgangsfrage in einem neuen Licht beantworten
-- Bedeutung des Ereignisses zeigen
-- eine historische Ironie oder Konsequenz herausstellen
-
-Keine lange Standard-Abmoderation erforderlich.
-
----
-
-# 9. Satzstil
-
-- ein Hauptgedanke pro Satz
 - überwiegend kurze bis mittlere Sätze
-- aktive Formulierungen bevorzugen
-- konkrete Verben statt Nominalstil
-- Daten/Zahlen nur, wenn sie Orientierung oder Bedeutung liefern
-- Fachbegriffe sofort erklären
+- einzelne sehr kurze Sätze für Gewicht
+- aktive Verben
+- konkrete Subjekte
+- Satzlänge bewusst variieren
+- nicht jeder Satz gleich gebaut
+- Fachbegriffe sofort verständlich machen
+- Zahlen nur, wenn sie Bedeutung schaffen
 - keine unnötigen Wiederholungen
-- keine leeren Übergangssätze
 
-## Nicht wie Wikipedia schreiben
+Beispiel:
+
+> „Der Marsch war vorbei. Die Arbeit nicht. Jetzt begann der Graben."
+
+---
+
+## 12. Nicht wie Wikipedia schreiben
 
 Schlecht:
 
-> „Das Weströmische Reich war der westliche Teil des Römischen Reiches, welcher nach der Reichsteilung entstand.“
+> „Das Marschlager war eine temporäre militärische Anlage zur Unterbringung römischer Truppen."
 
 Besser:
 
-> „Rom war inzwischen so groß geworden, dass ein einzelner Kaiser kaum noch alles kontrollieren konnte. Also wurde das Reich geteilt.“
+> „Wo am Nachmittag noch offene Erde lag, stand wenige Stunden später ein geordnetes Lager mit Graben, Wall, Wegen und Zelten."
+
+Erklärung bleibt wichtig, aber sie entsteht aus sichtbaren Veränderungen.
 
 ---
 
-# 10. Spannung ohne historische Verfälschung
-
-Storytelling darf Fakten **ordnen und verständlich machen**, aber nicht erfinden.
+## 13. Spannung ohne historische Verfälschung
 
 Verboten:
 
-- erfundene Zitate als echte Zitate
-- erfundene Gedanken historischer Personen
-- künstliche Gewissheit bei umstrittenen Fragen
+- erfundene Zitate
+- erfundene Gedanken als Fakten
+- falsche Gewissheit bei umstrittenen Fragen
 - moderne Legenden als gesicherte Fakten
-- falsche Zuspitzung nur für einen stärkeren Hook
+- künstliche Gefahr oder Dramatik, die die Quellen nicht tragen
+
+Spannung entsteht durch reale Probleme, Entscheidungen, Zeitdruck, Kontraste und Folgen.
 
 ---
 
-# 11. Script-QC vor Bildplanung
+## 14. Ende: nicht nur zusammenfassen
+
+Das Ende soll die Ausgangsfrage beantworten und möglichst zum Einstieg zurückkehren.
+
+Beispiel:
+
+```text
+Am Abend sieht der Soldat nur zusätzliche Arbeit.
+Am Morgen zeigt sich der eigentliche Vorteil:
+Das Lager verschwindet – aber der Plan dafür reist weiter.
+```
+
+Keine lange Wiederholung aller Punkte.
+
+---
+
+## 15. Script-QC vor Bildplanung
 
 Ein Skript ist erst bereit, wenn:
 
-- Hook sofort funktioniert
-- zentrale Frage klar ist
-- Kontext nicht überladen ist
-- Ursache/Wirkung verständlich ist
-- die Story voranschreitet
-- historische Menschen/Beispiele sinnvoll eingesetzt sind
+- der Einstieg mit einer konkreten Situation, einem Problem oder einer starken historischen Beobachtung beginnt
+- die zentrale Frage früh klar wird
+- das Skript eine Geschichte vorwärtsbewegt
+- jeder Absatz die Situation oder das Verständnis verändert
+- Ursache und Wirkung verständlich bleiben
+- abstrakte Erklärung regelmäßig durch konkrete Menschen, Orte, Handlungen oder Gegenstände geerdet wird
+- Mensch und großes historisches Bild sinnvoll wechseln
+- Mini-Hooks organisch aus der Geschichte entstehen
 - keine wichtigen Behauptungen unbelegt bleiben
-- ein klarer Wendepunkt oder Erkenntnisfortschritt vorhanden ist
-- das Ende die Ausgangsfrage beantwortet
-- das Skript ohne Bilder interessant lesbar ist
+- das Ende die Ausgangsfrage wirklich beantwortet
+- der Schluss nicht bloß alles wiederholt
+- das Skript auch ohne Bilder interessant vorgelesen werden kann
+
+## Kurzformel
+
+```text
+Moment
+→ Problem
+→ Handlung
+→ Folge
+→ neues Problem / neue Frage
+→ größere Bedeutung
+→ Rückkehr zur Ausgangsfrage
+```
