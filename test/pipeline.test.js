@@ -5,6 +5,7 @@ import path from 'node:path';
 import test from 'node:test';
 
 import { evaluateTopic } from '../src/cli/check-youtube-topic.js';
+import { createPhase3ImageLock, verifyPhase3ImageLock } from '../src/cli/phase3-image-lock.js';
 import { validatePhase1 } from '../src/cli/validate-youtube-phase1.js';
 import { findHighRiskPromptWords } from '../src/lib/flow-prompt.js';
 import { normalizeText, similarity } from '../src/lib/pipeline.js';
@@ -61,7 +62,7 @@ test('Repo besitzt freigegebene History-Bildwelt und Flow Compiler V3', async ()
   }
 });
 
-test('Pipeline behält allgemeine Produktionsregeln und Cover-Gate', async () => {
+test('Pipeline behält allgemeine Produktionsregeln, Cover-Gate und Phase-3-Asset-Sperre', async () => {
   const policy = JSON.parse(await readFile('config/pipeline.json', 'utf8'));
   assert.equal(policy.coverPolicy.firstSceneIsCover, true);
   assert.equal(policy.coverPolicy.coverCandidateCount, 3);
@@ -75,10 +76,41 @@ test('Pipeline behält allgemeine Produktionsregeln und Cover-Gate', async () =>
   assert.equal(policy.imagePolicy.fixedImageCountForbidden, true);
   assert.equal(policy.imagePolicy.nonCoverGenerationCount, 1);
   assert.deepEqual(policy.imagePolicy.targetAverageHoldSeconds, [4.5, 7.5]);
+  assert.equal(policy.phase3AssetPolicy.existingImagesOnly, true);
+  assert.equal(policy.phase3AssetPolicy.imageGenerationForbidden, true);
+  assert.equal(policy.phase3AssetPolicy.imageRegenerationForbidden, true);
+  assert.equal(policy.phase3AssetPolicy.imageEditingForbidden, true);
+  assert.equal(policy.phase3AssetPolicy.imageReplacementForbidden, true);
+  assert.equal(policy.phase3AssetPolicy.abortOnMissingImage, true);
+  assert.equal(policy.phase3AssetPolicy.abortOnImageMutation, true);
+  assert.equal(policy.phase3AssetPolicy.agentMustReportErrorInsteadOfRepairing, true);
   assert.equal(policy.audioPolicy.playbackRate, 1.1);
   assert.equal(policy.audioPolicy.loudnessTargetLufs, -16);
   assert.equal(policy.audioPolicy.truePeakDbtp, -1.5);
   assert.equal(policy.endHoldPolicy.targetSeconds, 1.3);
+});
+
+test('Phase-3-Bildlock erlaubt vorhandene Bilder und erkennt jede spätere Änderung', async () => {
+  const temp = await mkdtemp(path.join(tmpdir(), 'phase3-image-lock-'));
+  try {
+    const imageDir = path.join(temp, '00-bildprompts', 'images');
+    const techDir = path.join(temp, '99-technik');
+    await mkdir(imageDir, { recursive: true });
+    await mkdir(techDir, { recursive: true });
+    await writeFile(path.join(techDir, 'video.json'), JSON.stringify({ plannedImageCount: 2 }));
+    await writeFile(path.join(imageDir, 'Bild 01.png'), 'existing-image-one');
+    await writeFile(path.join(imageDir, 'Bild 02.png'), 'existing-image-two');
+
+    const lock = await createPhase3ImageLock(temp);
+    assert.equal(lock.status, 'LOCKED');
+    assert.equal(lock.images.length, 2);
+    assert.equal((await verifyPhase3ImageLock(temp)).passed, true);
+
+    await writeFile(path.join(imageDir, 'Bild 02.png'), 'agent-generated-replacement');
+    await assert.rejects(() => verifyPhase3ImageLock(temp), /verändert oder ersetzt/i);
+  } finally {
+    await rm(temp, { recursive: true, force: true });
+  }
 });
 
 test('Projekt-Template nutzt Scene Card V2, Flow Compiler V3 und World-Lock-Gate', async () => {
