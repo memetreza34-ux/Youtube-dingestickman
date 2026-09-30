@@ -7,18 +7,30 @@ import test from 'node:test';
 import { evaluateTopic } from '../src/cli/check-youtube-topic.js';
 import { normalizeText, similarity } from '../src/lib/pipeline.js';
 
-test('Repo besitzt freigegebene History-Bildwelt und Visual Director V2', async () => {
+test('Repo besitzt freigegebene History-Bildwelt und Flow Compiler V3', async () => {
   const visual = JSON.parse(await readFile('config/visual-policy.json', 'utf8'));
+  const styleLock = JSON.parse(await readFile('config/flow-style-lock.json', 'utf8'));
   const channel = JSON.parse(await readFile('config/channel-policy.json', 'utf8'));
   const registry = JSON.parse(await readFile('config/topic-registry.json', 'utf8'));
   assert.equal(visual.status, 'READY');
   assert.equal(visual.styleId, 'history-stickman-adaptive-v1');
-  assert.equal(visual.promptSystemVersion, 2);
+  assert.equal(visual.promptSystemVersion, 3);
+  assert.equal(visual.promptSystem, 'flow-compiler-v3');
   assert.equal(visual.scenePlanningSchemaVersion, 2);
   assert.equal(visual.visualDirectorRequired, true);
+  assert.equal(visual.flowPromptCompilerRequiredForNewProjects, true);
+  assert.equal(visual.flowWorldLockRequired, true);
+  assert.equal(visual.sceneStyleAnchorRequired, true);
   assert.equal(visual.promptMustPreserveVisualForm, true);
   assert.equal(visual.promptQcRequired, true);
   assert.equal(visual.promptQcMinimumScore, 8);
+  assert.equal(styleLock.status, 'READY');
+  assert.equal(styleLock.styleId, visual.styleId);
+  assert.equal(styleLock.promptSystem, 'flow-compiler-v3');
+  assert.ok(styleLock.masterStylePrompt.length > 300);
+  assert.ok(styleLock.sceneStyleAnchor.length > 100);
+  assert.ok(Array.isArray(styleLock.highRiskPromptWords));
+  assert.ok(styleLock.highRiskPromptWords.includes('cinematic'));
   assert.ok(Array.isArray(visual.requiredScenePlanningFields));
   assert.ok(visual.requiredScenePlanningFields.includes('viewerTakeaway'));
   assert.ok(visual.requiredScenePlanningFields.includes('visualConcept'));
@@ -63,13 +75,17 @@ test('Pipeline behält allgemeine Produktionsregeln und Cover-Gate', async () =>
   assert.equal(policy.endHoldPolicy.targetSeconds, 1.3);
 });
 
-test('Projekt-Template nutzt Scene Card V2, aktive Bildwelt und Cover-Gate', async () => {
+test('Projekt-Template nutzt Scene Card V2, Flow Compiler V3 und World-Lock-Gate', async () => {
   const meta = JSON.parse(await readFile('youtube/templates/video-template/99-technik/video.json', 'utf8'));
   const mapping = JSON.parse(await readFile('youtube/templates/video-template/99-technik/BILD_AUDIO_ZUORDNUNG.json', 'utf8'));
+  const worldLock = JSON.parse(await readFile('youtube/templates/video-template/99-technik/FLOW_WORLD_LOCK.json', 'utf8'));
   const prompt = await readFile('youtube/templates/video-template/00-bildprompts/google-flow-prompt.txt', 'utf8');
   assert.equal(meta.visualStyleId, 'UNSET');
   assert.equal(meta.topic, '');
   assert.equal(meta.title, '');
+  assert.equal(meta.promptSystemVersion, 3);
+  assert.equal(meta.promptSystem, 'flow-compiler-v3');
+  assert.equal(meta.flowStyleLockFile, 'config/flow-style-lock.json');
   assert.equal(mapping.schemaVersion, 2);
   assert.ok(Object.hasOwn(mapping.images[0], 'viewerTakeaway'));
   assert.ok(Object.hasOwn(mapping.images[0], 'visualConcept'));
@@ -78,29 +94,29 @@ test('Projekt-Template nutzt Scene Card V2, aktive Bildwelt und Cover-Gate', asy
   assert.ok(Object.hasOwn(mapping.images[0], 'depthPlan'));
   assert.ok(Object.hasOwn(mapping.images[0], 'lightingMood'));
   assert.ok(Object.hasOwn(mapping.images[0], 'promptQcScore'));
+  assert.equal(worldLock.status, 'PLANNED');
+  assert.match(worldLock.settingName, /\[/);
   assert.equal(meta.coverPolicy?.coverTextRequired, true);
   assert.equal(meta.coverPolicy?.coverTextLanguage, 'de');
   assert.equal(meta.coverPolicy?.userSelectsCover, true);
   assert.equal(meta.coverPolicy?.flowMustStopAfterCoverCandidates, true);
   assert.equal(meta.coverPolicy?.selectedCoverRequiredBeforeRemainingImages, true);
   assert.match(prompt, /ACTIVE_STYLE_ID:\s*history-stickman-adaptive-v1/);
-  assert.match(prompt, /PROMPT_SYSTEM:\s*visual-director-v2/i);
-  assert.match(prompt, /Visual-Form Fidelity/i);
-  assert.match(prompt, /Prompt Quality/i);
-  assert.match(prompt, /same art universe across all images/i);
-  assert.match(prompt, /COVER TEXT:/i);
-  assert.match(prompt, /Bild 01 ALWAYS contains the exact short German cover text/i);
-  assert.match(prompt, /STOP IMMEDIATELY/i);
-  assert.match(prompt, /DO NOT choose a winner yourself/i);
-  assert.match(prompt, /Wait for the user to explicitly select/i);
-  assert.match(prompt, /ONLY AFTER USER SELECTION/i);
+  assert.match(prompt, /PROMPT_SYSTEM:\s*flow-compiler-v3/i);
+  assert.match(prompt, /STATUS:\s*NOT_BUILT/i);
+  assert.match(prompt, /THIS FILE IS GENERATED, NOT MANUALLY AUTHORED/i);
+  assert.match(prompt, /build:youtube-flow/i);
+  assert.match(prompt, /FLOW_WORLD_LOCK\.json/i);
+  assert.match(prompt, /Do not paste this placeholder file into Google Flow/i);
 });
 
-test('Visual-Director-Dokumentation ist vollständig vorhanden', async () => {
+test('Visual-Director- und Flow-Dokumentation ist vollständig vorhanden', async () => {
   const style = await readFile('channel/10-STYLE-DNA-V2.md', 'utf8');
   const director = await readFile('channel/11-VISUAL-DIRECTOR.md', 'utf8');
   const qc = await readFile('channel/12-PROMPT-QC.md', 'utf8');
   const refs = await readFile('channel/13-STYLE-REFERENCE-PACK.md', 'utf8');
+  const flow = await readFile('channel/08-FLOW-PROMPTING.md', 'utf8');
+  const promptTemplate = await readFile('channel/09-IMAGE-PROMPT-TEMPLATE.md', 'utf8');
   assert.match(style, /visuelle Beziehung/i);
   assert.match(director, /Viewer Takeaway/i);
   assert.match(director, /Visual Concept/i);
@@ -108,6 +124,9 @@ test('Visual-Director-Dokumentation ist vollständig vorhanden', async () => {
   assert.match(qc, /8\/10/);
   assert.match(qc, /Visual-Form-Treue/i);
   assert.match(refs, /neun Master-Referenzen/i);
+  assert.match(flow, /Flow Compiler V3/i);
+  assert.match(flow, /Style Anchor/i);
+  assert.match(promptTemplate, /google-flow-prompt\.txt.*nicht mehr manuell/is);
 });
 
 test('Textnormalisierung und Ähnlichkeit funktionieren', () => {
@@ -133,6 +152,7 @@ test('Keine Alt-Themen oder fremde Alt-Bildwelt wurden in die zentrale Konfigura
     'README.md',
     'config/pipeline.json',
     'config/visual-policy.json',
+    'config/flow-style-lock.json',
     'config/topic-registry.json',
     'youtube/WORKFLOW.md',
     'youtube/templates/video-template/00-bildprompts/google-flow-prompt.txt'
