@@ -1,12 +1,29 @@
-# Visual Grammar — Wie ein Skriptsatz in ein Bild übersetzt wird
+# Visual Grammar — Wie Story-Beats in Bilder übersetzt werden
 
 ## Zweck
 
-Die Bildwelt ist nicht nur ein Stil, sondern ein Auswahl-System. Für jeden gesprochenen Gedanken wird zuerst entschieden, **welche Visual-Form die Aussage am klarsten erklärt**.
+Die Bildwelt ist nicht nur ein Stil, sondern ein Auswahl-System. Geplant wird nicht mehr nur pro Absatz oder Satz, sondern pro **Story-Beat**: Immer wenn sich Handlung, Ursache, Ort, Zeit, Perspektive oder Erkenntnis deutlich verändert, wird geprüft, ob ein neuer visueller Beat nötig ist.
 
 Keine Regel verlangt automatisch eine Figur.
 
 Wichtig: Eine Visual Form ist nur die Kategorie. Vor dem finalen Prompt muss zusätzlich ein **Visual Concept** und eine konkrete **Composition** nach `11-VISUAL-DIRECTOR.md` entstehen.
+
+## Story-Beat-Regel
+
+Ein neuer visueller Beat ist besonders wahrscheinlich, wenn sich mindestens eines ändert:
+
+- handelnde Person oder Gruppe
+- Handlung
+- Ursache oder Folge
+- Ort
+- Zeit
+- Größenordnung / Zoomstufe
+- Zustand eines Ortes oder Objekts
+- zentrale Zuschauer-Erkenntnis
+
+Ein Bild soll nicht weiterlaufen, nur weil derselbe Absatz gesprochen wird.
+
+Für einen etwa 60-sekündigen History-Test sind häufig ungefähr **14–20 visuelle Beats** sinnvoll. Das ist eine Orientierung, keine starre Bildzahl. Inhalt gewinnt immer.
 
 ## Visual-Formen
 
@@ -27,13 +44,7 @@ Beispiele:
 - Hafenstadt bei Nacht
 
 ### 3. Map / Geography
-Nutzen bei:
-- Expansion
-- Grenzen
-- Handelswegen
-- Migration
-- geografischen Hindernissen
-- mehreren Reichen/Regionen
+Nutzen bei Expansion, Grenzen, Handelswegen, Migration, geografischen Hindernissen oder mehreren Reichen/Regionen.
 
 Karten müssen im selben handgezeichneten Kanalstil bleiben.
 
@@ -49,112 +60,85 @@ Beispiele:
 ### 5. Architecture / City
 Nutzen, wenn Macht, Technik, Alltag oder Entwicklung über gebaute Umwelt erklärt werden kann.
 
-Beispiele:
-- Burg und Dorf
-- römisches Forum
-- Stadtmauer
-- Aquädukt
-
 ### 6. System / Hierarchy
-Nutzen für abstraktere historische Strukturen.
-
-Beispiele:
-- Feudalsystem über Burg → Adelige → Dorf → Felder
-- Versorgung einer Armee
-- Machtverteilung zwischen König und Adel
-
-Keine moderne Business-Infografik. System über historische Räume, Objekte, Wege, Höhe und Beziehungen zeigen.
+Nutzen für abstraktere historische Strukturen. System über historische Räume, Objekte, Wege, Höhe und Beziehungen zeigen; keine moderne Business-Infografik.
 
 ### 7. Cause → Effect
-Nutzen, wenn mehrere Faktoren eine Folge verursachen.
-
-Beispiel:
-Steuerausfälle + teure Armee + Grenzdruck → geschwächtes Reich.
-
-Nicht als Textdiagramm, sondern als visuelle Beziehung. Ursache und Folge müssen beide im Bild oder in einer klar verbundenen räumlichen Situation lesbar sein.
+Nutzen, wenn eine Ursache sichtbar zu einer Folge führt. Ursache und Folge müssen beide in einer klaren räumlichen Beziehung lesbar sein.
 
 ### 8. Process / Sequence
-Nutzen, wenn ein Ablauf erklärt wird.
-
-Beispiele:
-- Belagerung schneidet Versorgung ab
-- Münzentwertung
-- Aufbau eines römischen Marschlagers
-
-Bei wiederkehrenden Zuständen möglichst denselben Ort und fast denselben Blickwinkel nutzen, damit Veränderung sofort sichtbar wird.
+Nutzen, wenn ein Ablauf erklärt wird. Bei Zustandsänderungen möglichst denselben Ort oder verwandten Blickwinkel nutzen, wenn das Verständnis dadurch steigt.
 
 ### 9. Comparison
-Nutzen bei klaren Gegensätzen.
-
-Beispiele:
-- Reich vs arm
-- Rom früher vs später
-- Ostrom vs Westrom
-
-Harte Regel: Wenn `comparison` gewählt wurde, müssen **beide Vergleichspole** visuell vorkommen. Ein Einzelmotiv ist kein Vergleich.
+Nutzen bei klaren Gegensätzen. Beide Vergleichspole müssen sichtbar vorkommen.
 
 ### 10. Symbolic Metaphor
-Nur nutzen, wenn eine reale Szene die abstrakte Aussage nicht gut erklärt.
-
-Beispiele:
-- rissige Säule als Symbol eines zerfallenden Reiches
-- mehrere Stützen unter einem Thron als Abhängigkeit des Königs
-
-Symbolik muss sofort verständlich und nicht kitschig sein.
+Nur nutzen, wenn eine reale Szene die abstrakte Aussage schlechter erklärt. Symbolik muss sofort verständlich und historisch passend wirken.
 
 ### 11. Battle / City Overview
-Nutzen, wenn räumliche Lage entscheidend ist.
-
-Beispiele:
-- Belagerungsring um eine Stadt
-- Flottenpositionen
-- Armeewege
-
-Übersicht heißt nicht: alles klein machen. Das zentrale räumliche Verhältnis muss auch in kleiner YouTube-Darstellung klar bleiben.
+Nutzen, wenn räumliche Lage entscheidend ist. Das zentrale Verhältnis muss auch klein auf YouTube lesbar bleiben.
 
 ### 12. Rise / Fall Lifecycle
-Nutzen für zeitliche Entwicklung ohne viele Einzelbilder.
+Nutzen für zeitliche Entwicklung, wenn mehrere Zustände in einem Bild verständlicher sind als getrennte Bilder.
 
-Beispiel:
-Siedlung → prosperierende Stadt → Verfall.
+### 13. Multi-Moment Illustration
+Nutzen, wenn **zwei oder höchstens drei eng zusammengehörige Story-Momente** in einer einzigen Illustration zusammen stärker erklären als getrennte Einzelbilder.
 
-Nur nutzen, wenn mehrere Zustände in einem Bild wirklich verständlicher sind als getrennte Bilder.
+Beispiele:
+- links müder Legionär nach dem Marsch, Mitte Grabenbau, rechts fertiges Nachtlager
+- Vordergrund Händler mit leerem Geldbeutel, Mittelgrund teure Ware, Hintergrund Münzstätte als Ursache derselben Entwicklung
+- derselbe Ort in drei klar lesbaren Zuständen: vorher → Veränderung → danach
+
+Regeln:
+
+- maximal 2–3 Momente
+- alle Momente beantworten **eine gemeinsame Zuschauerfrage**
+- ein Moment bleibt visuell dominant oder die Leserichtung ist eindeutig
+- bevorzugt integrierte räumliche Erzählung, Vordergrund/Mittelgrund/Hintergrund oder klare Links→Rechts-Bewegung
+- keine zufällige Sammlung unabhängiger Motive
+- keine dichte Fotocollage
+- keine neun kleinen Panels
+- Trennungen oder weiche Übergänge sind erlaubt, wenn sie die Geschichte klarer machen
+- sichtbare Beschriftungen bleiben standardmäßig verboten
+
+**Mehrere Momente in einer Illustration sind ausdrücklich erlaubt.** Die alte Regel „ein Bild = nur ein einzelner Zustand“ gilt nicht mehr absolut. Entscheidend ist: **ein Bild = ein klarer erzählerischer Takeaway**.
 
 ## Auswahlregel
 
-Vor jedem Prompt:
+Vor jedem visuellen Beat:
 
-1. Was ist die Kernaussage des Satzes?
-2. Was muss der Zuschauer in weniger als einer Sekunde verstehen?
-3. Muss ein Mensch sichtbar sein, um sie zu verstehen?
-4. Wenn nein: Welche Nicht-Figuren-Visual-Form erklärt sie klarer?
-5. Welche Epoche/Ort/Details müssen historisch erkennbar sein?
-6. Welche Stimmung unterstützt den Satz?
-7. Was ist das eine klare visuelle Fokusmotiv?
-8. Welche **visuelle Beziehung** macht die Aussage sichtbar?
+1. Was hat sich in der Geschichte gerade verändert?
+2. Was muss der Zuschauer jetzt verstehen?
+3. Braucht diese neue Information ein eigenes Bild?
+4. Muss ein Mensch sichtbar sein?
+5. Welche Visual Form erklärt sie am klarsten?
+6. Wäre ein Einzelmoment klarer – oder eine integrierte 2–3-Moment-Illustration?
+7. Welche Epoche/Ort/Details müssen historisch erkennbar sein?
+8. Welche visuelle Beziehung macht die Aussage sichtbar?
 
 Danach wird nach `11-VISUAL-DIRECTOR.md` das Visual Concept und die Komposition gebaut.
 
 ## Anti-Monotonie
 
-Ein längeres Video soll nicht aus einer endlosen Folge ähnlicher Figurenbilder bestehen.
+Ein Geschichtsvideo soll nicht aus langen Holds auf ähnlichen Bildern bestehen.
 
-Abwechslung entsteht durch **Visual-Funktion**, nicht durch Stilwechsel:
+Abwechslung entsteht durch:
 
-- Figuren
+- Character Scenes
+- Umgebungen
+- Objektfokus
 - Karten
-- Gebäude
-- Objekte
-- Systeme
+- Architektur
+- Nahaufnahmen
 - Übersichten
-- Symbolik
-- Prozesse
+- Ursache→Wirkung
+- Vorher/Nachher
+- integrierte Mehrmoment-Illustrationen
+- Wechsel zwischen menschlicher Nähe und großem historischen Bild
 
-Der gemeinsame Kanalstil bleibt dabei unverändert.
+Der gemeinsame Kanalstil bleibt unverändert.
 
 ## Visual-Form-Treue
-
-Die gewählte Form ist ein Vertrag zwischen Planung und Prompt.
 
 Vor Freigabe prüfen:
 
@@ -165,11 +149,10 @@ Vor Freigabe prüfen:
 - `battle-city-overview` → ist das räumliche Verhältnis dominant?
 - `object-focus` → trägt das Objekt wirklich die Aussage?
 - `character-scene` → zeigt Körpersprache/Handlung den Gedanken?
-
-Wenn nicht, Prompt neu schreiben oder Visual Form bewusst ändern und die Scene Card aktualisieren.
+- `multi-moment-illustration` → sind 2–3 Momente klar verbunden und führen zu genau einem Takeaway?
 
 ## Harte Regel
 
-**Script → Viewer Takeaway → Visual Concept → Visual Function → Visual Form → Composition → Camera → Prompt → QC.**
+**Script → Story Beat → Viewer Takeaway → Visual Concept → Visual Function → Visual Form → Composition → Camera → Prompt → QC.**
 
-Nicht direkt vom Satz zu einem zufälligen oder rein beschreibenden Bildprompt springen.
+Nicht direkt vom Absatz zu einem zufälligen Bildprompt springen.
