@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "status": "READY",
+  "settingName": "an early Imperial Roman marching camp on a dry temperate frontier plain",
+  "settingDescription": "A slightly raised dry-grass site beside one dusty approach road, surrounded by low hills. The temporary camp uses a shallow outer ditch, a low inward earthen rampart reinforced with simple wooden stakes, restrained gate openings, straight internal lanes and muted brown leather tents. No stone fortifications or permanent barracks.",
+  "recurringPlaces": [
+    "the same rectangular temporary camp footprint on the low rise",
+    "the same near gate facing the dusty approach road",
+    "the same dry-grass terrain and low hills surrounding the camp"
+  ],
+  "recurringCharacters": [
+    "one recurring legionary with short dark hair, short beard, muted rust-red tunic, dark belt, brown sandals and simple early Imperial Roman military equipment"
+  ],
+  "recurringProps": [
+    "muted brown leather campaign tents",
+    "simple wooden stakes and entrenching tools",
+    "rectangular Roman shields and packed marching gear"
+  ],
+  "basePalette": [
+    "sand beige",
+    "dry olive grass",
+    "earth brown",
+    "muted rust red",
+    "iron gray",
+    "gray-blue sky"
+  ],
+  "timeWeatherLogic": "The sequence progresses continuously from late afternoon to dusk, then night, then pale dawn; the weather remains dry and calm throughout.",
+  "continuityRules": [
+    "For recurring locations, preserve silhouette, layout, openings, materials and defining props.",
+    "For before/after or changing-state scenes, reuse the same or nearly the same viewpoint when that makes the change clearer.",
+    "For recurring people, preserve hair, beard, headwear, clothing colors and identifying props.",
+    "The camp never becomes a permanent stone fortress; all defenses remain temporary earth, timber and leather construction.",
+    "Bild 03, Bild 07 and Bild 10 must clearly read as the same terrain from closely related elevated viewpoints."
+  ]
+}
