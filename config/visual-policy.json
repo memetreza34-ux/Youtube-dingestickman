@@ -1,8 +1,10 @@
 {
-  "visualPolicyVersion": 5,
+  "visualPolicyVersion": 6,
   "status": "READY",
   "styleId": "history-stickman-adaptive-v1",
-  "description": "Konsistente handgezeichnete 2D-History-Explainer-Bildwelt mit klaren YouTube-tauglichen Einzelmotiven, verpflichtendem deutschem Cover-Text und manueller Nutzerwahl des Covers vor der restlichen Bildgenerierung.",
+  "promptSystemVersion": 2,
+  "scenePlanningSchemaVersion": 2,
+  "description": "Konsistente handgezeichnete 2D-History-Explainer-Bildwelt mit verpflichtender Visual-Director-Stufe, starker Kompositionsplanung, Prompt-QC und manuellem Cover-Gate.",
   "rules": [
     "Der grundlegende Zeichenstil bleibt über alle Videos und Szenen konstant; nur Inszenierung, Stimmung, Epoche und Komposition dürfen sich anpassen.",
     "Menschen verwenden dieselbe stilisierte Stickman-Grundkonstruktion mit einfachen Köpfen, schlanken vereinfachten Körpern, sauberen dunklen Ink-Konturen, flachen gedämpften Farben, subtiler Cel-Schattierung und leichter Papier-/Tuschetextur.",
@@ -10,6 +12,10 @@
     "Figuren dürfen niemals automatisch erzwungen werden. Karten, Architektur, Landschaften, Objekte, Systeme, Symbolbilder, Übersichten und Vergleiche sind gleichwertige Visual-Formen.",
     "Jedes Bild hat genau eine klare Kernaussage und genau ein dominantes Hauptmotiv.",
     "Pro Bild höchstens ein bis drei wirklich notwendige unterstützende Elemente; keine Wimmelbilder oder überfüllten Lehrbuch-/Museumstafeln.",
+    "Wenige Elemente allein reichen nicht: jedes Bild braucht eine bewusste visuelle Idee, räumliche Anordnung, Blickführung und passende Kamera.",
+    "Vor jedem finalen Prompt ist eine Visual-Director-Scene-Card nach channel/11-VISUAL-DIRECTOR.md Pflicht.",
+    "Der finale Prompt muss die intern gewählte Visual Form erhalten. Comparison, Cause-Effect, Process und System dürfen beim Schreiben nicht zu generischen Einzelmotiven vereinfacht werden.",
+    "Jeder finale Bildprompt benötigt vor Freigabe einen Prompt-QC-Score von mindestens 8/10 nach channel/12-PROMPT-QC.md.",
     "Wiederkehrende Orte, Figuren, Räume und Objekte bleiben innerhalb desselben Videos visuell konsistent.",
     "Bild 01 ist immer Cover und erste Szene und enthält immer einen kurzen passenden deutschen Cover-Text.",
     "Cover-Text ist idealerweise 2–5 Wörter lang, exakt vorgegeben, korrekt geschrieben, groß und sofort lesbar.",
@@ -43,6 +49,9 @@
     "dozens of tiny figures",
     "excessive micro-detail",
     "unnecessary cutaway",
+    "inventory-list-only prompt",
+    "generic camera without narrative purpose",
+    "visual-form loss between planning and prompt",
     "unnecessary visible text outside cover",
     "English labels in German videos",
     "image numbers inside images",
@@ -67,6 +76,37 @@
   "maxSupportingElementsPerImage": 3,
   "oneDominantSubjectRequired": true,
   "videoContinuityLockRequired": true,
+  "visualDirectorRequired": true,
+  "promptMustPreserveVisualForm": true,
+  "promptQcRequired": true,
+  "promptQcMinimumScore": 8,
+  "promptQcZeroForbiddenFor": [
+    "statementFidelity",
+    "visualFormFidelity",
+    "composition"
+  ],
+  "requiredScenePlanningFields": [
+    "viewerTakeaway",
+    "visualPurpose",
+    "topicAnchor",
+    "visualForm",
+    "visualConcept",
+    "dominantSubject",
+    "actionState",
+    "composition",
+    "camera",
+    "depthPlan",
+    "lightingMood",
+    "supportingElements",
+    "continuityNote",
+    "historicalAccuracyNote",
+    "promptQcScore"
+  ],
+  "styleReferencePack": {
+    "status": "PLANNED",
+    "requiredForFutureStylePromotion": true,
+    "currentTextAuthority": "channel/10-STYLE-DNA-V2.md"
+  },
   "finalFlowPromptFormat": "STYLE_WORLD_COVER_THEN_USER_GATE_THEN_REMAINING_IMAGES",
   "supportedVisualForms": [
     "character-scene",
@@ -83,9 +123,12 @@
     "rise-fall-lifecycle"
   ],
   "notes": [
-    "Ausführliche Regeln: channel/06-VISUAL-SYSTEM.md",
+    "Grundbildwelt: channel/06-VISUAL-SYSTEM.md",
     "Visual-Auswahl: channel/07-VISUAL-GRAMMAR.md",
     "Google-Flow-Prompting und manueller Cover-Gate: channel/08-FLOW-PROMPTING.md",
-    "Promptstruktur: channel/09-IMAGE-PROMPT-TEMPLATE.md"
+    "Promptstruktur: channel/09-IMAGE-PROMPT-TEMPLATE.md",
+    "Präzise Zeichen- und Kompositions-DNA: channel/10-STYLE-DNA-V2.md",
+    "Verpflichtende Szenenregie: channel/11-VISUAL-DIRECTOR.md",
+    "Prompt-Freigabe ab 8/10: channel/12-PROMPT-QC.md"
   ]
 }
