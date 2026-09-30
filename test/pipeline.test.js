@@ -27,6 +27,10 @@ test('Repo besitzt freigegebene History-Bildwelt und Flow Compiler V3', async ()
   assert.equal(visual.promptMustPreserveVisualForm, true);
   assert.equal(visual.promptQcRequired, true);
   assert.equal(visual.promptQcMinimumScore, 8);
+  assert.equal(visual.storyBeatPlanningRequired, true);
+  assert.equal(visual.multiMomentIllustrationAllowed, true);
+  assert.equal(visual.multiMomentIllustrationMaxMoments, 3);
+  assert.ok(visual.supportedVisualForms.includes('multi-moment-illustration'));
   assert.equal(visual.controlledVariationPolicy?.enabled, true);
   assert.equal(visual.controlledVariationPolicy?.fixedMasterReferenceImages, false);
   assert.equal(visual.controlledVariationPolicy?.sameStyleDifferentStaging, true);
@@ -51,6 +55,9 @@ test('Repo besitzt freigegebene History-Bildwelt und Flow Compiler V3', async ()
   assert.equal(visual.selectedCoverRequiredBeforeRemainingImages, true);
   assert.equal(channel.visualSystem?.status, 'READY');
   assert.equal(channel.visualSystem?.styleId, visual.styleId);
+  assert.equal(channel.scriptRules?.sceneFirstOpeningPreferred, true);
+  assert.equal(channel.scriptRules?.storyBeforeExplanation, true);
+  assert.equal(channel.scriptRules?.newParagraphShouldChangeSituationOrUnderstanding, true);
   assert.equal(channel.targetDurationMinutes?.shortTestVideosAllowed, true);
   assert.equal(channel.targetDurationMinutes?.shortTestMaximumSeconds, 120);
   assert.ok(Array.isArray(registry.entries));
@@ -62,7 +69,7 @@ test('Repo besitzt freigegebene History-Bildwelt und Flow Compiler V3', async ()
   }
 });
 
-test('Pipeline behält allgemeine Produktionsregeln, Cover-Gate und Phase-3-Asset-Sperre', async () => {
+test('Pipeline behält höhere Story-Beat-Dichte, Cover-Gate und Phase-3-Asset-Sperre', async () => {
   const policy = JSON.parse(await readFile('config/pipeline.json', 'utf8'));
   assert.equal(policy.coverPolicy.firstSceneIsCover, true);
   assert.equal(policy.coverPolicy.coverCandidateCount, 3);
@@ -75,7 +82,14 @@ test('Pipeline behält allgemeine Produktionsregeln, Cover-Gate und Phase-3-Asse
   assert.equal(policy.coverPolicy.flowMayNotAutoSelectCover, true);
   assert.equal(policy.imagePolicy.fixedImageCountForbidden, true);
   assert.equal(policy.imagePolicy.nonCoverGenerationCount, 1);
-  assert.deepEqual(policy.imagePolicy.targetAverageHoldSeconds, [4.5, 7.5]);
+  assert.deepEqual(policy.imagePolicy.targetAverageHoldSeconds, [3, 5]);
+  assert.equal(policy.imagePolicy.reviewAboveSeconds, 6.5);
+  assert.equal(policy.imagePolicy.preferSplitAboveSeconds, 8);
+  assert.equal(policy.imagePolicy.hardMaximumSeconds, 10);
+  assert.equal(policy.imagePolicy.storyBeatDrivenPlanning, true);
+  assert.equal(policy.imagePolicy.multiMomentIllustrationAllowed, true);
+  assert.equal(policy.imagePolicy.multiMomentIllustrationMaxMoments, 3);
+  assert.deepEqual(policy.imagePolicy.shortVideoVisualGuidance?.approximately60Seconds, [14, 20]);
   assert.equal(policy.phase3AssetPolicy.existingImagesOnly, true);
   assert.equal(policy.phase3AssetPolicy.imageGenerationForbidden, true);
   assert.equal(policy.phase3AssetPolicy.imageRegenerationForbidden, true);
@@ -148,12 +162,22 @@ test('Projekt-Template nutzt Scene Card V2, Flow Compiler V3 und World-Lock-Gate
   assert.match(prompt, /Do not paste this placeholder file into Google Flow/i);
 });
 
-test('Visual-Director- und Flow-Dokumentation nutzt kontrollierte Variation', async () => {
+test('Visual- und Script-Dokumentation nutzt Story-Beats, kontrollierte Variation und Mehrmoment-Illustrationen', async () => {
+  const script = await readFile('channel/03-SCRIPT-BIBLE.md', 'utf8');
+  const visualSystem = await readFile('channel/06-VISUAL-SYSTEM.md', 'utf8');
+  const grammar = await readFile('channel/07-VISUAL-GRAMMAR.md', 'utf8');
   const style = await readFile('channel/10-STYLE-DNA-V2.md', 'utf8');
   const director = await readFile('channel/11-VISUAL-DIRECTOR.md', 'utf8');
   const qc = await readFile('channel/12-PROMPT-QC.md', 'utf8');
   const flow = await readFile('channel/08-FLOW-PROMPTING.md', 'utf8');
   const promptTemplate = await readFile('channel/09-IMAGE-PROMPT-TEMPLATE.md', 'utf8');
+  assert.match(script, /Geschichts-Kanal V2/i);
+  assert.match(script, /Moment\s*→\s*Problem/i);
+  assert.match(script, /Geschichte vor Erklärung/i);
+  assert.match(visualSystem, /14–20 visuellen Beats/i);
+  assert.match(visualSystem, /Mehrmoment-Illustration/i);
+  assert.match(grammar, /Multi-Moment Illustration/i);
+  assert.match(grammar, /Story-Beat-Regel/i);
   assert.match(style, /visuelle Beziehung/i);
   assert.match(style, /keine festen globalen Master-Referenzbilder/i);
   assert.match(style, /Kontrollierte Variation/i);
