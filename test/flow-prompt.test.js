@@ -89,3 +89,27 @@ test('compileScenePrompt rejects generic style-drift words', () => {
     /Style-Drift-Risikowörter/
   );
 });
+
+test('compileScenePrompt preserves multi-moment illustration as one connected story takeaway', () => {
+  const multiMoment = {
+    ...baseScene,
+    visualForm: 'multi-moment-illustration',
+    viewerTakeaway: 'One Roman camp routine moves from exhaustion to construction to protected rest.',
+    visualPurpose: 'Compress three tightly connected steps into one readable historical progression.',
+    visualConcept: 'Show three connected moments of the same Roman evening in one integrated illustration: a tired legionary arriving on the left, ditch construction in the center, and the completed guarded camp at night on the right.',
+    dominantSubject: 'the left-to-right transformation from exposed arrival to defended camp',
+    actionState: 'the same evening visibly progresses through arrival, labor and protected rest',
+    composition: 'use one continuous landscape with a clear left-to-right reading flow and soft spatial transitions instead of boxed panels',
+    camera: 'a broad slightly elevated view that keeps all three moments readable while preserving one shared horizon',
+    depthPlan: 'foreground linking road and earthwork, middle ground three connected moments, background one continuous hill line',
+    lightingMood: 'light shifts gradually from late afternoon on the left to blue evening on the right',
+    supportingElements: ['one recurring legionary', 'one ditch-and-rampart section', 'one completed tent group'],
+    continuityNote: 'Keep the same terrain and recurring legionary across all three moments.',
+    historicalAccuracyNote: 'All three moments must use temporary earth, timber and leather camp elements only.'
+  };
+
+  const prompt = compileScenePrompt(multiMoment, { styleLock, coverText: 'DREI SCHRITTE', isCover: true });
+  assert.match(prompt, /two or three tightly connected story moments/i);
+  assert.match(prompt, /Do not create a dense collage/i);
+  assert.match(prompt, /reading order unmistakable/i);
+});
