@@ -1,6 +1,6 @@
-# Video Blueprint — Geschichts-Kanal V2
+# Video Blueprint — Geschichts-Kanal V3
 
-Diese Datei verbindet Themen-, Recherche-, Skript- und Visual-System mit der bestehenden Produktionspipeline.
+Diese Datei verbindet Themen-, Recherche-, Skript- und Visual-System mit der technischen Produktionspipeline.
 
 ## Phase A — Thema
 
@@ -62,21 +62,20 @@ Erst nach bestandenem Skript:
 9. konkrete `Composition` planen
 10. passende `Camera` wählen
 11. `Depth Plan` definieren
-12. `Lighting / Mood` definieren
+12. `Lighting / Mood` konkret definieren
 13. maximal 1–3 notwendige `Supporting Elements` wählen
 14. `Continuity Note` und `Historical Accuracy Note` ergänzen
 15. eindeutigen Audio-Anker setzen
 16. Bilddauer planen
-17. finalen natürlichen Bildprompt kompilieren
-18. Prompt nach `12-PROMPT-QC.md` bewerten
-19. nur Prompt-QC >= 8/10 freigeben
-20. **für Bild 01 einen passenden deutschen Cover-Text festlegen**
+17. Scene Card nach `12-PROMPT-QC.md` bewerten
+18. nur Scene Cards mit Prompt-QC >= 8/10 freigeben
+19. für Bild 01 einen passenden deutschen Cover-Text festlegen
 
 Verbindliche Scene-Card-Felder stehen in `11-VISUAL-DIRECTOR.md` und `config/visual-policy.json`.
 
-### Harte Übersetzungsregel
+### Harte Visual-Form-Regel
 
-Die Visual Form darf beim Übergang zum finalen Prompt nicht verloren gehen.
+Die Visual Form darf beim späteren Compiler-Schritt nicht verloren gehen.
 
 Beispiele:
 
@@ -90,36 +89,117 @@ Beispiele:
 - Bild 01 ist Cover + erste Szene
 - Cover-Text ist Pflicht
 - idealerweise 2–5 Wörter
-- passend zum konkreten Hook/Thema, nicht automatisch voller Videotitel
+- passend zum konkreten Hook/Thema
 - exakt vorgeben und korrekt schreiben
 - stark kontrastreich zum tatsächlichen Hintergrund
 - darf Hauptmotiv nicht verdecken
 
-Verbindliche Bildwelt: `history-stickman-adaptive-v1` nach `06-VISUAL-SYSTEM.md`, präzisiert durch `10-STYLE-DNA-V2.md`.
+Verbindliche Bildwelt: `history-stickman-adaptive-v1` nach `06-VISUAL-SYSTEM.md`, präzisiert durch `10-STYLE-DNA-V2.md` und maschinenlesbar fixiert in `config/flow-style-lock.json`.
 
 **Wichtig:** Figuren sind nur eine Visual-Form. Karten, Architektur, Objekte, Systeme, Vergleiche, Übersichten und Symbolbilder sind gleichwertig, wenn sie den Satz besser erklären.
 
-## Phase F — Google Flow / Assets
+## Phase F — Video World Lock
 
-Google-Flow-Aufträge nach `08-FLOW-PROMPTING.md` und `09-IMAGE-PROMPT-TEMPLATE.md` bauen:
+Vor dem Google-Flow-Prompt muss `99-technik/FLOW_WORLD_LOCK.json` vollständig ausgefüllt werden.
 
-- gemeinsamer Channel Style einmal pro Batch
-- Video World Lock einmal pro Batch
-- einzelne Bildblöcke natürlich und direkt formulieren
-- keine Inventarlisten-Prompts
-- geplante Visual Form und Viewer Takeaway erhalten
-- Komposition/Kamera/Tiefe/Stimmung konkret genug beschreiben
-- Bild 01 enthält immer den exakt vorgegebenen deutschen Cover-Text
-- alle drei Bild-01-Kandidaten verwenden denselben Cover-Text
-- Bild 02–NN standardmäßig ohne sichtbaren Text
-- keine Bildnummern im generierten Bild
-- alle Bilder müssen wie derselbe Kanal aussehen
-- Bild 01 ist Cover + erste Szene und erhält drei Kandidaten
-- Bild 02–NN jeweils ein finaler Kandidat
+Mindestens:
 
-Nach Generierung Bilder visuell prüfen, bevor Phase 2 als fertig gilt. Ein Cover mit falsch geschriebenem, schlecht lesbarem oder kontrastarmem Text wird verworfen.
+```text
+status = READY
+settingName
+settingDescription
+```
 
-## Phase G — Nutzer-Voice / Render
+Bei wiederkehrenden Elementen zusätzlich:
+
+- recurringPlaces
+- recurringCharacters
+- recurringProps
+- basePalette
+- timeWeatherLogic
+- continuityRules
+
+Der World Lock fixiert die Welt dieses konkreten Videos. Der Channel Style Lock fixiert dagegen die kanalweite Zeichenart.
+
+## Phase G — Flow Compiler V3
+
+Der finale Google-Flow-Prompt wird **nicht manuell formuliert**.
+
+Nach freigegebenen Scene Cards und READY World Lock:
+
+```bash
+npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
+```
+
+Der Compiler verwendet:
+
+- `config/flow-style-lock.json`
+- `video.json`
+- `BILD_AUDIO_ZUORDNUNG.json`
+- `FLOW_WORLD_LOCK.json`
+
+und erzeugt `00-bildprompts/google-flow-prompt.txt` vollständig neu.
+
+### Compiler-Garantien
+
+- langer unveränderlicher Channel Style einmal pro Batch
+- kompakter identischer Style Anchor in jedem Bildprompt
+- Scene-Card-Komposition bleibt erhalten
+- Visual-Form-Guards bei empfindlichen Formen
+- exakter Cover-Text bei Bild 01
+- harte No-Text-Regel bei Bild 02–NN
+- zweistufiger manueller Cover-Gate
+- `flowPromptBuiltAt` in `video.json`
+
+Der kompilierten Datei darf kein Agent anschließend frei einen anderen Stil „hinzufügen“.
+
+### Keine generischen Render-Wörter
+
+V3 blockiert Style-Drift-Risikowörter wie:
+
+- `cinematic`
+- `epic`
+- `ultra detailed`
+- `hyper detailed`
+- `photographic`
+- `realistic lighting`
+- `depth of field`
+- `bokeh`
+
+Kamera, Licht, Tiefe und Stimmung stattdessen konkret beschreiben.
+
+## Phase H — Phase-1-Gate
+
+Nach dem Build:
+
+```bash
+npm run validate:youtube-phase1 -- --dir "youtube/<week>/<slug>"
+```
+
+Erst nach bestandenem Gate darf Google Flow verwendet werden.
+
+## Phase I — Google Flow / Assets
+
+### Stage 1 — Cover
+
+- genau drei Bild-01-Kandidaten
+- identischer deutscher Cover-Text
+- fehlerhafte Schriftvarianten verwerfen
+- danach stoppen
+- Nutzer wählt selbst
+
+### Stage 2 — Rest
+
+Erst nach Nutzerwahl:
+
+- gewähltes Cover wird `Bild 01.png`
+- gewähltes Cover als zusätzliche Continuity-Referenz nutzen
+- BILD 02–NN jeweils einmal erzeugen
+- maximal fünf aktive Generierungen gleichzeitig
+
+Nach Generierung Bilder visuell prüfen, bevor Phase 2 als fertig gilt.
+
+## Phase J — Nutzer-Voice / Render
 
 Danach greift die technische Pipeline:
 
@@ -141,9 +221,11 @@ Bei Testvideos gelten dieselben Qualitätsregeln für Recherche, Skript und Bild
 
 ## Style-Reference-Pack
 
-Die textliche Bildwelt ist produktionsfähig. Zusätzlich wird nach `13-STYLE-REFERENCE-PACK.md` ein Satz von neun freigegebenen Master-Referenzen aufgebaut.
+Nach `13-STYLE-REFERENCE-PACK.md` wird ein Satz von neun freigegebenen Master-Referenzen aufgebaut.
 
-Bis dieses Pack `READY` ist, gilt `10-STYLE-DNA-V2.md` als stärkste textliche Style-Autorität.
+Bis das Pack `READY` ist, gilt `config/flow-style-lock.json` als stärkste maschinenlesbare Style-Autorität.
+
+Nach `READY` werden pro Generierung nur die 2–4 passendsten Referenzen als Google-Flow-Ingredients genutzt. Sie ergänzen den Style Lock, ersetzen ihn nicht.
 
 ## Produktionsprinzip
 
@@ -152,5 +234,6 @@ Jede Phase soll den Fehler möglichst **vor** der nächsten Phase erkennen.
 Ein schwaches Thema nicht durch ein langes Skript retten.
 Ein schwaches Skript nicht durch mehr Bilder retten.
 Eine schwache Bildidee nicht durch einen längeren Prompt retten.
-Einen schlechten Prompt nicht an Google Flow weitergeben.
+Eine schwache Scene Card nicht durch den Compiler kaschieren.
+Einen nicht validierten Prompt nicht an Google Flow geben.
 Ein schlechtes Bild nicht durch stärkere Animation retten.
