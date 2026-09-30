@@ -1,19 +1,26 @@
 {
-  "visualPolicyVersion": 6,
+  "visualPolicyVersion": 7,
   "status": "READY",
   "styleId": "history-stickman-adaptive-v1",
-  "promptSystemVersion": 2,
+  "promptSystemVersion": 3,
+  "promptSystem": "flow-compiler-v3",
   "scenePlanningSchemaVersion": 2,
-  "description": "Konsistente handgezeichnete 2D-History-Explainer-Bildwelt mit verpflichtender Visual-Director-Stufe, starker Kompositionsplanung, Prompt-QC und manuellem Cover-Gate.",
+  "flowStyleLockFile": "config/flow-style-lock.json",
+  "description": "Konsistente handgezeichnete 2D-History-Explainer-Bildwelt mit Visual Director, maschinenlesbarem Style Lock, deterministischem Flow-Prompt-Compiler, World Lock, Prompt-QC und manuellem Cover-Gate.",
   "rules": [
     "Der grundlegende Zeichenstil bleibt über alle Videos und Szenen konstant; nur Inszenierung, Stimmung, Epoche und Komposition dürfen sich anpassen.",
     "Menschen verwenden dieselbe stilisierte Stickman-Grundkonstruktion mit einfachen Köpfen, schlanken vereinfachten Körpern, sauberen dunklen Ink-Konturen, flachen gedämpften Farben, subtiler Cel-Schattierung und leichter Papier-/Tuschetextur.",
+    "Die exakte maschinenlesbare Zeichen-DNA steht in config/flow-style-lock.json und ist für Flow Compiler V3 verbindlich.",
     "Figuren dürfen individuell sein und historisch passende Haare, Bärte, Kopfbedeckungen, Kleidung, Rüstung, Schmuck, Werkzeuge und Props besitzen.",
     "Figuren dürfen niemals automatisch erzwungen werden. Karten, Architektur, Landschaften, Objekte, Systeme, Symbolbilder, Übersichten und Vergleiche sind gleichwertige Visual-Formen.",
     "Jedes Bild hat genau eine klare Kernaussage und genau ein dominantes Hauptmotiv.",
     "Pro Bild höchstens ein bis drei wirklich notwendige unterstützende Elemente; keine Wimmelbilder oder überfüllten Lehrbuch-/Museumstafeln.",
     "Wenige Elemente allein reichen nicht: jedes Bild braucht eine bewusste visuelle Idee, räumliche Anordnung, Blickführung und passende Kamera.",
     "Vor jedem finalen Prompt ist eine Visual-Director-Scene-Card nach channel/11-VISUAL-DIRECTOR.md Pflicht.",
+    "Vor dem Prompt-Build muss 99-technik/FLOW_WORLD_LOCK.json vollständig und READY sein.",
+    "Der finale google-flow-prompt.txt wird für neue Produktionen ausschließlich mit npm run build:youtube-flow aus den geprüften Scene Cards kompiliert.",
+    "Der Compiler wiederholt in jedem Einzelbild einen kompakten Style Anchor, damit die Rendering-DNA nicht zwischen Szenen driftet.",
+    "Generische Style-Risikowörter wie cinematic, epic, ultra detailed, photographic oder realistic lighting sind in Scene Cards zu vermeiden und werden in V3 blockiert.",
     "Der finale Prompt muss die intern gewählte Visual Form erhalten. Comparison, Cause-Effect, Process und System dürfen beim Schreiben nicht zu generischen Einzelmotiven vereinfacht werden.",
     "Jeder finale Bildprompt benötigt vor Freigabe einen Prompt-QC-Score von mindestens 8/10 nach channel/12-PROMPT-QC.md.",
     "Wiederkehrende Orte, Figuren, Räume und Objekte bleiben innerhalb desselben Videos visuell konsistent.",
@@ -76,7 +83,11 @@
   "maxSupportingElementsPerImage": 3,
   "oneDominantSubjectRequired": true,
   "videoContinuityLockRequired": true,
+  "flowWorldLockRequired": true,
   "visualDirectorRequired": true,
+  "flowPromptCompilerRequiredForNewProjects": true,
+  "sceneStyleAnchorRequired": true,
+  "rejectHighRiskPromptWords": true,
   "promptMustPreserveVisualForm": true,
   "promptQcRequired": true,
   "promptQcMinimumScore": 8,
@@ -105,9 +116,10 @@
   "styleReferencePack": {
     "status": "PLANNED",
     "requiredForFutureStylePromotion": true,
-    "currentTextAuthority": "channel/10-STYLE-DNA-V2.md"
+    "currentTextAuthority": "config/flow-style-lock.json",
+    "documentation": "channel/13-STYLE-REFERENCE-PACK.md"
   },
-  "finalFlowPromptFormat": "STYLE_WORLD_COVER_THEN_USER_GATE_THEN_REMAINING_IMAGES",
+  "finalFlowPromptFormat": "IMMUTABLE_STYLE_LOCK_WORLD_LOCK_COVER_GATE_AND_COMPILED_SCENES",
   "supportedVisualForms": [
     "character-scene",
     "environment-only",
@@ -129,6 +141,8 @@
     "Promptstruktur: channel/09-IMAGE-PROMPT-TEMPLATE.md",
     "Präzise Zeichen- und Kompositions-DNA: channel/10-STYLE-DNA-V2.md",
     "Verpflichtende Szenenregie: channel/11-VISUAL-DIRECTOR.md",
-    "Prompt-Freigabe ab 8/10: channel/12-PROMPT-QC.md"
+    "Prompt-Freigabe ab 8/10: channel/12-PROMPT-QC.md",
+    "Flow Style Lock: config/flow-style-lock.json",
+    "Compiler: src/lib/flow-prompt.js und src/cli/build-youtube-flow-prompt.js"
   ]
 }
