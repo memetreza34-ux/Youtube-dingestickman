@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "pipelineVersion": 1,
   "videoId": "",
   "weekFolder": "",
@@ -11,6 +11,9 @@
   "status": "planned",
   "visualPolicyFile": "config/visual-policy.json",
   "visualStyleId": "UNSET",
+  "promptSystemVersion": 2,
+  "scenePlanningSchemaVersion": 2,
+  "promptQcMinimumScore": 8,
   "targetDurationSeconds": null,
   "targetDurationRangeSeconds": null,
   "plannedImageCount": null,
