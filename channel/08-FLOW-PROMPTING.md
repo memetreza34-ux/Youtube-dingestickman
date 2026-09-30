@@ -1,8 +1,10 @@
-# Google Flow Prompting — History Visual System V1.4
+# Google Flow Prompting — History Visual System V2
 
 ## Ziel
 
 Google Flow bekommt einen sauberen Copy-Paste-Prompt. Interne Planung und tatsächlicher Flow-Prompt bleiben strikt getrennt.
+
+Vor dem finalen Flow-Prompt müssen `10-STYLE-DNA-V2.md`, `11-VISUAL-DIRECTOR.md` und `12-PROMPT-QC.md` angewendet worden sein.
 
 ## Goldene Regel
 
@@ -46,6 +48,59 @@ Erst nach Nutzerfreigabe:
 - Nicht-Cover-Bilder jeweils nur einmal erzeugen
 - maximal fünf aktive Generierungen gleichzeitig
 
+## Vorbedingung: Scene Card V2
+
+Jeder Bildblock im Flow-Prompt muss vorher intern geplant worden sein mit mindestens:
+
+- Viewer Takeaway
+- Visual Purpose
+- Topic Anchor
+- Visual Form
+- Visual Concept
+- Dominant Subject
+- Action / State
+- Composition
+- Camera
+- Depth Plan
+- Lighting / Mood
+- Supporting Elements
+- Continuity Note
+- Historical Accuracy Note
+- Prompt QC Score
+
+Der finale Flow-Prompt zeigt diese Felder nicht als Formular.
+
+## Prompt-Übersetzung
+
+Beim Übersetzen der Scene Card in den natürlichen Prompt darf keine Kerninformation verloren gehen.
+
+Besonders kritisch:
+
+- `comparison` → beide Vergleichsseiten sichtbar
+- `cause-effect` → Ursache und Folge sichtbar verbunden
+- `process-sequence` → Zustandsänderung sofort lesbar
+- `system-hierarchy` → Struktur räumlich verständlich
+- `battle-city-overview` → räumliche Lage bleibt die Hauptidee
+
+Ein Prompt ist nicht gut genug, wenn er nur Inventar aufzählt.
+
+Unzureichendes Muster:
+
+```text
+Show X. Add Y. Keep X large. No visible text.
+```
+
+Ein guter Prompt regelt zusätzlich genug von:
+
+- räumlicher Anordnung
+- Handlung/Zustand
+- Kamera
+- Tiefe
+- Blickführung
+- Negativfläche
+- Licht/Stimmung
+- visueller Beziehung von Ursache/Folge oder Vergleich
+
 ## Cover-Regel
 
 **BILD 01 ist immer Cover + erste Szene und enthält immer passenden deutschen Text.**
@@ -66,15 +121,17 @@ Erst nach Nutzerfreigabe:
 Der echte Flow-Prompt enthält nur:
 
 1. `ACTIVE_STYLE_ID`
-2. kurze Aufgabe
-3. `CHANNEL STYLE`
-4. `VIDEO WORLD LOCK`
-5. `COVER TEXT`
-6. `BILD 01` bis `BILD NN` als natürliche direkte Fließtext-Prompts
-7. globale Regeln
-8. **zweistufige Generation Rules mit manuellem Cover-Gate**
+2. `PROMPT_SYSTEM: visual-director-v2`
+3. kurze Aufgabe
+4. `CHANNEL STYLE`
+5. `VIDEO WORLD LOCK`
+6. `COVER TEXT`
+7. `BILD 01` bis `BILD NN` als natürliche direkte Fließtext-Prompts
+8. globale Regeln
+9. Visual-Form-Fidelity-Regeln
+10. zweistufige Generation Rules mit manuellem Cover-Gate
 
-Interne Felder wie Audio Anchor, Visual Purpose, Visual Form, Supporting Elements, Planned Hold oder QC bleiben außerhalb des finalen Flow-Prompts.
+Interne Scene-Card-Felder bleiben außerhalb des finalen Flow-Prompts.
 
 ## Bildhierarchie
 
@@ -86,6 +143,7 @@ Intern weiterhin sicherstellen:
 - keine Wimmelbilder
 - keine Lehrbuch-/Museumstafeln
 - große, YouTube-taugliche Formen
+- wenige Elemente sind kein Ersatz für starke Komposition
 
 ## Text in Bildern
 
@@ -93,12 +151,25 @@ Intern weiterhin sicherstellen:
 - **BILD 02–NN:** standardmäßig kein sichtbarer Text
 - außerhalb des Covers nur bei ausdrücklicher Notwendigkeit und exakt auf Deutsch
 
+## Prompt-QC
+
+Jeder Bildprompt muss vor Einbau in den Flow-Batch `12-PROMPT-QC.md` bestehen.
+
+```text
+Minimum: 8/10
+```
+
+Aussage-Treue, Visual-Form-Treue und Komposition dürfen nicht 0 Punkte haben.
+
 ## Qualitätscheck
 
-1. Sind genau drei Cover-Kandidaten vorgesehen?
-2. Haben alle drei exakt denselben deutschen Cover-Text?
-3. Muss Flow nach BILD 01 ausdrücklich stoppen?
-4. Ist Nutzerwahl vor BILD 02 zwingend?
-5. Darf Flow niemals selbst einen Gewinner auswählen?
-6. Bleibt der ausgewählte Cover-Look Referenz für die restlichen Bilder?
-7. Sind die übrigen Bildprompts natürlich und direkt formuliert?
+1. Hat jedes Bild eine vollständige Scene Card V2?
+2. Ist der Viewer Takeaway im finalen Prompt erhalten?
+3. Ist die Visual Form erhalten?
+4. Hat der Prompt konkrete Kompositions-/Kamerasprache?
+5. Hat jeder Prompt mindestens 8/10 erreicht?
+6. Sind genau drei Cover-Kandidaten vorgesehen?
+7. Haben alle drei exakt denselben deutschen Cover-Text?
+8. Muss Flow nach BILD 01 ausdrücklich stoppen?
+9. Ist Nutzerwahl vor BILD 02 zwingend?
+10. Bleibt der ausgewählte Cover-Look Referenz für die restlichen Bilder?
