@@ -2,7 +2,7 @@
 
 Dieses Repository ist die **kanalspezifische Produktionsbasis für den Geschichts-Kanal**.
 
-Die allgemeine technische Pipeline bleibt erhalten, ist hier aber um eine feste Kanal-DNA, Themenlogik, Recherche-, Skript- und Bildwelt-Regeln ergänzt.
+Die allgemeine technische Pipeline bleibt erhalten, ist hier aber um feste Kanal-DNA, Themenlogik, Recherche-, Skript-, Visual-Director- und Google-Flow-Regeln ergänzt.
 
 ## Wichtig: zuerst lesen
 
@@ -26,7 +26,10 @@ Empfohlene Reihenfolge für Menschen und KI-Agenten:
 14. `channel/13-STYLE-REFERENCE-PACK.md`
 15. `channel/99-DECISION-LOG.md`
 
-Maschinenlesbare Kernregeln stehen zusätzlich in `config/channel-policy.json` und `config/visual-policy.json`.
+Maschinenlesbare Visual-Kernregeln:
+
+- `config/visual-policy.json`
+- `config/flow-style-lock.json`
 
 ## Technische Pipeline
 
@@ -39,8 +42,10 @@ Thema
 → Visual Concept
 → Visual Form
 → Composition / Camera / Mood
-→ Prompt Compiler
 → Prompt QC >= 8/10
+→ READY Flow World Lock
+→ Flow Compiler V3
+→ Phase-1-Validator
 → Google-Flow-Bildgenerierung
 → finale Nutzer-Voice
 → Audio-Optimierung
@@ -63,8 +68,10 @@ Die technische Dokumentation liegt in `youtube/WORKFLOW.md`.
 - Recherche-System: **V1 READY**
 - Skript-System: **V1 READY**
 - Grundbildwelt: **V1 READY**
-- Visual Director / Prompt-System: **V2 READY**
-- Prompt-QC: **V2 READY — Mindestscore 8/10**
+- Visual Director: **V2 READY**
+- Prompt-QC: **READY — Mindestscore 8/10**
+- Google-Flow-Prompt-System: **Flow Compiler V3 READY**
+- maschinenlesbarer Style Lock: **READY**
 - Style-Reference-Pack: **PLANNED**
 - aktive Style-ID: `history-stickman-adaptive-v1`
 
@@ -74,9 +81,69 @@ Konsistente handgezeichnete 2D-History-Explainer-Welt mit ausdrucksstarken histo
 
 **Stil bleibt konstant; Inszenierung, Epoche, Stimmung und Visual-Form dürfen sich an den Inhalt anpassen.**
 
-## Neue harte Bildprompt-Regel
+## Was Flow Compiler V3 löst
 
-Ein Bildprompt darf nicht nur aufzählen, was sichtbar sein soll.
+Früher konnte ein Agent die Bildwelt zwar lesen, den finalen Google-Flow-Prompt aber trotzdem frei interpretieren. Dadurch waren formal korrekte, aber stilistisch schwache oder driftende Prompts möglich.
+
+V3 trennt deshalb strikt:
+
+```text
+CHANNEL STYLE LOCK
+= wie der Kanal immer gezeichnet wird
+
+VIDEO WORLD LOCK
+= was innerhalb dieses Videos gleich bleiben muss
+
+SCENE CARD
+= was dieses einzelne Bild aussagen und zeigen soll
+```
+
+Der finale `google-flow-prompt.txt` wird daraus gebaut und nicht mehr frei improvisiert.
+
+## Flow Style Lock
+
+`config/flow-style-lock.json` definiert maschinenlesbar:
+
+- Figurenproportionen
+- Gesichtsvereinfachung
+- Linienlogik
+- Farb- und Schattierungslogik
+- Textur
+- Detailbudget
+- kompakten Style Anchor pro Bild
+- globale Negativregeln
+- Style-Drift-Risikowörter
+- spätere Nutzung freigegebener Flow-Ingredients
+
+## Flow World Lock
+
+Jedes neue Video besitzt:
+
+```text
+99-technik/FLOW_WORLD_LOCK.json
+```
+
+Darin werden wiederkehrende Orte, Figuren, Props, lokale Farbigkeit und Zeit-/Wetterlogik definiert.
+
+Vor dem Prompt-Build muss die Datei `READY` sein.
+
+## Flow-Prompt bauen
+
+Nach vollständigen Scene Cards und Prompt-QC:
+
+```bash
+npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
+```
+
+Danach:
+
+```bash
+npm run validate:youtube-phase1 -- --dir "youtube/<week>/<slug>"
+```
+
+Der erzeugte `google-flow-prompt.txt` ist ein **Build-Artefakt**. Nicht direkt umschreiben. Änderungen erfolgen an Scene Card, World Lock, Cover-Text oder Style Lock und werden anschließend neu kompiliert.
+
+## Harte Bildprompt-Regeln
 
 Verbindlich ist:
 
@@ -87,17 +154,33 @@ Script
 → Visual Form
 → Composition
 → Camera
-→ Mood / Light
+→ Depth / Mood
 → Continuity
-→ Prompt
 → Prompt QC >= 8/10
+→ Compiler
 ```
 
-Neue Projekte verwenden `BILD_AUDIO_ZUORDNUNG.json` Schema V2 mit vollständiger Scene Card. Phase 1 schlägt fehl, wenn Pflichtfelder, Kompositionssprache oder der Mindest-QC-Score fehlen.
+Neue Projekte verwenden `BILD_AUDIO_ZUORDNUNG.json` Schema V2 mit vollständiger Scene Card. Phase 1 schlägt unter anderem fehl, wenn Pflichtfelder, World Lock, Style Anchor, Kompositionssprache, exakter Cover-Text oder Mindest-QC fehlen.
+
+Generische Style-Wörter wie `cinematic`, `epic`, `ultra detailed`, `photographic` oder `realistic lighting` werden in V3 als Drift-Risiko behandelt. Kamera, Licht und Raum sollen konkret beschrieben werden.
+
+## Style Reference Pack
+
+`channel/13-STYLE-REFERENCE-PACK.md` definiert neun Master-Referenzen. Nach ausdrücklicher Nutzerfreigabe aller neun werden pro Generierung nur die 2–4 passendsten Referenzen als Google-Flow-Ingredients verwendet.
+
+Bis dahin gilt:
+
+```text
+config/flow-style-lock.json
+→ channel/10-STYLE-DNA-V2.md
+→ channel/06-VISUAL-SYSTEM.md
+```
+
+als Style-Autorität.
 
 ## Testvideos
 
-Der langfristige Arbeitsrahmen liegt bei ungefähr 8–15 Minuten, wenn ein Thema diese Länge trägt. Für Pipeline- und Qualitätsprüfungen sind bewusst **kurze Testvideos bis maximal 120 Sekunden** erlaubt.
+Der langfristige Arbeitsrahmen liegt bei ungefähr 8–15 Minuten, wenn ein Thema die Länge trägt. Für Pipeline- und Qualitätsprüfungen sind bewusst **kurze Testvideos bis maximal 120 Sekunden** erlaubt.
 
 ## Wichtige Sperren
 
@@ -107,6 +190,8 @@ Der langfristige Arbeitsrahmen liegt bei ungefähr 8–15 Minuten, wenn ein Them
 - keine Inventarlisten-Prompts als finalen Google-Flow-Prompt akzeptieren
 - geplante Visual Form beim Prompt-Schreiben nicht verlieren
 - kein Prompt unter 8/10 Prompt-QC freigeben
+- kein manuelles Umschreiben des kompilierten Flow-Prompts
+- kein Google-Flow-Einsatz vor bestandenem Phase-1-Gate
 - kein sichtbarer Remotion-Erklärungstext als Standard
 - keine Bildnummern oder Pseudo-Texte im generierten Bild
 - Nutzer-Voice bleibt die einzige finale Sprecherquelle
