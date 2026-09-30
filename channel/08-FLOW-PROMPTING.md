@@ -6,7 +6,7 @@ Google Flow bekommt keinen frei improvisierten Master-Prompt mehr. Neue Produkti
 
 Verbindliche Quellen:
 
-1. `config/flow-style-lock.json` — maschinenlesbare, unveränderliche Channel-Zeichen-DNA
+1. `config/flow-style-lock.json` — maschinenlesbare Channel-Zeichen-DNA
 2. `channel/10-STYLE-DNA-V2.md` — menschlich lesbare Style-Erklärung
 3. `channel/11-VISUAL-DIRECTOR.md` — Scene Card V2
 4. `channel/12-PROMPT-QC.md` — Qualitätsgate
@@ -45,7 +45,9 @@ Fixiert insbesondere:
 - Detailhierarchie
 - verbotene Style-Drifts
 
-Dieser Lock ist **keine Stimmungsempfehlung**, sondern eine Rendering-Grenze. Epoche, Wetter, Kamera und emotionale Stimmung dürfen wechseln; die Zeichenart darf es nicht.
+Dieser Lock fixiert die **Zeichen-DNA**, nicht die Inszenierung. Epoche, Wetter, Kamera, Perspektive, Licht, Bildaufbau und emotionale Stimmung dürfen wechseln.
+
+Es werden bewusst **keine globalen festen Master-Referenzbilder** verwendet. Die Konsistenz kommt aus dem textlichen und maschinenlesbaren Style Lock.
 
 ### 2. VIDEO WORLD LOCK — pro Video konstant
 
@@ -82,7 +84,29 @@ Fixiert:
 - Continuity Note
 - Historical Accuracy Note
 
-Damit bleibt die **Bildidee individuell**, während die Bildwelt gleich bleibt.
+Damit bleibt die **Bildidee individuell**, während die Zeichen-DNA gleich bleibt.
+
+## Gleicher Stil ≠ gleiche Szene
+
+Flow darf Konsistenz nicht als Aufforderung verstehen, wiederholt denselben Bildaufbau zu erzeugen.
+
+Pro Szene dürfen bewusst variieren:
+
+- Kameraabstand
+- Blickwinkel
+- Perspektive
+- Hauptmotivposition
+- Vordergrund/Mittelgrund/Hintergrund
+- Negativraum
+- Licht
+- Wetter
+- Tageszeit
+- Stimmung
+- Visual Form
+
+Fast identische Blickwinkel sind nur sinnvoll, wenn echte Kontinuität gezeigt werden soll, etwa Vorher/Nachher oder eine sichtbare Zustandsänderung.
+
+Der ausgewählte Cover-Kandidat darf innerhalb **dieses Videos** als Continuity-Hilfe genutzt werden. Er ist keine globale Kanalreferenz.
 
 ## Warum der Style Anchor pro Bild wiederholt wird
 
@@ -93,9 +117,10 @@ Wichtig:
 - der lange Master Style steht nur einmal
 - der kompakte Style Anchor wird pro Bild wiederholt
 - der Anchor enthält nur die unveränderliche Rendering-DNA
+- der Anchor darf keine konkrete Komposition vorgeben
 - die eigentliche Szene bleibt individuell
 
-So wird Konsistenz erhöht, ohne jeden Bildprompt mit Stil-Synonymen zu überladen.
+So wird Konsistenz erhöht, ohne alle Bilder gleich aussehen zu lassen.
 
 ## Keine generischen Style-Wörter
 
@@ -156,31 +181,19 @@ Wenn eine Szene verbessert werden muss:
 
 So bleibt die Quelle der Wahrheit die Planung und nicht eine nachträglich manipulierte Textdatei.
 
-## Style References / Flow Ingredients
+## Anti-Gleichförmigkeitsprüfung
 
-Sobald `channel/13-STYLE-REFERENCE-PACK.md` den Status `READY` hat, sollen passende freigegebene Referenzen zusätzlich als Flow-Ingredients verwendet werden.
+Vor dem Build soll der gesamte Bildplan als Sequenz geprüft werden.
 
-Empfehlung pro Generierung: **2–4 wirklich relevante Referenzen**.
+Warnzeichen:
 
-Regeln:
+- mehrere Character Scenes hintereinander mit derselben frontalen medium-wide Kamera
+- mehrere Gebäudeansichten hintereinander immer mittig und weit
+- wiederholtes Subject Placement ohne erzählerischen Grund
+- dieselbe Lichtstimmung trotz klarer inhaltlicher Veränderung
+- unnötige Wiederholung derselben Visual Form, obwohl eine andere Form die Aussage besser erklären würde
 
-- nur saubere freigegebene Referenzen verwenden
-- Style-Referenzen möglichst ohne unnötige zusätzliche Motive
-- Textprompt und Referenzen dürfen sich nicht widersprechen
-- Referenzbilder dienen für Linien, Figurenproportionen, Textur, Schattierung, Detailhierarchie und Farbcharakter
-- Motiv, Epoche, konkrete Kleidung oder Komposition der Referenz nicht blind kopieren
-- wiederkehrende Figuren/Objekte können zusätzlich als eigene Ingredients verwendet werden
-
-Priorität nach fertigem Reference Pack:
-
-```text
-freigegebene Style-Ingredients
-→ config/flow-style-lock.json
-→ FLOW_WORLD_LOCK.json
-→ Scene Card
-```
-
-Die Ebenen ergänzen sich und dürfen sich nicht widersprechen.
+Kontinuität ist erwünscht. Mechanische Wiederholung ist es nicht.
 
 ## Zweistufige Generation — weiterhin Pflicht
 
@@ -204,8 +217,8 @@ WAITING_FOR_USER_COVER_SELECTION
 ### STAGE 2 — erst nach Nutzerwahl
 
 - gewähltes Cover wird `Bild 01.png`
-- gewähltes Cover kann als zusätzliche Video-World-/Continuity-Referenz verwendet werden
-- Channel Style Lock bleibt trotzdem unverändert
+- gewähltes Cover darf nur als zusätzliche Video-World-/Continuity-Hilfe für dieses Video verwendet werden
+- Channel Style Lock bleibt unverändert
 - anschließend BILD 02–NN erzeugen
 - Nicht-Cover-Bilder jeweils einmal
 - maximal fünf aktive Generierungen gleichzeitig
@@ -262,4 +275,5 @@ Ein Flow-Prompt ist erst produktionsbereit, wenn:
 7. jeder Bildblock den kompakten Style Anchor enthält,
 8. Cover-Text exakt vorkommt,
 9. BILD 02–NN eine explizite No-Text-Regel enthalten,
-10. `npm run validate:youtube-phase1` besteht.
+10. der Bildplan keine unnötig mechanische Wiederholung von Kamera und Komposition aufweist,
+11. `npm run validate:youtube-phase1` besteht.
