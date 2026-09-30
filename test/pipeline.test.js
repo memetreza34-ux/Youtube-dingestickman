@@ -5,6 +5,8 @@ import path from 'node:path';
 import test from 'node:test';
 
 import { evaluateTopic } from '../src/cli/check-youtube-topic.js';
+import { validatePhase1 } from '../src/cli/validate-youtube-phase1.js';
+import { findHighRiskPromptWords } from '../src/lib/flow-prompt.js';
 import { normalizeText, similarity } from '../src/lib/pipeline.js';
 
 test('Repo besitzt freigegebene History-Bildwelt und Flow Compiler V3', async () => {
@@ -132,6 +134,42 @@ test('Visual-Director- und Flow-Dokumentation nutzt kontrollierte Variation', as
   assert.match(flow, /Gleicher Stil ≠ gleiche Szene/i);
   assert.match(flow, /keine globalen festen Master-Referenzbilder/i);
   assert.match(promptTemplate, /google-flow-prompt\.txt.*nicht mehr manuell/is);
+});
+
+test('Risikowortprüfung erkennt ganze Begriffe statt Teilstrings', async () => {
+  const styleLock = JSON.parse(await readFile('config/flow-style-lock.json', 'utf8'));
+  const neutralScene = {
+    viewerTakeaway: 'Explain the defense clearly.',
+    visualPurpose: 'Show a temporary camp.',
+    topicAnchor: 'Roman camp',
+    visualForm: 'architecture-city',
+    visualConcept: 'Depict a low earthen rampart without exaggeration.',
+    dominantSubject: 'temporary camp',
+    actionState: 'the camp is occupied',
+    composition: 'the camp fills the frame',
+    camera: 'wide elevated view',
+    depthPlan: 'foreground earth, midground camp, background hills',
+    lightingMood: 'muted evening light',
+    continuityNote: 'keep the same layout',
+    historicalAccuracyNote: 'depict temporary earth defenses only'
+  };
+  assert.deepEqual(findHighRiskPromptWords(neutralScene, styleLock), []);
+  assert.deepEqual(findHighRiskPromptWords({ ...neutralScene, visualConcept: 'Make it epic.' }, styleLock), ['epic']);
+});
+
+test('Neues V3-Marschlager-Testprojekt besteht Phase 1 vollständig', async () => {
+  const dir = 'youtube/2026-KW40_28-09_bis_04-10/test-roemisches-marschlager-v3';
+  const result = await validatePhase1(dir);
+  assert.equal(result.passed, true, result.errors.join('\n'));
+  const prompt = await readFile(path.join(dir, '00-bildprompts', 'google-flow-prompt.txt'), 'utf8');
+  const mapping = JSON.parse(await readFile(path.join(dir, '99-technik', 'BILD_AUDIO_ZUORDNUNG.json'), 'utf8'));
+  assert.equal(mapping.images.length, 11);
+  assert.match(prompt, /PROMPT_SYSTEM:\s*flow-compiler-v3/i);
+  assert.match(prompt, /CHANNEL STYLE — IMMUTABLE:/i);
+  assert.match(prompt, /VIDEO WORLD LOCK — IMMUTABLE WITHIN THIS VIDEO:/i);
+  assert.match(prompt, /BILD 11/i);
+  assert.match(prompt, /FORT FÜR EINE NACHT\?/i);
+  assert.doesNotMatch(prompt, /\[[^\]]+\]/);
 });
 
 test('Textnormalisierung und Ähnlichkeit funktionieren', () => {
