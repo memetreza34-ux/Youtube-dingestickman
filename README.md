@@ -23,8 +23,7 @@ Empfohlene Reihenfolge für Menschen und KI-Agenten:
 11. `channel/10-STYLE-DNA-V2.md`
 12. `channel/11-VISUAL-DIRECTOR.md`
 13. `channel/12-PROMPT-QC.md`
-14. `channel/13-STYLE-REFERENCE-PACK.md`
-15. `channel/99-DECISION-LOG.md`
+14. `channel/99-DECISION-LOG.md`
 
 Maschinenlesbare Visual-Kernregeln:
 
@@ -42,6 +41,7 @@ Thema
 → Visual Concept
 → Visual Form
 → Composition / Camera / Mood
+→ Anti-Gleichförmigkeitscheck
 → Prompt QC >= 8/10
 → READY Flow World Lock
 → Flow Compiler V3
@@ -72,14 +72,15 @@ Die technische Dokumentation liegt in `youtube/WORKFLOW.md`.
 - Prompt-QC: **READY — Mindestscore 8/10**
 - Google-Flow-Prompt-System: **Flow Compiler V3 READY**
 - maschinenlesbarer Style Lock: **READY**
-- Style-Reference-Pack: **PLANNED**
+- kontrollierte Szenenvariation: **READY**
+- feste globale Master-Referenzbilder: **NICHT VERWENDET**
 - aktive Style-ID: `history-stickman-adaptive-v1`
 
 ## Bildwelt in einem Satz
 
 Konsistente handgezeichnete 2D-History-Explainer-Welt mit ausdrucksstarken historischen Stickman-Figuren und gleichwertigen Nicht-Figuren-Visuals wie Karten, Architektur, Objekten, Systemen und Symbolbildern.
 
-**Stil bleibt konstant; Inszenierung, Epoche, Stimmung und Visual-Form dürfen sich an den Inhalt anpassen.**
+**Stil bleibt konstant; Inszenierung, Epoche, Stimmung, Perspektive und Visual-Form dürfen sich an den Inhalt anpassen.**
 
 ## Was Flow Compiler V3 löst
 
@@ -89,7 +90,7 @@ V3 trennt deshalb strikt:
 
 ```text
 CHANNEL STYLE LOCK
-= wie der Kanal immer gezeichnet wird
+= wie der Kanal gezeichnet wird
 
 VIDEO WORLD LOCK
 = was innerhalb dieses Videos gleich bleiben muss
@@ -100,9 +101,11 @@ SCENE CARD
 
 Der finale `google-flow-prompt.txt` wird daraus gebaut und nicht mehr frei improvisiert.
 
-## Flow Style Lock
+## Konsistenz ohne Gleichförmigkeit
 
-`config/flow-style-lock.json` definiert maschinenlesbar:
+Der Kanal verwendet **keine festen globalen Master-Referenzbilder**. Zu starke Referenzen können unbeabsichtigt nicht nur den Stil, sondern auch Kamerawinkel, Figurenhaltung und Komposition wiederholen.
+
+Stattdessen fixiert `config/flow-style-lock.json` nur die Zeichen-DNA:
 
 - Figurenproportionen
 - Gesichtsvereinfachung
@@ -112,8 +115,21 @@ Der finale `google-flow-prompt.txt` wird daraus gebaut und nicht mehr frei impro
 - Detailbudget
 - kompakten Style Anchor pro Bild
 - globale Negativregeln
-- Style-Drift-Risikowörter
-- spätere Nutzung freigegebener Flow-Ingredients
+
+Pro Szene dürfen bewusst variieren:
+
+- Kameraabstand
+- Perspektive
+- Subject Placement
+- Vordergrund/Mittelgrund/Hintergrund
+- Negativraum
+- Licht
+- Wetter
+- Tageszeit
+- Stimmung
+- Visual Form
+
+Fast identische Blickwinkel werden nur genutzt, wenn sie für Vorher/Nachher oder andere echte Kontinuität sinnvoll sind.
 
 ## Flow World Lock
 
@@ -156,6 +172,7 @@ Script
 → Camera
 → Depth / Mood
 → Continuity
+→ Anti-Gleichförmigkeitscheck
 → Prompt QC >= 8/10
 → Compiler
 ```
@@ -163,20 +180,6 @@ Script
 Neue Projekte verwenden `BILD_AUDIO_ZUORDNUNG.json` Schema V2 mit vollständiger Scene Card. Phase 1 schlägt unter anderem fehl, wenn Pflichtfelder, World Lock, Style Anchor, Kompositionssprache, exakter Cover-Text oder Mindest-QC fehlen.
 
 Generische Style-Wörter wie `cinematic`, `epic`, `ultra detailed`, `photographic` oder `realistic lighting` werden in V3 als Drift-Risiko behandelt. Kamera, Licht und Raum sollen konkret beschrieben werden.
-
-## Style Reference Pack
-
-`channel/13-STYLE-REFERENCE-PACK.md` definiert neun Master-Referenzen. Nach ausdrücklicher Nutzerfreigabe aller neun werden pro Generierung nur die 2–4 passendsten Referenzen als Google-Flow-Ingredients verwendet.
-
-Bis dahin gilt:
-
-```text
-config/flow-style-lock.json
-→ channel/10-STYLE-DNA-V2.md
-→ channel/06-VISUAL-SYSTEM.md
-```
-
-als Style-Autorität.
 
 ## Testvideos
 
@@ -186,10 +189,12 @@ Der langfristige Arbeitsrahmen liegt bei ungefähr 8–15 Minuten, wenn ein Them
 
 - keine Bildwelt aus anderen Repositories übernehmen
 - keine Referenzkanal-Identität kopieren
+- keine festen globalen Master-Referenzbilder erzwingen
 - Figuren nicht in jede Szene erzwingen
 - keine Inventarlisten-Prompts als finalen Google-Flow-Prompt akzeptieren
 - geplante Visual Form beim Prompt-Schreiben nicht verlieren
 - kein Prompt unter 8/10 Prompt-QC freigeben
+- keine mechanisch gleiche Komposition über unabhängige Szenen hinweg
 - kein manuelles Umschreiben des kompilierten Flow-Prompts
 - kein Google-Flow-Einsatz vor bestandenem Phase-1-Gate
 - kein sichtbarer Remotion-Erklärungstext als Standard
