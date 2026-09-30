@@ -1,14 +1,15 @@
 {
-  "visualPolicyVersion": 7,
+  "visualPolicyVersion": 8,
   "status": "READY",
   "styleId": "history-stickman-adaptive-v1",
   "promptSystemVersion": 3,
   "promptSystem": "flow-compiler-v3",
   "scenePlanningSchemaVersion": 2,
   "flowStyleLockFile": "config/flow-style-lock.json",
-  "description": "Konsistente handgezeichnete 2D-History-Explainer-Bildwelt mit Visual Director, maschinenlesbarem Style Lock, deterministischem Flow-Prompt-Compiler, World Lock, Prompt-QC und manuellem Cover-Gate.",
+  "description": "Konsistente handgezeichnete 2D-History-Explainer-Bildwelt mit Visual Director, maschinenlesbarem Style Lock, kontrollierter Szenenvariation, deterministischem Flow-Prompt-Compiler, World Lock, Prompt-QC und manuellem Cover-Gate.",
   "rules": [
-    "Der grundlegende Zeichenstil bleibt über alle Videos und Szenen konstant; nur Inszenierung, Stimmung, Epoche und Komposition dürfen sich anpassen.",
+    "Der grundlegende Zeichenstil bleibt über alle Videos und Szenen konstant; Inszenierung, Stimmung, Epoche, Perspektive und Komposition dürfen und sollen sich an den Inhalt anpassen.",
+    "Es gibt keine verpflichtenden festen Master-Referenzbilder für den Kanal. Die Wiedererkennung wird über Style Lock und Style DNA gesteuert, nicht über wiederholte Referenzkompositionen.",
     "Menschen verwenden dieselbe stilisierte Stickman-Grundkonstruktion mit einfachen Köpfen, schlanken vereinfachten Körpern, sauberen dunklen Ink-Konturen, flachen gedämpften Farben, subtiler Cel-Schattierung und leichter Papier-/Tuschetextur.",
     "Die exakte maschinenlesbare Zeichen-DNA steht in config/flow-style-lock.json und ist für Flow Compiler V3 verbindlich.",
     "Figuren dürfen individuell sein und historisch passende Haare, Bärte, Kopfbedeckungen, Kleidung, Rüstung, Schmuck, Werkzeuge und Props besitzen.",
@@ -16,6 +17,8 @@
     "Jedes Bild hat genau eine klare Kernaussage und genau ein dominantes Hauptmotiv.",
     "Pro Bild höchstens ein bis drei wirklich notwendige unterstützende Elemente; keine Wimmelbilder oder überfüllten Lehrbuch-/Museumstafeln.",
     "Wenige Elemente allein reichen nicht: jedes Bild braucht eine bewusste visuelle Idee, räumliche Anordnung, Blickführung und passende Kamera.",
+    "Gleicher Stil bedeutet nicht gleiche Komposition: Kameraabstand, Perspektive, Subject Placement, Negativraum, Licht, Wetter, Stimmung und Visual Form dürfen zwischen Szenen wechseln.",
+    "Fast identische Blickwinkel werden nur bewusst für Vorher/Nachher, Zustandsänderungen oder notwendige räumliche Kontinuität wiederverwendet.",
     "Vor jedem finalen Prompt ist eine Visual-Director-Scene-Card nach channel/11-VISUAL-DIRECTOR.md Pflicht.",
     "Vor dem Prompt-Build muss 99-technik/FLOW_WORLD_LOCK.json vollständig und READY sein.",
     "Der finale google-flow-prompt.txt wird für neue Produktionen ausschließlich mit npm run build:youtube-flow aus den geprüften Scene Cards kompiliert.",
@@ -23,7 +26,7 @@
     "Generische Style-Risikowörter wie cinematic, epic, ultra detailed, photographic oder realistic lighting sind in Scene Cards zu vermeiden und werden in V3 blockiert.",
     "Der finale Prompt muss die intern gewählte Visual Form erhalten. Comparison, Cause-Effect, Process und System dürfen beim Schreiben nicht zu generischen Einzelmotiven vereinfacht werden.",
     "Jeder finale Bildprompt benötigt vor Freigabe einen Prompt-QC-Score von mindestens 8/10 nach channel/12-PROMPT-QC.md.",
-    "Wiederkehrende Orte, Figuren, Räume und Objekte bleiben innerhalb desselben Videos visuell konsistent.",
+    "Wiederkehrende Orte, Figuren, Räume und Objekte bleiben innerhalb desselben Videos visuell konsistent, ohne unnötig jede Szene gleich zu inszenieren.",
     "Bild 01 ist immer Cover und erste Szene und enthält immer einen kurzen passenden deutschen Cover-Text.",
     "Cover-Text ist idealerweise 2–5 Wörter lang, exakt vorgegeben, korrekt geschrieben, groß und sofort lesbar.",
     "Cover-Text muss starken Kontrast zum Hintergrund haben und darf das Hauptmotiv nicht verdecken.",
@@ -31,7 +34,7 @@
     "Nach den drei Cover-Kandidaten muss Google Flow vollständig stoppen und auf die ausdrückliche Auswahl des Nutzers warten.",
     "Google Flow darf niemals selbst einen Cover-Gewinner auswählen.",
     "Bild 02 bis Bild NN dürfen erst nach ausdrücklicher Nutzerwahl des Cover-Kandidaten erzeugt werden.",
-    "Der vom Nutzer gewählte Cover-Kandidat wird zu Bild 01 und dient zusätzlich als visuelle Referenz für den restlichen Video-Batch.",
+    "Der vom Nutzer gewählte Cover-Kandidat darf nur innerhalb dieses Videos als zusätzliche Continuity-Hilfe dienen und ist keine globale Kanal-Style-Referenz.",
     "Bild 02 bis Bild NN enthalten standardmäßig keinen sichtbaren Text.",
     "Interne Bildplanung und finaler Google-Flow-Prompt sind strikt getrennt.",
     "Remotion erzeugt standardmäßig keinen sichtbaren Erklärungstext."
@@ -59,6 +62,8 @@
     "inventory-list-only prompt",
     "generic camera without narrative purpose",
     "visual-form loss between planning and prompt",
+    "mechanically repeated composition across unrelated scenes",
+    "global fixed master-reference-image dependency",
     "unnecessary visible text outside cover",
     "English labels in German videos",
     "image numbers inside images",
@@ -113,11 +118,13 @@
     "historicalAccuracyNote",
     "promptQcScore"
   ],
-  "styleReferencePack": {
-    "status": "PLANNED",
-    "requiredForFutureStylePromotion": true,
-    "currentTextAuthority": "config/flow-style-lock.json",
-    "documentation": "channel/13-STYLE-REFERENCE-PACK.md"
+  "controlledVariationPolicy": {
+    "enabled": true,
+    "fixedMasterReferenceImages": false,
+    "sameStyleDifferentStaging": true,
+    "reuseSameAngleOnlyForContinuityPurpose": true,
+    "coverMayActAsVideoLocalContinuityReference": true,
+    "coverMayNotBecomeGlobalStyleReference": true
   },
   "finalFlowPromptFormat": "IMMUTABLE_STYLE_LOCK_WORLD_LOCK_COVER_GATE_AND_COMPILED_SCENES",
   "supportedVisualForms": [
