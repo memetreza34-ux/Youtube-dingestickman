@@ -1,8 +1,8 @@
 {
-  "channelPolicyVersion": 3,
+  "channelPolicyVersion": 4,
   "channelType": "history",
   "language": "de",
-  "status": "CHANNEL_DNA_V1_VISUAL_V1_PROMPT_V2_READY",
+  "status": "CHANNEL_DNA_V1_VISUAL_V1_FLOW_COMPILER_V3_READY",
   "positioning": "History x Storytelling x Curiosity",
   "corePromise": "Historische Fragen und Entwicklungen spannend, verständlich und kausal erklären.",
   "targetDurationMinutes": {
@@ -45,9 +45,11 @@
   "visualSystem": {
     "status": "READY",
     "styleId": "history-stickman-adaptive-v1",
-    "promptSystemVersion": 2,
+    "promptSystemVersion": 3,
+    "promptSystem": "flow-compiler-v3",
     "scenePlanningSchemaVersion": 2,
     "visualPolicyFile": "config/visual-policy.json",
+    "flowStyleLockFile": "config/flow-style-lock.json",
     "visualSystemFile": "channel/06-VISUAL-SYSTEM.md",
     "visualGrammarFile": "channel/07-VISUAL-GRAMMAR.md",
     "flowPromptingFile": "channel/08-FLOW-PROMPTING.md",
@@ -56,8 +58,13 @@
     "visualDirectorFile": "channel/11-VISUAL-DIRECTOR.md",
     "promptQcFile": "channel/12-PROMPT-QC.md",
     "styleReferencePackFile": "channel/13-STYLE-REFERENCE-PACK.md",
+    "flowPromptCompilerFile": "src/lib/flow-prompt.js",
+    "flowPromptBuilderFile": "src/cli/build-youtube-flow-prompt.js",
+    "flowWorldLockTemplate": "youtube/templates/video-template/99-technik/FLOW_WORLD_LOCK.json",
     "promptQcMinimumScore": 8,
     "humanCharactersRequired": false,
+    "flowWorldLockRequired": true,
+    "compiledPromptRequiredForNewProjects": true,
     "doNotInferFromRepositoryName": true,
     "doNotInheritOtherRepoStyles": true,
     "doNotCopyReferenceChannelIdentity": true
