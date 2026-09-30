@@ -97,10 +97,21 @@ export function buildWorldLockText(worldLock) {
   return parts.filter(Boolean).join(' ');
 }
 
+function escapeRegex(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 export function findHighRiskPromptWords(scene, styleLock) {
   const haystack = REQUIRED_SCENE_FIELDS.map((field) => text(scene?.[field])).join(' ').toLowerCase();
   const words = Array.isArray(styleLock?.highRiskPromptWords) ? styleLock.highRiskPromptWords : [];
-  return words.filter((word) => haystack.includes(String(word).toLowerCase()));
+
+  return words.filter((word) => {
+    const needle = String(word ?? '').trim().toLowerCase();
+    if (!needle) return false;
+    const escaped = escapeRegex(needle).replace(/\s+/g, '\\s+');
+    const pattern = new RegExp(`(^|[^a-z0-9])${escaped}($|[^a-z0-9])`, 'i');
+    return pattern.test(haystack);
+  });
 }
 
 export function compileScenePrompt(scene, { styleLock, coverText = '', isCover = false } = {}) {
