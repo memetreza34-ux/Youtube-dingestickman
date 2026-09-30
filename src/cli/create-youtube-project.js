@@ -28,6 +28,9 @@ async function main() {
 
   const visual = await readJson(path.resolve('config/visual-policy.json'));
   const activeStyleId = visual.styleId ?? 'UNSET';
+  const promptSystemVersion = Number(visual.promptSystemVersion ?? 1);
+  const scenePlanningSchemaVersion = Number(visual.scenePlanningSchemaVersion ?? 1);
+  const promptQcMinimumScore = Number(visual.promptQcMinimumScore ?? 8);
   const now = new Date().toISOString();
   const metaPath = path.join(destination, '99-technik', 'video.json');
   const meta = await readJson(metaPath);
@@ -38,6 +41,9 @@ async function main() {
     title,
     topic,
     visualStyleId: activeStyleId,
+    promptSystemVersion,
+    scenePlanningSchemaVersion,
+    promptQcMinimumScore,
     createdAt: now,
     updatedAt: now
   });
