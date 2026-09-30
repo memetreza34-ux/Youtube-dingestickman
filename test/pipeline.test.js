@@ -24,9 +24,13 @@ test('Repo besitzt freigegebene History-Bildwelt und Flow Compiler V3', async ()
   assert.equal(visual.promptMustPreserveVisualForm, true);
   assert.equal(visual.promptQcRequired, true);
   assert.equal(visual.promptQcMinimumScore, 8);
+  assert.equal(visual.controlledVariationPolicy?.enabled, true);
+  assert.equal(visual.controlledVariationPolicy?.fixedMasterReferenceImages, false);
+  assert.equal(visual.controlledVariationPolicy?.sameStyleDifferentStaging, true);
   assert.equal(styleLock.status, 'READY');
   assert.equal(styleLock.styleId, visual.styleId);
   assert.equal(styleLock.promptSystem, 'flow-compiler-v3');
+  assert.equal(styleLock.controlledVariationPolicy?.fixedMasterReferenceImages, false);
   assert.ok(styleLock.masterStylePrompt.length > 300);
   assert.ok(styleLock.sceneStyleAnchor.length > 100);
   assert.ok(Array.isArray(styleLock.highRiskPromptWords));
@@ -110,22 +114,23 @@ test('Projekt-Template nutzt Scene Card V2, Flow Compiler V3 und World-Lock-Gate
   assert.match(prompt, /Do not paste this placeholder file into Google Flow/i);
 });
 
-test('Visual-Director- und Flow-Dokumentation ist vollständig vorhanden', async () => {
+test('Visual-Director- und Flow-Dokumentation nutzt kontrollierte Variation', async () => {
   const style = await readFile('channel/10-STYLE-DNA-V2.md', 'utf8');
   const director = await readFile('channel/11-VISUAL-DIRECTOR.md', 'utf8');
   const qc = await readFile('channel/12-PROMPT-QC.md', 'utf8');
-  const refs = await readFile('channel/13-STYLE-REFERENCE-PACK.md', 'utf8');
   const flow = await readFile('channel/08-FLOW-PROMPTING.md', 'utf8');
   const promptTemplate = await readFile('channel/09-IMAGE-PROMPT-TEMPLATE.md', 'utf8');
   assert.match(style, /visuelle Beziehung/i);
+  assert.match(style, /keine festen globalen Master-Referenzbilder/i);
+  assert.match(style, /Kontrollierte Variation/i);
   assert.match(director, /Viewer Takeaway/i);
   assert.match(director, /Visual Concept/i);
   assert.match(director, /Composition/i);
   assert.match(qc, /8\/10/);
   assert.match(qc, /Visual-Form-Treue/i);
-  assert.match(refs, /neun Master-Referenzen/i);
   assert.match(flow, /Flow Compiler V3/i);
-  assert.match(flow, /Style Anchor/i);
+  assert.match(flow, /Gleicher Stil ≠ gleiche Szene/i);
+  assert.match(flow, /keine globalen festen Master-Referenzbilder/i);
   assert.match(promptTemplate, /google-flow-prompt\.txt.*nicht mehr manuell/is);
 });
 
