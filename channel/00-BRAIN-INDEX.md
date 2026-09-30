@@ -34,7 +34,7 @@ Wie historische Aussagen geprüft, Unsicherheiten behandelt und Quellen dokument
 Produktionslogik eines Videos von Thema bis Übergabe an die Bildplanung.
 
 ### `06-VISUAL-SYSTEM.md`
-Verbindliche Bildwelt: `history-stickman-adaptive-v1`. Definiert Figuren, Rendering, Farbwelt, Textregeln, historische Lesbarkeit, adaptive Stimmung und Nicht-Figuren-Visuals.
+Verbindliche Grundbildwelt: `history-stickman-adaptive-v1`. Definiert Figuren, Rendering, Farbwelt, Textregeln, historische Lesbarkeit, adaptive Stimmung und Nicht-Figuren-Visuals.
 
 ### `07-VISUAL-GRAMMAR.md`
 Entscheidet, **welche Bildform** einen Skriptsatz am besten erklärt: Figur, Karte, Objekt, Architektur, System, Vergleich, Symbolbild, Übersicht usw.
@@ -43,7 +43,16 @@ Entscheidet, **welche Bildform** einen Skriptsatz am besten erklärt: Figur, Kar
 Verbindliche Google-Flow-Batchlogik und Kontinuitätsregeln.
 
 ### `09-IMAGE-PROMPT-TEMPLATE.md`
-Verbindliche Struktur für starke Einzelbildprompts: Kernaussage, dominantes Hauptmotiv, maximal 1–3 unterstützende Elemente, Kamera/Komposition, Continuity Lock und Textregel.
+Verbindliche Struktur des finalen natürlichen Google-Flow-Prompts.
+
+### `10-STYLE-DNA-V2.md`
+Präzisiert Figurenproportionen, Linien, Flächen, Detailhierarchie, Raum, Kamera, Komposition, Licht und Farbe. Verhindert, dass `historical stickman` von Bild zu Bild beliebig interpretiert wird.
+
+### `11-VISUAL-DIRECTOR.md`
+Verpflichtende Zwischenstufe zwischen Skript und Prompt. Erzwingt Viewer Takeaway, Visual Concept, Dominant Subject, Action/State, Composition, Camera, Depth, Mood und Continuity.
+
+### `12-PROMPT-QC.md`
+Prüft jeden finalen Bildprompt gegen die interne Scene Card. Mindestscore: **8/10**. Aussage-, Visual-Form- oder Kompositionsverlust mit 0 Punkten ist immer ein Fail.
 
 ### `99-DECISION-LOG.md`
 Chronologisches Register fester Kanalentscheidungen.
@@ -58,6 +67,24 @@ Für Bildplanung oder Bildgenerierung immer mindestens lesen:
 - `channel/07-VISUAL-GRAMMAR.md`
 - `channel/08-FLOW-PROMPTING.md`
 - `channel/09-IMAGE-PROMPT-TEMPLATE.md`
+- `channel/10-STYLE-DNA-V2.md`
+- `channel/11-VISUAL-DIRECTOR.md`
+- `channel/12-PROMPT-QC.md`
 - `config/visual-policy.json`
+
+## Verbindlicher Visual-Pfad
+
+```text
+Script
+→ Aussage
+→ Visual Concept
+→ Visual Form
+→ Composition Design
+→ Camera
+→ Mood / Light
+→ Continuity
+→ Prompt
+→ Prompt QC >= 8/10
+```
 
 Keine alten Kanalregeln aus anderen Repositories übernehmen. Keine fehlenden Kanalentscheidungen stillschweigend erfinden.
