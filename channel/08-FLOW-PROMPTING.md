@@ -1,60 +1,75 @@
-# Google Flow Prompting — History Visual System V2
+# Google Flow Prompting — Flow Compiler V3
 
 ## Ziel
 
-Google Flow bekommt einen sauberen Copy-Paste-Prompt. Interne Planung und tatsächlicher Flow-Prompt bleiben strikt getrennt.
+Google Flow bekommt keinen frei improvisierten Master-Prompt mehr. Neue Produktionen werden aus geprüften Scene Cards, einem festen Channel Style Lock und einem videospezifischen World Lock **deterministisch kompiliert**.
 
-Vor dem finalen Flow-Prompt müssen `10-STYLE-DNA-V2.md`, `11-VISUAL-DIRECTOR.md` und `12-PROMPT-QC.md` angewendet worden sein.
+Verbindliche Quellen:
 
-## Goldene Regel
+1. `config/flow-style-lock.json` — maschinenlesbare, unveränderliche Channel-Zeichen-DNA
+2. `channel/10-STYLE-DNA-V2.md` — menschlich lesbare Style-Erklärung
+3. `channel/11-VISUAL-DIRECTOR.md` — Scene Card V2
+4. `channel/12-PROMPT-QC.md` — Qualitätsgate
+5. `99-technik/FLOW_WORLD_LOCK.json` — videospezifische Kontinuität
+6. `src/lib/flow-prompt.js` — Compilerlogik
 
-**Google Flow arbeitet in zwei getrennten Generierungsstufen.**
-
-### STUFE 1 — nur Cover
-
-1. `CHANNEL STYLE` einmal laden.
-2. `VIDEO WORLD LOCK` einmal laden.
-3. Exakten deutschen `COVER TEXT` laden.
-4. **Nur drei Varianten von BILD 01 erzeugen.**
-5. Alle drei Varianten müssen exakt denselben korrekt geschriebenen Cover-Text enthalten.
-6. Danach **STOPPEN**.
-7. Keine Bilder 02–NN erzeugen.
-8. Google Flow darf keinen Cover-Gewinner selbst auswählen.
-9. Auf die ausdrückliche Auswahl des Nutzers warten.
-
-Der Nutzer entscheidet, welcher der drei Cover-Kandidaten verwendet wird.
-
-### MANUELLER COVER-GATE
-
-Nach den drei Cover-Kandidaten lautet der Status:
+## Kernprinzip
 
 ```text
-WAITING_FOR_USER_COVER_SELECTION
+Script
+→ Scene Card V2
+→ Prompt QC >= 8/10
+→ READY World Lock
+→ Flow Compiler V3
+→ finaler google-flow-prompt.txt
+→ Phase-1-Validator
+→ Google Flow
 ```
 
-Bis der Nutzer einen Kandidaten ausgewählt hat, ist jede weitere Bildgenerierung verboten.
+Der finale Prompt wird **nicht mehr manuell aus Markdown-Regeln zusammengesetzt**.
 
-Erst nach einer ausdrücklichen Nachricht wie `Cover 2 nehmen`, `das mittlere nehmen` oder einer gleichwertigen Auswahl darf Flow fortfahren.
+## Drei Locks mit klarer Verantwortung
 
-Der ausgewählte Kandidat wird zu `Bild 01.png` und ist die visuelle Referenz für die weitere Produktion.
+### 1. CHANNEL STYLE LOCK — über alle Videos konstant
 
-### STUFE 2 — restliche Bilder
+Quelle: `config/flow-style-lock.json`.
 
-Erst nach Nutzerfreigabe:
+Fixiert insbesondere:
 
-- ausgewählten Cover-Kandidaten als BILD 01 festhalten
-- dessen Stil-/World-Lock als visuelle Referenz beibehalten
-- BILD 02 bis BILD NN erzeugen
-- Nicht-Cover-Bilder jeweils nur einmal erzeugen
-- maximal fünf aktive Generierungen gleichzeitig
+- 2D hand-drawn history-explainer rendering
+- Figurenproportionen und Gesichtsvereinfachung
+- Linienlogik
+- flache gedeckte Farben
+- subtile Cel-Schattierung
+- Papier-/Tuschetextur
+- Detailhierarchie
+- verbotene Style-Drifts
 
-## Vorbedingung: Scene Card V2
+Dieser Lock ist **keine Stimmungsempfehlung**, sondern eine Rendering-Grenze. Epoche, Wetter, Kamera und emotionale Stimmung dürfen wechseln; die Zeichenart darf es nicht.
 
-Jeder Bildblock im Flow-Prompt muss vorher intern geplant worden sein mit mindestens:
+### 2. VIDEO WORLD LOCK — pro Video konstant
+
+Quelle: `99-technik/FLOW_WORLD_LOCK.json`.
+
+Fixiert:
+
+- wiederkehrende Orte und Silhouetten
+- Architektur und Raumlayout
+- wiederkehrende Figuren
+- wiederkehrende Props
+- lokale Grundfarbigkeit
+- Wetter-/Zeitlogik
+- Vorher-/Nachher-Kontinuität
+
+Vor dem Prompt-Build muss der Status `READY` sein.
+
+### 3. SCENE DIRECTION — pro Bild individuell
+
+Quelle: jeweilige Scene Card V2.
+
+Fixiert:
 
 - Viewer Takeaway
-- Visual Purpose
-- Topic Anchor
 - Visual Form
 - Visual Concept
 - Dominant Subject
@@ -66,110 +81,185 @@ Jeder Bildblock im Flow-Prompt muss vorher intern geplant worden sein mit mindes
 - Supporting Elements
 - Continuity Note
 - Historical Accuracy Note
-- Prompt QC Score
 
-Der finale Flow-Prompt zeigt diese Felder nicht als Formular.
+Damit bleibt die **Bildidee individuell**, während die Bildwelt gleich bleibt.
 
-## Prompt-Übersetzung
+## Warum der Style Anchor pro Bild wiederholt wird
 
-Beim Übersetzen der Scene Card in den natürlichen Prompt darf keine Kerninformation verloren gehen.
+Ein globaler Style-Absatz allein ist bei langen Batches zu leicht zu verwässern. Flow Compiler V3 setzt deshalb vor jeden `BILD NN`-Prompt denselben kurzen `sceneStyleAnchor` aus `config/flow-style-lock.json`.
 
-Besonders kritisch:
+Wichtig:
 
-- `comparison` → beide Vergleichsseiten sichtbar
-- `cause-effect` → Ursache und Folge sichtbar verbunden
-- `process-sequence` → Zustandsänderung sofort lesbar
-- `system-hierarchy` → Struktur räumlich verständlich
-- `battle-city-overview` → räumliche Lage bleibt die Hauptidee
+- der lange Master Style steht nur einmal
+- der kompakte Style Anchor wird pro Bild wiederholt
+- der Anchor enthält nur die unveränderliche Rendering-DNA
+- die eigentliche Szene bleibt individuell
 
-Ein Prompt ist nicht gut genug, wenn er nur Inventar aufzählt.
+So wird Konsistenz erhöht, ohne jeden Bildprompt mit Stil-Synonymen zu überladen.
 
-Unzureichendes Muster:
+## Keine generischen Style-Wörter
+
+Scene Cards sollen konkrete Regie statt unkontrollierbarer Stilwörter verwenden.
+
+Vermeiden bzw. in V3 blockiert:
+
+- `cinematic`
+- `epic`
+- `ultra detailed`
+- `hyper detailed`
+- `photographic`
+- `realistic lighting`
+- `depth of field`
+- `bokeh`
+
+Stattdessen konkret schreiben:
 
 ```text
-Show X. Add Y. Keep X large. No visible text.
+slightly elevated wide view
+cool overcast daylight
+large empty middle-ground distance
+small warm fire as the only warm accent
 ```
 
-Ein guter Prompt regelt zusätzlich genug von:
+Das steuert das Bild, ohne Flow in eine andere Rendering-Welt zu ziehen.
 
-- räumlicher Anordnung
-- Handlung/Zustand
-- Kamera
-- Tiefe
-- Blickführung
-- Negativfläche
-- Licht/Stimmung
-- visueller Beziehung von Ursache/Folge oder Vergleich
+## Prompt-Build
+
+Erst wenn Scene Cards und World Lock vollständig sind:
+
+```bash
+npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
+```
+
+Der Compiler erzeugt vollständig neu:
+
+```text
+00-bildprompts/google-flow-prompt.txt
+```
+
+Danach:
+
+```bash
+npm run validate:youtube-phase1 -- --dir "youtube/<week>/<slug>"
+```
+
+### Wichtige Regel
+
+Den kompilierten Prompt nicht manuell „schöner schreiben“.
+
+Wenn eine Szene verbessert werden muss:
+
+1. Scene Card ändern
+2. Prompt-QC neu bewerten
+3. Compiler erneut ausführen
+4. Validator erneut ausführen
+
+So bleibt die Quelle der Wahrheit die Planung und nicht eine nachträglich manipulierte Textdatei.
+
+## Style References / Flow Ingredients
+
+Sobald `channel/13-STYLE-REFERENCE-PACK.md` den Status `READY` hat, sollen passende freigegebene Referenzen zusätzlich als Flow-Ingredients verwendet werden.
+
+Empfehlung pro Generierung: **2–4 wirklich relevante Referenzen**.
+
+Regeln:
+
+- nur saubere freigegebene Referenzen verwenden
+- Style-Referenzen möglichst ohne unnötige zusätzliche Motive
+- Textprompt und Referenzen dürfen sich nicht widersprechen
+- Referenzbilder dienen für Linien, Figurenproportionen, Textur, Schattierung, Detailhierarchie und Farbcharakter
+- Motiv, Epoche, konkrete Kleidung oder Komposition der Referenz nicht blind kopieren
+- wiederkehrende Figuren/Objekte können zusätzlich als eigene Ingredients verwendet werden
+
+Priorität nach fertigem Reference Pack:
+
+```text
+freigegebene Style-Ingredients
+→ config/flow-style-lock.json
+→ FLOW_WORLD_LOCK.json
+→ Scene Card
+```
+
+Die Ebenen ergänzen sich und dürfen sich nicht widersprechen.
+
+## Zweistufige Generation — weiterhin Pflicht
+
+### STAGE 1 — nur Cover
+
+1. finalen kompilierten Prompt verwenden
+2. genau drei Varianten von BILD 01 erzeugen
+3. alle drei enthalten exakt denselben deutschen Cover-Text
+4. fehlerhafte oder schlecht lesbare Textvarianten verwerfen
+5. danach vollständig stoppen
+6. keine Bilder 02–NN erzeugen
+7. Flow darf keinen Gewinner auswählen
+8. Nutzer wählt den Cover-Kandidaten
+
+Status bis dahin:
+
+```text
+WAITING_FOR_USER_COVER_SELECTION
+```
+
+### STAGE 2 — erst nach Nutzerwahl
+
+- gewähltes Cover wird `Bild 01.png`
+- gewähltes Cover kann als zusätzliche Video-World-/Continuity-Referenz verwendet werden
+- Channel Style Lock bleibt trotzdem unverändert
+- anschließend BILD 02–NN erzeugen
+- Nicht-Cover-Bilder jeweils einmal
+- maximal fünf aktive Generierungen gleichzeitig
 
 ## Cover-Regel
 
-**BILD 01 ist immer Cover + erste Szene und enthält immer passenden deutschen Text.**
+BILD 01 ist immer Cover + erste Szene.
 
-- ideal 2–5 Wörter
-- passend zu Thema/Hook
-- exakter Wortlaut im Prompt
+- ideal 2–5 deutsche Wörter
+- exakt vorgegeben
 - groß und sofort lesbar
-- Hintergrund hell → dunkle Schrift
-- Hintergrund dunkel → helle Schrift
+- starker Kontrast zum tatsächlichen Hintergrund
 - Hauptmotiv nicht verdecken
-- kein zusätzlicher englischer Text
+- keine zweite Textzeile
+- kein englischer Zusatz
+- keine Bildnummer
+- kein Logo
 - keine Pseudo-Schrift
-- Schreibfehler/unlesbarer Text = Kandidat verwerfen und neu erzeugen
 
-## Finaler Flow-Prompt
+## Bilder 02–NN
 
-Der echte Flow-Prompt enthält nur:
-
-1. `ACTIVE_STYLE_ID`
-2. `PROMPT_SYSTEM: visual-director-v2`
-3. kurze Aufgabe
-4. `CHANNEL STYLE`
-5. `VIDEO WORLD LOCK`
-6. `COVER TEXT`
-7. `BILD 01` bis `BILD NN` als natürliche direkte Fließtext-Prompts
-8. globale Regeln
-9. Visual-Form-Fidelity-Regeln
-10. zweistufige Generation Rules mit manuellem Cover-Gate
-
-Interne Scene-Card-Felder bleiben außerhalb des finalen Flow-Prompts.
-
-## Bildhierarchie
-
-Intern weiterhin sicherstellen:
-
-- ein Bild = eine Kernaussage
-- ein dominantes Hauptmotiv
-- höchstens 1–3 notwendige Nebenelemente
-- keine Wimmelbilder
-- keine Lehrbuch-/Museumstafeln
-- große, YouTube-taugliche Formen
-- wenige Elemente sind kein Ersatz für starke Komposition
-
-## Text in Bildern
-
-- **BILD 01:** deutscher Cover-Text ist Pflicht
-- **BILD 02–NN:** standardmäßig kein sichtbarer Text
-- außerhalb des Covers nur bei ausdrücklicher Notwendigkeit und exakt auf Deutsch
-
-## Prompt-QC
-
-Jeder Bildprompt muss vor Einbau in den Flow-Batch `12-PROMPT-QC.md` bestehen.
+Standard:
 
 ```text
-Minimum: 8/10
+NO visible text.
 ```
 
-Aussage-Treue, Visual-Form-Treue und Komposition dürfen nicht 0 Punkte haben.
+Keine Labels, Zahlen, erfundene Buchstaben, Wasserzeichen oder dekorative Schrift.
 
-## Qualitätscheck
+## Visual-Form-Treue
 
-1. Hat jedes Bild eine vollständige Scene Card V2?
-2. Ist der Viewer Takeaway im finalen Prompt erhalten?
-3. Ist die Visual Form erhalten?
-4. Hat der Prompt konkrete Kompositions-/Kamerasprache?
-5. Hat jeder Prompt mindestens 8/10 erreicht?
-6. Sind genau drei Cover-Kandidaten vorgesehen?
-7. Haben alle drei exakt denselben deutschen Cover-Text?
-8. Muss Flow nach BILD 01 ausdrücklich stoppen?
-9. Ist Nutzerwahl vor BILD 02 zwingend?
-10. Bleibt der ausgewählte Cover-Look Referenz für die restlichen Bilder?
+Der Compiler fügt je nach Visual Form zusätzliche Schutzregeln ein.
+
+Besonders kritisch:
+
+- `comparison` → beide Pole sichtbar
+- `cause-effect` → Ursache und Folge sichtbar verbunden
+- `process-sequence` → Zustandsänderung sofort lesbar
+- `system-hierarchy` → räumliche Struktur statt Corporate-Diagramm
+- `battle-city-overview` → räumliche Lage bleibt Hauptidee
+- `object-focus` → Objekt trägt wirklich die Aussage
+- `character-scene` → Haltung/Handlung/Beziehung trägt die Aussage
+
+## Definition of Done für einen Flow-Prompt
+
+Ein Flow-Prompt ist erst produktionsbereit, wenn:
+
+1. alle Scene Cards vollständig sind,
+2. jeder Prompt-QC-Score mindestens 8/10 beträgt,
+3. `FLOW_WORLD_LOCK.json` auf `READY` steht,
+4. `npm run build:youtube-flow` erfolgreich lief,
+5. `video.json.flowPromptBuiltAt` gesetzt wurde,
+6. keine Platzhalter mehr vorhanden sind,
+7. jeder Bildblock den kompakten Style Anchor enthält,
+8. Cover-Text exakt vorkommt,
+9. BILD 02–NN eine explizite No-Text-Regel enthalten,
+10. `npm run validate:youtube-phase1` besteht.
