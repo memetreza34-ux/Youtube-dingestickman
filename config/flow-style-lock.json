@@ -1,10 +1,10 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "status": "READY",
   "styleId": "history-stickman-adaptive-v1",
   "promptSystem": "flow-compiler-v3",
-  "masterStylePrompt": "Use one immutable hand-drawn 2D historical explainer illustration language for every image. Human figures, when present, belong to one simplified stickman family: round to slightly oval warm off-white heads at roughly 1/6 to 1/7 of visible body height, two small dark eyes, simple eyebrows, a small restrained mouth, little or no nose detail, slim geometric torsos and limbs, simplified hands and feet, and no realistic anatomy. Individuality comes only from historically appropriate hair, beards, headwear, clothing, armor, tools, weapons, props, posture and expression. Draw all figures, architecture, objects, maps and landscapes with clean dark ink outlines of mostly consistent medium weight, flat muted historical colors, subtle cel-shading shapes and a light handmade ink-and-paper texture. Keep the dominant subject clearer and slightly higher-contrast than supporting elements; reduce background detail. Use readable foreground, midground and background separation through scale, overlap and perspective rather than photorealistic depth of field. The result must feel mature, editorial and documentary-like, never childish or glossy.",
-  "sceneStyleAnchor": "Keep the exact locked channel rendering unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading, light paper-and-ink texture, and the same simplified 1:6-to-1:7 stickman-family construction whenever people appear.",
+  "masterStylePrompt": "Use one consistent hand-drawn 2D historical explainer illustration language across the channel, but do not repeat the same staging from image to image. Human figures, when present, belong to one simplified stickman family: round to slightly oval warm off-white heads at roughly 1/6 to 1/7 of visible body height, two small dark eyes, simple eyebrows, a small restrained mouth, little or no nose detail, slim geometric torsos and limbs, simplified hands and feet, and no realistic anatomy. Individuality comes from historically appropriate hair, beards, headwear, clothing, armor, tools, weapons, props, posture and expression. Draw figures, architecture, objects, maps and landscapes with clean dark ink outlines of mostly consistent medium weight, flat muted historical colors, subtle cel-shading shapes and a light handmade ink-and-paper texture. Keep the dominant subject clearer and slightly higher-contrast than supporting elements; reduce background detail. Use readable depth through scale, overlap and perspective rather than photorealistic depth of field. Preserve the same illustration DNA while allowing scene-specific changes in viewpoint, framing, composition, distance, lighting, weather, mood and visual form. The result must feel mature, editorial and documentary-like, never childish, glossy or mechanically repetitive.",
+  "sceneStyleAnchor": "Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading, light paper-and-ink texture, and the same simplified 1:6-to-1:7 stickman-family construction whenever people appear. Do not copy the previous scene's composition unless continuity specifically requires it.",
   "characterGeometry": {
     "headToBodyRatio": "1:6 to 1:7",
     "head": "round to slightly oval, warm off-white fill",
@@ -41,7 +41,7 @@
     "specific environment where relevant",
     "specific lighting or mood where relevant",
     "historically plausible visible details",
-    "continuity preserved for recurring places, characters and props"
+    "continuity preserved only where recurring places, characters or props require it"
   ],
   "forbiddenStyleDrift": [
     "photorealism",
@@ -68,11 +68,36 @@
     "depth of field",
     "bokeh"
   ],
-  "globalNegativePrompt": "Do not switch rendering style between images. No photorealism, 3D, Pixar-like animation rendering, anime, painterly realism, graphic-novel realism, realistic portrait anatomy, chibi or children's-book proportions, glossy lighting, modern corporate infographic styling, neon colors, watermarks, image numbers or pseudo-text.",
-  "referencePolicy": {
-    "preferredWhenReady": true,
-    "referencePack": "channel/13-STYLE-REFERENCE-PACK.md",
-    "recommendedCountPerGeneration": [2, 4],
-    "instruction": "When approved style references are attached as Google Flow ingredients, use them only to lock linework, proportions, texture, shading, detail hierarchy and palette character. Do not copy their historical subject, location or composition. Text instructions must complement rather than contradict the attached references."
-  }
+  "controlledVariationPolicy": {
+    "fixedMasterReferenceImages": false,
+    "goal": "same illustrator and rendering DNA, different scene direction",
+    "mayVaryPerScene": [
+      "camera distance",
+      "viewpoint",
+      "foreground-midground-background arrangement",
+      "subject placement",
+      "negative space",
+      "lighting direction and intensity",
+      "weather",
+      "mood",
+      "visual form"
+    ],
+    "mustStayStable": [
+      "linework family",
+      "figure construction",
+      "face simplification",
+      "flat muted palette character",
+      "cel-shading logic",
+      "paper-and-ink texture",
+      "detail hierarchy"
+    ],
+    "antiRepetition": [
+      "Do not reuse the same composition merely for consistency.",
+      "Do not default every character scene to the same medium-wide frontal view.",
+      "Do not default every architecture scene to the same centered wide view.",
+      "Change viewpoint or framing when narrative understanding benefits from it.",
+      "Reuse nearly the same angle only for deliberate before-after or state-change continuity."
+    ]
+  },
+  "globalNegativePrompt": "Do not switch rendering style between images, but also do not mechanically repeat the same composition. No photorealism, 3D, Pixar-like animation rendering, anime, painterly realism, graphic-novel realism, realistic portrait anatomy, chibi or children's-book proportions, glossy lighting, modern corporate infographic styling, neon colors, watermarks, image numbers or pseudo-text."
 }
