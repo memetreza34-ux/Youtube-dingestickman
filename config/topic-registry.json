@@ -16,6 +16,14 @@
         "Warum die wechselnden Gefahren der Vesuv-Eruption 79 n. Chr. Pompeji so schwer zu überleben machten"
       ],
       "status": "test"
+    },
+    {
+      "id": "2026-KW40_28-09_bis_04-10_test-roemisches-marschlager-v3",
+      "title": "Warum Römer selbst für eine Nacht ein Lager befestigten",
+      "aliases": [
+        "Warum römische Legionen auf Feldzügen temporäre Marschlager errichteten"
+      ],
+      "status": "test-v3"
     }
   ]
 }
