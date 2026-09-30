@@ -47,7 +47,7 @@ Emotion wird über Augen, Augenbrauen, kleine Mundformen, Blickrichtung, Kopfhal
 
 Figuren dürfen niemals automatisch erzwungen werden.
 
-Gleichwertige Visuals sind historische Karten, Architektur, Städte, Burgen, Landschaften, Objekte, Münzen, Waffen, Werkzeuge, Schiffe, Handelsgüter, Symbolbilder, Ursache-Wirkungs-Bilder, Versorgungssysteme, Hierarchien, Reichsausbreitung, Vorher/Nachher, Aufstieg/Fall sowie Stadt- oder Schlachtübersichten.
+Gleichwertige Visuals sind historische Karten, Architektur, Städte, Burgen, Landschaften, Objekte, Münzen, Waffen, Werkzeuge, Schiffe, Handelsgüter, Symbolbilder, Ursache-Wirkungs-Bilder, Versorgungssysteme, Hierarchien, Reichsausbreitung, Vorher/Nachher, Aufstieg/Fall, Mehrmoment-Illustrationen sowie Stadt- oder Schlachtübersichten.
 
 Nicht-Figuren-Visuals verwenden dieselbe Linien-, Farb-, Schattierungs- und Texturlogik wie Figurenszenen.
 
@@ -73,26 +73,65 @@ Für Maschinen gelten zusätzlich die Detailbudgets aus `config/flow-style-lock.
 
 ---
 
-## 4. Bildhierarchie
+## 4. Bildhierarchie und Mehrmoment-Regel
 
-Jedes Bild muss in weniger als einer Sekunde verständlich sein.
+Jedes Bild muss schnell verständlich sein.
+
+Die zentrale Regel lautet jetzt:
+
+**Ein Bild = ein klarer erzählerischer Takeaway.**
+
+Das bedeutet nicht mehr zwingend „ein Bild = nur ein einzelner Moment“.
+
+Erlaubt sind:
+
+- ein dominanter Einzelmoment
+- Ursache und Folge in einem Bild
+- Vorher/Nachher
+- zwei oder höchstens drei eng zusammengehörige Momente in einer integrierten Illustration
+- Vordergrund → Mittelgrund → Hintergrund als zeitliche oder kausale Erzählung
+- klare Links→Rechts-Entwicklung
+
+Bei einer Mehrmoment-Illustration müssen alle Momente dieselbe Zuschauerfrage beantworten. Ein Moment bleibt dominant oder die Leserichtung ist eindeutig.
 
 Verbindlich:
 
-- genau eine Kernaussage
-- genau ein dominantes Hauptmotiv
-- maximal 1–3 unterstützende Elemente
-- Hauptmotiv groß und YouTube-tauglich
-- klare Vordergrund-/Mittelgrund-/Hintergrund-Hierarchie
+- genau ein klarer Takeaway
+- bei normalen Szenen genau ein dominantes Hauptmotiv
+- bei Mehrmoment-Szenen höchstens 2–3 verbundene Story-Momente
+- Hauptinformation groß und YouTube-tauglich
+- klare Blickführung
 - wichtige Information nicht in vielen kleinen Details verstecken
 
-Nicht als Standard verwenden: Wimmelbilder, überfüllte Menschenmengen, Museumstafeln, Schulbuchposter, Lexikonplatten, viele Mini-Figuren, viele Labels/Pfeile, Collagen, Multi-Panel-Kompositionen, unnötige Querschnitte oder extrem kleinteilige Erklärbilder.
+Weiterhin vermeiden:
 
-Wenn ein Satz zwei gleich wichtige visuelle Aussagen enthält, lieber zwei Bilder planen.
+- Wimmelbilder
+- überfüllte Menschenmengen
+- Museumstafeln
+- Schulbuchposter
+- Lexikonplatten
+- neun kleine Panels
+- dichte Fotocollagen
+- viele Labels/Pfeile
+- extrem kleinteilige Erklärbilder
+
+Wenn zwei Aussagen **nicht** eng zusammengehören, lieber zwei Bilder planen. Wenn sie gemeinsam einen Ablauf, Vergleich oder Ursache→Folge verständlicher machen, darf eine Mehrmoment-Illustration verwendet werden.
 
 ---
 
-## 5. Video World / Continuity Lock
+## 5. Story-Beat-Dichte
+
+Die Bildplanung folgt dem gesprochenen Story-Fortschritt.
+
+Wenn sich Handlung, Ursache, Ort, Zeit, Zustand oder Zuschauer-Erkenntnis deutlich ändert, wird ein neuer visueller Beat geprüft.
+
+Für kurze History-Videos ist eine höhere Dichte gewünscht. Ein ungefähr 60-sekündiger Test landet häufig bei etwa **14–20 visuellen Beats**. Das ist keine starre Quote; Inhalt und Lesbarkeit entscheiden.
+
+Lange Holds auf demselben Bild vermeiden, wenn der Sprecher bereits über einen neuen Gedanken spricht.
+
+---
+
+## 6. Video World / Continuity Lock
 
 **Innerhalb eines Videos ist Kontinuität wichtiger als künstliche Variation.**
 
@@ -102,19 +141,11 @@ Wiederkehrende Figuren behalten Haare/Bart, Kopfbedeckung, Kleidung/Rüstung, Fa
 
 Wiederkehrende Räume und Zustandsänderungen sollen möglichst denselben Blickwinkel benutzen, wenn das Verständnis dadurch stärker wird.
 
-Beispiel:
-
-```text
-volles Lager
-→ dasselbe Lager halb leer
-→ dasselbe Lager fast leer
-```
-
 Für neue Produktionen wird diese videospezifische Kontinuität in `99-technik/FLOW_WORLD_LOCK.json` festgehalten und vor dem Prompt-Build auf `READY` gesetzt.
 
 ---
 
-## 6. Adaptive Stimmung
+## 7. Adaptive Stimmung
 
 Die Kunsttechnik bleibt gleich, die Stimmung darf sich anpassen.
 
@@ -128,7 +159,7 @@ Stimmung konkret über Licht, Raum und Kontrast beschreiben. Generische Wörter 
 
 ---
 
-## 7. Farbwelt
+## 8. Farbwelt
 
 Gemeinsamer Charakter: Sand/Beige, Stein/Grau, Lederbraun, gedämpftes Rot, dunkles Grün/Oliv, Graublau, Pergamenttöne und gedecktes Gold als Akzent.
 
@@ -136,7 +167,7 @@ Neonfarben und extrem gesättigte Kinderfarben vermeiden.
 
 ---
 
-## 8. Historische Lesbarkeit
+## 9. Historische Lesbarkeit
 
 Historische Kleidung, Waffen, Architektur, Karten, Werkzeuge und Symbole sollen zur behandelten Epoche passen.
 
@@ -148,7 +179,7 @@ Wenn die genaue Darstellung unsicher ist, lieber neutraler visualisieren als fal
 
 ---
 
-## 9. Text im Bild
+## 10. Text im Bild
 
 ### Cover / Bild 01
 
@@ -164,7 +195,6 @@ Regeln:
 - groß und sofort lesbar
 - Hintergrund hell → dunkle Schrift
 - Hintergrund dunkel → helle Schrift
-- dezenter Rand/Schatten nur bei Bedarf
 - Hauptmotiv, Gesichter und entscheidende Aktion nicht verdecken
 - kein englischer Zusatztext, kein Logo, keine Bildnummer
 
@@ -174,49 +204,17 @@ Standard: **kein generierter sichtbarer Text**.
 
 Der Flow Compiler fügt dafür automatisch eine harte No-Text-Regel in jeden Nicht-Cover-Prompt ein.
 
-Verboten sind Bildnummern, unnötige Labels, pseudo-lesbarer KI-Text, englische Beschriftungen und Wasserzeichen.
-
-Nur wenn ein späteres Bild ohne Beschriftung nicht verständlich wäre und die Produktion es ausdrücklich verlangt, darf die Policy bewusst erweitert werden.
-
-Remotion erzeugt nicht automatisch sichtbaren Erklärungstext.
-
 ---
 
-## 10. Verbotene Stilwechsel
+## 11. Verbotene Stilwechsel
 
 Nicht verwenden: Fotorealismus, realistische menschliche Porträts, 3D Rendering, Pixar-/Animationsfilm-Look, Anime, painterly realism, Graphic-Novel-Realismus, wechselnde Cartoon-Stile, moderne Corporate-Infografik, extrem dicke Comic-Outlines oder kindliche Chibi-/Kinderbuch-Proportionen.
 
-Die maschinenlesbaren Verbote und High-Risk-Prompt-Wörter stehen in `config/flow-style-lock.json`.
-
 ---
 
-## 11. Google-Flow-Prinzip — Flow Compiler V3
+## 12. Google-Flow-Prinzip — Flow Compiler V3
 
 Interne Bildplanung und finaler Google-Flow-Prompt bleiben strikt getrennt.
-
-### Interne Ebene
-
-Die Scene Card V2 darf ausführlich planen mit:
-
-- Viewer Takeaway
-- Visual Purpose
-- Topic Anchor
-- Visual Form
-- Visual Concept
-- Dominant Subject
-- Action / State
-- Composition
-- Camera
-- Depth Plan
-- Lighting / Mood
-- Supporting Elements
-- Continuity Note
-- Historical Accuracy Note
-- Prompt QC Score
-
-Diese Formularfelder werden nicht 1:1 in Google Flow ausgegeben.
-
-### Build-Ebene
 
 Neue Produktionen erzeugen den finalen Prompt mit:
 
@@ -224,59 +222,25 @@ Neue Produktionen erzeugen den finalen Prompt mit:
 npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
 ```
 
-Der Compiler kombiniert:
-
-1. `config/flow-style-lock.json`
-2. `video.json`
-3. `BILD_AUDIO_ZUORDNUNG.json`
-4. `FLOW_WORLD_LOCK.json`
-
-### Finaler Flow-Prompt
-
-Der tatsächliche Prompt enthält:
-
-1. aktive Style-ID und `PROMPT_SYSTEM: flow-compiler-v3`
-2. kurze Batch-Aufgabe
-3. `CHANNEL STYLE — IMMUTABLE`
-4. Style-Consistency-Regel
-5. optionale Style-Reference-/Ingredient-Regel
-6. `VIDEO WORLD LOCK — IMMUTABLE WITHIN THIS VIDEO`
-7. exakten `COVER TEXT`
-8. `BILD 01` bis `BILD NN`
-9. pro Bild einen natürlichen direkten Fließtext-Prompt
-10. denselben kompakten Style Anchor in jedem Bildprompt
-11. globale Negativ- und Kompositionsregeln
-12. Textregel
-13. zweistufigen manuellen Cover-Gate
+Der Compiler kombiniert Style Lock, Video-Metadaten, Scene Cards und World Lock und erhält dabei die geplante Visual Form. `multi-moment-illustration` wird ausdrücklich als eigene Visual Form unterstützt.
 
 Der erzeugte `google-flow-prompt.txt` ist ein Build-Artefakt und wird nicht manuell umgeschrieben.
 
-### Style References
-
-Sobald `13-STYLE-REFERENCE-PACK.md` `READY` ist, werden pro Generierung nur die 2–4 passendsten freigegebenen Referenzen als Google-Flow-Ingredients verwendet.
-
-Sie ergänzen den Style Lock. Sie ersetzen ihn nicht.
-
 ---
 
-## Qualitätsfrage vor Freigabe
-
-Bei jedem Video prüfen:
+## Qualitätsfragen vor Freigabe
 
 1. Gehört alles sichtbar zum selben Kanal?
-2. Ist jede historische Aussage sofort verständlich?
-3. Gibt es je Bild genau ein dominantes Hauptmotiv?
-4. Sind maximal 1–3 unterstützende Elemente nötig?
-5. Bleiben wiederkehrende Orte/Figuren konsistent?
-6. Ist `FLOW_WORLD_LOCK.json` READY und ohne Platzhalter?
-7. Hat BILD 01 einen passenden, fehlerfreien, kontrastreichen deutschen Cover-Text?
-8. Verdeckt der Cover-Text kein Hauptmotiv?
-9. Sind BILD 02–NN frei von unnötigem sichtbarem Text?
-10. Sind historische Details plausibel?
-11. Wurde der Prompt mit Flow Compiler V3 gebaut?
-12. Enthält jeder Einzelprompt den kompakten Style Anchor?
-13. Hat jede Scene Card Prompt-QC >= 8/10?
-14. Besteht `validate:youtube-phase1`?
+2. Wechselt das Bild, wenn sich der Story-Beat deutlich ändert?
+3. Hat jedes Bild einen klaren Takeaway?
+4. Sind Mehrmoment-Illustrationen auf höchstens 2–3 verbundene Momente begrenzt?
+5. Ist die Blickführung sofort verständlich?
+6. Bleiben wiederkehrende Orte/Figuren konsistent?
+7. Sind historische Details plausibel?
+8. Sind BILD 02–NN frei von unnötigem sichtbarem Text?
+9. Wurde der Prompt mit Flow Compiler V3 gebaut?
+10. Hat jede Scene Card Prompt-QC >= 8/10?
+11. Besteht `validate:youtube-phase1`?
 
 ## Status
 
