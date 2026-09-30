@@ -29,8 +29,10 @@ async function main() {
   const visual = await readJson(path.resolve('config/visual-policy.json'));
   const activeStyleId = visual.styleId ?? 'UNSET';
   const promptSystemVersion = Number(visual.promptSystemVersion ?? 1);
+  const promptSystem = visual.promptSystem ?? (promptSystemVersion >= 3 ? 'flow-compiler-v3' : 'visual-director-v2');
   const scenePlanningSchemaVersion = Number(visual.scenePlanningSchemaVersion ?? 1);
   const promptQcMinimumScore = Number(visual.promptQcMinimumScore ?? 8);
+  const flowStyleLockFile = visual.flowStyleLockFile ?? 'config/flow-style-lock.json';
   const now = new Date().toISOString();
   const metaPath = path.join(destination, '99-technik', 'video.json');
   const meta = await readJson(metaPath);
@@ -42,8 +44,10 @@ async function main() {
     topic,
     visualStyleId: activeStyleId,
     promptSystemVersion,
+    promptSystem,
     scenePlanningSchemaVersion,
     promptQcMinimumScore,
+    flowStyleLockFile,
     createdAt: now,
     updatedAt: now
   });
@@ -64,6 +68,9 @@ async function main() {
   console.log(`Projekt erstellt: ${path.relative(process.cwd(), destination)}`);
   if (visual.status !== 'READY' || !visual.styleId || visual.styleId === 'UNSET') {
     console.log('Hinweis: Die Bildwelt ist noch UNSET. Phase 1 bleibt bis zur Definition in config/visual-policy.json blockiert.');
+  }
+  if (promptSystemVersion >= 3) {
+    console.log('Hinweis: FLOW_WORLD_LOCK.json und Scene Cards vollständig ausfüllen, dann npm run build:youtube-flow ausführen.');
   }
 }
 
