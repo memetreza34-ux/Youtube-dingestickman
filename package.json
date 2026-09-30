@@ -7,6 +7,7 @@
   "scripts": {
     "create:youtube": "node src/cli/create-youtube-project.js",
     "topic:youtube": "node src/cli/check-youtube-topic.js",
+    "build:youtube-flow": "node src/cli/build-youtube-flow-prompt.js",
     "validate:youtube-phase1": "node src/cli/validate-youtube-phase1.js",
     "validate:youtube-phase2": "node src/cli/validate-youtube-phase2.js",
     "preflight:youtube": "node src/cli/preflight-youtube.js",
