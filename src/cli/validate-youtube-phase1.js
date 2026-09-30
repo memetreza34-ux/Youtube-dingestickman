@@ -3,6 +3,7 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { arg, exists, projectPaths, readJson } from '../lib/pipeline.js';
+import { findHighRiskPromptWords } from '../lib/flow-prompt.js';
 
 function nonEmpty(value) {
   return typeof value === 'string' && value.trim().length > 0;
@@ -18,19 +19,31 @@ function extractImagePrompt(prompt, imageNumber, totalImages) {
   const match = current.exec(prompt);
   if (!match) return '';
   const start = match.index + match[0].length;
-  if (imageNumber >= totalImages) return prompt.slice(start).trim();
-  const next = imageMarkerRegex(imageNumber + 1);
   const remaining = prompt.slice(start);
-  const nextMatch = next.exec(remaining);
-  return (nextMatch ? remaining.slice(0, nextMatch.index) : remaining).trim();
+  const boundaries = [];
+
+  if (imageNumber < totalImages) {
+    const nextMatch = imageMarkerRegex(imageNumber + 1).exec(remaining);
+    if (nextMatch) boundaries.push(nextMatch.index);
+  }
+
+  const sectionMatch = /\n(?:GLOBAL(?:\s+NEGATIVE\s+STYLE)?\s+RULES?|GLOBAL\s+COMPOSITION\s+RULES?|TEXT\s+RULE|VISUAL-FORM\s+FIDELITY|PROMPT\s+QUALITY|GENERATION\s+WORKFLOW)\s*[:—-]/i.exec(remaining);
+  if (sectionMatch) boundaries.push(sectionMatch.index);
+
+  const end = boundaries.length ? Math.min(...boundaries) : remaining.length;
+  return remaining.slice(0, end).trim();
 }
 
 function hasCompositionLanguage(text) {
-  return /(foreground|midground|middle ground|background|wide view|medium-wide|medium shot|close view|close-up|low angle|high angle|elevated angle|over-the-shoulder|from behind|in frame|composition|perspective|negative space|leading line|left side|right side|centered|off-center)/i.test(text);
+  return /(foreground|midground|middle ground|background|wide view|medium-wide|medium shot|close view|close-up|low angle|high angle|elevated angle|over-the-shoulder|from behind|in frame|compose|composition|perspective|negative space|leading line|left side|right side|centered|off-center|organize depth)/i.test(text);
 }
 
 function hasComparisonLanguage(text) {
-  return /(both|two sides|two opposing|opposite|contrast|compared|versus|vs\.?|on one side|on the other side|while|whereas|left side|right side)/i.test(text);
+  return /(both|two sides|two opposing|opposite|contrast|compared|versus|vs\.?|on one side|on the other side|while|whereas|left side|right side|comparison poles)/i.test(text);
+}
+
+function wordCount(value) {
+  return String(value ?? '').trim().split(/\s+/).filter(Boolean).length;
 }
 
 export async function validatePhase1(projectDirectory) {
@@ -51,6 +64,19 @@ export async function validatePhase1(projectDirectory) {
     readFile(p.script, 'utf8')
   ]);
 
+  const compilerV3 = Number(meta.promptSystemVersion) >= 3 || meta.promptSystem === 'flow-compiler-v3';
+  let styleLock = null;
+  let worldLock = null;
+
+  if (compilerV3) {
+    const styleLockPath = path.resolve(meta.flowStyleLockFile || 'config/flow-style-lock.json');
+    if (!(await exists(styleLockPath))) errors.push('Flow Compiler V3 benötigt config/flow-style-lock.json.');
+    else styleLock = await readJson(styleLockPath);
+
+    if (!(await exists(p.flowWorldLock))) errors.push('Flow Compiler V3 benötigt 99-technik/FLOW_WORLD_LOCK.json.');
+    else worldLock = await readJson(p.flowWorldLock);
+  }
+
   if (visual.status !== 'READY') errors.push('config/visual-policy.json ist noch nicht READY. Neue Bildwelt zuerst definieren.');
   if (!visual.styleId || visual.styleId === 'UNSET') errors.push('visual-policy.styleId ist UNSET.');
   if (meta.visualStyleId !== visual.styleId) errors.push('video.json.visualStyleId entspricht nicht der aktiven neuen Bildwelt.');
@@ -59,6 +85,14 @@ export async function validatePhase1(projectDirectory) {
   if (!Number.isFinite(Number(meta.targetDurationSeconds)) || Number(meta.targetDurationSeconds) <= 0) errors.push('targetDurationSeconds fehlt.');
   if (meta.imageDensityPolicy?.fixedImageCountForbidden !== true) errors.push('Adaptive Bilddichte muss aktiv sein.');
 
+  const coverText = String(meta.coverPolicy?.coverText ?? '').trim();
+  if (!coverText) errors.push('coverPolicy.coverText fehlt.');
+  else {
+    const [minWords, maxWords] = Array.isArray(visual.coverTextWordRange) ? visual.coverTextWordRange : [2, 5];
+    const words = wordCount(coverText);
+    if (words < minWords || words > maxWords) errors.push(`Cover-Text muss ${minWords}–${maxWords} Wörter haben; aktuell ${words}.`);
+  }
+
   const hold = Number(meta.renderPolicy?.endHoldSeconds);
   const minHold = Number(pipeline.endHoldPolicy?.minimumSeconds ?? 1.2);
   const maxHold = Number(pipeline.endHoldPolicy?.maximumSeconds ?? 1.5);
@@ -66,8 +100,29 @@ export async function validatePhase1(projectDirectory) {
 
   const cleanScript = script.trim();
   if (!cleanScript || /VOICE-OVER-SKRIPT HIER EINFÜGEN/i.test(cleanScript)) errors.push('Voice-over-Skript ist noch Platzhalter.');
-  if (!prompt.includes(`ACTIVE_STYLE_ID: ${visual.styleId}`)) errors.push('Flow-Prompt nennt nicht die aktive neue styleId.');
+  if (!prompt.includes(`ACTIVE_STYLE_ID: ${visual.styleId}`)) errors.push('Flow-Prompt nennt nicht die aktive styleId.');
   if (/ACTIVE_STYLE_ID:\s*UNSET/i.test(prompt)) errors.push('Flow-Prompt enthält noch UNSET.');
+  if (/\[[^\]]+\]/.test(prompt)) errors.push('Flow-Prompt enthält noch Platzhalter in eckigen Klammern.');
+
+  if (compilerV3) {
+    if (meta.promptSystem !== 'flow-compiler-v3') errors.push('video.json.promptSystem muss flow-compiler-v3 sein.');
+    if (!meta.flowPromptBuiltAt) errors.push('Flow Compiler V3 wurde noch nicht ausgeführt: flowPromptBuiltAt fehlt.');
+    if (!prompt.includes('PROMPT_SYSTEM: flow-compiler-v3')) errors.push('Finaler Flow-Prompt wurde nicht mit flow-compiler-v3 gebaut.');
+    if (!/CHANNEL STYLE\s+—\s+IMMUTABLE:/i.test(prompt)) errors.push('Finaler Flow-Prompt enthält keinen unveränderlichen CHANNEL STYLE Lock.');
+    if (!/VIDEO WORLD LOCK\s+—\s+IMMUTABLE WITHIN THIS VIDEO:/i.test(prompt)) errors.push('Finaler Flow-Prompt enthält keinen unveränderlichen VIDEO WORLD LOCK.');
+
+    if (styleLock) {
+      if (styleLock.status !== 'READY') errors.push('config/flow-style-lock.json ist nicht READY.');
+      if (styleLock.styleId !== visual.styleId || styleLock.styleId !== meta.visualStyleId) errors.push('Style-ID stimmt zwischen visual-policy, video.json und flow-style-lock nicht überein.');
+      if (!nonEmpty(styleLock.masterStylePrompt) || !nonEmpty(styleLock.sceneStyleAnchor)) errors.push('flow-style-lock ist unvollständig.');
+    }
+
+    if (worldLock) {
+      if (worldLock.status !== 'READY') errors.push('FLOW_WORLD_LOCK.json muss vor Phase 1 auf READY gesetzt werden.');
+      if (!nonEmpty(worldLock.settingName) || !nonEmpty(worldLock.settingDescription)) errors.push('FLOW_WORLD_LOCK.json braucht settingName und settingDescription.');
+      if (/\[[^\]]+\]/.test(JSON.stringify(worldLock))) errors.push('FLOW_WORLD_LOCK.json enthält noch Platzhalter.');
+    }
+  }
 
   const images = Array.isArray(mapping.images) ? mapping.images : [];
   if (Number.isInteger(meta.plannedImageCount) && images.length !== meta.plannedImageCount) {
@@ -120,15 +175,27 @@ export async function validatePhase1(projectDirectory) {
         errors.push(`Bild ${expected} hat ${image.supportingElements.length} Supporting Elements; erlaubt sind maximal ${maxSupporting}.`);
       }
 
+      if (compilerV3 && styleLock) {
+        const riskyWords = findHighRiskPromptWords(image, styleLock);
+        if (riskyWords.length) errors.push(`Bild ${expected} enthält Style-Drift-Risikowörter in der Scene Card: ${riskyWords.join(', ')}.`);
+      }
+
       const block = extractImagePrompt(prompt, expected, images.length);
       if (!block) {
         errors.push(`Finaler Promptblock für BILD ${String(expected).padStart(2, '0')} fehlt.`);
       } else {
-        if (block.length < 140) errors.push(`Prompt für Bild ${expected} ist zu knapp für Visual Director V2.`);
+        const minimumLength = compilerV3 ? 300 : 140;
+        if (block.length < minimumLength) errors.push(`Prompt für Bild ${expected} ist zu knapp für das aktive Prompt-System.`);
         if (!hasCompositionLanguage(block)) errors.push(`Prompt für Bild ${expected} enthält keine konkrete Kamera-/Kompositionssprache.`);
         if (image.visualForm === 'comparison' && !hasComparisonLanguage(block)) {
           errors.push(`Comparison bei Bild ${expected} wird im finalen Prompt nicht klar als Vergleich inszeniert.`);
         }
+        if (compilerV3 && styleLock?.sceneStyleAnchor) {
+          const anchorLead = styleLock.sceneStyleAnchor.slice(0, 70);
+          if (!block.includes(anchorLead)) errors.push(`Bild ${expected} wiederholt den kompakten Style Anchor nicht.`);
+        }
+        if (expected === 1 && coverText && !block.includes(`"${coverText}"`)) errors.push('BILD 01 enthält den exakten Cover-Text nicht im Prompt.');
+        if (expected > 1 && !/No visible text/i.test(block)) errors.push(`Bild ${expected} enthält keine explizite No-Text-Regel.`);
       }
     }
 
