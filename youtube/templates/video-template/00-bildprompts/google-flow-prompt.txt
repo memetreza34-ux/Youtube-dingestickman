@@ -1,66 +1,28 @@
 ACTIVE_STYLE_ID: history-stickman-adaptive-v1
-PROMPT_SYSTEM: visual-director-v2
+PROMPT_SYSTEM: flow-compiler-v3
+STATUS: NOT_BUILT
 
 GOOGLE FLOW MASTER PROMPT — [VIDEO-TITEL]
 
-Create [N] separate 16:9 historical explainer illustrations for one coherent German YouTube video.
+THIS FILE IS GENERATED, NOT MANUALLY AUTHORED.
 
-CHANNEL STYLE:
-Use one consistent hand-drawn 2D historical explainer universe across the full video. Clean dark ink outlines, flat muted historical colors, subtle cel shading and a light handmade ink-and-paper texture. When people are needed, use expressive historical stickman characters from the same family: simple round or slightly oval warm off-white heads, slim simplified bodies, restrained readable faces and historically appropriate hair, clothing, armor and props. Keep proportions, line logic, shading and detail hierarchy consistent. Foreground subjects may carry slightly stronger contrast and detail than supporting background forms. Mature historical documentary feeling, never childish, goofy, glossy, photorealistic or 3D.
+Before using Google Flow:
+1. Finish the voice-over script.
+2. Fill every Scene Card V2 field in 99-technik/BILD_AUDIO_ZUORDNUNG.json.
+3. Set a real 2–5 word German cover text in 99-technik/video.json.
+4. Fill 99-technik/FLOW_WORLD_LOCK.json and set its status to READY.
+5. Ensure every image has promptQcScore >= 8.
+6. Run:
+   npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
+7. Run:
+   npm run validate:youtube-phase1 -- --dir "youtube/<week>/<slug>"
 
-The visual direction must feel authored rather than templated. Every image needs one clear visual idea, a deliberately dominant subject and purposeful spatial composition. Do not merely list objects. Use camera angle, foreground/midground/background, negative space, scale, leading lines, contrast, posture, light or spatial relationships when they help communicate the meaning.
+The build command replaces this file with the final Google Flow master prompt using:
+- config/flow-style-lock.json
+- config/visual-policy.json
+- the READY video world lock
+- all Scene Card V2 fields
+- the exact cover text
+- the mandatory two-stage cover gate
 
-VIDEO WORLD LOCK:
-[Define recurring places, architecture, rooms, recurring figures, important props, base palette and time/weather logic. Keep them visually consistent throughout the video. For before/after or changing-state scenes, preserve the same location and nearly the same camera angle whenever that makes the change clearer.]
-
-COVER TEXT:
-Use exactly this German cover text: "[COVER-TEXT]". Keep it short, ideally 2–5 words. Make it large, correctly spelled and immediately readable. Use strong contrast and never cover the main subject. All three cover candidates must contain exactly the same text.
-
-BILD 01
-[Write one natural direct cover prompt derived from Scene Card V2. It must express the visual idea, dominant subject, action/state, spatial composition and a purposeful camera choice. Add foreground/midground/background, light/mood or negative space when useful. Integrate the exact German COVER TEXT prominently into a clean area of the composition.]
-
-BILD 02
-[Write one natural direct image prompt derived from Scene Card V2. Preserve the planned Visual Form and Viewer Takeaway. Do not reduce the scene to an inventory list. No visible text.]
-
-BILD 03
-[Write one natural direct image prompt derived from Scene Card V2. Preserve composition, camera, continuity and the planned visual relationship. No visible text.]
-
-[Continue through BILD NN]
-
-VISUAL-FORM FIDELITY — MANDATORY:
-- comparison: both comparison poles must actually be visible and clearly opposed.
-- cause-effect: cause and consequence must be visually connected.
-- process-sequence: the changing state must be immediately readable, preferably through continuity of place/angle.
-- system-hierarchy: hierarchy must be expressed through space, height, routes or relationships, not corporate arrows.
-- battle-city-overview: spatial situation remains the main idea, not a random close character shot.
-- object-focus: the object must genuinely carry the statement.
-- character-scene: posture, action or relationship must communicate the point.
-
-PROMPT QUALITY — MANDATORY:
-Each image prompt has already passed internal Prompt QC >= 8/10 before being placed here. Preserve that intent. A prompt is not acceptable if it only says "show X, add Y, keep X large" without meaningful visual direction. Keep prompts concrete and model-readable rather than bloated with style synonyms.
-
-GLOBAL RULES:
-Keep the same art universe across all images. One clear visual idea per image, one dominant subject, only a few necessary supporting elements. Supporting elements must serve cause, consequence, scale, place, continuity or eye direction. Avoid overcrowded scenes, wimmelbilder, museum infographics, textbook posters, dense crowds, unnecessary cutaways, collages and excessive micro-detail. No photorealism, 3D render, Pixar, anime, realistic portrait faces, painterly realism, modern objects, logos, watermarks or image numbers.
-
-Bild 01 ALWAYS contains the exact short German cover text. Bild 02 through Bild NN contain NO visible text unless explicitly required later. Never invent English labels or pseudo-text.
-
-No fixed image count: NN is content-driven and determined during planning.
-
-GENERATION WORKFLOW — MANDATORY TWO-STAGE GATE:
-
-STAGE 1 — COVER ONLY
-- Generate exactly THREE alternatives for Bild 01.
-- Every candidate must use exactly the same German cover text.
-- Reject and regenerate any candidate with misspelled, incomplete or poorly readable cover text.
-- After the three acceptable cover candidates exist, STOP IMMEDIATELY.
-- DO NOT generate Bild 02 or any later image yet.
-- DO NOT choose a winner yourself.
-- Tell the user that you are waiting for their cover selection.
-- Wait for the user to explicitly select one of the three candidates.
-
-STAGE 2 — ONLY AFTER USER SELECTION
-- The user-selected candidate becomes `Bild 01.png`.
-- Use the selected cover as an additional visual reference for the same video world/style.
-- Only now generate Bild 02 through Bild NN, exactly once each.
-- Maximum five active generations at once.
-- Final image folder contains only `Bild 01.png` through `Bild NN.png`.
+Do not paste this placeholder file into Google Flow.
