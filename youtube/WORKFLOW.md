@@ -1,6 +1,6 @@
 # YouTube Workflow — Geschichts-Kanal
 
-Dieses Repository enthält die **kanalspezifische Produktionspipeline für den Geschichts-Kanal**.
+Dieses Repository enthält die kanalspezifische Produktionspipeline für den Geschichts-Kanal.
 
 Kanalregeln stehen unter `channel/`, maschinenlesbare Kernregeln unter `config/`.
 
@@ -15,8 +15,10 @@ Thema
 → Visual Concept
 → Visual Grammar / Visual Form
 → Composition / Camera / Mood
-→ Prompt Compiler
 → Prompt QC >= 8/10
+→ READY Flow World Lock
+→ Flow Compiler V3
+→ Phase-1-Validator
 → Google-Flow-Bildgenerierung
 → finale Nutzer-Voice-over-Datei
 → Audio-Optimierung
@@ -32,8 +34,9 @@ Thema
 Aktive Bildwelt:
 
 - `config/visual-policy.json` → `READY`
+- `config/flow-style-lock.json` → `READY`
 - Style-ID: `history-stickman-adaptive-v1`
-- Prompt-System: `visual-director-v2`
+- Prompt-System: `flow-compiler-v3`
 - Scene-Planning-Schema: `2`
 - Prompt-QC-Mindestscore: `8/10`
 
@@ -66,7 +69,7 @@ Ergebnis:
 ```text
 youtube/<week>/<slug>/
 ├── 00-bildprompts/
-│   ├── google-flow-prompt.txt
+│   ├── google-flow-prompt.txt   # zuerst NOT_BUILT, später Compiler-Artefakt
 │   └── images/
 ├── 01-voice-script/
 │   └── voice-script.txt
@@ -75,13 +78,14 @@ youtube/<week>/<slug>/
 └── 99-technik/
     ├── video.json
     ├── BILD_AUDIO_ZUORDNUNG.json
+    ├── FLOW_WORLD_LOCK.json
     ├── YOUTUBE_RENDER_PLAN.json
     └── status.json
 ```
 
-Die Projekterstellung übernimmt automatisch die aktuell aktive `styleId` aus `config/visual-policy.json`.
+Die Projekterstellung übernimmt automatisch Style-ID, Prompt-System-Version, Scene-Planning-Schema und Prompt-QC-Grenze aus `config/visual-policy.json`.
 
-## 3. Phase 1 — Inhalt und Bildplanung
+## 3. Phase 1 — Inhalt und Visual Planning
 
 Phase 1 erstellt bzw. füllt:
 
@@ -90,13 +94,14 @@ Phase 1 erstellt bzw. füllt:
 - Voice-over-Skript
 - Bildplan
 - Audio-Anker pro Bild
-- vollständige Scene Card V2
-- Google-Flow-Prompt
+- vollständige Scene Card V2 pro Bild
+- videospezifischen `FLOW_WORLD_LOCK.json`
+- deutschen Cover-Text
 - Prompt-QC-Score pro Bild
 - Render-/SFX-Plan
 - Metadaten
 
-Verbindliche Reihenfolge für Visuals:
+### Verbindlicher Visual-Pfad
 
 ```text
 Script
@@ -104,10 +109,11 @@ Script
 → Visual Concept
 → Visual Function
 → Visual Form
+→ Dominant Subject / Action State
 → Composition
 → Camera
 → Depth / Mood
-→ Prompt
+→ Continuity / Historical Accuracy
 → Prompt QC >= 8/10
 ```
 
@@ -120,11 +126,13 @@ Dafür gelten:
 - `channel/10-STYLE-DNA-V2.md`
 - `channel/11-VISUAL-DIRECTOR.md`
 - `channel/12-PROMPT-QC.md`
+- `channel/13-STYLE-REFERENCE-PACK.md`
 - `config/visual-policy.json`
+- `config/flow-style-lock.json`
 
 ### Scene Card V2
 
-Neue Projekte verwenden `BILD_AUDIO_ZUORDNUNG.json` Schema V2.
+`BILD_AUDIO_ZUORDNUNG.json` verwendet Schema V2.
 
 Pflichtfelder pro Bild:
 
@@ -163,6 +171,32 @@ Pflichtfelder pro Bild:
 - standardmäßig kein sichtbarer Text im Bild
 - keine Bildnummern, Pseudo-Texte oder Wasserzeichen im Bild
 
+### Style-Drift vermeiden
+
+Scene Cards beschreiben Kamera und Stimmung konkret statt mit generischen Render-Wörtern.
+
+V3 blockiert unter anderem:
+
+```text
+cinematic
+epic
+ultra detailed
+hyper detailed
+photographic
+realistic lighting
+depth of field
+bokeh
+```
+
+Stattdessen z. B.:
+
+```text
+slightly elevated wide view
+cool overcast daylight
+large empty middle ground
+small warm fire as the only warm accent
+```
+
 ### Visual-Form-Treue
 
 - `comparison` → beide Seiten sichtbar
@@ -170,24 +204,149 @@ Pflichtfelder pro Bild:
 - `process-sequence` → Zustandsänderung klar lesbar
 - `system-hierarchy` → räumliche Hierarchie verständlich
 - `battle-city-overview` → räumliche Lage bleibt Hauptidee
+- `object-focus` → Objekt trägt Aussage
+- `character-scene` → Handlung/Haltung/Beziehung trägt Aussage
 
-Vor Asset-Erzeugung:
+## 4. Flow World Lock fertigstellen
+
+Vor dem Prompt-Build:
+
+```text
+99-technik/FLOW_WORLD_LOCK.json
+```
+
+Pflicht:
+
+```json
+{
+  "status": "READY",
+  "settingName": "...",
+  "settingDescription": "..."
+}
+```
+
+Bei wiederkehrenden Inhalten zusätzlich ausfüllen:
+
+- recurringPlaces
+- recurringCharacters
+- recurringProps
+- basePalette
+- timeWeatherLogic
+- continuityRules
+
+Keine Platzhalter stehen lassen.
+
+## 5. Google-Flow-Prompt bauen
+
+Der finale Prompt wird nicht manuell geschrieben.
+
+```bash
+npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
+```
+
+Der Compiler liest:
+
+```text
+config/flow-style-lock.json
+99-technik/video.json
+99-technik/BILD_AUDIO_ZUORDNUNG.json
+99-technik/FLOW_WORLD_LOCK.json
+```
+
+und ersetzt:
+
+```text
+00-bildprompts/google-flow-prompt.txt
+```
+
+Der Compiler:
+
+- setzt einen langen unveränderlichen Channel Style Lock
+- wiederholt pro Bild einen kompakten Style Anchor
+- erhält Visual Concept, Composition, Camera, Depth und Mood
+- fügt Visual-Form-Guards ein
+- erzwingt Cover-Text auf BILD 01
+- erzwingt No-Text auf BILD 02–NN
+- schreibt das zweistufige Cover-Gate
+- setzt `video.json.flowPromptBuiltAt`
+
+### Änderungsregel
+
+Den erzeugten Prompt nicht direkt bearbeiten.
+
+Änderung immer an:
+
+```text
+Scene Card / World Lock / Cover-Text / Style Lock
+→ Build erneut
+```
+
+## 6. Phase-1-Validator
+
+Nach dem Build:
 
 ```bash
 npm run validate:youtube-phase1 -- --dir "youtube/<week>/<slug>"
 ```
 
-Der Validator blockiert neue Projekte unter anderem bei:
+V3 blockiert unter anderem bei:
 
-- fehlenden Scene-Card-V2-Feldern
+- fehlenden Scene-Card-Feldern
+- Prompt-QC unter 8/10
 - nicht unterstützter Visual Form
 - mehr als drei Supporting Elements
-- Prompt-QC unter 8/10
-- zu knappem finalen Prompt
-- fehlender konkreter Kamera-/Kompositionssprache
-- Comparison-Visual ohne erkennbare Vergleichsinszenierung
+- nicht READY gesetztem World Lock
+- Platzhaltern
+- fehlendem `flowPromptBuiltAt`
+- falscher Style-ID
+- fehlendem Immutable Style Lock
+- fehlendem Immutable World Lock
+- fehlendem Style Anchor in Einzelprompts
+- generischen Style-Drift-Risikowörtern
+- zu knappen Promptblöcken
+- fehlender Kamera-/Kompositionssprache
+- Comparison ohne Vergleichsinszenierung
+- falschem oder fehlendem Cover-Text
+- fehlender No-Text-Regel bei BILD 02–NN
 
-## 4. Phase 2 — Assets
+Erst nach bestandenem Phase-1-Gate darf Google Flow genutzt werden.
+
+## 7. Google Flow — Cover Gate
+
+### Stage 1
+
+- kompilierten Master-Prompt verwenden
+- genau drei BILD-01-Kandidaten erzeugen
+- identischer deutscher Cover-Text
+- fehlerhafte Schriftvarianten verwerfen
+- danach stoppen
+- Nutzer wählt den Gewinner
+
+### Stage 2
+
+Erst nach Nutzerwahl:
+
+- Gewinner wird `Bild 01.png`
+- Gewinner als zusätzliche Continuity-Referenz nutzen
+- BILD 02–NN erzeugen
+- maximal fünf aktive Generierungen gleichzeitig
+
+## 8. Style Reference Pack / Ingredients
+
+`channel/13-STYLE-REFERENCE-PACK.md` definiert neun Master-Referenzen.
+
+Aktueller Status: `PLANNED`.
+
+Bis alle neun ausdrücklich freigegeben sind, ist `config/flow-style-lock.json` die stärkste maschinenlesbare Style-Autorität.
+
+Nach `READY`:
+
+- pro Generierung nur 2–4 relevante Style-Ingredients verwenden
+- saubere Referenzen ohne unnötige Zusatzmotive bevorzugen
+- Textprompt und Ingredients dürfen sich nicht widersprechen
+- Referenzen fixieren Stil, nicht automatisch Motiv oder Epoche
+
+## 9. Phase 2 — Assets
 
 Finale Bilder:
 
@@ -197,7 +356,7 @@ Finale Bilder:
 00-bildprompts/images/Bild NN.png
 ```
 
-Finales Nutzer-Voice-over: genau **eine** Audiodatei unter:
+Finales Nutzer-Voice-over: genau eine Audiodatei unter:
 
 ```text
 02-audio/
@@ -205,7 +364,7 @@ Finales Nutzer-Voice-over: genau **eine** Audiodatei unter:
 
 Das Nutzeroriginal wird nie überschrieben.
 
-Vor Phase 3 Bilder zusätzlich visuell prüfen auf:
+Vor Phase 3 Bilder visuell prüfen auf:
 
 - konsistente Kanalbildwelt
 - historische Plausibilität
@@ -222,7 +381,7 @@ Prüfung:
 npm run validate:youtube-phase2 -- --dir "youtube/<week>/<slug>"
 ```
 
-## 5. Phase 3
+## 10. Phase 3
 
 ```bash
 npm run phase3:youtube -- --dir "youtube/<week>/<slug>"
@@ -262,17 +421,13 @@ npm run phase3:youtube -- --dir "youtube/<week>/<slug>" --prepare-only
 
 ## Schluss-Hold
 
-Nach dem letzten gesprochenen Wort bleibt das letzte Bild standardmäßig **1,3 s** sichtbar. Zulässig sind 1,2–1,5 s.
-
-## Style-Reference-Pack
-
-`channel/13-STYLE-REFERENCE-PACK.md` definiert neun Master-Referenzen. Das Pack ist aktuell `PLANNED`. Bis zur ausdrücklichen Nutzerfreigabe aller neun Referenzen gilt `channel/10-STYLE-DNA-V2.md` als stärkste textliche Style-Autorität.
+Nach dem letzten gesprochenen Wort bleibt das letzte Bild standardmäßig 1,3 s sichtbar. Zulässig sind 1,2–1,5 s.
 
 ## Testvideo-Modus
 
 Langfristiger Kanalrahmen: ungefähr 8–15 Minuten, sofern der Inhalt die Länge trägt.
 
-Für Qualitäts- und Pipeline-Tests sind bewusst Videos bis maximal **120 Sekunden** erlaubt. Diese Testvideos müssen trotzdem alle Recherche-, Skript-, Visual- und QC-Regeln erfüllen.
+Für Qualitäts- und Pipeline-Tests sind bewusst Videos bis maximal 120 Sekunden erlaubt. Diese Testvideos müssen trotzdem alle Recherche-, Skript-, Visual- und QC-Regeln erfüllen.
 
 ## Definition of Done
 
@@ -284,8 +439,11 @@ Ein Video ist fertig, wenn:
 - aktive Bildwelt korrekt geladen ist
 - Bildanzahl inhaltsgetrieben ist
 - Scene Cards V2 vollständig sind
-- Visual Forms bewusst gewählt und im Prompt erhalten wurden
-- jeder Prompt mindestens 8/10 erreicht
+- jeder Prompt-QC-Score mindestens 8/10 beträgt
+- `FLOW_WORLD_LOCK.json` READY ist
+- Flow Compiler V3 erfolgreich lief
+- Phase-1-Validator bestanden ist
+- Visual Forms im generierten Bild tatsächlich erhalten wurden
 - Bild 01 Cover + erste Szene ist
 - finale Bilder sauber benannt und visuell geprüft sind
 - genau eine Nutzerstimme vorliegt
