@@ -16,6 +16,8 @@ Die Bildwelt soll erwachsen, historisch, verständlich und lebendig wirken. Sie 
 
 Ein ruhiger Bauernalltag, der Untergang Roms, eine Belagerung und eine Reichskarte dürfen unterschiedliche Stimmung und Komposition haben. Sie müssen aber aussehen, als wären sie vom selben Illustrator für denselben Kanal gezeichnet worden.
 
+Die präzise maschinenlesbare Umsetzung dieser Bildwelt steht in `config/flow-style-lock.json`.
+
 ---
 
 ## 1. Figuren-System
@@ -24,10 +26,12 @@ Alle menschlichen Figuren stammen aus derselben stilisierten Stickman-Familie:
 
 - einfacher runder oder leicht ovaler Kopf
 - warme/off-white Hautfläche als stilisierte Grundform
+- Kopf ungefähr 1/6 bis 1/7 der sichtbaren Körperhöhe
 - schlanker, vereinfachter Körper
-- vereinfachte Arme, Beine und Hände
+- vereinfachte Arme, Beine, Hände und Füße
+- zwei kleine dunkle Augen, einfache Augenbrauen, kleine zurückhaltende Mundform
 - saubere dunkle Ink-Konturen
-- konstante Linienstärke
+- überwiegend konstante mittlere Linienstärke
 - flache, gedämpfte Farben
 - dezente Cel-Shading-Schattierung
 - leichte handgezeichnete Papier-/Tuschetextur
@@ -65,6 +69,8 @@ Verbindlich:
 
 Die Umgebung darf detaillierter sein als die Figuren, darf aber niemals den Fokus zerstören.
 
+Für Maschinen gelten zusätzlich die Detailbudgets aus `config/flow-style-lock.json`.
+
 ---
 
 ## 4. Bildhierarchie
@@ -77,7 +83,7 @@ Verbindlich:
 - genau ein dominantes Hauptmotiv
 - maximal 1–3 unterstützende Elemente
 - Hauptmotiv groß und YouTube-tauglich
-- klare Vordergrund-/Hintergrund-Hierarchie
+- klare Vordergrund-/Mittelgrund-/Hintergrund-Hierarchie
 - wichtige Information nicht in vielen kleinen Details verstecken
 
 Nicht als Standard verwenden: Wimmelbilder, überfüllte Menschenmengen, Museumstafeln, Schulbuchposter, Lexikonplatten, viele Mini-Figuren, viele Labels/Pfeile, Collagen, Multi-Panel-Kompositionen, unnötige Querschnitte oder extrem kleinteilige Erklärbilder.
@@ -104,6 +110,8 @@ volles Lager
 → dasselbe Lager fast leer
 ```
 
+Für neue Produktionen wird diese videospezifische Kontinuität in `99-technik/FLOW_WORLD_LOCK.json` festgehalten und vor dem Prompt-Build auf `READY` gesetzt.
+
 ---
 
 ## 6. Adaptive Stimmung
@@ -115,6 +123,8 @@ Die Kunsttechnik bleibt gleich, die Stimmung darf sich anpassen.
 - Herrschaft/Politik: kontrollierte Komposition, klare Hierarchie, Körpersprache wichtiger als Action
 - Reiche/Expansion/Geografie: Karten und Übersichten, aber keine moderne Corporate-Infografik
 - Untergang/Zerfall: Ursache-Wirkung, beschädigte Architektur, leere Lager, gebrochene Systeme, nicht automatisch nur Schlachten
+
+Stimmung konkret über Licht, Raum und Kontrast beschreiben. Generische Wörter wie `cinematic`, `epic` oder `realistic lighting` sind kein Ersatz für konkrete Regie und gelten im V3-System als Drift-Risiko.
 
 ---
 
@@ -148,7 +158,7 @@ Regeln:
 
 - ideal 2–5 Wörter
 - passend zum Video-Hook/Thema
-- exakter Wortlaut im Flow-Prompt
+- exakter Wortlaut in `video.json`
 - alle drei Cover-Kandidaten benutzen denselben Text
 - Schreibfehler oder unlesbarer Text = Kandidat verwerfen
 - groß und sofort lesbar
@@ -162,9 +172,11 @@ Regeln:
 
 Standard: **kein generierter sichtbarer Text**.
 
+Der Flow Compiler fügt dafür automatisch eine harte No-Text-Regel in jeden Nicht-Cover-Prompt ein.
+
 Verboten sind Bildnummern, unnötige Labels, pseudo-lesbarer KI-Text, englische Beschriftungen und Wasserzeichen.
 
-Nur wenn ein späteres Bild ohne Beschriftung nicht verständlich wäre und die Produktion es ausdrücklich verlangt, dürfen kurze exakt vorgegebene deutsche Beschriftungen verwendet werden.
+Nur wenn ein späteres Bild ohne Beschriftung nicht verständlich wäre und die Produktion es ausdrücklich verlangt, darf die Policy bewusst erweitert werden.
 
 Remotion erzeugt nicht automatisch sichtbaren Erklärungstext.
 
@@ -174,27 +186,76 @@ Remotion erzeugt nicht automatisch sichtbaren Erklärungstext.
 
 Nicht verwenden: Fotorealismus, realistische menschliche Porträts, 3D Rendering, Pixar-/Animationsfilm-Look, Anime, painterly realism, Graphic-Novel-Realismus, wechselnde Cartoon-Stile, moderne Corporate-Infografik, extrem dicke Comic-Outlines oder kindliche Chibi-/Kinderbuch-Proportionen.
 
+Die maschinenlesbaren Verbote und High-Risk-Prompt-Wörter stehen in `config/flow-style-lock.json`.
+
 ---
 
-## 11. Google-Flow-Prinzip — V1.3
+## 11. Google-Flow-Prinzip — Flow Compiler V3
 
-Interne Bildplanung und finaler Google-Flow-Prompt sind zwei verschiedene Ebenen.
+Interne Bildplanung und finaler Google-Flow-Prompt bleiben strikt getrennt.
 
-Intern darf die Pipeline mit Audio Anchor, Visual Purpose, Visual Form, Kernaussage, Dominant Subject, Supporting Elements, Kamera, Continuity Note und QC arbeiten.
+### Interne Ebene
 
-Der finale `google-flow-prompt.txt` enthält diese Formularfelder nicht.
+Die Scene Card V2 darf ausführlich planen mit:
 
-Der tatsächliche Flow-Prompt besteht aus:
+- Viewer Takeaway
+- Visual Purpose
+- Topic Anchor
+- Visual Form
+- Visual Concept
+- Dominant Subject
+- Action / State
+- Composition
+- Camera
+- Depth Plan
+- Lighting / Mood
+- Supporting Elements
+- Continuity Note
+- Historical Accuracy Note
+- Prompt QC Score
 
-1. kurzer Batch-Aufgabe
-2. gemeinsamem `CHANNEL STYLE`
-3. `VIDEO WORLD LOCK`
-4. exakt festgelegtem `COVER TEXT`
-5. `BILD 01` bis `BILD NN`
-6. pro Bild einem natürlichen direkten Fließtext-Prompt
-7. kurzer globaler Text-/Negativregel
+Diese Formularfelder werden nicht 1:1 in Google Flow ausgegeben.
 
-BILD 01 integriert immer den Cover-Text. BILD 02–NN sind standardmäßig textfrei.
+### Build-Ebene
+
+Neue Produktionen erzeugen den finalen Prompt mit:
+
+```bash
+npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
+```
+
+Der Compiler kombiniert:
+
+1. `config/flow-style-lock.json`
+2. `video.json`
+3. `BILD_AUDIO_ZUORDNUNG.json`
+4. `FLOW_WORLD_LOCK.json`
+
+### Finaler Flow-Prompt
+
+Der tatsächliche Prompt enthält:
+
+1. aktive Style-ID und `PROMPT_SYSTEM: flow-compiler-v3`
+2. kurze Batch-Aufgabe
+3. `CHANNEL STYLE — IMMUTABLE`
+4. Style-Consistency-Regel
+5. optionale Style-Reference-/Ingredient-Regel
+6. `VIDEO WORLD LOCK — IMMUTABLE WITHIN THIS VIDEO`
+7. exakten `COVER TEXT`
+8. `BILD 01` bis `BILD NN`
+9. pro Bild einen natürlichen direkten Fließtext-Prompt
+10. denselben kompakten Style Anchor in jedem Bildprompt
+11. globale Negativ- und Kompositionsregeln
+12. Textregel
+13. zweistufigen manuellen Cover-Gate
+
+Der erzeugte `google-flow-prompt.txt` ist ein Build-Artefakt und wird nicht manuell umgeschrieben.
+
+### Style References
+
+Sobald `13-STYLE-REFERENCE-PACK.md` `READY` ist, werden pro Generierung nur die 2–4 passendsten freigegebenen Referenzen als Google-Flow-Ingredients verwendet.
+
+Sie ergänzen den Style Lock. Sie ersetzen ihn nicht.
 
 ---
 
@@ -207,11 +268,15 @@ Bei jedem Video prüfen:
 3. Gibt es je Bild genau ein dominantes Hauptmotiv?
 4. Sind maximal 1–3 unterstützende Elemente nötig?
 5. Bleiben wiederkehrende Orte/Figuren konsistent?
-6. Hat BILD 01 einen passenden, fehlerfreien, kontrastreichen deutschen Cover-Text?
-7. Verdeckt der Cover-Text kein Hauptmotiv?
-8. Sind BILD 02–NN frei von unnötigem sichtbarem Text?
-9. Sind historische Details plausibel?
-10. Ist der finale Flow-Prompt direkt kopierbar und frei von internen Planungslabels?
+6. Ist `FLOW_WORLD_LOCK.json` READY und ohne Platzhalter?
+7. Hat BILD 01 einen passenden, fehlerfreien, kontrastreichen deutschen Cover-Text?
+8. Verdeckt der Cover-Text kein Hauptmotiv?
+9. Sind BILD 02–NN frei von unnötigem sichtbarem Text?
+10. Sind historische Details plausibel?
+11. Wurde der Prompt mit Flow Compiler V3 gebaut?
+12. Enthält jeder Einzelprompt den kompakten Style Anchor?
+13. Hat jede Scene Card Prompt-QC >= 8/10?
+14. Besteht `validate:youtube-phase1`?
 
 ## Status
 
