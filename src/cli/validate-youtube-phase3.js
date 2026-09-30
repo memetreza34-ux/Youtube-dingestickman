@@ -2,13 +2,26 @@
 
 import path from 'node:path';
 import { arg, exists, fileSize, projectPaths, readJson, sha256 } from '../lib/pipeline.js';
+import { verifyPhase3ImageLock } from './phase3-image-lock.js';
 
 export async function validatePhase3(projectDirectory, { postRender = false } = {}) {
   const p = projectPaths(projectDirectory);
   const errors = [];
+
+  try {
+    await verifyPhase3ImageLock(projectDirectory);
+  } catch (error) {
+    errors.push(`Phase-3-Bildlock verletzt: ${error.message}`);
+  }
+
   const [meta, timeline, pipeline] = await Promise.all([
     readJson(p.meta), readJson(p.timeline), readJson(path.resolve('config/pipeline.json'))
   ]);
+
+  const phase3Assets = pipeline.phase3AssetPolicy;
+  if (!phase3Assets || phase3Assets.existingImagesOnly !== true || phase3Assets.imageGenerationForbidden !== true) {
+    errors.push('Phase-3-Asset-Policy fehlt oder erlaubt unerwartet Bildgenerierung.');
+  }
 
   const audioReport = await readJson(path.join(p.techDir, 'YOUTUBE_AUDIO_PACING.json'), null);
   const alignment = await readJson(p.alignmentEvidence, null);
