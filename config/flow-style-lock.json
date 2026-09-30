@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "status": "READY",
+  "styleId": "history-stickman-adaptive-v1",
+  "promptSystem": "flow-compiler-v3",
+  "masterStylePrompt": "Use one immutable hand-drawn 2D historical explainer illustration language for every image. Human figures, when present, belong to one simplified stickman family: round to slightly oval warm off-white heads at roughly 1/6 to 1/7 of visible body height, two small dark eyes, simple eyebrows, a small restrained mouth, little or no nose detail, slim geometric torsos and limbs, simplified hands and feet, and no realistic anatomy. Individuality comes only from historically appropriate hair, beards, headwear, clothing, armor, tools, weapons, props, posture and expression. Draw all figures, architecture, objects, maps and landscapes with clean dark ink outlines of mostly consistent medium weight, flat muted historical colors, subtle cel-shading shapes and a light handmade ink-and-paper texture. Keep the dominant subject clearer and slightly higher-contrast than supporting elements; reduce background detail. Use readable foreground, midground and background separation through scale, overlap and perspective rather than photorealistic depth of field. The result must feel mature, editorial and documentary-like, never childish or glossy.",
+  "sceneStyleAnchor": "Keep the exact locked channel rendering unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading, light paper-and-ink texture, and the same simplified 1:6-to-1:7 stickman-family construction whenever people appear.",
+  "characterGeometry": {
+    "headToBodyRatio": "1:6 to 1:7",
+    "head": "round to slightly oval, warm off-white fill",
+    "face": "two small dark eyes, simple eyebrows, small restrained mouth, minimal or absent nose line",
+    "body": "slim simplified geometric torso and limbs, no realistic muscle anatomy",
+    "handsFeet": "strongly simplified readable shapes, no detailed finger studies",
+    "variationSource": "historically appropriate hair, beard, headwear, clothing, armor, props, posture and expression"
+  },
+  "detailBudget": {
+    "dominantSubject": 5,
+    "supportingElements": 3,
+    "background": 2,
+    "humanAnatomy": 2,
+    "architecture": 4,
+    "texture": 2,
+    "scale": "1=minimal, 5=highest allowed channel detail"
+  },
+  "paletteFamilies": [
+    "sand/beige",
+    "stone/gray",
+    "leather brown",
+    "parchment/cream",
+    "dark green/olive",
+    "gray-blue",
+    "muted red/rust",
+    "restrained gold accent"
+  ],
+  "positivePromptRequirements": [
+    "one immediately readable visual idea",
+    "one deliberately dominant subject",
+    "purposeful spatial composition",
+    "specific subject state or action",
+    "specific camera or viewpoint",
+    "specific environment where relevant",
+    "specific lighting or mood where relevant",
+    "historically plausible visible details",
+    "continuity preserved for recurring places, characters and props"
+  ],
+  "forbiddenStyleDrift": [
+    "photorealism",
+    "3D render",
+    "Pixar-like rendering",
+    "anime",
+    "painterly realism",
+    "graphic-novel realism",
+    "children's-book proportions",
+    "chibi proportions",
+    "glossy animation-film lighting",
+    "realistic portrait anatomy",
+    "modern corporate infographic styling",
+    "thick comic-book outlines",
+    "neon or candy-color palette"
+  ],
+  "highRiskPromptWords": [
+    "cinematic",
+    "epic",
+    "ultra detailed",
+    "hyper detailed",
+    "photographic",
+    "realistic lighting",
+    "depth of field",
+    "bokeh"
+  ],
+  "globalNegativePrompt": "Do not switch rendering style between images. No photorealism, 3D, Pixar-like animation rendering, anime, painterly realism, graphic-novel realism, realistic portrait anatomy, chibi or children's-book proportions, glossy lighting, modern corporate infographic styling, neon colors, watermarks, image numbers or pseudo-text.",
+  "referencePolicy": {
+    "preferredWhenReady": true,
+    "referencePack": "channel/13-STYLE-REFERENCE-PACK.md",
+    "recommendedCountPerGeneration": [2, 4],
+    "instruction": "When approved style references are attached as Google Flow ingredients, use them only to lock linework, proportions, texture, shading, detail hierarchy and palette character. Do not copy their historical subject, location or composition. Text instructions must complement rather than contradict the attached references."
+  }
+}
