@@ -46,6 +46,17 @@ function wordCount(value) {
   return String(value ?? '').trim().split(/\s+/).filter(Boolean).length;
 }
 
+function containsPlaceholderString(value) {
+  return typeof value === 'string' && /\[[^\]]+\]|TODO|TBD|PLACEHOLDER|UNSET/i.test(value);
+}
+
+function objectContainsPlaceholder(value) {
+  if (typeof value === 'string') return containsPlaceholderString(value);
+  if (Array.isArray(value)) return value.some((item) => objectContainsPlaceholder(item));
+  if (value && typeof value === 'object') return Object.values(value).some((item) => objectContainsPlaceholder(item));
+  return false;
+}
+
 export async function validatePhase1(projectDirectory) {
   const p = projectPaths(projectDirectory);
   const errors = [];
@@ -120,7 +131,7 @@ export async function validatePhase1(projectDirectory) {
     if (worldLock) {
       if (worldLock.status !== 'READY') errors.push('FLOW_WORLD_LOCK.json muss vor Phase 1 auf READY gesetzt werden.');
       if (!nonEmpty(worldLock.settingName) || !nonEmpty(worldLock.settingDescription)) errors.push('FLOW_WORLD_LOCK.json braucht settingName und settingDescription.');
-      if (/\[[^\]]+\]/.test(JSON.stringify(worldLock))) errors.push('FLOW_WORLD_LOCK.json enthält noch Platzhalter.');
+      if (objectContainsPlaceholder(worldLock)) errors.push('FLOW_WORLD_LOCK.json enthält noch Platzhalter.');
     }
   }
 
