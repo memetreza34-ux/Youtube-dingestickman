@@ -142,20 +142,56 @@ Der Prompt muss deshalb nicht nur Objekte nennen, sondern die **visuelle Beziehu
 
 Innerhalb eines Videos bleiben wiederkehrende Orte, Räume, Figuren und Props konstant.
 
-Über mehrere Videos bleibt die Zeichen-DNA konstant, auch wenn Epoche, Wetter, Architektur und Stimmung wechseln.
+Über mehrere Videos bleibt die Zeichen-DNA konstant, auch wenn Epoche, Wetter, Architektur, Perspektive und Stimmung wechseln.
 
 Für Flow Compiler V3 wird die videospezifische Kontinuität zusätzlich in `99-technik/FLOW_WORLD_LOCK.json` maschinenlesbar festgehalten.
 
-## 12. Style-Referenzen und Autorität
+## 12. Kontrollierte Variation statt Master-Referenzbilder
 
-Sobald ein freigegebenes Style-Reference-Pack existiert, gilt folgende Priorität:
+Für diesen Kanal werden **keine festen globalen Master-Referenzbilder** verwendet.
 
-1. freigegebene Style-Reference-Ingredients
-2. `config/flow-style-lock.json`
-3. dieses Style-DNA-Dokument
-4. `06-VISUAL-SYSTEM.md`
-5. freie Modellinterpretation
+Grund: Zu starke visuelle Referenzen können dazu führen, dass nicht nur der Stil, sondern unbeabsichtigt auch Komposition, Kamerawinkel, Figurenhaltung oder Szenenaufbau wiederholt werden. Das würde die Bilder zu ähnlich machen.
 
-Ein Referenzbild ist kein Anlass, Motiv oder Epoche zu kopieren. Es fixiert nur Zeichenlogik, Proportionen, Linien, Flächen, Textur, Detailgrad und allgemeine visuelle Sprache.
+Deshalb gilt:
 
-Der maschinenlesbare Style Lock und die Referenzbilder müssen sich ergänzen, nicht widersprechen.
+### Konstant bleiben
+
+- Linienfamilie
+- Figurenkonstruktion
+- Gesichtsvereinfachung
+- flache gedeckte Farbwelt
+- Cel-Shading-Logik
+- Papier-/Tuschetextur
+- Detailhierarchie
+
+### Bewusst variieren dürfen
+
+- Kameraabstand
+- Blickwinkel
+- Perspektive
+- Position des Hauptmotivs
+- Vordergrund/Mittelgrund/Hintergrund
+- Negativraum
+- Lichtstimmung
+- Wetter
+- Tageszeit
+- emotionale Spannung
+- Visual Form
+
+**Gleicher Illustrator bedeutet nicht gleiche Aufnahme.**
+
+Eine fast identische Perspektive wird nur dann wiederverwendet, wenn dies inhaltlich nützt, zum Beispiel bei Vorher/Nachher, einem sich leerenden Lagerraum oder einer anderen klaren Zustandsänderung.
+
+Das gewählte Cover darf innerhalb desselben Videos bei Bedarf als Continuity-Hilfe dienen. Es wird aber niemals zu einer globalen Stilreferenz für spätere Videos.
+
+## 13. Anti-Gleichförmigkeit
+
+Vor Freigabe eines Bildplans zusätzlich prüfen:
+
+1. Wiederholt die Szene nur aus Gewohnheit denselben Kamerawinkel wie die vorherige?
+2. Sind mehrere Character Scenes hintereinander immer frontal und medium-wide?
+3. Sind Gebäude immer mittig als derselbe Wide Shot aufgebaut?
+4. Könnte eine andere Perspektive die Aussage stärker machen?
+5. Wird Kontinuität bewusst genutzt oder nur mit Gleichförmigkeit verwechselt?
+
+Wenn eine Szene ohne erzählerischen Grund wie eine Kopie der vorherigen Inszenierung wirkt, muss die Scene Direction überarbeitet werden.
