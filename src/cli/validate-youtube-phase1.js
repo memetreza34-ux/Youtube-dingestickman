@@ -4,6 +4,35 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { arg, exists, projectPaths, readJson } from '../lib/pipeline.js';
 
+function nonEmpty(value) {
+  return typeof value === 'string' && value.trim().length > 0;
+}
+
+function imageMarkerRegex(imageNumber) {
+  const padded = String(imageNumber).padStart(2, '0');
+  return new RegExp(`BILD\\s+0*${Number(padded)}(?:\\s|$)`, 'i');
+}
+
+function extractImagePrompt(prompt, imageNumber, totalImages) {
+  const current = imageMarkerRegex(imageNumber);
+  const match = current.exec(prompt);
+  if (!match) return '';
+  const start = match.index + match[0].length;
+  if (imageNumber >= totalImages) return prompt.slice(start).trim();
+  const next = imageMarkerRegex(imageNumber + 1);
+  const remaining = prompt.slice(start);
+  const nextMatch = next.exec(remaining);
+  return (nextMatch ? remaining.slice(0, nextMatch.index) : remaining).trim();
+}
+
+function hasCompositionLanguage(text) {
+  return /(foreground|midground|middle ground|background|wide view|medium-wide|medium shot|close view|close-up|low angle|high angle|elevated angle|over-the-shoulder|from behind|in frame|composition|perspective|negative space|leading line|left side|right side|centered|off-center)/i.test(text);
+}
+
+function hasComparisonLanguage(text) {
+  return /(both|two sides|two opposing|opposite|contrast|compared|versus|vs\.?|on one side|on the other side|while|whereas|left side|right side)/i.test(text);
+}
+
 export async function validatePhase1(projectDirectory) {
   const p = projectPaths(projectDirectory);
   const errors = [];
@@ -46,6 +75,16 @@ export async function validatePhase1(projectDirectory) {
   }
   if (images.length && mapping.videoLastImageNumber !== images.length) errors.push('videoLastImageNumber entspricht nicht der Mapping-Länge.');
 
+  const sceneCardV2 = Number(mapping.schemaVersion) >= 2;
+  const requiredSceneFields = Array.isArray(visual.requiredScenePlanningFields) ? visual.requiredScenePlanningFields : [];
+  const supportedVisualForms = new Set(Array.isArray(visual.supportedVisualForms) ? visual.supportedVisualForms : []);
+  const maxSupporting = Number(visual.maxSupportingElementsPerImage ?? 3);
+  const minimumPromptQc = Number(visual.promptQcMinimumScore ?? 8);
+
+  if (visual.visualDirectorRequired === true && !sceneCardV2) {
+    errors.push('Bildplanung verwendet noch Schema V1. Neue Produktionen müssen Scene Card V2 verwenden.');
+  }
+
   let lastAnchorIndex = -1;
   for (let index = 0; index < images.length; index += 1) {
     const image = images[index];
@@ -58,6 +97,41 @@ export async function validatePhase1(projectDirectory) {
     if (!image.visualForm) errors.push(`visualForm fehlt bei Bild ${expected}.`);
     if (!Number.isFinite(Number(image.plannedHoldSeconds))) errors.push(`plannedHoldSeconds fehlt bei Bild ${expected}.`);
 
+    if (image.visualForm && supportedVisualForms.size && !supportedVisualForms.has(image.visualForm)) {
+      errors.push(`Nicht unterstützte visualForm bei Bild ${expected}: ${image.visualForm}.`);
+    }
+
+    if (sceneCardV2) {
+      for (const field of requiredSceneFields) {
+        if (field === 'supportingElements') {
+          if (!Array.isArray(image.supportingElements)) errors.push(`supportingElements muss ein Array sein bei Bild ${expected}.`);
+          continue;
+        }
+        if (field === 'promptQcScore') {
+          const score = Number(image.promptQcScore);
+          if (!Number.isFinite(score)) errors.push(`promptQcScore fehlt bei Bild ${expected}.`);
+          else if (score < minimumPromptQc || score > 10) errors.push(`promptQcScore bei Bild ${expected} muss zwischen ${minimumPromptQc} und 10 liegen.`);
+          continue;
+        }
+        if (!nonEmpty(image[field])) errors.push(`${field} fehlt bei Bild ${expected}.`);
+      }
+
+      if (Array.isArray(image.supportingElements) && image.supportingElements.length > maxSupporting) {
+        errors.push(`Bild ${expected} hat ${image.supportingElements.length} Supporting Elements; erlaubt sind maximal ${maxSupporting}.`);
+      }
+
+      const block = extractImagePrompt(prompt, expected, images.length);
+      if (!block) {
+        errors.push(`Finaler Promptblock für BILD ${String(expected).padStart(2, '0')} fehlt.`);
+      } else {
+        if (block.length < 140) errors.push(`Prompt für Bild ${expected} ist zu knapp für Visual Director V2.`);
+        if (!hasCompositionLanguage(block)) errors.push(`Prompt für Bild ${expected} enthält keine konkrete Kamera-/Kompositionssprache.`);
+        if (image.visualForm === 'comparison' && !hasComparisonLanguage(block)) {
+          errors.push(`Comparison bei Bild ${expected} wird im finalen Prompt nicht klar als Vergleich inszeniert.`);
+        }
+      }
+    }
+
     if (image.startAnchor && !String(image.startAnchor).startsWith('[')) {
       const at = cleanScript.indexOf(image.startAnchor);
       if (at < 0) errors.push(`Startanker von Bild ${expected} kommt nicht exakt im Skript vor.`);
@@ -65,8 +139,7 @@ export async function validatePhase1(projectDirectory) {
       else lastAnchorIndex = at;
     }
 
-    const marker = `Bild ${String(expected).padStart(2, '0')}`;
-    if (!prompt.includes(marker)) errors.push(`${marker} fehlt im Flow-Prompt.`);
+    if (!imageMarkerRegex(expected).test(prompt)) errors.push(`BILD ${String(expected).padStart(2, '0')} fehlt im Flow-Prompt.`);
   }
 
   return { passed: errors.length === 0, errors };
