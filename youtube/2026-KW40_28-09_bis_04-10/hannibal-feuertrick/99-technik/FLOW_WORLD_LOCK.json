@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "status": "READY",
+  "settingName": "the Falernian-plain escape landscape in southern Italy, 217 BCE",
+  "settingDescription": "A broad dry cultivated plain narrows into one rocky mountain passage. A neighboring ridge rises beside the choke point. The Carthaginian force approaches from the broad plain side, while Roman detachments control the higher ground and the narrow route. No permanent fortress or city gate is present; terrain and soldiers create the blockade.",
+  "recurringPlaces": [
+    "the same narrow rocky pass with a rough ancient road and two steep flanking slopes",
+    "the same neighboring ridge where the burning cattle are driven",
+    "the same broad plain on Hannibal's side of the passage"
+  ],
+  "recurringCharacters": [
+    "Hannibal as a mature Carthaginian commander with dark wavy hair, short beard, muted deep-red cloak over practical 3rd-century BCE military clothing, restrained bronze and dark-leather accents; treat this as a consistent plausible channel design, not an exact portrait",
+    "one recurring Roman ridge guard with short dark hair, muted off-white tunic, dark red shield and plausible Republican-era equipment"
+  ],
+  "recurringProps": [
+    "medium-to-large brown cattle with simple horn shapes",
+    "compact dry brushwood bundles tied near the horns with simple cord",
+    "muted dark-red Roman shields",
+    "Carthaginian baggage packs and captured livestock"
+  ],
+  "basePalette": [
+    "dry sand beige",
+    "dusty olive",
+    "earth brown",
+    "muted deep red",
+    "iron gray",
+    "cool blue-black night",
+    "restrained orange fire accents"
+  ],
+  "timeWeatherLogic": "The sequence begins in late evening, moves into deep night for the deception and escape, then ends at pale dawn. Weather remains dry and calm. Firelight is always local and limited to the brush bundles; it never turns the entire landscape into a blaze.",
+  "continuityRules": [
+    "Preserve the pass silhouette, ridge orientation and road direction whenever the same terrain returns.",
+    "Preserve Hannibal's hair, beard, cloak color and overall equipment across every appearance.",
+    "Preserve the recurring Roman guard's shield color and clothing across ridge scenes.",
+    "The brush bundle construction must remain visually identical from preparation through ignition and discovery.",
+    "The fire always comes from the attached brushwood bundle, never from the horn itself.",
+    "Use near-matching elevated viewpoints for the trap overview, Roman abandonment and final dawn reversal so the tactical change is easy to read.",
+    "Do not introduce permanent stone fortifications, medieval equipment, modern roads or fantasy battle effects."
+  ]
+}
