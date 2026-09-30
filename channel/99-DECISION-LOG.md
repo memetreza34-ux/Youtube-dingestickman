@@ -54,7 +54,7 @@ Die Kenilworth-/Pompeji-Tests zeigten: Die Bildwelt wurde verstanden, aber Einze
 - Jeder Bildblock enthält einen kompakten Style Anchor, der nur die Rendering-DNA sichert.
 - Generische Drift-Wörter wie `cinematic`, `epic`, `ultra detailed`, `photographic`, `realistic lighting`, `depth of field` und `bokeh` werden vermieden/blockiert.
 - Kamera, Licht, Raum und Stimmung werden konkret beschrieben.
-- Der kompilierten Flow-Prompt ist ein Build-Artefakt; Änderungen erfolgen an den Quelldaten und werden neu gebaut.
+- Der kompilierte Flow-Prompt ist ein Build-Artefakt; Änderungen erfolgen an den Quelldaten und werden neu gebaut.
 
 ## 2026-09-30 — KEINE globalen Master-Referenzbilder
 
@@ -70,6 +70,28 @@ Diese Entscheidung ersetzt die frühere Planung eines Packs aus neun Style-Refer
 - Fast identische Blickwinkel sind nur für echte Kontinuität wie Vorher/Nachher oder sichtbare Zustandsänderungen erwünscht.
 - Der ausgewählte Cover-Kandidat darf höchstens innerhalb desselben Videos als Continuity-Hilfe verwendet werden. Er wird niemals zur globalen Kanal-Style-Referenz.
 - Vor Prompt-QC wird zusätzlich geprüft, ob der Bildplan unnötig Kamera-/Kompositionsmuster wiederholt.
+
+## 2026-09-30 — Mehr Story-Beats, höhere Bilddichte, History-Script V2
+
+Diese Entscheidung stammt aus der Auswertung des gerenderten Marschlager-Testvideos und ersetzt ältere, langsamere Bilddichte-Regeln.
+
+- Das Testvideo war grundsätzlich brauchbar, aber visuell noch zu ruhig.
+- Neue Planung folgt **Story-Beats statt Absätzen**.
+- Sobald sich Handlung, Ursache/Folge, Person, Ort, Zeit, Zustand oder zentrale Erkenntnis deutlich ändert, wird ein neuer visueller Beat geprüft.
+- Zielbereich normaler Holds: ungefähr **3–5 Sekunden**.
+- Ab ungefähr 6,5 Sekunden wird ein Split geprüft, ab 8 Sekunden stark bevorzugt; 10 Sekunden sind nur mit klarer Begründung zulässig.
+- Ein ungefähr 60-sekündiger History-Test darf typischerweise etwa **14–20 Visuals** besitzen. Das ist keine starre Quote; Inhalt gewinnt.
+- **Mehrere Momente in einer Illustration sind ausdrücklich erlaubt.**
+- Neue Visual Form: `multi-moment-illustration`.
+- Eine Mehrmoment-Illustration darf zwei oder höchstens drei eng zusammengehörige Story-Momente verbinden, z. B. vorher → Veränderung → danach oder Ursache → Handlung → Folge.
+- Die ältere Regel „ein Bild = nur ein einzelner Zustand“ gilt nicht mehr absolut. Neue harte Regel: **ein Bild = ein klarer erzählerischer Takeaway**.
+- Dichte Collagen, viele kleine Panels, Wimmelbilder und unabhängige Mini-Szenen bleiben verboten.
+- `channel/03-SCRIPT-BIBLE.md` wurde auf **History-Storytelling V2** angehoben.
+- Skripte sollen stärker wie ein moderner Geschichtskanal funktionieren: konkreter Moment zuerst, dann Problem, Handlung/Entscheidung, Folge, neue Frage und größere Bedeutung.
+- Abstrakte Lexikon-Einstiege werden vermieden. Geschichte wird möglichst über konkrete Menschen, Orte, Handlungen und sichtbare Veränderungen erzählt.
+- Jeder Absatz soll die Situation oder das Verständnis des Zuschauers weiterbewegen.
+- Das Skript soll zwischen menschlicher Nahperspektive und größerem historischen Zusammenhang wechseln.
+- Das Ende beantwortet die Ausgangsfrage und kehrt wenn sinnvoll zum Bild oder Problem des Einstiegs zurück, statt nur alle Punkte zu wiederholen.
 
 ## Aktuelle Style-Autorität
 
