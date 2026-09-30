@@ -1,5 +1,5 @@
 {
-  "pipelineVersion": 2,
+  "pipelineVersion": 3,
   "projectSchemaVersion": 1,
   "languageDefault": "de",
   "aspectRatio": "16:9",
@@ -29,14 +29,27 @@
   "imagePolicy": {
     "fixedImageCountForbidden": true,
     "oneImageOneVisualPurpose": true,
-    "targetAverageHoldSeconds": [4.5, 7.5],
-    "reviewAboveSeconds": 9,
-    "preferSplitAboveSeconds": 11,
-    "hardMaximumSeconds": 16,
-    "minimumUsefulHoldSeconds": 2.5,
+    "targetAverageHoldSeconds": [3, 5],
+    "reviewAboveSeconds": 6.5,
+    "preferSplitAboveSeconds": 8,
+    "hardMaximumSeconds": 10,
+    "minimumUsefulHoldSeconds": 1.8,
     "maxConcurrentGenerations": 5,
     "nonCoverGenerationCount": 1,
-    "finalImageDirectory": "00-bildprompts/images"
+    "finalImageDirectory": "00-bildprompts/images",
+    "storyBeatDrivenPlanning": true,
+    "newNarrativeBeatRequiresVisualReview": true,
+    "newSubjectActionCauseTimeOrPlaceSuggestsNewVisual": true,
+    "multiMomentIllustrationAllowed": true,
+    "multiMomentIllustrationMaxMoments": 3,
+    "multiMomentMustShareOneTakeaway": true,
+    "denseCollageStillForbidden": true,
+    "shortVideoVisualGuidance": {
+      "approximately60Seconds": [14, 20],
+      "approximately120Seconds": [26, 36],
+      "guidanceOnly": true,
+      "contentDrivenAlwaysWins": true
+    }
   },
   "phase3AssetPolicy": {
     "existingImagesOnly": true,
