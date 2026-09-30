@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "status": "PLANNED",
+  "settingName": "[KURZER NAME DER VIDEO-WELT]",
+  "settingDescription": "[Konkrete wiederkehrende Architektur, Landschaft oder Innenraumlogik dieses Videos.]",
+  "recurringPlaces": [],
+  "recurringCharacters": [],
+  "recurringProps": [],
+  "basePalette": [],
+  "timeWeatherLogic": "",
+  "continuityRules": [
+    "For recurring locations, preserve silhouette, layout, openings, materials and defining props.",
+    "For before/after or changing-state scenes, reuse the same or nearly the same viewpoint when that makes the change clearer.",
+    "For recurring people, preserve hair, beard, headwear, clothing colors and identifying props."
+  ]
+}
