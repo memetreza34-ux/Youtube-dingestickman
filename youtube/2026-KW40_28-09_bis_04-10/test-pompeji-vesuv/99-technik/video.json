@@ -1,6 +1,10 @@
 {
   "schemaVersion": 1,
   "pipelineVersion": 1,
+  "promptSystemVersion": 2,
+  "promptSystem": "legacy-manual-v2",
+  "legacyPromptExample": true,
+  "legacyNote": "Historischer Teststand vor Flow Compiler V3. Nicht als Prompt-Template für neue Produktionen verwenden.",
   "videoId": "2026-KW40_28-09_bis_04-10_test-pompeji-vesuv",
   "weekFolder": "2026-KW40_28-09_bis_04-10",
   "topicSlug": "test-pompeji-vesuv",
@@ -8,7 +12,7 @@
   "topic": "Warum die wechselnden Gefahren der Vesuv-Eruption 79 n. Chr. Pompeji so schwer zu überleben machten",
   "language": "de",
   "aspectRatio": "16:9",
-  "status": "phase1-ready-waiting-cover-selection",
+  "status": "legacy-test-v2-not-production-template",
   "testMode": true,
   "testMaximumSeconds": 120,
   "visualPolicyFile": "config/visual-policy.json",
@@ -59,10 +63,10 @@
     "backgroundMusic": false,
     "subtitles": false
   },
-  "phase1Ready": true,
+  "phase1Ready": false,
   "imagesReady": false,
   "audioReady": false,
   "renderReady": false,
   "createdAt": "2026-09-29T17:05:00Z",
-  "updatedAt": "2026-09-29T20:21:00+02:00"
+  "updatedAt": "2026-09-30T05:59:00+02:00"
 }
