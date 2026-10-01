@@ -1,10 +1,10 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "status": "READY",
   "styleId": "history-stickman-adaptive-v1",
   "promptSystem": "flow-compiler-v3",
-  "masterStylePrompt": "Use one consistent hand-drawn 2D historical explainer illustration language across the channel, but do not repeat the same staging from image to image. Human figures, when present, are stylized historical people rather than literal generic stick figures: readable human silhouettes, simplified anatomy, compact expressive faces, historically specific clothing and equipment, and visibly different identities from one person to another. Avoid clone-like repetition. Vary age impression, face shape, hair, beard, headwear, body build, height, posture, clothing layers, armor, accessories and props when history allows it. Recurring named people remain recognizable within the same video. Draw figures, architecture, objects, maps, diagrams and landscapes with clean dark ink outlines of mostly consistent medium weight, flat muted historical colors, subtle cel-shading shapes and a light handmade ink-and-paper texture. Keep the dominant subject clearer and slightly higher-contrast than supporting elements; reduce background detail. Use readable depth through scale, overlap and perspective rather than photorealistic depth of field. Choose the visual form that best supports the current narration: character scene, object focus, map, architecture, process, cause-effect, comparison, cutaway, detail inset, evidence reconstruction, multi-moment illustration or another approved form. Preserve the same illustration DNA while allowing scene-specific changes in viewpoint, framing, composition, distance, lighting, weather, mood and visual form. The result must feel mature, editorial, historical and documentary-like, never childish, glossy, mechanically repetitive or populated by identical stock characters.",
-  "sceneStyleAnchor": "Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Do not copy the previous scene's composition unless continuity specifically requires it.",
+  "masterStylePrompt": "Use one consistent hand-drawn 2D historical explainer illustration language across the channel, but never confuse consistency with static repetition. Human figures, when present, are stylized historical people rather than literal generic stick figures: readable human silhouettes, simplified anatomy, compact expressive faces, historically specific clothing and equipment, and visibly different identities from one person to another. Avoid clone-like repetition. Vary age impression, face shape, hair, beard, headwear, body build, height, posture, clothing layers, armor, accessories and props when history allows it. Recurring named people remain recognizable within the same video. Draw figures, architecture, objects, maps, diagrams and landscapes with clean dark ink outlines of mostly consistent medium weight, flat muted historical colors, subtle cel-shading shapes and a light handmade ink-and-paper texture. Keep the dominant subject clearer and slightly higher-contrast than supporting elements; reduce background detail. Use readable depth through scale, overlap and perspective rather than photorealistic depth of field. Every frame must have a deliberate visual idea that supports the spoken beat: movement direction, spatial tension, scale contrast, asymmetry, layered depth, reveal, detail focus, before-after relation, cause-effect relation or another purposeful visual mechanism. Avoid sequences of static medium eye-level talking-character shots. Choose the visual form that best supports the current narration: character scene, object focus, map, architecture, process, cause-effect, comparison, cutaway, detail inset, evidence reconstruction, multi-moment illustration or another approved form. Preserve the same illustration DNA while allowing scene-specific changes in viewpoint, framing, composition, distance, lighting, weather, mood and visual form. The result must feel mature, editorial, historical and documentary-like, never childish, glossy, mechanically repetitive, poster-like or populated by identical stock characters.",
+  "sceneStyleAnchor": "Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.",
   "characterGeometry": {
     "headToBodyRatio": "roughly 1:6 to 1:7, with controlled variation by age, build and pose",
     "head": "simple but human-readable round, oval or slightly angular stylized head shape",
@@ -31,6 +31,41 @@
       "posture or gesture"
     ]
   },
+  "visualInterestPolicy": {
+    "enabled": true,
+    "staticTalkingHeadSequenceForbidden": true,
+    "genericMediumTwoShotFallbackForbidden": true,
+    "eachSceneNeedsPurposefulVisualMechanism": true,
+    "preferredMechanisms": [
+      "movement direction",
+      "foreground-midground-background depth",
+      "scale contrast",
+      "asymmetry",
+      "spatial trap or barrier",
+      "reveal",
+      "detail focus",
+      "before-after relationship",
+      "cause-effect relationship",
+      "clear reaction",
+      "meaningful negative space"
+    ]
+  },
+  "textLeakagePolicy": {
+    "coverOnlyText": true,
+    "coverAllowsOnlyExactCoverText": true,
+    "nonCoverVisibleTextForbidden": true,
+    "internalPromptIdentifiersAreMetadataOnly": true,
+    "neverRenderTokens": [
+      "BILD",
+      "IMAGE",
+      "SCENE",
+      "Bild 01",
+      "Image 01",
+      "Scene 01"
+    ],
+    "captionsHeadingsLabelsForbidden": true,
+    "pseudoTextForbidden": true
+  },
   "detailBudget": {
     "dominantSubject": 5,
     "supportingElements": 3,
@@ -53,6 +88,7 @@
   "positivePromptRequirements": [
     "one immediately readable narrative takeaway",
     "visual form chosen because it supports the current spoken idea",
+    "one purposeful visual-interest mechanism",
     "purposeful spatial composition",
     "specific subject state or action",
     "specific camera or viewpoint",
@@ -77,7 +113,9 @@
     "thick comic-book outlines",
     "neon or candy-color palette",
     "generic identical stickman clones",
-    "repeating the same character design for unrelated people"
+    "repeating the same character design for unrelated people",
+    "poster-like non-cover frames",
+    "static talking-head repetition"
   ],
   "highRiskPromptWords": [
     "cinematic",
@@ -91,7 +129,7 @@
   ],
   "controlledVariationPolicy": {
     "fixedMasterReferenceImages": false,
-    "goal": "same illustrator and rendering DNA, different scene direction and individualized historical people",
+    "goal": "same illustrator and rendering DNA, different scene direction, strong visual rhythm and individualized historical people",
     "mayVaryPerScene": [
       "camera distance",
       "viewpoint",
@@ -102,6 +140,7 @@
       "weather",
       "mood",
       "visual form",
+      "visual-interest mechanism",
       "non-recurring character appearance"
     ],
     "mustStayStable": [
@@ -118,9 +157,10 @@
       "Do not default every character scene to the same medium-wide frontal view.",
       "Do not default every architecture scene to the same centered wide view.",
       "Do not populate unrelated scenes with the same generic face, hair, tunic and body silhouette.",
-      "Change visual form, viewpoint or framing when narrative understanding benefits from it.",
+      "Do not create three similar static character interactions in sequence.",
+      "Change visual form, shot scale, viewpoint or framing when narrative understanding benefits from it.",
       "Reuse nearly the same angle only for deliberate before-after or state-change continuity."
     ]
   },
-  "globalNegativePrompt": "Do not switch rendering style between images, but also do not mechanically repeat the same composition or clone unrelated characters. No generic identical stickman people, photorealism, 3D, Pixar-like animation rendering, anime, painterly realism, graphic-novel realism, realistic portrait anatomy, chibi or children's-book proportions, glossy lighting, modern corporate infographic styling, neon colors, watermarks, image numbers or pseudo-text."
+  "globalNegativePrompt": "Do not switch rendering style between images, but also do not mechanically repeat the same composition, same shot scale or static talking-character setup. Do not clone unrelated characters. No generic identical stickman people, photorealism, 3D, Pixar-like animation rendering, anime, painterly realism, graphic-novel realism, realistic portrait anatomy, chibi or children's-book proportions, glossy lighting, modern corporate infographic styling, neon colors or poster-like non-cover compositions. TEXT IS A HARD RESTRICTION: outside the exact approved cover text on Bild 01, show no visible words, letters, numbers, captions, headings, scene titles, labels, image numbers, prompt metadata, logos, watermarks or pseudo-text. Never draw internal identifiers such as BILD 11, IMAGE 11 or SCENE 11."
 }
