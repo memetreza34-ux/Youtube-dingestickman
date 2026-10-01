@@ -1,75 +1,75 @@
-# Google Flow Prompting — Flow Compiler V3
+# Google Flow Prompting — Flow Compiler V3 / Pipeline V4
 
 ## Ziel
 
-Google Flow bekommt keinen frei improvisierten Master-Prompt mehr. Neue Produktionen werden aus geprüften Scene Cards, einem festen Channel Style Lock und einem videospezifischen World Lock **deterministisch kompiliert**.
+Google Flow bekommt einen kompilierten Prompt aus geprüften Scene Cards, Channel Style Lock und Video World Lock.
 
-Verbindliche Quellen:
+Neue Grundregel:
 
-1. `config/flow-style-lock.json` — maschinenlesbare Channel-Zeichen-DNA
-2. `channel/10-STYLE-DNA-V2.md` — menschlich lesbare Style-Erklärung
-3. `channel/11-VISUAL-DIRECTOR.md` — Scene Card V2
-4. `channel/12-PROMPT-QC.md` — Qualitätsgate
-5. `99-technik/FLOW_WORLD_LOCK.json` — videospezifische Kontinuität
-6. `src/lib/flow-prompt.js` — Compilerlogik
+> **Jedes BILD unterstützt den exakt zugeordneten gesprochenen Story-Beat. Die Visual Form wird wegen ihrer Aussage gewählt, nicht aus Gewohnheit.**
 
-## Kernprinzip
+## Verbindliche Quellen
+
+1. `config/flow-style-lock.json`
+2. `channel/10-STYLE-DNA-V2.md`
+3. `channel/06-VISUAL-SYSTEM.md`
+4. `channel/07-VISUAL-GRAMMAR.md`
+5. `channel/11-VISUAL-DIRECTOR.md`
+6. `channel/12-PROMPT-QC.md`
+7. `99-technik/FLOW_WORLD_LOCK.json`
+8. `src/lib/flow-prompt.js`
+
+## Kernpfad
 
 ```text
-Script
+Script V3
+→ Story Beat
+→ Viewer Takeaway
+→ bestes visuelles Mittel
 → Scene Card V2
 → Prompt QC >= 8/10
 → READY World Lock
 → Flow Compiler V3
-→ finaler google-flow-prompt.txt
 → Phase-1-Validator
 → Google Flow
 ```
 
-Der finale Prompt wird **nicht mehr manuell aus Markdown-Regeln zusammengesetzt**.
+## Channel Style Lock
 
-## Drei Locks mit klarer Verantwortung
+Fixiert:
 
-### 1. CHANNEL STYLE LOCK — über alle Videos konstant
-
-Quelle: `config/flow-style-lock.json`.
-
-Fixiert insbesondere:
-
-- 2D hand-drawn history-explainer rendering
-- Figurenproportionen und Gesichtsvereinfachung
-- Linienlogik
-- flache gedeckte Farben
-- subtile Cel-Schattierung
+- handgezeichnete 2D-History-Explainer-DNA
+- Ink-Linien
+- flache gedeckte Farbwelt
+- Cel-Shading
 - Papier-/Tuschetextur
+- Grad der menschlichen Vereinfachung
 - Detailhierarchie
-- verbotene Style-Drifts
+- Figuren-Individualitätsregeln
 
-Dieser Lock fixiert die **Zeichen-DNA**, nicht die Inszenierung. Epoche, Wetter, Kamera, Perspektive, Licht, Bildaufbau und emotionale Stimmung dürfen wechseln.
+Der technische Style-ID bleibt `history-stickman-adaptive-v1`, aber Menschen sind **individuelle stilisierte historische Figuren**, keine generischen identischen Stickman-Klone.
 
-Es werden bewusst **keine globalen festen Master-Referenzbilder** verwendet. Die Konsistenz kommt aus dem textlichen und maschinenlesbaren Style Lock.
+### Figurenregel
 
-### 2. VIDEO WORLD LOCK — pro Video konstant
+- wiederkehrende Person → identifizierende Merkmale konstant
+- unterschiedliche prominente Personen → sichtbar unterschiedliche Gesichter/Silhouetten/Kleidung/Haltung
+- gleiche Rendering-DNA ≠ gleiche Figur
+- Figuren nur einsetzen, wenn sie den Beat wirklich tragen
 
-Quelle: `99-technik/FLOW_WORLD_LOCK.json`.
+## Video World Lock
 
-Fixiert:
+Fixiert innerhalb eines Videos:
 
-- wiederkehrende Orte und Silhouetten
-- Architektur und Raumlayout
+- Orte
 - wiederkehrende Figuren
-- wiederkehrende Props
-- lokale Grundfarbigkeit
-- Wetter-/Zeitlogik
-- Vorher-/Nachher-Kontinuität
+- Props
+- lokale Farben
+- Zeit/Wetter
+- räumliche Kontinuität
 
-Vor dem Prompt-Build muss der Status `READY` sein.
+## Scene Direction
 
-### 3. SCENE DIRECTION — pro Bild individuell
-
-Quelle: jeweilige Scene Card V2.
-
-Fixiert:
+Pro Bild individuell:
 
 - Viewer Takeaway
 - Visual Form
@@ -78,202 +78,138 @@ Fixiert:
 - Action / State
 - Composition
 - Camera
-- Depth Plan
+- Depth
 - Lighting / Mood
 - Supporting Elements
-- Continuity Note
-- Historical Accuracy Note
+- Continuity
+- Historical Accuracy
 
-Damit bleibt die **Bildidee individuell**, während die Zeichen-DNA gleich bleibt.
+## Narration-first-Regel im Compiler
 
-## Gleicher Stil ≠ gleiche Szene
+Der Master-Prompt sagt Flow ausdrücklich:
 
-Flow darf Konsistenz nicht als Aufforderung verstehen, wiederholt denselben Bildaufbau zu erzeugen.
+- Bild muss den aktuellen Story-Beat unterstützen
+- keine Person nur zum Füllen des Bildes hinzufügen
+- geplante Visual Form bewahren
+- keine generische Character Scene aus einer Karte, Ursache/Wirkung oder Objektidee machen
 
-Pro Szene dürfen bewusst variieren:
+## Unterstützte Visual Forms
 
-- Kameraabstand
-- Blickwinkel
+Besondere Compiler-Guards existieren u. a. für:
+
+- `comparison`
+- `cause-effect`
+- `process-sequence`
+- `system-hierarchy`
+- `battle-city-overview`
+- `object-focus`
+- `character-scene`
+- `multi-moment-illustration`
+- `detail-inset`
+- `cutaway-section`
+- `evidence-reconstruction`
+
+### Detail Inset
+
+Eine Hauptszene + genau ein untergeordnetes vergrößertes Detail. Keine Label-Tafel.
+
+### Cutaway Section
+
+Nur nutzen, um verborgene räumliche Struktur verständlich zu machen. Kein Corporate-/Schulbuch-Look.
+
+### Evidence Reconstruction
+
+Historischen Beleg/Überrest mit einer stilisierten Rekonstruktion verbinden. Unsichere Details nicht als sichere Tatsache darstellen.
+
+## Konsistenz ohne Gleichförmigkeit
+
+Dürfen variieren:
+
+- Kamera
 - Perspektive
 - Hauptmotivposition
-- Vordergrund/Mittelgrund/Hintergrund
-- Negativraum
 - Licht
 - Wetter
 - Tageszeit
 - Stimmung
 - Visual Form
+- Aussehen nicht wiederkehrender Personen
 
-Fast identische Blickwinkel sind nur sinnvoll, wenn echte Kontinuität gezeigt werden soll, etwa Vorher/Nachher oder eine sichtbare Zustandsänderung.
+Bleiben stabil:
 
-Der ausgewählte Cover-Kandidat darf innerhalb **dieses Videos** als Continuity-Hilfe genutzt werden. Er ist keine globale Kanalreferenz.
-
-## Warum der Style Anchor pro Bild wiederholt wird
-
-Ein globaler Style-Absatz allein ist bei langen Batches zu leicht zu verwässern. Flow Compiler V3 setzt deshalb vor jeden `BILD NN`-Prompt denselben kurzen `sceneStyleAnchor` aus `config/flow-style-lock.json`.
-
-Wichtig:
-
-- der lange Master Style steht nur einmal
-- der kompakte Style Anchor wird pro Bild wiederholt
-- der Anchor enthält nur die unveränderliche Rendering-DNA
-- der Anchor darf keine konkrete Komposition vorgeben
-- die eigentliche Szene bleibt individuell
-
-So wird Konsistenz erhöht, ohne alle Bilder gleich aussehen zu lassen.
+- Illustrationstechnik
+- Detailhierarchie
+- menschlicher Vereinfachungsgrad
+- wiederkehrende Figuren und Orte
 
 ## Keine generischen Style-Wörter
 
-Scene Cards sollen konkrete Regie statt unkontrollierbarer Stilwörter verwenden.
-
-Vermeiden bzw. in V3 blockiert:
-
-- `cinematic`
-- `epic`
-- `ultra detailed`
-- `hyper detailed`
-- `photographic`
-- `realistic lighting`
-- `depth of field`
-- `bokeh`
-
-Stattdessen konkret schreiben:
+Blockiert/vermeiden:
 
 ```text
-slightly elevated wide view
-cool overcast daylight
-large empty middle-ground distance
-small warm fire as the only warm accent
+cinematic
+epic
+ultra detailed
+hyper detailed
+photographic
+realistic lighting
+depth of field
+bokeh
 ```
 
-Das steuert das Bild, ohne Flow in eine andere Rendering-Welt zu ziehen.
+Stattdessen konkrete Kamera-, Raum- und Lichtregie.
 
-## Prompt-Build
-
-Erst wenn Scene Cards und World Lock vollständig sind:
+## Build
 
 ```bash
 npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
-```
-
-Der Compiler erzeugt vollständig neu:
-
-```text
-00-bildprompts/google-flow-prompt.txt
-```
-
-Danach:
-
-```bash
 npm run validate:youtube-phase1 -- --dir "youtube/<week>/<slug>"
 ```
 
-### Wichtige Regel
+Den kompilierten Prompt nicht manuell umschreiben. Änderungen an Scene Card, World Lock, Cover oder Style Lock vornehmen und neu bauen.
 
-Den kompilierten Prompt nicht manuell „schöner schreiben“.
+## Anti-Gleichförmigkeitscheck
 
-Wenn eine Szene verbessert werden muss:
+Vor Build Sequenz prüfen:
 
-1. Scene Card ändern
-2. Prompt-QC neu bewerten
-3. Compiler erneut ausführen
-4. Validator erneut ausführen
+- zu viele Character Scenes hintereinander?
+- gleiche Kamera ohne Grund?
+- verschiedene Menschen sehen wie Klone aus?
+- wäre Karte, Objekt, Übersicht, Detail, Cutaway oder Prozess besser?
+- bleibt ein Bild stehen, obwohl die Narration bereits einen neuen Beat erreicht?
 
-So bleibt die Quelle der Wahrheit die Planung und nicht eine nachträglich manipulierte Textdatei.
+## Cover Gate
 
-## Anti-Gleichförmigkeitsprüfung
+### Stage 1
 
-Vor dem Build soll der gesamte Bildplan als Sequenz geprüft werden.
+- genau drei BILD-01-Kandidaten
+- exakt derselbe deutsche Cover-Text
+- danach STOP
+- Nutzer wählt
 
-Warnzeichen:
+### Stage 2
 
-- mehrere Character Scenes hintereinander mit derselben frontalen medium-wide Kamera
-- mehrere Gebäudeansichten hintereinander immer mittig und weit
-- wiederholtes Subject Placement ohne erzählerischen Grund
-- dieselbe Lichtstimmung trotz klarer inhaltlicher Veränderung
-- unnötige Wiederholung derselben Visual Form, obwohl eine andere Form die Aussage besser erklären würde
+- Gewinner = `Bild 01.png`
+- BILD 02–NN erzeugen
+- Cover nur als videospezifische Continuity-Hilfe
+- keine Erlaubnis, seine Komposition oder Personendesigns überall zu klonen
 
-Kontinuität ist erwünscht. Mechanische Wiederholung ist es nicht.
+## Textregel
 
-## Zweistufige Generation — weiterhin Pflicht
+BILD 01: exakter Cover-Text.  
+BILD 02–NN: kein sichtbarer Text, keine Labels, Pseudo-Schrift, Wasserzeichen oder Bildnummern.
 
-### STAGE 1 — nur Cover
+## Definition of Done
 
-1. finalen kompilierten Prompt verwenden
-2. genau drei Varianten von BILD 01 erzeugen
-3. alle drei enthalten exakt denselben deutschen Cover-Text
-4. fehlerhafte oder schlecht lesbare Textvarianten verwerfen
-5. danach vollständig stoppen
-6. keine Bilder 02–NN erzeugen
-7. Flow darf keinen Gewinner auswählen
-8. Nutzer wählt den Cover-Kandidaten
+Ein Flow-Prompt ist bereit, wenn:
 
-Status bis dahin:
-
-```text
-WAITING_FOR_USER_COVER_SELECTION
-```
-
-### STAGE 2 — erst nach Nutzerwahl
-
-- gewähltes Cover wird `Bild 01.png`
-- gewähltes Cover darf nur als zusätzliche Video-World-/Continuity-Hilfe für dieses Video verwendet werden
-- Channel Style Lock bleibt unverändert
-- anschließend BILD 02–NN erzeugen
-- Nicht-Cover-Bilder jeweils einmal
-- maximal fünf aktive Generierungen gleichzeitig
-
-## Cover-Regel
-
-BILD 01 ist immer Cover + erste Szene.
-
-- ideal 2–5 deutsche Wörter
-- exakt vorgegeben
-- groß und sofort lesbar
-- starker Kontrast zum tatsächlichen Hintergrund
-- Hauptmotiv nicht verdecken
-- keine zweite Textzeile
-- kein englischer Zusatz
-- keine Bildnummer
-- kein Logo
-- keine Pseudo-Schrift
-
-## Bilder 02–NN
-
-Standard:
-
-```text
-NO visible text.
-```
-
-Keine Labels, Zahlen, erfundene Buchstaben, Wasserzeichen oder dekorative Schrift.
-
-## Visual-Form-Treue
-
-Der Compiler fügt je nach Visual Form zusätzliche Schutzregeln ein.
-
-Besonders kritisch:
-
-- `comparison` → beide Pole sichtbar
-- `cause-effect` → Ursache und Folge sichtbar verbunden
-- `process-sequence` → Zustandsänderung sofort lesbar
-- `system-hierarchy` → räumliche Struktur statt Corporate-Diagramm
-- `battle-city-overview` → räumliche Lage bleibt Hauptidee
-- `object-focus` → Objekt trägt wirklich die Aussage
-- `character-scene` → Haltung/Handlung/Beziehung trägt die Aussage
-
-## Definition of Done für einen Flow-Prompt
-
-Ein Flow-Prompt ist erst produktionsbereit, wenn:
-
-1. alle Scene Cards vollständig sind,
-2. jeder Prompt-QC-Score mindestens 8/10 beträgt,
-3. `FLOW_WORLD_LOCK.json` auf `READY` steht,
-4. `npm run build:youtube-flow` erfolgreich lief,
-5. `video.json.flowPromptBuiltAt` gesetzt wurde,
-6. keine Platzhalter mehr vorhanden sind,
-7. jeder Bildblock den kompakten Style Anchor enthält,
-8. Cover-Text exakt vorkommt,
-9. BILD 02–NN eine explizite No-Text-Regel enthalten,
-10. der Bildplan keine unnötig mechanische Wiederholung von Kamera und Komposition aufweist,
-11. `npm run validate:youtube-phase1` besteht.
+1. jeder Beat einen klaren Viewer Takeaway besitzt,
+2. die Visual Form die Narration wirklich unterstützt,
+3. Scene Cards vollständig sind,
+4. Prompt-QC >= 8/10 ist,
+5. World Lock READY ist,
+6. Figuren nicht als automatischer Fallback verwendet werden,
+7. prominente nicht wiederkehrende Personen nicht wie Klone aussehen sollen,
+8. Flow Compiler erfolgreich lief,
+9. Cover-/No-Text-Regeln stimmen,
+10. Phase 1 besteht.
