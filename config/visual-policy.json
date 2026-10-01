@@ -1,12 +1,12 @@
 {
-  "visualPolicyVersion": 10,
+  "visualPolicyVersion": 11,
   "status": "READY",
   "styleId": "history-stickman-adaptive-v1",
   "promptSystemVersion": 3,
   "promptSystem": "flow-compiler-v3",
   "scenePlanningSchemaVersion": 2,
   "flowStyleLockFile": "config/flow-style-lock.json",
-  "description": "Konsistente handgezeichnete 2D-History-Explainer-Bildwelt mit narration-first Story-Beat-Planung, flexibler Visual-Form-Auswahl, individuell gestalteten historischen Figuren, Visual Director, Style Lock, Flow Compiler V3, World Lock und Prompt-QC.",
+  "description": "Konsistente handgezeichnete 2D-History-Explainer-Bildwelt mit narration-first Story-Beat-Planung, flexibler Visual-Form-Auswahl, individuell gestalteten historischen Figuren, Visual-Interest-Gate, Visual Director, Style Lock, Flow Compiler V3, World Lock und Prompt-QC.",
   "rules": [
     "Jedes Visual muss den aktuell gesprochenen Story-Beat direkt unterstützen, erklären, verstärken oder räumlich verständlich machen. Ein schönes, aber inhaltlich nur lose passendes Bild ist nicht ausreichend.",
     "Die Visual Form wird nach der Aussage gewählt, nicht aus Gewohnheit. Figuren sind niemals der automatische Standard-Fallback.",
@@ -26,8 +26,10 @@
     "Evidence-Reconstruction darf ein reales historisches Objekt, Dokument, Münze, Ruinenfragment oder archäologisches Indiz mit einer stilisierten Rekonstruktion derselben Aussage verbinden.",
     "Pro normalem Einzelmoment höchstens ein bis drei wirklich notwendige Supporting Elements; keine Wimmelbilder oder überfüllten Lehrbuch-/Museumstafeln.",
     "Jedes Bild braucht eine bewusste visuelle Idee, Blickführung, Komposition und passende Kamera. Eine bloße Objektliste ist kein Visual Concept.",
+    "Jedes neue Bild braucht zusätzlich einen klar benannten visuellen Interessensmechanismus wie Bewegung, Tiefenstaffelung, Größenkontrast, Asymmetrie, Reveal, Detailfokus, räumliche Blockade oder Zustandsänderung. Korrekt aber statisch reicht nicht.",
     "Gleicher Stil bedeutet nicht gleiche Komposition: Kameraabstand, Perspektive, Subject Placement, Negativraum, Licht, Wetter, Stimmung und Visual Form dürfen zwischen Szenen wechseln.",
     "Fast identische Blickwinkel werden nur für Vorher/Nachher, Zustandsänderungen oder notwendige räumliche Kontinuität wiederverwendet.",
+    "Drei nahezu gleiche Character Scenes, drei gleiche Shot Scales oder drei gleiche Visual Forms hintereinander sind in neuen Produktionen nicht erlaubt, außer eine ausdrücklich begründete Continuity-Sequenz verlangt es.",
     "Vor jedem finalen Prompt ist eine Visual-Director-Scene-Card nach channel/11-VISUAL-DIRECTOR.md Pflicht.",
     "Vor dem Prompt-Build muss 99-technik/FLOW_WORLD_LOCK.json vollständig und READY sein.",
     "Der finale google-flow-prompt.txt wird ausschließlich mit npm run build:youtube-flow aus geprüften Scene Cards kompiliert.",
@@ -36,9 +38,11 @@
     "Der finale Prompt muss die intern gewählte Visual Form erhalten und darf sie nicht zu einem generischen Einzelmotiv vereinfachen.",
     "Jeder finale Bildprompt benötigt vor Freigabe einen Prompt-QC-Score von mindestens 8/10.",
     "Bild 01 ist Cover und erste Szene mit kurzem passendem deutschem Cover-Text. Google Flow erzeugt zuerst genau drei Cover-Kandidaten und stoppt danach bis zur Nutzerauswahl.",
-    "Bild 02 bis Bild NN enthalten standardmäßig keinen sichtbaren Text.",
+    "Auf Bild 01 ist ausschließlich der exakte Cover-Text erlaubt. Interne Begriffe wie BILD 01, Image 01, Scene 01, Bildnummern, Labels, Untertitel und Zusatzüberschriften sind verboten.",
+    "Bild 02 bis Bild NN enthalten absolut keinen sichtbaren Text: keine Bildnummer, keine Überschrift, keine Labels, keine Zahlen, keine Wasserzeichen und keine Pseudo-Schrift.",
     "Interne Bildplanung und finaler Google-Flow-Prompt sind strikt getrennt.",
-    "Remotion erzeugt standardmäßig keinen sichtbaren Erklärungstext."
+    "Remotion erzeugt standardmäßig keinen sichtbaren Erklärungstext.",
+    "Neue Produktionen benötigen vor Phase 3 eine vollständig freigegebene 99-technik/PHASE2_VISUAL_QC.json."
   ],
   "forbidden": [
     "photorealism",
@@ -63,12 +67,16 @@
     "excessive micro-detail",
     "inventory-list-only prompt",
     "generic camera without narrative purpose",
+    "static talking-head repetition",
+    "three similar medium character shots in a row",
     "visual-form loss between planning and prompt",
     "mechanically repeated composition across unrelated scenes",
     "global fixed master-reference-image dependency",
     "unnecessary visible text outside cover",
     "English labels in German videos",
     "image numbers inside images",
+    "prompt metadata inside images",
+    "scene titles inside non-cover images",
     "watermarks",
     "pseudo-text",
     "automatic cover winner selection by Flow",
@@ -114,6 +122,47 @@
     "visualFormFidelity",
     "composition"
   ],
+  "visualInterestGate": {
+    "version": 1,
+    "requiredForProjectsOptedIn": true,
+    "minimumVisualInterestScore": 8,
+    "maxConsecutiveSameVisualForm": 2,
+    "maxConsecutiveCharacterScenes": 2,
+    "maxConsecutiveSameShotScale": 2,
+    "minimumDistinctVisualFormsPer10Images": 3,
+    "requireVisualEnergyDevice": true,
+    "requireVisualChangeFromPrevious": true,
+    "requireShotScale": true,
+    "phase2VisualQcRequired": true,
+    "allowedShotScales": [
+      "extreme-wide",
+      "wide",
+      "medium-wide",
+      "medium",
+      "close",
+      "detail",
+      "top-down",
+      "elevated-overview",
+      "sectional"
+    ]
+  },
+  "textLeakagePolicy": {
+    "coverOnlyText": true,
+    "coverAllowsOnlyExactCoverText": true,
+    "nonCoverAllowsVisibleText": false,
+    "imageNumbersForbiddenInsideImages": true,
+    "internalPromptMetadataForbiddenInsideImages": true,
+    "labelsForbiddenInsideImages": true,
+    "pseudoTextForbidden": true,
+    "forbiddenVisibleTokens": [
+      "BILD",
+      "IMAGE",
+      "SCENE",
+      "Bildnummer",
+      "Image number",
+      "Scene number"
+    ]
+  },
   "requiredScenePlanningFields": [
     "viewerTakeaway",
     "visualPurpose",
@@ -162,6 +211,8 @@
   "notes": [
     "Grundbildwelt: channel/06-VISUAL-SYSTEM.md",
     "Visual-Auswahl und Story-Beat-Dichte: channel/07-VISUAL-GRAMMAR.md",
+    "Visual-Interest-QC: channel/15-VISUAL-INTEREST-QC.md",
+    "Story-Quality-Gate: channel/16-STORY-QUALITY-GATE.md",
     "Google-Flow-Prompting: channel/08-FLOW-PROMPTING.md",
     "Promptstruktur: channel/09-IMAGE-PROMPT-TEMPLATE.md",
     "Zeichen- und Kompositions-DNA: channel/10-STYLE-DNA-V2.md",
