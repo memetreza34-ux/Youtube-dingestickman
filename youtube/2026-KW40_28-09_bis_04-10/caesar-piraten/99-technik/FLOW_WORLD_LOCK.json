@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "status": "READY",
+  "settingName": "Caesar's pirate captivity and pursuit in the eastern Aegean around 75 BCE",
+  "settingDescription": "A historically plausible eastern Mediterranean world with rocky Aegean islands, simple ancient harbors, timber sailing vessels, muted limestone settlements and early first-century BCE Roman and eastern Mediterranean clothing. Young Caesar must look like the same individual whenever he returns, but unrelated pirates, sailors and officials must be visibly individualized.",
+  "recurringPlaces": [
+    "the same rocky Pharmacusa anchorage with a narrow beach and low scrub",
+    "the same simple pirate vessel with dark timber hull and pale square sail whenever it recurs"
+  ],
+  "recurringCharacters": [
+    "young Julius Caesar: early-adult Roman aristocrat, lean build, short dark wavy hair, clean-shaven face, narrow red-brown cloak over a cream tunic, no imperial crown or later-dictator iconography",
+    "pirate leader: older than Caesar, broader build, weathered angular face, short dark beard with gray strands, faded blue-green cloak, leather belt and simple curved utility knife"
+  ],
+  "recurringProps": [
+    "dark-timber pirate vessel with pale sail",
+    "travel chests and tied silver containers used for the ransom"
+  ],
+  "basePalette": [
+    "weathered stone gray",
+    "muted Aegean blue",
+    "sand beige",
+    "dark timber brown",
+    "cream linen",
+    "rust red",
+    "faded blue-green"
+  ],
+  "timeWeatherLogic": "Begin in clear to lightly hazy Mediterranean daylight, move through repeated day-and-evening captivity scenes without dramatic weather changes, then return to bright daylight for the pursuit and capture. Use time changes only where the narration implies passing days.",
+  "continuityRules": [
+    "Young Caesar keeps the same face, hair, lean build and red-brown cloak whenever continuity allows the cloak to be visible.",
+    "The pirate leader remains visually distinct from Caesar and keeps the same beard, broad build and blue-green cloak.",
+    "Other pirates must not become clones; vary face shape, beard, hair, headwear, body build, clothing silhouette and posture.",
+    "Do not show Caribbean pirate symbols, tricorn hats, eyepatches, cannons or black skull flags.",
+    "Keep the Pharmacusa anchorage recognizable when Caesar later returns to capture the pirates.",
+    "Any execution image must remain non-graphic, distant and free of gore."
+  ]
+}
