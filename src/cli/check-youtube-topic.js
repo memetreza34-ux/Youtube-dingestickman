@@ -2,7 +2,7 @@
 
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { arg, exists, normalizeText, readJson, similarity, walkFiles } from '../lib/pipeline.js';
+import { arg, normalizeText, readJson, similarity, walkFiles } from '../lib/pipeline.js';
 
 export async function collectKnownTopics(root = process.cwd()) {
   const registry = await readJson(path.join(root, 'config', 'topic-registry.json'), { entries: [] });
@@ -51,14 +51,15 @@ async function main() {
   const topic = arg('--topic') ?? process.argv.slice(2).filter((x) => !x.startsWith('--'))[0];
   if (!topic) throw new Error('Nutzung: npm run topic:youtube -- --topic "THEMA"');
   const result = await evaluateTopic(topic);
-  console.log(`THEMEN-EDITOR: ${result.decision}`);
+  console.log(`DUPLICATE-CHECK: ${result.decision}`);
   if (result.best) console.log(`Ähnlichster Treffer: ${result.best.matched} (${result.best.score.toFixed(2)})`);
+  console.log('Hinweis: APPROVED_NEW bedeutet nur ausreichend neu. Die Qualitätsfreigabe erfolgt separat nach channel/02-TOPIC-SYSTEM.md (Topic Director V2).');
   if (result.decision !== 'APPROVED_NEW') process.exitCode = 1;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch((error) => {
-    console.error(`THEMEN-EDITOR: FEHLER — ${error.message}`);
+    console.error(`DUPLICATE-CHECK: FEHLER — ${error.message}`);
     process.exitCode = 1;
   });
 }
