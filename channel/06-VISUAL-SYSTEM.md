@@ -4,58 +4,94 @@
 
 `history-stickman-adaptive-v1`
 
+> Der technische Style-ID bleibt aus Kompatibilitätsgründen bestehen. Inhaltlich bedeutet er **nicht mehr generische Stickman-Klone**, sondern stilisierte, individuell gestaltete historische Menschen in einer konsistenten 2D-Illustrationswelt.
+
 ## Ziel
 
-Der Kanal nutzt eine **konsistente handgezeichnete 2D-History-Explainer-Welt**. Stickman-artige Figuren sind ein wichtiger Teil der Bildwelt, aber nicht jedes Bild braucht Figuren.
+Der Kanal nutzt eine **konsistente handgezeichnete 2D-History-Explainer-Welt**, die das Voice-over aktiv unterstützt.
 
-Die Bildwelt soll erwachsen, historisch, verständlich und lebendig wirken. Sie darf sich an Epoche, Stimmung und Inhalt anpassen, ohne den grundlegenden Illustrationsstil zu wechseln.
+Die wichtigste Regel lautet:
 
-## Kernprinzip
+**Nicht zuerst fragen: „Welche Figur zeigen wir?“ — sondern: „Welche visuelle Form erklärt genau diesen gesprochenen Gedanken am besten?“**
 
-**Stil bleibt konstant. Inszenierung darf sich ändern.**
-
-Ein ruhiger Bauernalltag, der Untergang Roms, eine Belagerung und eine Reichskarte dürfen unterschiedliche Stimmung und Komposition haben. Sie müssen aber aussehen, als wären sie vom selben Illustrator für denselben Kanal gezeichnet worden.
-
-Die präzise maschinenlesbare Umsetzung dieser Bildwelt steht in `config/flow-style-lock.json`.
+Ein gutes Bild ist nicht nur schön. Es macht den aktuellen Story-Beat schneller verständlich, konkreter oder spannender.
 
 ---
 
-## 1. Figuren-System
+## 1. Figuren-System: stilisiert, menschlich, individuell
 
-Alle menschlichen Figuren stammen aus derselben stilisierten Stickman-Familie:
-
-- einfacher runder oder leicht ovaler Kopf
-- warme/off-white Hautfläche als stilisierte Grundform
-- Kopf ungefähr 1/6 bis 1/7 der sichtbaren Körperhöhe
-- schlanker, vereinfachter Körper
-- vereinfachte Arme, Beine, Hände und Füße
-- zwei kleine dunkle Augen, einfache Augenbrauen, kleine zurückhaltende Mundform
-- saubere dunkle Ink-Konturen
-- überwiegend konstante mittlere Linienstärke
-- flache, gedämpfte Farben
-- dezente Cel-Shading-Schattierung
-- leichte handgezeichnete Papier-/Tuschetextur
-- keine realistische Anatomie
-
-Figuren dürfen und sollen individuell wirken. Erlaubt und erwünscht sind historisch passende Haare, Bärte, Schnurrbärte, Augenbrauen, Helme, Kronen, Hüte, Hauben, Kapuzen, Tücher, Rüstungen, Tuniken, Mäntel, Roben, Gürtel, Schmuck, Werkzeuge, Waffen und andere Props.
-
-Emotion wird über Augen, Augenbrauen, kleine Mundformen, Blickrichtung, Kopfhaltung, Gestik und Körperhaltung vermittelt. Keine Meme-Mimik und keine kindliche Cartoon-Komik.
-
----
-
-## 2. Nicht jedes Bild braucht Figuren
-
-Figuren dürfen niemals automatisch erzwungen werden.
-
-Gleichwertige Visuals sind historische Karten, Architektur, Städte, Burgen, Landschaften, Objekte, Münzen, Waffen, Werkzeuge, Schiffe, Handelsgüter, Symbolbilder, Ursache-Wirkungs-Bilder, Versorgungssysteme, Hierarchien, Reichsausbreitung, Vorher/Nachher, Aufstieg/Fall, Mehrmoment-Illustrationen sowie Stadt- oder Schlachtübersichten.
-
-Nicht-Figuren-Visuals verwenden dieselbe Linien-, Farb-, Schattierungs- und Texturlogik wie Figurenszenen.
-
----
-
-## 3. Rendering / Illustration
+Menschen sind keine austauschbaren Stock-Stickmans.
 
 Verbindlich:
+
+- vereinfachte, aber klar menschlich lesbare Anatomie
+- Kopf grob 1/6 bis 1/7 der sichtbaren Körperhöhe, mit kontrollierter Variation
+- unterschiedliche Gesichtsformen
+- unterschiedliche Haare, Bärte und Kopfbedeckungen
+- unterschiedliche Körpergröße, Schulterbreite, Statur und Haltung
+- historisch passende Kleidung, Rüstung, Schmuck, Werkzeuge, Waffen und Props
+- saubere dunkle Ink-Konturen
+- flache gedeckte Farben
+- dezente Cel-Schattierung
+- leichte Papier-/Tuschetextur
+- keine Porträt-Fotorealistik
+
+### Individualitätsregel
+
+Prominente **nicht wiederkehrende** Figuren sollen sich möglichst in mindestens drei sichtbaren Punkten unterscheiden, z. B.:
+
+- Alterseindruck
+- Gesichtsform
+- Haare/Bart
+- Kopfbedeckung
+- Größe/Statur
+- Kleidungssilhouette
+- Ausrüstung/Prop
+- Körperhaltung/Geste
+
+**Generische identische Figuren-Klone sind verboten.**
+
+Wiederkehrende Hauptfiguren bleiben dagegen bewusst erkennbar: gleiche Kernmerkmale, aber natürliche Variation in Pose, Blickrichtung und Zustand.
+
+---
+
+## 2. Narration-first Visual Selection
+
+Jeder visuelle Beat beginnt mit der Frage:
+
+> **Was muss der Zuschauer genau jetzt verstehen?**
+
+Danach wird die beste Visual Form gewählt.
+
+Gleichwertig erlaubt sind unter anderem:
+
+- Character Scene
+- Environment / Landschaft
+- historische Karte / Geografie
+- Objektfokus
+- Architektur / Stadt
+- räumliche Übersicht
+- Ursache → Wirkung
+- Prozess / Ablauf
+- Vorher / Nachher
+- Vergleich
+- System / Hierarchie
+- Symbolbild
+- Battle / City Overview
+- Mehrmoment-Illustration
+- Detail-Inset
+- Cutaway / Schnittdarstellung
+- Evidence + Reconstruction
+
+**Figuren sind nie der automatische Fallback.**
+
+Wenn eine Karte, ein Gegenstand, ein Schnittbild oder eine räumliche Übersicht die Aussage besser trägt, wird genau das verwendet.
+
+---
+
+## 3. Rendering
+
+Verbindliche Kanal-DNA:
 
 - 2D hand-drawn historical explainer illustration
 - clean dark ink outlines
@@ -63,184 +99,219 @@ Verbindlich:
 - flat colors
 - subtle cel shading
 - light handmade ink-and-paper texture
+- erwachsene, redaktionelle Wirkung
+- klare Hierarchie
 - kontrollierter Detailgrad
-- klare Hauptaussage
-- visuell erwachsen, aber zugänglich
 
-Die Umgebung darf detaillierter sein als die Figuren, darf aber niemals den Fokus zerstören.
-
-Für Maschinen gelten zusätzlich die Detailbudgets aus `config/flow-style-lock.json`.
+Der Stil bleibt konstant. Inszenierung und Visual Form dürfen stark wechseln.
 
 ---
 
-## 4. Bildhierarchie und Mehrmoment-Regel
+## 4. Ein Bild = ein klarer Takeaway
 
-Jedes Bild muss schnell verständlich sein.
+Die alte starre Idee „ein Bild = exakt ein einzelner Moment“ gilt nicht absolut.
 
-Die zentrale Regel lautet jetzt:
+Verbindlich ist:
 
 **Ein Bild = ein klarer erzählerischer Takeaway.**
 
-Das bedeutet nicht mehr zwingend „ein Bild = nur ein einzelner Moment“.
-
-Erlaubt sind:
+Erlaubt:
 
 - ein dominanter Einzelmoment
 - Ursache und Folge in einem Bild
 - Vorher/Nachher
-- zwei oder höchstens drei eng zusammengehörige Momente in einer integrierten Illustration
-- Vordergrund → Mittelgrund → Hintergrund als zeitliche oder kausale Erzählung
-- klare Links→Rechts-Entwicklung
+- zwei oder höchstens drei eng verbundene Story-Momente
+- Hauptszene plus ein Detail-Inset
+- Außenansicht plus Cutaway, wenn räumlich nötig
+- historischer Beleg plus rekonstruierte Szene
 
-Bei einer Mehrmoment-Illustration müssen alle Momente dieselbe Zuschauerfrage beantworten. Ein Moment bleibt dominant oder die Leserichtung ist eindeutig.
+Nicht erlaubt:
 
-Verbindlich:
-
-- genau ein klarer Takeaway
-- bei normalen Szenen genau ein dominantes Hauptmotiv
-- bei Mehrmoment-Szenen höchstens 2–3 verbundene Story-Momente
-- Hauptinformation groß und YouTube-tauglich
-- klare Blickführung
-- wichtige Information nicht in vielen kleinen Details verstecken
-
-Weiterhin vermeiden:
-
-- Wimmelbilder
-- überfüllte Menschenmengen
-- Museumstafeln
-- Schulbuchposter
-- Lexikonplatten
 - neun kleine Panels
-- dichte Fotocollagen
-- viele Labels/Pfeile
-- extrem kleinteilige Erklärbilder
-
-Wenn zwei Aussagen **nicht** eng zusammengehören, lieber zwei Bilder planen. Wenn sie gemeinsam einen Ablauf, Vergleich oder Ursache→Folge verständlicher machen, darf eine Mehrmoment-Illustration verwendet werden.
-
----
-
-## 5. Story-Beat-Dichte
-
-Die Bildplanung folgt dem gesprochenen Story-Fortschritt.
-
-Wenn sich Handlung, Ursache, Ort, Zeit, Zustand oder Zuschauer-Erkenntnis deutlich ändert, wird ein neuer visueller Beat geprüft.
-
-Für kurze History-Videos ist eine höhere Dichte gewünscht. Ein ungefähr 60-sekündiger Test landet häufig bei etwa **14–20 visuellen Beats**. Das ist keine starre Quote; Inhalt und Lesbarkeit entscheiden.
-
-Lange Holds auf demselben Bild vermeiden, wenn der Sprecher bereits über einen neuen Gedanken spricht.
+- dichte Collage
+- Wimmelbild
+- Museumstafel
+- beliebige Sammlung unabhängiger Motive
+- viele Mini-Labels oder Pfeile
 
 ---
 
-## 6. Video World / Continuity Lock
+## 5. Höhere Story-Beat-Dichte
 
-**Innerhalb eines Videos ist Kontinuität wichtiger als künstliche Variation.**
+Die Bildplanung folgt nicht mehr Absätzen, sondern Story-Beats.
 
-Wiederkehrende Orte behalten Silhouette, Architektur, Tor-/Fenster-/Mauerlogik, Grundfarbigkeit und zentrale Props.
+Ein neuer visueller Beat wird besonders geprüft, wenn sich ändert:
 
-Wiederkehrende Figuren behalten Haare/Bart, Kopfbedeckung, Kleidung/Rüstung, Farbgebung und Stickman-Grundkonstruktion.
+- Handlung
+- Person / Gruppe
+- Ursache oder Folge
+- Ort
+- Zeit
+- Zustand
+- Größenordnung
+- Zuschauer-Erkenntnis
 
-Wiederkehrende Räume und Zustandsänderungen sollen möglichst denselben Blickwinkel benutzen, wenn das Verständnis dadurch stärker wird.
+Neue Richtwerte für kurze Videos:
 
-Für neue Produktionen wird diese videospezifische Kontinuität in `99-technik/FLOW_WORLD_LOCK.json` festgehalten und vor dem Prompt-Build auf `READY` gesetzt.
+- ca. 60 s: häufig **18–26 Visuals**
+- ca. 90 s: häufig **24–34 Visuals**
+- ca. 120 s: häufig **32–44 Visuals**
 
----
+Das sind keine Quoten. Inhalt gewinnt immer. Aber lange statische Holds sind ausdrücklich unerwünscht, wenn die Narration bereits weiter ist.
 
-## 7. Adaptive Stimmung
+Zielbereich im Schnitt: ungefähr **2,5–4,2 s pro Visual**.
 
-Die Kunsttechnik bleibt gleich, die Stimmung darf sich anpassen.
-
-- Alltag: ruhiger, wärmer/natürlicher, näher an Personen und Gegenständen
-- Krieg/Belagerung/Krise: angespannter, stärkere Kontraste, Rauch/Enge möglich, keine unnötige Gore-Ästhetik
-- Herrschaft/Politik: kontrollierte Komposition, klare Hierarchie, Körpersprache wichtiger als Action
-- Reiche/Expansion/Geografie: Karten und Übersichten, aber keine moderne Corporate-Infografik
-- Untergang/Zerfall: Ursache-Wirkung, beschädigte Architektur, leere Lager, gebrochene Systeme, nicht automatisch nur Schlachten
-
-Stimmung konkret über Licht, Raum und Kontrast beschreiben. Generische Wörter wie `cinematic`, `epic` oder `realistic lighting` sind kein Ersatz für konkrete Regie und gelten im V3-System als Drift-Risiko.
-
----
-
-## 8. Farbwelt
-
-Gemeinsamer Charakter: Sand/Beige, Stein/Grau, Lederbraun, gedämpftes Rot, dunkles Grün/Oliv, Graublau, Pergamenttöne und gedecktes Gold als Akzent.
-
-Neonfarben und extrem gesättigte Kinderfarben vermeiden.
+Ab etwa **5,5 s** prüfen, ob ein neuer Beat nötig ist. Ab etwa **7 s** Split stark bevorzugen. Über **9 s** nur mit klarer visueller Begründung.
 
 ---
 
-## 9. Historische Lesbarkeit
+## 6. Detail-Inset
 
-Historische Kleidung, Waffen, Architektur, Karten, Werkzeuge und Symbole sollen zur behandelten Epoche passen.
+Erlaubt, wenn der Sprecher ein kleines wichtiges Detail erklärt.
 
-**Faktenrichtigkeit vor dekorativer Coolness.**
+Beispiel:
 
-Keine Hörnerhelme bei Wikingern, keine beliebigen Fantasy-Rüstungen, keine modernen Gegenstände und keine falschen Flaggen/Uniformen/Karten, wenn sie für die Aussage relevant sind.
-
-Wenn die genaue Darstellung unsicher ist, lieber neutraler visualisieren als falsche Details erfinden.
-
----
-
-## 10. Text im Bild
-
-### Cover / Bild 01
-
-**Bild 01 ist immer Cover + erste Szene und enthält immer einen passenden deutschen Cover-Text.**
+- Hauptbild: römischer Soldat am Wall
+- kleines Inset: Nahaufnahme eines speziellen Befestigungsdetails
 
 Regeln:
 
-- ideal 2–5 Wörter
-- passend zum Video-Hook/Thema
-- exakter Wortlaut in `video.json`
-- alle drei Cover-Kandidaten benutzen denselben Text
-- Schreibfehler oder unlesbarer Text = Kandidat verwerfen
+- nur ein Inset
+- Hauptbild bleibt dominant
+- keine Beschriftungsorgie
+- kein modernes Infografik-Layout
+
+---
+
+## 7. Cutaway / Schnittdarstellung
+
+Erlaubt, wenn ein verborgenes räumliches System sonst schwer verständlich wäre.
+
+Beispiele:
+
+- Aufbau eines Walls
+- Innenraum eines Schiffes
+- Belagerungstunnel
+- Wasserversorgung
+
+Regeln:
+
+- Schnitt klar und einfach
+- Außenkontext bleibt verständlich
+- keine unnötigen Labels
+- kein Lehrbuchposter
+
+---
+
+## 8. Evidence + Reconstruction
+
+Besonders für Geschichte erwünscht, wenn Quellenlage oder Archäologie relevant ist.
+
+Beispiele:
+
+- Münze → rekonstruierte Herrscherszene
+- Ruine → rekonstruierter ursprünglicher Bau
+- Waffenfund → mögliche Nutzungsszene
+- Dokumentfragment → visualisierte historische Situation
+
+Wichtig: Unsichere Rekonstruktionen dürfen nicht als sichere Tatsache erscheinen.
+
+---
+
+## 9. Video World / Continuity
+
+Wiederkehrende Orte behalten wichtige Merkmale.
+
+Wiederkehrende Hauptfiguren behalten:
+
+- Gesichtskern
+- Haar/Bart
+- Körperbau
+- Kleidungssilhouette
+- zentrale Farben
+- identifizierende Props
+
+Aber Kontinuität bedeutet **nicht**, immer dieselbe Kamera oder dieselbe Pose zu wiederholen.
+
+---
+
+## 10. Adaptive Stimmung
+
+Die Kunsttechnik bleibt gleich; Licht, Wetter, Perspektive und Stimmung passen sich der Geschichte an.
+
+- Alltag: ruhig, näher, natürlicher
+- Krise/Krieg: angespannter, stärkere räumliche Kontraste
+- Politik: Hierarchie und Körpersprache
+- Expansion: Karte / Übersicht
+- Technik: Objekt, Prozess, Cutaway
+- Quellenlage: Evidence + Reconstruction
+- Wandel: Vorher/Nachher oder Prozess
+
+---
+
+## 11. Historische Lesbarkeit
+
+**Faktenrichtigkeit vor dekorativer Coolness.**
+
+Keine Fantasy-Details, falschen Uniformen, modernen Objekte oder frei erfundenen Symbole, wenn sie für die Aussage relevant sind.
+
+Wenn ein Detail unsicher ist, neutraler darstellen oder die Unsicherheit in der Scene Card markieren.
+
+---
+
+## 12. Text im Bild
+
+### Cover / Bild 01
+
+- 2–5 deutsche Wörter ideal
+- exakt vorgegeben
 - groß und sofort lesbar
-- Hintergrund hell → dunkle Schrift
-- Hintergrund dunkel → helle Schrift
-- Hauptmotiv, Gesichter und entscheidende Aktion nicht verdecken
-- kein englischer Zusatztext, kein Logo, keine Bildnummer
+- hoher Kontrast
+- Hauptmotiv nicht verdecken
 
 ### Bild 02–NN
 
-Standard: **kein generierter sichtbarer Text**.
+Standard: **kein sichtbarer Text**.
 
-Der Flow Compiler fügt dafür automatisch eine harte No-Text-Regel in jeden Nicht-Cover-Prompt ein.
-
----
-
-## 11. Verbotene Stilwechsel
-
-Nicht verwenden: Fotorealismus, realistische menschliche Porträts, 3D Rendering, Pixar-/Animationsfilm-Look, Anime, painterly realism, Graphic-Novel-Realismus, wechselnde Cartoon-Stile, moderne Corporate-Infografik, extrem dicke Comic-Outlines oder kindliche Chibi-/Kinderbuch-Proportionen.
+Auch Detail-Inset, Cutaway und Evidence-Reconstruction funktionieren möglichst ohne Labels.
 
 ---
 
-## 12. Google-Flow-Prinzip — Flow Compiler V3
+## 13. Flow Compiler V3
 
-Interne Bildplanung und finaler Google-Flow-Prompt bleiben strikt getrennt.
+Der Compiler muss:
 
-Neue Produktionen erzeugen den finalen Prompt mit:
+- Narration-first-Regel erhalten
+- die gewählte Visual Form schützen
+- individuelle Figuren statt Klone erzwingen
+- World Lock erhalten
+- Style Anchor pro Bild wiederholen
+- Cover-Gate beibehalten
 
-```bash
-npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
-```
+Neue Visual Forms:
 
-Der Compiler kombiniert Style Lock, Video-Metadaten, Scene Cards und World Lock und erhält dabei die geplante Visual Form. `multi-moment-illustration` wird ausdrücklich als eigene Visual Form unterstützt.
+- `detail-inset`
+- `cutaway-section`
+- `evidence-reconstruction`
 
-Der erzeugte `google-flow-prompt.txt` ist ein Build-Artefakt und wird nicht manuell umgeschrieben.
+zusätzlich zu den bisherigen Formen.
 
 ---
 
-## Qualitätsfragen vor Freigabe
+## Qualitätsfragen
 
-1. Gehört alles sichtbar zum selben Kanal?
-2. Wechselt das Bild, wenn sich der Story-Beat deutlich ändert?
-3. Hat jedes Bild einen klaren Takeaway?
-4. Sind Mehrmoment-Illustrationen auf höchstens 2–3 verbundene Momente begrenzt?
-5. Ist die Blickführung sofort verständlich?
-6. Bleiben wiederkehrende Orte/Figuren konsistent?
-7. Sind historische Details plausibel?
-8. Sind BILD 02–NN frei von unnötigem sichtbarem Text?
-9. Wurde der Prompt mit Flow Compiler V3 gebaut?
-10. Hat jede Scene Card Prompt-QC >= 8/10?
-11. Besteht `validate:youtube-phase1`?
+Vor jedem Bild:
+
+1. Unterstützt das Bild genau den aktuellen gesprochenen Gedanken?
+2. Ist dies wirklich die beste Visual Form?
+3. Wurde eine Figur nur aus Gewohnheit eingesetzt?
+4. Ist die Aussage in weniger als einer Sekunde erfassbar?
+5. Sind prominente Figuren individuell genug?
+6. Bleiben wiederkehrende Figuren konsistent?
+7. Ist die Komposition anders genug als unnötig ähnliche Nachbarbilder?
+8. Ist ein Split nötig, weil die Narration schon weitergezogen ist?
+9. Sind historische Details plausibel?
+10. Bleibt der Kanalstil konstant?
 
 ## Status
 
