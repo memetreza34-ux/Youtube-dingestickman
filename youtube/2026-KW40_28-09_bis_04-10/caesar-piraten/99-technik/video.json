@@ -8,7 +8,12 @@
   "topic": "Wie Julius Caesar auf dem Weg nach Rhodos von Piraten gefangen genommen wurde, Lösegeld zahlte, nach seiner Freilassung Schiffe und Männer beschaffte und seine eigenen Entführer verfolgte",
   "language": "de",
   "aspectRatio": "16:9",
-  "status": "phase1-planned",
+  "status": "topic-review-paused",
+  "topicDirector": {
+    "version": 2,
+    "qualityApproved": false,
+    "reason": "Created before Topic Director V2. Do not continue production until it competes successfully against a fresh discovery round and passes the diversity/quality gate."
+  },
   "visualPolicyFile": "config/visual-policy.json",
   "flowStyleLockFile": "config/flow-style-lock.json",
   "visualStyleId": "history-stickman-adaptive-v1",
@@ -83,5 +88,5 @@
   "audioReady": false,
   "renderReady": false,
   "createdAt": "2026-10-01T11:58:00+02:00",
-  "updatedAt": "2026-10-01T11:58:00+02:00"
+  "updatedAt": "2026-10-01T13:57:00+02:00"
 }
