@@ -1,6 +1,6 @@
-# Video Blueprint — Geschichts-Kanal V3
+# Video Blueprint — Geschichts-Kanal V4
 
-Diese Datei verbindet Themen-, Recherche-, Skript- und Visual-System mit der technischen Produktionspipeline.
+Diese Datei verbindet Thema, Recherche, Script V3, Visual-System und technische Pipeline.
 
 ## Phase A — Thema
 
@@ -8,101 +8,128 @@ Diese Datei verbindet Themen-, Recherche-, Skript- und Visual-System mit der tec
 2. klare Zuschauerfrage formulieren
 3. Themen-Säule zuordnen
 4. Duplicate-/Ähnlichkeitscheck
-5. prüfen, ob ausreichend belastbare Quellen existieren
+5. belastbare Quellen prüfen
 
 **Gate:** Ohne klare zentrale Frage kein Produktionsstart.
 
 ## Phase B — Recherche
 
-1. Zeitrahmen und Schauplatz festlegen
-2. zentrale Personen/Akteure identifizieren
-3. Ursache-Wirkungs-Kette recherchieren
-4. Wendepunkte herausarbeiten
-5. unsichere oder umstrittene Punkte markieren
+1. Zeitrahmen und Schauplatz
+2. zentrale Personen/Akteure
+3. Ursache-Wirkungs-Kette
+4. Wendepunkte
+5. Unsicherheiten / Streitfragen
 6. Quellen dokumentieren
 
-**Gate:** Keine zentrale Storybehauptung nur aus Vermutung ableiten.
+**Gate:** Keine zentrale Behauptung nur aus Vermutung.
 
-## Phase C — Story Outline
+## Phase C — Story Outline V3
 
-Vor dem Fließtext zuerst grobe Dramaturgie:
+Nicht als Lexikon-Kapitel denken, sondern als Geschichte:
 
 ```text
-Cold Open
-→ notwendiger Kontext
-→ Ausgangslage
-→ Problem / Veränderung
-→ Eskalation
-→ Wendepunkt
-→ Folgen
-→ Antwort auf Kernfrage
-→ kurzer Schlussgedanke
+konkreter Moment
+→ Problem
+→ Entscheidung / Handlung
+→ Folge
+→ neue Komplikation
+→ Reveal / Wendepunkt
+→ Auflösung
+→ historische Bedeutung
 ```
 
-Nicht jedes Thema benötigt exakt dieselben Kapitel. Struktur folgt der Geschichte.
+Kontext kommt just in time.
 
 ## Phase D — Voice-over-Skript
 
-Nach `03-SCRIPT-BIBLE.md` schreiben. Anschließend Script-QC durchführen.
+Nach `03-SCRIPT-BIBLE.md` V3 schreiben.
 
-**Gate:** Das Skript muss ohne Bilder interessant, verständlich und historisch belastbar funktionieren.
+**Gate:** Das Skript muss ohne Bilder spannend, verständlich und historisch sauber funktionieren.
 
-## Phase E — Bildplanung / Visual Director V2
+Zusätzlich vor Visual Planning:
 
-Erst nach bestandenem Skript:
+- jeder Absatz bringt einen neuen Story-Beat
+- keine lange abstrakte Vorgeschichte
+- Gegner/Akteure handeln nachvollziehbar
+- Ende liefert Payoff statt Wiederholung
+- `youtubeUpload.title` und `youtubeUpload.description` in `video.json` vorbereiten
 
-1. jeden Abschnitt auf seine Kernaussage prüfen
-2. `Viewer Takeaway` formulieren
-3. `Visual Purpose` bestimmen
-4. `Topic Anchor` bestimmen
-5. nach `07-VISUAL-GRAMMAR.md` die beste `Visual Form` wählen
-6. `Visual Concept` entwickeln — keine reine Objektliste
-7. `Dominant Subject` festlegen
-8. `Action / State` festlegen
-9. konkrete `Composition` planen
-10. passende `Camera` wählen
-11. `Depth Plan` definieren
-12. `Lighting / Mood` konkret definieren
-13. maximal 1–3 notwendige `Supporting Elements` wählen
-14. `Continuity Note` und `Historical Accuracy Note` ergänzen
-15. eindeutigen Audio-Anker setzen
-16. Bilddauer planen
-17. Scene Card nach `12-PROMPT-QC.md` bewerten
-18. nur Scene Cards mit Prompt-QC >= 8/10 freigeben
-19. für Bild 01 einen passenden deutschen Cover-Text festlegen
+## Phase E — Story Beats und Visual Director
 
-Verbindliche Scene-Card-Felder stehen in `11-VISUAL-DIRECTOR.md` und `config/visual-policy.json`.
+Nicht Absatz → Bild, sondern **Story Beat → bestes visuelles Mittel**.
 
-### Harte Visual-Form-Regel
+Für jeden Beat:
 
-Die Visual Form darf beim späteren Compiler-Schritt nicht verloren gehen.
+1. `Viewer Takeaway`
+2. `Visual Purpose`
+3. `Topic Anchor`
+4. prüfen, welches visuelle Mittel den gesprochenen Gedanken am besten unterstützt
+5. `Visual Form`
+6. `Visual Concept`
+7. `Dominant Subject`
+8. `Action / State`
+9. `Composition`
+10. `Camera`
+11. `Depth Plan`
+12. `Lighting / Mood`
+13. 0–3 notwendige Supporting Elements
+14. `Continuity Note`
+15. `Historical Accuracy Note`
+16. Audio-Anker
+17. Bilddauer
+18. Prompt-QC >= 8/10
 
-Beispiele:
+### Erlaubte visuelle Mittel
 
-- `comparison` → beide Seiten müssen sichtbar bleiben
-- `cause-effect` → Ursache und Folge müssen verbunden bleiben
-- `process-sequence` → Zustandsänderung muss lesbar bleiben
-- `system-hierarchy` → Hierarchie muss räumlich verständlich bleiben
+- Character Scene
+- Environment
+- Map / Geography
+- Object Focus
+- Architecture / City
+- System / Hierarchy
+- Cause → Effect
+- Process / Sequence
+- Comparison
+- Symbolic Metaphor
+- Battle / City Overview
+- Rise / Fall
+- Multi-Moment Illustration
+- Detail Inset
+- Cutaway Section
+- Evidence Reconstruction
 
-### Cover-Text-Regel
+**Figuren sind kein Default-Fallback.**
 
-- Bild 01 ist Cover + erste Szene
-- Cover-Text ist Pflicht
-- idealerweise 2–5 Wörter
-- passend zum konkreten Hook/Thema
-- exakt vorgeben und korrekt schreiben
-- stark kontrastreich zum tatsächlichen Hintergrund
-- darf Hauptmotiv nicht verdecken
+### Figuren
 
-Verbindliche Bildwelt: `history-stickman-adaptive-v1` nach `06-VISUAL-SYSTEM.md`, präzisiert durch `10-STYLE-DNA-V2.md` und maschinenlesbar fixiert in `config/flow-style-lock.json`.
+Prominente nicht wiederkehrende Personen sollen sich sichtbar unterscheiden. Generische identische Stickman-Klone sind verboten. Wiederkehrende Figuren bleiben erkennbar.
 
-**Wichtig:** Figuren sind nur eine Visual-Form. Karten, Architektur, Objekte, Systeme, Vergleiche, Übersichten und Symbolbilder sind gleichwertig, wenn sie den Satz besser erklären.
+## Phase F — Bilddichte
 
-## Phase F — Video World Lock
+Pipeline V4:
 
-Vor dem Google-Flow-Prompt muss `99-technik/FLOW_WORLD_LOCK.json` vollständig ausgefüllt werden.
+- Ziel Ø ca. **2,5–4,2 s pro Visual**
+- ab 5,5 s Split prüfen
+- ab 7 s Split stark bevorzugen
+- 9 s Hard-Max ohne klare Begründung
 
-Mindestens:
+Orientierung:
+
+- 60 s → häufig 18–26 Visuals
+- 90 s → häufig 24–34 Visuals
+- 120 s → häufig 32–44 Visuals
+
+Keine Füllbilder. Ein neuer Story-Beat muss aber aktiv auf einen neuen visuellen Beat geprüft werden.
+
+## Phase G — Video World Lock
+
+Vor dem Flow-Build:
+
+```text
+99-technik/FLOW_WORLD_LOCK.json
+```
+
+mindestens:
 
 ```text
 status = READY
@@ -110,22 +137,9 @@ settingName
 settingDescription
 ```
 
-Bei wiederkehrenden Elementen zusätzlich:
+Wiederkehrende Elemente zusätzlich als Places, Characters, Props, Palette, Zeit/Wetter und Continuity Rules festhalten.
 
-- recurringPlaces
-- recurringCharacters
-- recurringProps
-- basePalette
-- timeWeatherLogic
-- continuityRules
-
-Der World Lock fixiert die Welt dieses konkreten Videos. Der Channel Style Lock fixiert dagegen die kanalweite Zeichenart.
-
-## Phase G — Flow Compiler V3
-
-Der finale Google-Flow-Prompt wird **nicht manuell formuliert**.
-
-Nach freigegebenen Scene Cards und READY World Lock:
+## Phase H — Flow Compiler V3
 
 ```bash
 npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
@@ -138,102 +152,79 @@ Der Compiler verwendet:
 - `BILD_AUDIO_ZUORDNUNG.json`
 - `FLOW_WORLD_LOCK.json`
 
-und erzeugt `00-bildprompts/google-flow-prompt.txt` vollständig neu.
+Garantien:
 
-### Compiler-Garantien
+- Narration-first-Regel
+- individueller Figurenstil statt Klone
+- Style Anchor pro Bild
+- Visual-Form-Guards
+- World Lock
+- Cover-Text
+- No-Text bei BILD 02–NN
+- zweistufiges Cover-Gate
 
-- langer unveränderlicher Channel Style einmal pro Batch
-- kompakter identischer Style Anchor in jedem Bildprompt
-- Scene-Card-Komposition bleibt erhalten
-- Visual-Form-Guards bei empfindlichen Formen
-- exakter Cover-Text bei Bild 01
-- harte No-Text-Regel bei Bild 02–NN
-- zweistufiger manueller Cover-Gate
-- `flowPromptBuiltAt` in `video.json`
-
-Der kompilierten Datei darf kein Agent anschließend frei einen anderen Stil „hinzufügen“.
-
-### Keine generischen Render-Wörter
-
-V3 blockiert Style-Drift-Risikowörter wie:
-
-- `cinematic`
-- `epic`
-- `ultra detailed`
-- `hyper detailed`
-- `photographic`
-- `realistic lighting`
-- `depth of field`
-- `bokeh`
-
-Kamera, Licht, Tiefe und Stimmung stattdessen konkret beschreiben.
-
-## Phase H — Phase-1-Gate
-
-Nach dem Build:
+## Phase I — Phase-1-Gate
 
 ```bash
 npm run validate:youtube-phase1 -- --dir "youtube/<week>/<slug>"
 ```
 
-Erst nach bestandenem Gate darf Google Flow verwendet werden.
+Für Pipeline V4 werden zusätzlich verlangt:
 
-## Phase I — Google Flow / Assets
+- `youtubeUpload.title`
+- `youtubeUpload.description`
+- Narration-first Visual Planning aktiv
+- Figuren nicht als Default-Fallback
 
-### Stage 1 — Cover
+## Phase J — Google Flow
 
-- genau drei Bild-01-Kandidaten
-- identischer deutscher Cover-Text
-- fehlerhafte Schriftvarianten verwerfen
-- danach stoppen
-- Nutzer wählt selbst
+### Stage 1
 
-### Stage 2 — Rest
+- genau drei Cover-Kandidaten
+- danach STOP
+- Nutzer wählt
 
-Erst nach Nutzerwahl:
+### Stage 2
 
-- gewähltes Cover wird `Bild 01.png`
-- gewähltes Cover als zusätzliche Continuity-Referenz nutzen
-- BILD 02–NN jeweils einmal erzeugen
-- maximal fünf aktive Generierungen gleichzeitig
+- Gewinner = `Bild 01.png`
+- BILD 02–NN erzeugen
+- maximal fünf aktive Generierungen
 
-Nach Generierung Bilder visuell prüfen, bevor Phase 2 als fertig gilt.
+## Phase K — Phase 2 / Phase 3
 
-## Phase J — Nutzer-Voice / Render
-
-Danach greift die technische Pipeline:
+Nach finalen Bildern und Nutzer-Voice:
 
 ```text
-finale Nutzerstimme
+Phase 2
+→ PHASE3_IMAGE_LOCK
 → Audiooptimierung
 → Whisper Alignment
 → Timeline
 → Pacing QC
 → Remotion
-→ Export QC
 ```
 
-## Kurze Testvideos
+Phase 3 darf niemals Bilder erzeugen, ersetzen oder bearbeiten.
 
-Der langfristige Kanalrahmen liegt bei ungefähr 8–15 Minuten, wenn der Inhalt es trägt. Für Pipeline-, Stil- und Qualitätsprüfungen sind bewusst kurze Testvideos bis maximal **120 Sekunden** erlaubt.
+## Phase L — Export
 
-Bei Testvideos gelten dieselben Qualitätsregeln für Recherche, Skript und Bildwelt; nur Umfang und Zahl der Story-Schritte sind kleiner.
+Vor Finalisierung muss `video.json.youtubeUpload` gepflegt sein.
 
-## Style-Reference-Pack
+Finaler Ordner:
 
-Nach `13-STYLE-REFERENCE-PACK.md` wird ein Satz von neun freigegebenen Master-Referenzen aufgebaut.
+```text
+03-export/
+├── FINAL_VIDEO.mp4
+├── THUMBNAIL.png
+└── CAPTION.txt
+```
 
-Bis das Pack `READY` ist, gilt `config/flow-style-lock.json` als stärkste maschinenlesbare Style-Autorität.
-
-Nach `READY` werden pro Generierung nur die 2–4 passendsten Referenzen als Google-Flow-Ingredients genutzt. Sie ergänzen den Style Lock, ersetzen ihn nicht.
+`CAPTION.txt` enthält mindestens Titel + Beschreibung, optional Hashtags/Keywords und Thumbnail-Text.
 
 ## Produktionsprinzip
 
-Jede Phase soll den Fehler möglichst **vor** der nächsten Phase erkennen.
-
-Ein schwaches Thema nicht durch ein langes Skript retten.
-Ein schwaches Skript nicht durch mehr Bilder retten.
-Eine schwache Bildidee nicht durch einen längeren Prompt retten.
-Eine schwache Scene Card nicht durch den Compiler kaschieren.
-Einen nicht validierten Prompt nicht an Google Flow geben.
-Ein schlechtes Bild nicht durch stärkere Animation retten.
+Schwaches Thema nicht mit Länge retten.  
+Schwaches Skript nicht mit Bildern retten.  
+Unklaren Beat nicht mit einem zufälligen Figurenbild retten.  
+Unpassende Visual Form nicht mit Prompt-Länge retten.  
+Fehlende Bilder in Phase 3 niemals automatisch erzeugen.
