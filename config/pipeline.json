@@ -1,5 +1,5 @@
 {
-  "pipelineVersion": 3,
+  "pipelineVersion": 4,
   "projectSchemaVersion": 1,
   "languageDefault": "de",
   "aspectRatio": "16:9",
@@ -29,24 +29,32 @@
   "imagePolicy": {
     "fixedImageCountForbidden": true,
     "oneImageOneVisualPurpose": true,
-    "targetAverageHoldSeconds": [3, 5],
-    "reviewAboveSeconds": 6.5,
-    "preferSplitAboveSeconds": 8,
-    "hardMaximumSeconds": 10,
-    "minimumUsefulHoldSeconds": 1.8,
+    "oneNarrativeTakeawayPerImage": true,
+    "targetAverageHoldSeconds": [2.5, 4.2],
+    "reviewAboveSeconds": 5.5,
+    "preferSplitAboveSeconds": 7,
+    "hardMaximumSeconds": 9,
+    "minimumUsefulHoldSeconds": 1.6,
     "maxConcurrentGenerations": 5,
     "nonCoverGenerationCount": 1,
     "finalImageDirectory": "00-bildprompts/images",
     "storyBeatDrivenPlanning": true,
     "newNarrativeBeatRequiresVisualReview": true,
     "newSubjectActionCauseTimeOrPlaceSuggestsNewVisual": true,
+    "visualMustSupportCurrentNarration": true,
+    "visualFormMustBeChosenForMeaningNotHabit": true,
+    "figuresMustNotBeDefaultFallback": true,
     "multiMomentIllustrationAllowed": true,
     "multiMomentIllustrationMaxMoments": 3,
     "multiMomentMustShareOneTakeaway": true,
+    "detailInsetAllowed": true,
+    "cutawaySectionAllowed": true,
+    "evidenceReconstructionAllowed": true,
     "denseCollageStillForbidden": true,
     "shortVideoVisualGuidance": {
-      "approximately60Seconds": [14, 20],
-      "approximately120Seconds": [26, 36],
+      "approximately60Seconds": [18, 26],
+      "approximately90Seconds": [24, 34],
+      "approximately120Seconds": [32, 44],
       "guidanceOnly": true,
       "contentDrivenAlwaysWins": true
     }
@@ -88,5 +96,16 @@
     "crf": 18,
     "backgroundMusic": false,
     "subtitles": false
+  },
+  "exportPolicy": {
+    "finalVideoFile": "03-export/FINAL_VIDEO.mp4",
+    "thumbnailFile": "03-export/THUMBNAIL.png",
+    "captionFile": "03-export/CAPTION.txt",
+    "captionRequired": true,
+    "captionContainsTitle": true,
+    "captionContainsDescription": true,
+    "captionMayContainHashtags": true,
+    "captionMayContainKeywords": true,
+    "thumbnailTextIncludedInCaption": true
   }
 }
