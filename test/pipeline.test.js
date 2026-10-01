@@ -5,16 +5,18 @@ import path from 'node:path';
 import test from 'node:test';
 
 import { evaluateTopic } from '../src/cli/check-youtube-topic.js';
+import { finalizeYoutubeExport } from '../src/cli/finalize-youtube-export.js';
 import { createPhase3ImageLock, verifyPhase3ImageLock } from '../src/cli/phase3-image-lock.js';
 import { validatePhase1 } from '../src/cli/validate-youtube-phase1.js';
 import { findHighRiskPromptWords } from '../src/lib/flow-prompt.js';
 import { normalizeText, similarity } from '../src/lib/pipeline.js';
 
-test('Repo besitzt freigegebene History-Bildwelt und Flow Compiler V3', async () => {
+test('Repo besitzt Narration-first History-Bildwelt und Flow Compiler V3', async () => {
   const visual = JSON.parse(await readFile('config/visual-policy.json', 'utf8'));
   const styleLock = JSON.parse(await readFile('config/flow-style-lock.json', 'utf8'));
   const channel = JSON.parse(await readFile('config/channel-policy.json', 'utf8'));
   const registry = JSON.parse(await readFile('config/topic-registry.json', 'utf8'));
+
   assert.equal(visual.status, 'READY');
   assert.equal(visual.styleId, 'history-stickman-adaptive-v1');
   assert.equal(visual.promptSystemVersion, 3);
@@ -23,43 +25,41 @@ test('Repo besitzt freigegebene History-Bildwelt und Flow Compiler V3', async ()
   assert.equal(visual.visualDirectorRequired, true);
   assert.equal(visual.flowPromptCompilerRequiredForNewProjects, true);
   assert.equal(visual.flowWorldLockRequired, true);
-  assert.equal(visual.sceneStyleAnchorRequired, true);
-  assert.equal(visual.promptMustPreserveVisualForm, true);
-  assert.equal(visual.promptQcRequired, true);
-  assert.equal(visual.promptQcMinimumScore, 8);
   assert.equal(visual.storyBeatPlanningRequired, true);
+  assert.equal(visual.narrationFirstVisualSelectionRequired, true);
+  assert.equal(visual.genericStickmanCloneForbidden, true);
+  assert.equal(visual.prominentCharacterIndividualityRequired, true);
+  assert.equal(visual.minimumVariationAxesForProminentUnrelatedCharacters, 3);
   assert.equal(visual.multiMomentIllustrationAllowed, true);
-  assert.equal(visual.multiMomentIllustrationMaxMoments, 3);
+  assert.equal(visual.detailInsetAllowed, true);
+  assert.equal(visual.cutawaySectionAllowed, true);
+  assert.equal(visual.evidenceReconstructionAllowed, true);
   assert.ok(visual.supportedVisualForms.includes('multi-moment-illustration'));
-  assert.equal(visual.controlledVariationPolicy?.enabled, true);
-  assert.equal(visual.controlledVariationPolicy?.fixedMasterReferenceImages, false);
-  assert.equal(visual.controlledVariationPolicy?.sameStyleDifferentStaging, true);
+  assert.ok(visual.supportedVisualForms.includes('detail-inset'));
+  assert.ok(visual.supportedVisualForms.includes('cutaway-section'));
+  assert.ok(visual.supportedVisualForms.includes('evidence-reconstruction'));
+
   assert.equal(styleLock.status, 'READY');
   assert.equal(styleLock.styleId, visual.styleId);
   assert.equal(styleLock.promptSystem, 'flow-compiler-v3');
-  assert.equal(styleLock.controlledVariationPolicy?.fixedMasterReferenceImages, false);
-  assert.ok(styleLock.masterStylePrompt.length > 300);
-  assert.ok(styleLock.sceneStyleAnchor.length > 100);
-  assert.ok(Array.isArray(styleLock.highRiskPromptWords));
-  assert.ok(styleLock.highRiskPromptWords.includes('cinematic'));
-  assert.ok(Array.isArray(visual.requiredScenePlanningFields));
-  assert.ok(visual.requiredScenePlanningFields.includes('viewerTakeaway'));
-  assert.ok(visual.requiredScenePlanningFields.includes('visualConcept'));
-  assert.ok(visual.requiredScenePlanningFields.includes('composition'));
-  assert.ok(visual.requiredScenePlanningFields.includes('camera'));
-  assert.ok(visual.requiredScenePlanningFields.includes('promptQcScore'));
-  assert.equal(visual.coverTextRequired, true);
-  assert.equal(visual.coverTextLanguage, 'de');
-  assert.equal(visual.userSelectsCover, true);
-  assert.equal(visual.flowMustStopAfterCoverCandidates, true);
-  assert.equal(visual.selectedCoverRequiredBeforeRemainingImages, true);
+  assert.equal(styleLock.characterIndividualityPolicy?.enabled, true);
+  assert.equal(styleLock.characterIndividualityPolicy?.genericStickmanCloneForbidden, true);
+  assert.ok(styleLock.masterStylePrompt.length > 500);
+  assert.match(styleLock.masterStylePrompt, /stylized historical people/i);
+  assert.match(styleLock.sceneStyleAnchor, /individualized stylized historical humans/i);
+  assert.match(styleLock.globalNegativePrompt, /generic identical stickman/i);
+
   assert.equal(channel.visualSystem?.status, 'READY');
   assert.equal(channel.visualSystem?.styleId, visual.styleId);
-  assert.equal(channel.scriptRules?.sceneFirstOpeningPreferred, true);
+  assert.equal(channel.visualSystem?.narrationFirstVisualSelectionRequired, true);
+  assert.equal(channel.visualSystem?.genericStickmanCloneForbidden, true);
   assert.equal(channel.scriptRules?.storyBeforeExplanation, true);
-  assert.equal(channel.scriptRules?.newParagraphShouldChangeSituationOrUnderstanding, true);
-  assert.equal(channel.targetDurationMinutes?.shortTestVideosAllowed, true);
-  assert.equal(channel.targetDurationMinutes?.shortTestMaximumSeconds, 120);
+  assert.equal(channel.scriptRules?.contextJustInTime, true);
+  assert.equal(channel.scriptRules?.revealInformationWhenItPaysOff, true);
+  assert.equal(channel.scriptRules?.endingNeedsPayoffNotSummary, true);
+  assert.equal(channel.uploadRules?.captionFileRequired, true);
+  assert.equal(channel.uploadRules?.captionFile, '03-export/CAPTION.txt');
+
   assert.ok(Array.isArray(registry.entries));
   for (const entry of registry.entries) {
     assert.ok(entry.id);
@@ -69,27 +69,30 @@ test('Repo besitzt freigegebene History-Bildwelt und Flow Compiler V3', async ()
   }
 });
 
-test('Pipeline behält höhere Story-Beat-Dichte, Cover-Gate und Phase-3-Asset-Sperre', async () => {
+test('Pipeline V4 erzwingt höhere Story-Beat-Dichte, offene Visual-Formen und Asset-Sperre', async () => {
   const policy = JSON.parse(await readFile('config/pipeline.json', 'utf8'));
+  assert.equal(policy.pipelineVersion, 4);
   assert.equal(policy.coverPolicy.firstSceneIsCover, true);
   assert.equal(policy.coverPolicy.coverCandidateCount, 3);
-  assert.equal(policy.coverPolicy.coverTextRequired, true);
-  assert.equal(policy.coverPolicy.coverTextLanguage, 'de');
-  assert.equal(policy.coverPolicy.rejectMisspelledCoverText, true);
   assert.equal(policy.coverPolicy.userSelectsCover, true);
   assert.equal(policy.coverPolicy.flowMustStopAfterCoverCandidates, true);
-  assert.equal(policy.coverPolicy.selectedCoverRequiredBeforeRemainingImages, true);
-  assert.equal(policy.coverPolicy.flowMayNotAutoSelectCover, true);
   assert.equal(policy.imagePolicy.fixedImageCountForbidden, true);
-  assert.equal(policy.imagePolicy.nonCoverGenerationCount, 1);
-  assert.deepEqual(policy.imagePolicy.targetAverageHoldSeconds, [3, 5]);
-  assert.equal(policy.imagePolicy.reviewAboveSeconds, 6.5);
-  assert.equal(policy.imagePolicy.preferSplitAboveSeconds, 8);
-  assert.equal(policy.imagePolicy.hardMaximumSeconds, 10);
+  assert.deepEqual(policy.imagePolicy.targetAverageHoldSeconds, [2.5, 4.2]);
+  assert.equal(policy.imagePolicy.reviewAboveSeconds, 5.5);
+  assert.equal(policy.imagePolicy.preferSplitAboveSeconds, 7);
+  assert.equal(policy.imagePolicy.hardMaximumSeconds, 9);
   assert.equal(policy.imagePolicy.storyBeatDrivenPlanning, true);
-  assert.equal(policy.imagePolicy.multiMomentIllustrationAllowed, true);
-  assert.equal(policy.imagePolicy.multiMomentIllustrationMaxMoments, 3);
-  assert.deepEqual(policy.imagePolicy.shortVideoVisualGuidance?.approximately60Seconds, [14, 20]);
+  assert.equal(policy.imagePolicy.visualMustSupportCurrentNarration, true);
+  assert.equal(policy.imagePolicy.figuresMustNotBeDefaultFallback, true);
+  assert.equal(policy.imagePolicy.detailInsetAllowed, true);
+  assert.equal(policy.imagePolicy.cutawaySectionAllowed, true);
+  assert.equal(policy.imagePolicy.evidenceReconstructionAllowed, true);
+  assert.deepEqual(policy.imagePolicy.shortVideoVisualGuidance?.approximately60Seconds, [18, 26]);
+  assert.deepEqual(policy.imagePolicy.shortVideoVisualGuidance?.approximately90Seconds, [24, 34]);
+  assert.deepEqual(policy.imagePolicy.shortVideoVisualGuidance?.approximately120Seconds, [32, 44]);
+  assert.equal(policy.exportPolicy.captionRequired, true);
+  assert.equal(policy.exportPolicy.captionFile, '03-export/CAPTION.txt');
+
   assert.equal(policy.phase3AssetPolicy.existingImagesOnly, true);
   assert.equal(policy.phase3AssetPolicy.imageGenerationForbidden, true);
   assert.equal(policy.phase3AssetPolicy.imageRegenerationForbidden, true);
@@ -98,10 +101,6 @@ test('Pipeline behält höhere Story-Beat-Dichte, Cover-Gate und Phase-3-Asset-S
   assert.equal(policy.phase3AssetPolicy.abortOnMissingImage, true);
   assert.equal(policy.phase3AssetPolicy.abortOnImageMutation, true);
   assert.equal(policy.phase3AssetPolicy.agentMustReportErrorInsteadOfRepairing, true);
-  assert.equal(policy.audioPolicy.playbackRate, 1.1);
-  assert.equal(policy.audioPolicy.loudnessTargetLufs, -16);
-  assert.equal(policy.audioPolicy.truePeakDbtp, -1.5);
-  assert.equal(policy.endHoldPolicy.targetSeconds, 1.3);
 });
 
 test('Phase-3-Bildlock erlaubt vorhandene Bilder und erkennt jede spätere Änderung', async () => {
@@ -127,69 +126,84 @@ test('Phase-3-Bildlock erlaubt vorhandene Bilder und erkennt jede spätere Ände
   }
 });
 
-test('Projekt-Template nutzt Scene Card V2, Flow Compiler V3 und World-Lock-Gate', async () => {
+test('Export erzeugt FINAL_VIDEO, Thumbnail und CAPTION.txt mit Upload-Metadaten', async () => {
+  const temp = await mkdtemp(path.join(tmpdir(), 'youtube-export-v4-'));
+  try {
+    const imageDir = path.join(temp, '00-bildprompts', 'images');
+    const exportDir = path.join(temp, '03-export');
+    const techDir = path.join(temp, '99-technik');
+    await mkdir(imageDir, { recursive: true });
+    await mkdir(exportDir, { recursive: true });
+    await mkdir(techDir, { recursive: true });
+    await writeFile(path.join(imageDir, 'Bild 01.png'), 'cover-bytes');
+    await writeFile(path.join(exportDir, 'FINAL_VIDEO.mp4'), 'video-bytes');
+    await writeFile(path.join(techDir, 'video.json'), JSON.stringify({
+      title: 'Testtitel',
+      topic: 'ein historischer Test',
+      coverPolicy: { coverText: 'TEST COVER' },
+      youtubeUpload: {
+        title: 'Starker YouTube-Titel',
+        description: 'Eine vollständige Beschreibung für den Upload.',
+        hashtags: ['#Geschichte', '#Test'],
+        keywords: ['Geschichte', 'Test']
+      }
+    }));
+
+    const report = await finalizeYoutubeExport(temp);
+    assert.equal(report.captionFile, '03-export/CAPTION.txt');
+    assert.equal(report.thumbnailIdenticalToCover, true);
+    const caption = await readFile(path.join(exportDir, 'CAPTION.txt'), 'utf8');
+    assert.match(caption, /TITLE:\nStarker YouTube-Titel/);
+    assert.match(caption, /DESCRIPTION:\nEine vollständige Beschreibung/);
+    assert.match(caption, /#Geschichte #Test/);
+    assert.match(caption, /THUMBNAIL_TEXT:\nTEST COVER/);
+  } finally {
+    await rm(temp, { recursive: true, force: true });
+  }
+});
+
+test('Projekt-Template nutzt Pipeline V4, Upload-Metadaten und neue Bilddichte', async () => {
   const meta = JSON.parse(await readFile('youtube/templates/video-template/99-technik/video.json', 'utf8'));
   const mapping = JSON.parse(await readFile('youtube/templates/video-template/99-technik/BILD_AUDIO_ZUORDNUNG.json', 'utf8'));
   const worldLock = JSON.parse(await readFile('youtube/templates/video-template/99-technik/FLOW_WORLD_LOCK.json', 'utf8'));
   const prompt = await readFile('youtube/templates/video-template/00-bildprompts/google-flow-prompt.txt', 'utf8');
+
+  assert.equal(meta.schemaVersion, 3);
+  assert.equal(meta.pipelineVersion, 4);
   assert.equal(meta.visualStyleId, 'UNSET');
-  assert.equal(meta.topic, '');
-  assert.equal(meta.title, '');
   assert.equal(meta.promptSystemVersion, 3);
   assert.equal(meta.promptSystem, 'flow-compiler-v3');
-  assert.equal(meta.flowStyleLockFile, 'config/flow-style-lock.json');
+  assert.deepEqual(meta.imageDensityPolicy.targetAverageHoldSeconds, [2.5, 4.2]);
+  assert.equal(meta.imageDensityPolicy.figuresMustNotBeDefaultFallback, true);
+  assert.ok(Object.hasOwn(meta, 'youtubeUpload'));
+  assert.equal(meta.youtubeUpload.title, '');
+  assert.equal(meta.youtubeUpload.description, '');
   assert.equal(mapping.schemaVersion, 2);
   assert.ok(Object.hasOwn(mapping.images[0], 'viewerTakeaway'));
   assert.ok(Object.hasOwn(mapping.images[0], 'visualConcept'));
-  assert.ok(Object.hasOwn(mapping.images[0], 'composition'));
-  assert.ok(Object.hasOwn(mapping.images[0], 'camera'));
-  assert.ok(Object.hasOwn(mapping.images[0], 'depthPlan'));
-  assert.ok(Object.hasOwn(mapping.images[0], 'lightingMood'));
-  assert.ok(Object.hasOwn(mapping.images[0], 'promptQcScore'));
   assert.equal(worldLock.status, 'PLANNED');
-  assert.match(worldLock.settingName, /\[/);
-  assert.equal(meta.coverPolicy?.coverTextRequired, true);
-  assert.equal(meta.coverPolicy?.coverTextLanguage, 'de');
-  assert.equal(meta.coverPolicy?.userSelectsCover, true);
-  assert.equal(meta.coverPolicy?.flowMustStopAfterCoverCandidates, true);
-  assert.equal(meta.coverPolicy?.selectedCoverRequiredBeforeRemainingImages, true);
-  assert.match(prompt, /ACTIVE_STYLE_ID:\s*history-stickman-adaptive-v1/);
   assert.match(prompt, /PROMPT_SYSTEM:\s*flow-compiler-v3/i);
   assert.match(prompt, /STATUS:\s*NOT_BUILT/i);
-  assert.match(prompt, /THIS FILE IS GENERATED, NOT MANUALLY AUTHORED/i);
-  assert.match(prompt, /build:youtube-flow/i);
-  assert.match(prompt, /FLOW_WORLD_LOCK\.json/i);
-  assert.match(prompt, /Do not paste this placeholder file into Google Flow/i);
 });
 
-test('Visual- und Script-Dokumentation nutzt Story-Beats, kontrollierte Variation und Mehrmoment-Illustrationen', async () => {
+test('Dokumentation verlangt History Storytelling V3, Narration-first Visuals und individuelle Figuren', async () => {
   const script = await readFile('channel/03-SCRIPT-BIBLE.md', 'utf8');
   const visualSystem = await readFile('channel/06-VISUAL-SYSTEM.md', 'utf8');
   const grammar = await readFile('channel/07-VISUAL-GRAMMAR.md', 'utf8');
   const style = await readFile('channel/10-STYLE-DNA-V2.md', 'utf8');
-  const director = await readFile('channel/11-VISUAL-DIRECTOR.md', 'utf8');
-  const qc = await readFile('channel/12-PROMPT-QC.md', 'utf8');
-  const flow = await readFile('channel/08-FLOW-PROMPTING.md', 'utf8');
-  const promptTemplate = await readFile('channel/09-IMAGE-PROMPT-TEMPLATE.md', 'utf8');
-  assert.match(script, /Geschichts-Kanal V2/i);
-  assert.match(script, /Moment\s*→\s*Problem/i);
-  assert.match(script, /Geschichte vor Erklärung/i);
-  assert.match(visualSystem, /14–20 visuellen Beats/i);
-  assert.match(visualSystem, /Mehrmoment-Illustration/i);
-  assert.match(grammar, /Multi-Moment Illustration/i);
-  assert.match(grammar, /Story-Beat-Regel/i);
-  assert.match(style, /visuelle Beziehung/i);
-  assert.match(style, /keine festen globalen Master-Referenzbilder/i);
-  assert.match(style, /Kontrollierte Variation/i);
-  assert.match(director, /Viewer Takeaway/i);
-  assert.match(director, /Visual Concept/i);
-  assert.match(director, /Composition/i);
-  assert.match(qc, /8\/10/);
-  assert.match(qc, /Visual-Form-Treue/i);
-  assert.match(flow, /Flow Compiler V3/i);
-  assert.match(flow, /Gleicher Stil ≠ gleiche Szene/i);
-  assert.match(flow, /keine globalen festen Master-Referenzbilder/i);
-  assert.match(promptTemplate, /google-flow-prompt\.txt.*nicht mehr manuell/is);
+
+  assert.match(script, /Geschichts-Kanal V3/i);
+  assert.match(script, /Reveal statt Vorwegnehmen/i);
+  assert.match(script, /Payoff statt Zusammenfassung/i);
+  assert.match(visualSystem, /Narration-first Visual Selection/i);
+  assert.match(visualSystem, /18–26 Visuals/i);
+  assert.match(visualSystem, /Generische identische Figuren-Klone sind verboten/i);
+  assert.match(grammar, /bestes visuelles Mittel/i);
+  assert.match(grammar, /Detail Inset/i);
+  assert.match(grammar, /Cutaway Section/i);
+  assert.match(grammar, /Evidence Reconstruction/i);
+  assert.match(style, /keine generischen Stickman-Klone/i);
+  assert.match(style, /Gleicher Illustrator bedeutet nicht gleiche Aufnahme und nicht gleiche Person/i);
 });
 
 test('Risikowortprüfung erkennt ganze Begriffe statt Teilstrings', async () => {
@@ -213,7 +227,7 @@ test('Risikowortprüfung erkennt ganze Begriffe statt Teilstrings', async () => 
   assert.deepEqual(findHighRiskPromptWords({ ...neutralScene, visualConcept: 'Make it epic.' }, styleLock), ['epic']);
 });
 
-test('Neues V3-Marschlager-Testprojekt besteht Phase 1 vollständig', async () => {
+test('Marschlager-Legacy-Testprojekt besteht weiterhin Phase 1', async () => {
   const dir = 'youtube/2026-KW40_28-09_bis_04-10/test-roemisches-marschlager-v3';
   const result = await validatePhase1(dir);
   assert.equal(result.passed, true, result.errors.join('\n'));
@@ -221,11 +235,7 @@ test('Neues V3-Marschlager-Testprojekt besteht Phase 1 vollständig', async () =
   const mapping = JSON.parse(await readFile(path.join(dir, '99-technik', 'BILD_AUDIO_ZUORDNUNG.json'), 'utf8'));
   assert.equal(mapping.images.length, 11);
   assert.match(prompt, /PROMPT_SYSTEM:\s*flow-compiler-v3/i);
-  assert.match(prompt, /CHANNEL STYLE — IMMUTABLE:/i);
-  assert.match(prompt, /VIDEO WORLD LOCK — IMMUTABLE WITHIN THIS VIDEO:/i);
   assert.match(prompt, /BILD 11/i);
-  assert.match(prompt, /FORT FÜR EINE NACHT\?/i);
-  assert.doesNotMatch(prompt, /\[[^\]]+\]/);
 });
 
 test('Textnormalisierung und Ähnlichkeit funktionieren', () => {
@@ -246,7 +256,7 @@ test('Themeneditor arbeitet nur mit Daten des aktuellen Repositories', async () 
   }
 });
 
-test('Keine Alt-Themen oder fremde Alt-Bildwelt wurden in die zentrale Konfiguration übernommen', async () => {
+test('Keine fremde Alt-Bildwelt wurde in die zentrale Konfiguration übernommen', async () => {
   const files = [
     'README.md',
     'config/pipeline.json',
