@@ -1,6 +1,8 @@
 {
   "schemaVersion": 3,
   "pipelineVersion": 4,
+  "visualInterestGateVersion": 1,
+  "phase2VisualQcRequired": true,
   "videoId": "",
   "weekFolder": "",
   "topicSlug": "",
