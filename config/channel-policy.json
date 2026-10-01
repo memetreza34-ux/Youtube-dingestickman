@@ -1,10 +1,10 @@
 {
-  "channelPolicyVersion": 7,
+  "channelPolicyVersion": 8,
   "channelType": "history",
   "language": "de",
-  "status": "CHANNEL_DNA_V1_TOPIC_DIRECTOR_V2_HISTORY_STORYTELLING_V3_VISUAL_V2_FLOW_COMPILER_V3_READY",
+  "status": "CHANNEL_DNA_V1_TOPIC_DIRECTOR_V2_HISTORY_STORYTELLING_V3_STORY_QUALITY_GATE_V1_VISUAL_INTEREST_GATE_V1_FLOW_COMPILER_V3_READY",
   "positioning": "History x Storytelling x Curiosity",
-  "corePromise": "Historische Geschichten spannend, verständlich, visuell klar und historisch sauber erzählen — mit echten Story-Beats statt trockener Erklärung.",
+  "corePromise": "Historische Geschichten spannend, verständlich, visuell klar und historisch sauber erzählen — mit echten Story-Beats, sinnvoller historischer Bedeutung und abwechslungsreichen Visuals statt trockener Erklärung oder bloßer Kuriositäten.",
   "targetDurationMinutes": {
     "preferredMin": 8,
     "preferredMax": 15,
@@ -39,6 +39,17 @@
     "war_beyond_battles",
     "strange_history_with_larger_point"
   ],
+  "storyQualityGate": {
+    "version": 1,
+    "policyFile": "channel/16-STORY-QUALITY-GATE.md",
+    "meaningBeyondAnecdoteRequired": true,
+    "centralStorySpineRequired": true,
+    "maxConsecutivePurePersonalityCuriosityBeats": 2,
+    "minorAnecdotesMustBeCompressedOrCutWhenNonEssential": true,
+    "everyBeatNeedsStoryFunction": true,
+    "endingNeedsHistoricalMeaningBeyondResolution": true,
+    "rejectFamousPersonDoesSomethingWeirdAsSolePremise": true
+  },
   "scriptRules": {
     "coldOpenRequired": true,
     "greetingIntroForbidden": true,
@@ -69,7 +80,9 @@
     "endingNeedsPayoffNotSummary": true,
     "endingShouldReturnToOpeningImageOrQuestionWhenUseful": true,
     "avoidRepeatingConclusion": true,
-    "scriptMustWorkBeforeVisualPlanning": true
+    "scriptMustWorkBeforeVisualPlanning": true,
+    "personalityTriviaMustNotReplaceHistoricalMechanism": true,
+    "minorSourceAnecdoteChainsForbidden": true
   },
   "researchRules": {
     "sourceDocumentationRequired": true,
@@ -97,10 +110,13 @@
     "promptSystemVersion": 3,
     "promptSystem": "flow-compiler-v3",
     "scenePlanningSchemaVersion": 2,
+    "visualInterestGateVersion": 1,
     "visualPolicyFile": "config/visual-policy.json",
     "flowStyleLockFile": "config/flow-style-lock.json",
     "visualSystemFile": "channel/06-VISUAL-SYSTEM.md",
     "visualGrammarFile": "channel/07-VISUAL-GRAMMAR.md",
+    "visualInterestQcFile": "channel/15-VISUAL-INTEREST-QC.md",
+    "storyQualityGateFile": "channel/16-STORY-QUALITY-GATE.md",
     "flowPromptingFile": "channel/08-FLOW-PROMPTING.md",
     "imagePromptTemplateFile": "channel/09-IMAGE-PROMPT-TEMPLATE.md",
     "styleDnaFile": "channel/10-STYLE-DNA-V2.md",
@@ -109,11 +125,16 @@
     "flowPromptCompilerFile": "src/lib/flow-prompt.js",
     "flowPromptBuilderFile": "src/cli/build-youtube-flow-prompt.js",
     "flowWorldLockTemplate": "youtube/templates/video-template/99-technik/FLOW_WORLD_LOCK.json",
+    "phase2VisualQcTemplate": "youtube/templates/video-template/99-technik/PHASE2_VISUAL_QC.json",
     "promptQcMinimumScore": 8,
     "humanCharactersRequired": false,
     "genericStickmanCloneForbidden": true,
     "prominentCharacterIndividualityRequired": true,
     "narrationFirstVisualSelectionRequired": true,
+    "visualInterestRequired": true,
+    "nonCoverVisibleTextForbidden": true,
+    "imageNumbersInsideImagesForbidden": true,
+    "phase2VisualQcRequiredForNewProjects": true,
     "flowWorldLockRequired": true,
     "compiledPromptRequiredForNewProjects": true,
     "doNotInferFromRepositoryName": true,
