@@ -1,0 +1,34 @@
+ACTIVE_STYLE_ID: history-stickman-adaptive-v1
+PROMPT_SYSTEM: flow-compiler-v3
+STATUS: NOT_BUILT
+
+GOOGLE FLOW MASTER PROMPT — Piraten entführten Julius Caesar – dann kam er zurück
+
+THIS FILE IS GENERATED, NOT MANUALLY AUTHORED.
+
+The project inputs are already prepared:
+- voice-over script complete
+- 30 Scene Card V2 entries complete
+- cover text: CAESAR KAM ZURÜCK
+- FLOW_WORLD_LOCK.json: READY
+- every Scene Card promptQcScore >= 8
+- YouTube upload caption prepared
+
+Before using Google Flow, run exactly:
+
+npm run build:youtube-flow -- --dir "youtube/2026-KW40_28-09_bis_04-10/caesar-piraten"
+
+Then run:
+
+npm run validate:youtube-phase1 -- --dir "youtube/2026-KW40_28-09_bis_04-10/caesar-piraten"
+
+The build command must replace this placeholder with the final Google Flow master prompt using:
+- config/flow-style-lock.json
+- config/visual-policy.json
+- the READY Caesar video world lock
+- all 30 Scene Card V2 entries
+- the exact cover text CAESAR KAM ZURÜCK
+- the mandatory two-stage cover gate
+
+Do not paste this placeholder file into Google Flow.
+Do not manually rewrite the compiled prompt after build.
