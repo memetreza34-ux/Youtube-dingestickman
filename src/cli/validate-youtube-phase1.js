@@ -76,6 +76,7 @@ export async function validatePhase1(projectDirectory) {
   ]);
 
   const compilerV3 = Number(meta.promptSystemVersion) >= 3 || meta.promptSystem === 'flow-compiler-v3';
+  const pipelineV4 = Number(meta.pipelineVersion) >= 4;
   let styleLock = null;
   let worldLock = null;
 
@@ -95,6 +96,13 @@ export async function validatePhase1(projectDirectory) {
   if (!Number.isInteger(meta.plannedImageCount) || meta.plannedImageCount < 1) errors.push('plannedImageCount muss in Phase 1 auf eine inhaltsgetriebene Bildzahl gesetzt werden.');
   if (!Number.isFinite(Number(meta.targetDurationSeconds)) || Number(meta.targetDurationSeconds) <= 0) errors.push('targetDurationSeconds fehlt.');
   if (meta.imageDensityPolicy?.fixedImageCountForbidden !== true) errors.push('Adaptive Bilddichte muss aktiv sein.');
+
+  if (pipelineV4) {
+    if (!nonEmpty(meta.youtubeUpload?.title)) errors.push('Pipeline V4 benötigt youtubeUpload.title für CAPTION.txt.');
+    if (!nonEmpty(meta.youtubeUpload?.description)) errors.push('Pipeline V4 benötigt youtubeUpload.description für CAPTION.txt.');
+    if (meta.imageDensityPolicy?.visualMustSupportCurrentNarration !== true) errors.push('Pipeline V4 benötigt narration-first Visual Planning: visualMustSupportCurrentNarration=true.');
+    if (meta.imageDensityPolicy?.figuresMustNotBeDefaultFallback !== true) errors.push('Pipeline V4 verlangt: Figuren dürfen kein automatischer Visual-Fallback sein.');
+  }
 
   const coverText = String(meta.coverPolicy?.coverText ?? '').trim();
   if (!coverText) errors.push('coverPolicy.coverText fehlt.');
