@@ -1,25 +1,16 @@
-# History Image Prompt Template — Flow Compiler V3
+# History Image Prompt Template — Flow Compiler V3 / Pipeline V4
 
 ## Zweck
 
-Dieses Dokument beschreibt, **wie die interne Scene Card in den finalen Google-Flow-Prompt übersetzt wird**.
+Beschreibt, wie eine geprüfte Scene Card in den finalen Google-Flow-Prompt übersetzt wird.
 
-Neue Produktionen schreiben `google-flow-prompt.txt` nicht mehr manuell. Die verbindliche Implementierung liegt in:
-
-```text
-src/lib/flow-prompt.js
-src/cli/build-youtube-flow-prompt.js
-```
-
-Build-Befehl:
+Der finale Prompt wird nicht manuell geschrieben.
 
 ```bash
 npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
 ```
 
-## 1. Eingaben des Compilers
-
-Der Compiler benötigt vier Quellen:
+## Eingaben
 
 ```text
 99-technik/video.json
@@ -28,20 +19,20 @@ Der Compiler benötigt vier Quellen:
 config/flow-style-lock.json
 ```
 
-### video.json
+## Narration-first vor Prompting
 
-Liefert unter anderem:
+Bevor ein Prompt kompiliert wird, muss bereits entschieden sein:
 
-- Titel
-- Thema
-- Style-ID
-- Bildzahl
-- Seitenverhältnis
-- exakten deutschen Cover-Text
+```text
+Was sagt der Sprecher genau jetzt?
+→ Was muss der Zuschauer verstehen?
+→ Welches visuelle Mittel zeigt das am besten?
+→ erst dann Visual Concept + Visual Form
+```
 
-### BILD_AUDIO_ZUORDNUNG.json
+Ein generisches Figurenbild ist kein zulässiger Ersatz für eine bessere Karte, Objektansicht, Prozessdarstellung, Übersicht oder andere passendere Form.
 
-Enthält die Scene Card V2 pro Bild:
+## Scene Card V2
 
 ```text
 viewerTakeaway
@@ -61,55 +52,89 @@ historicalAccuracyNote
 promptQcScore
 ```
 
-### FLOW_WORLD_LOCK.json
-
-Fixiert die videospezifische Welt und muss vor dem Build `READY` sein.
-
-### flow-style-lock.json
-
-Fixiert die kanalweite Rendering-DNA und muss `READY` sein.
-
-## 2. Compiler-Reihenfolge pro Bild
-
-Jeder natürliche Einzelprompt wird inhaltlich in dieser Reihenfolge zusammengesetzt:
+## Compiler-Reihenfolge pro Bild
 
 ```text
-1. kompakter unveränderlicher Style Anchor
-2. Visual Concept / Bildidee
+1. Style Anchor
+2. Visual Concept
 3. Dominant Subject + Action/State
 4. Composition
 5. Camera
 6. Depth Plan
 7. Lighting / Mood
-8. maximal 1–3 Supporting Elements
-9. Visual-Form-Guard, falls nötig
-10. Continuity Note
-11. Historical Accuracy Note
+8. Supporting Elements
+9. Visual-Form-Guard
+10. Continuity
+11. Historical Accuracy
 12. Cover-Text oder No-Text-Regel
 ```
 
-Die internen Feldnamen werden nicht als Formular ausgegeben. Das Ergebnis bleibt ein natürlicher direkter Prompt.
+Der natürliche Prompt enthält keine Formularüberschriften.
 
-## 3. Warum der Style Anchor pro Bild Pflicht ist
+## Figuren
 
-Der lange `CHANNEL STYLE — IMMUTABLE` wird einmal für den gesamten Batch definiert.
+Der aktuelle Style Anchor verlangt:
 
-Zusätzlich beginnt jeder Bildprompt mit demselben kurzen Style Anchor aus `config/flow-style-lock.json`.
+- stilisierte, menschlich lesbare historische Menschen
+- keine generischen identischen Stickman-Klone
+- wiederkehrende Figuren konsistent
+- prominente unterschiedliche Personen sichtbar individualisiert
 
-Dadurch ist die Priorität eindeutig:
+Individualität kann entstehen über:
 
-```text
-Rendering-DNA bleibt gleich
-→ Szene und Epoche dürfen wechseln
-→ Kamera und Stimmung dürfen wechseln
-→ Stil darf nicht wechseln
-```
+- Alterseindruck
+- Gesicht
+- Haare/Bart
+- Kopfbedeckung
+- Größe/Statur
+- Kleidungssilhouette
+- Ausrüstung
+- Haltung/Geste
 
-Der Anchor ist absichtlich kompakt. Einzelprompts dürfen nicht mit immer neuen Style-Synonymen aufgebläht werden.
+## Visual-Form-Guards
 
-## 4. Style-Drift-Sperre
+### `comparison`
+Beide Vergleichspole sichtbar.
 
-Folgende generische Wörter sind in den Scene Cards für V3 unerwünscht und werden durch den Compiler/Validator blockiert:
+### `cause-effect`
+Ursache und Folge sichtbar verbunden.
+
+### `process-sequence`
+Ablauf/Zustandsänderung sofort lesbar.
+
+### `system-hierarchy`
+Struktur räumlich statt Corporate-Diagramm.
+
+### `battle-city-overview`
+Räumliche Lage bleibt Hauptaussage.
+
+### `object-focus`
+Objekt trägt den Beat; Hintergrund sekundär.
+
+### `character-scene`
+Handlung/Haltung/Beziehung trägt die Aussage; prominente unrelated characters nicht klonen.
+
+### `multi-moment-illustration`
+Nur 2–3 eng zusammenhängende Momente, ein Takeaway, eindeutige Leserichtung.
+
+### `detail-inset`
+Eine dominante Hauptszene + genau ein untergeordnetes vergrößertes Detail. Keine Beschriftungstafel.
+
+### `cutaway-section`
+Verborgene räumliche Struktur über einen einfachen Schnitt sichtbar machen. Außenkontext erhalten.
+
+### `evidence-reconstruction`
+Ein historisches Indiz/Objekt/Fragment mit einer stilisierten Rekonstruktion verbinden; Unsicherheit nicht verschleiern.
+
+## Style Anchor
+
+Der lange Channel Style steht einmal im Master-Prompt. Vor jedem BILD wird derselbe kompakte Style Anchor wiederholt.
+
+Er fixiert Rendering-DNA, **nicht** konkrete Kamera, Komposition oder identische Personendesigns.
+
+## Style-Drift-Sperre
+
+Vermeiden/blockiert:
 
 ```text
 cinematic
@@ -122,128 +147,73 @@ depth of field
 bokeh
 ```
 
-Warum: Diese Wörter steuern oft einen allgemeinen Render-Look statt die konkrete Bildaussage.
+Konkrete Regie verwenden.
 
-Besser:
+## Supporting Elements
 
-```text
-slightly elevated wide view
-cool overcast daylight
-hard side shadow from the gate tower
-large empty middle ground
-small warm fire as the only warm accent
-```
+Bei normalen Einzelmomenten maximal drei. Jedes Element braucht eine Funktion:
 
-## 5. Visual-Form-Guards
+- Ursache
+- Folge
+- Maßstab
+- Epoche/Ort
+- Blickführung
+- Kontinuität
 
-Der Compiler schützt Visual Forms, die besonders leicht verloren gehen.
+## Cover
 
-### comparison
-Beide Pole bleiben sichtbar und klar räumlich gegeneinandergestellt.
+BILD 01:
 
-### cause-effect
-Ursache und Folge bleiben sichtbar verbunden.
-
-### process-sequence
-Die Zustandsänderung bleibt sofort lesbar; bei Bedarf derselbe Ort und fast derselbe Blickwinkel.
-
-### system-hierarchy
-Hierarchie entsteht über Höhe, Distanz, Wege, Gruppierung und Beziehungen statt Corporate-Pfeile.
-
-### battle-city-overview
-Die räumliche Lage bleibt Hauptidee; kein zufälliger Figuren-Close-up.
-
-### object-focus
-Das Objekt trägt die Aussage wirklich und bleibt groß; Hintergrund ruhig.
-
-### character-scene
-Haltung, Handlung, Blick oder Beziehung der Figuren trägt den Gedanken.
-
-## 6. Cover
-
-BILD 01 ist Cover + erste Szene.
-
-Der Compiler verlangt einen echten Cover-Text aus `video.json`.
-
-Regeln:
-
-- 2–5 Wörter
-- Deutsch
-- exakt vorgegeben
-- groß und sofort lesbar
+- 2–5 deutsche Wörter ideal
+- exakt aus `video.json`
+- gut lesbar
 - hoher Kontrast
-- Hauptmotiv nicht verdecken
-- keine zweite Textzeile
-- kein Logo
-- keine Bildnummer
-- keine Pseudo-Schrift
+- Hauptmotiv frei
+- keine zweite Textzeile / Bildnummer / Logo
 
-## 7. Bilder 02–NN
+## BILD 02–NN
 
-Jeder Nicht-Cover-Prompt endet explizit mit einer No-Text-Regel.
+Explizite No-Text-Regel:
 
 ```text
 No visible text, labels, letters, numbers, logos, watermarks or pseudo-writing anywhere in the image.
 ```
 
-Das ist bewusst strenger als nur `No visible text`.
+Auch Detail-Inset, Cutaway und Evidence-Reconstruction standardmäßig ohne Labels.
 
-## 8. World Lock
+## World Lock
 
-`FLOW_WORLD_LOCK.json` muss mindestens enthalten:
-
-- `status: READY`
-- `settingName`
-- `settingDescription`
-
-Optional, aber bei wiederkehrenden Elementen erwünscht:
-
-- recurringPlaces
-- recurringCharacters
-- recurringProps
-- basePalette
-- timeWeatherLogic
-- continuityRules
-
-Platzhalter sind beim Validator verboten.
-
-## 9. Supporting Elements
-
-Maximal drei.
-
-Sie dürfen nur bleiben, wenn sie eine Funktion haben:
-
-- Ursache
-- Folge
-- Maßstab
-- Ort/Epoche
-- Blickführung
-- Kontinuität
-
-Dekoration ohne Aussage wird entfernt.
-
-## 10. Prompt-QC vor dem Build
-
-Der Compiler akzeptiert nur:
+Mindestens:
 
 ```text
-promptQcScore >= 8
-promptQcScore <= 10
+status: READY
+settingName
+settingDescription
 ```
 
-Ein schlechter Prompt darf nicht dadurch „repariert“ werden, dass der Compiler mehr Wörter anhängt. Die Scene Card muss vorher verbessert werden.
+Wiederkehrende Figuren müssen ihre individuellen Identitätsmerkmale behalten. Nicht wiederkehrende Personen dürfen und sollen variieren.
 
-## 11. Finaler Master-Prompt
+## Prompt-QC
 
-Der Compiler erzeugt automatisch:
+Nur Scene Cards mit:
+
+```text
+8 <= promptQcScore <= 10
+```
+
+Ein schwaches Visual Concept wird nicht durch mehr Promptwörter repariert.
+
+## Finaler Master-Prompt
+
+Enthält automatisch:
 
 ```text
 ACTIVE_STYLE_ID
-PROMPT_SYSTEM: flow-compiler-v3
+PROMPT_SYSTEM
+NARRATION-FIRST RULE
 CHANNEL STYLE — IMMUTABLE
 STYLE CONSISTENCY RULE
-STYLE REFERENCES / INGREDIENTS
-VIDEO WORLD LOCK — IMMUTABLE WITHIN THIS VIDEO
+VIDEO WORLD LOCK
 COVER TEXT
 BILD 01 ... BILD NN
 GLOBAL NEGATIVE STYLE RULE
@@ -252,21 +222,13 @@ TEXT RULE
 TWO-STAGE COVER GATE
 ```
 
-Diese Struktur ist für Google Flow direkt kopierbar.
+## Nachträgliche Änderungen
 
-## 12. Nachträgliche Änderungen
-
-Der finale `google-flow-prompt.txt` ist ein **Build-Artefakt**.
-
-Nicht direkt editieren.
-
-Bei Änderungsbedarf:
+Nicht `google-flow-prompt.txt` direkt editieren.
 
 ```text
-Scene Card / World Lock / Cover-Text ändern
-→ Prompt-QC neu prüfen
-→ build:youtube-flow erneut ausführen
-→ validate:youtube-phase1 erneut ausführen
+Scene Card / World Lock / Cover / Style Lock ändern
+→ Prompt-QC
+→ build:youtube-flow
+→ validate:youtube-phase1
 ```
-
-Damit bleibt die Produktion reproduzierbar und Agenten können die Bildwelt nicht durch freie Prompt-Improvisation verwässern.
