@@ -158,6 +158,7 @@ export function projectPaths(projectDirectory) {
     meta: path.join(projectDir, '99-technik', 'video.json'),
     mapping: path.join(projectDir, '99-technik', 'BILD_AUDIO_ZUORDNUNG.json'),
     flowWorldLock: path.join(projectDir, '99-technik', 'FLOW_WORLD_LOCK.json'),
+    phase2VisualQc: path.join(projectDir, '99-technik', 'PHASE2_VISUAL_QC.json'),
     renderPlan: path.join(projectDir, '99-technik', 'YOUTUBE_RENDER_PLAN.json'),
     status: path.join(projectDir, '99-technik', 'status.json'),
     phase3ImageLock: path.join(projectDir, '99-technik', 'PHASE3_IMAGE_LOCK.json'),
