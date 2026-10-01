@@ -55,7 +55,7 @@ export function buildHardTextInstruction({ isCover, coverText }) {
   if (isCover) {
     return `TEXT SAFETY — HARD RULE: the only visible text allowed anywhere in this image is exactly "${text(coverText)}". Internal prompt identifiers such as BILD 01, IMAGE 01, SCENE 01, scene names, captions, labels, headings and image numbers are metadata only and must never be drawn. No second text line, no logo, no watermark and no pseudo-writing.`;
   }
-  return 'TEXT SAFETY — HARD RULE: this must be a pure illustration with ZERO visible text. Do not draw any word, letter, number, caption, heading, scene title, map label, image number, logo, watermark or pseudo-writing. Internal prompt identifiers such as BILD 02, BILD 11, BILD 29, IMAGE, SCENE and all numbering are metadata only and must NEVER appear inside the artwork.';
+  return 'No visible text. TEXT SAFETY — HARD RULE: this must be a pure illustration with ZERO visible text. Do not draw any word, letter, number, caption, heading, scene title, map label, image number, logo, watermark or pseudo-writing. Internal prompt identifiers such as BILD 02, BILD 11, BILD 29, IMAGE, SCENE and all numbering are metadata only and must NEVER appear inside the artwork.';
 }
 
 export function validateVisualInterestScene(scene, { imageNumber, isCover, policy, hardMaximumSeconds } = {}) {
