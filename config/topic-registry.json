@@ -4,45 +4,32 @@
     {
       "id": "2026-KW40_28-09_bis_04-10_test-kenilworth-belagerung",
       "title": "Warum Hunger eine Burg besiegen konnte",
-      "aliases": [
-        "Warum Hunger mittelalterliche Belagerungen entscheiden konnte – Kenilworth 1266"
-      ],
+      "aliases": ["Warum Hunger mittelalterliche Belagerungen entscheiden konnte – Kenilworth 1266"],
       "status": "test"
     },
     {
       "id": "2026-KW40_28-09_bis_04-10_test-pompeji-vesuv",
       "title": "Warum Pompeji dem Vesuv kaum entkommen konnte",
-      "aliases": [
-        "Warum die wechselnden Gefahren der Vesuv-Eruption 79 n. Chr. Pompeji so schwer zu überleben machten"
-      ],
+      "aliases": ["Warum die wechselnden Gefahren der Vesuv-Eruption 79 n. Chr. Pompeji so schwer zu überleben machten"],
       "status": "test"
     },
     {
       "id": "2026-KW40_28-09_bis_04-10_test-roemisches-marschlager-v3",
       "title": "Warum Römer selbst für eine Nacht ein Lager befestigten",
-      "aliases": [
-        "Warum römische Legionen auf Feldzügen temporäre Marschlager errichteten"
-      ],
+      "aliases": ["Warum römische Legionen auf Feldzügen temporäre Marschlager errichteten"],
       "status": "test-v3"
     },
     {
       "id": "2026-KW40_28-09_bis_04-10_hannibal-feuertrick",
       "title": "Wie Hannibal mit brennenden Ochsen aus einer römischen Falle entkam",
-      "aliases": [
-        "Hannibals Feuertrick 217 v. Chr.",
-        "Wie Hannibal Fabius mit brennenden Rindern täuschte"
-      ],
+      "aliases": ["Hannibals Feuertrick 217 v. Chr.", "Wie Hannibal Fabius mit brennenden Rindern täuschte"],
       "status": "phase1-ready"
     },
     {
       "id": "2026-KW40_28-09_bis_04-10_caesar-piraten",
       "title": "Piraten entführten Julius Caesar – dann kam er zurück",
-      "aliases": [
-        "Julius Caesar von Piraten entführt",
-        "Caesar Piraten Pharmacusa",
-        "Wie Caesar seine eigenen Entführer jagte"
-      ],
-      "status": "phase1-planned"
+      "aliases": ["Julius Caesar von Piraten entführt", "Caesar Piraten Pharmacusa", "Wie Caesar seine eigenen Entführer jagte"],
+      "status": "topic-review-paused"
     }
   ]
 }
