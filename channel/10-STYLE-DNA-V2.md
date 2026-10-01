@@ -1,107 +1,134 @@
-# Style DNA V2 — history-stickman-adaptive
+# Style DNA V3 — history-stickman-adaptive
 
 ## Zweck
 
-Dieses Dokument präzisiert die bestehende Bildwelt. Es ersetzt **nicht** den grundlegenden Stil `history-stickman-adaptive-v1`, sondern macht ihn reproduzierbarer und promptbar.
+Dieses Dokument präzisiert die bestehende Bildwelt. Der technische Style-ID `history-stickman-adaptive-v1` bleibt aus Kompatibilitätsgründen bestehen. Inhaltlich bedeutet er **keine generischen Stickman-Klone**, sondern eine wiedererkennbare handgezeichnete History-Illustrationssprache mit individuell gestalteten historischen Menschen.
 
 Für Flow Compiler V3 ist `config/flow-style-lock.json` die maschinenlesbare Umsetzung dieses Dokuments.
 
 Die wichtigste Regel lautet:
 
-> Ein Bild darf nicht nur historisch korrekt und sauber sein. Es muss eine klare visuelle Idee, starke Hierarchie und erkennbare Regie besitzen.
+> Ein Bild muss die Narration sichtbar machen. Stil-Konsistenz darf niemals dazu führen, dass Figuren, Kameras oder Kompositionen mechanisch wiederholt werden.
 
-## 1. Zeichenkörper der Figuren
+## 1. Figurenkörper und Individualität
 
-Alle menschlichen Figuren gehören sichtbar zur selben Familie:
+Alle menschlichen Figuren gehören sichtbar zur selben **Illustrationsfamilie**, aber nicht zur selben Personenschablone.
 
-- Kopf: einfacher runder bis leicht ovaler Kopf, ungefähr 1/6 bis 1/7 der sichtbaren Körperhöhe
-- Gesicht: zwei kleine dunkle Augen; einfache Augenbrauen; kleine, zurückhaltende Mundform
-- Nase nur als sehr kleine reduzierte Linie, wenn sie für Profil/Charakter hilft
-- Hals kurz und vereinfacht
-- Rumpf schlank und geometrisch vereinfacht, keine realistische Muskelanatomie
-- Arme/Beine schlank, klar lesbar, nicht gummiartig
-- Hände stark vereinfacht; keine realistischen Fingerstudien
-- Füße/Schuhe als einfache klare Formen
-- keine Chibi-Proportionen, keine riesigen Köpfe, keine Meme-Gesichter
+Grundkonstruktion:
 
-Historische Individualisierung entsteht über Haare, Bart, Kopfbedeckung, Kleidung, Rüstung, Gürtel, Schmuck, Werkzeug, Waffe und Haltung — nicht durch einen Stilwechsel.
+- Kopf ungefähr 1/6 bis 1/7 der sichtbaren Körperhöhe, mit kontrollierter Variation
+- rund, oval oder leicht kantig stilisierte Kopfform
+- kleine expressive Augen und Augenbrauen
+- zurückhaltende Mundform
+- Nase optional als reduzierte Linie
+- vereinfachte, aber menschlich lesbare Anatomie
+- Torso, Arme und Beine klar proportioniert, ohne realistische Muskelstudien
+- vereinfachte Hände/Füße, aber ausreichend lesbar für Gesten und Werkzeuge
+- keine Chibi-Proportionen
+- keine Meme-Gesichter
+
+### Prominente nicht wiederkehrende Figuren
+
+Sollen sich möglichst in mindestens drei Punkten unterscheiden:
+
+- Alterseindruck
+- Gesichtsform
+- Haare/Bart
+- Kopfbedeckung
+- Körpergröße/Statur
+- Kleidungssilhouette
+- Ausrüstung/Prop
+- Körperhaltung/Geste
+
+**Verboten:** dieselbe generische Figur mit nur anderer Tunika immer wieder recyceln.
+
+### Wiederkehrende Figuren
+
+Bleiben bewusst erkennbar durch:
+
+- Gesichtskern
+- Haare/Bart
+- Körperbau
+- Kleidungssilhouette
+- Farbgebung
+- identifizierende Props
+
+Pose, Blickrichtung, Emotion und Zustand dürfen sich natürlich ändern.
 
 ## 2. Linien und Flächen
 
 - saubere dunkle Ink-Konturen
 - überwiegend konstante mittlere Linienstärke
-- wichtige Vordergrundformen dürfen minimal kräftiger sein als Hintergrundformen
+- Vordergrundformen dürfen minimal kräftiger sein
 - keine extrem dicken Comic-Outlines
-- Flächen überwiegend flach und ruhig
-- Schattierung nur als dezente Cel-Shading-Fläche, kein realistisches Licht-Rendering
-- leichte Papier-/Tuschetextur darf sichtbar sein, aber keine schmutzige Vintage-Filterwand
+- ruhige flache Farbflächen
+- dezente Cel-Shading-Flächen
+- leichte Papier-/Tuschetextur
+- kein fotorealistisches Rendering
 
 ## 3. Detailhierarchie
 
 Detail folgt Bedeutung:
 
-1. dominantes Hauptmotiv: höchste Klarheit und stärkster Kontrast
+1. dominantes Hauptmotiv: höchste Klarheit
 2. notwendige Nebenelemente: mittlerer Detailgrad
-3. Hintergrund: reduziert und ruhiger
+3. Hintergrund: reduziert
 
-Gebäude dürfen detaillierter sein als Figuren, aber niemals detailreicher wirken als die eigentliche Aussage des Bildes.
-
-Die maschinenlesbaren Detailbudgets stehen zusätzlich in `config/flow-style-lock.json`.
+Menschen dürfen heute etwas mehr individuelle Details erhalten als in der ersten Style-Fassung, solange sie stilisiert bleiben.
 
 ## 4. Raum und Tiefe
 
-Bevorzugte Tiefenlogik:
+Bevorzugt:
 
 - klarer Vordergrund
 - verständlicher Mittelgrund
 - vereinfachter Hintergrund
 
-Tiefe wird erzeugt durch Größenstaffelung, Überlappung, leichte atmosphärische Abschwächung und Perspektive — nicht durch fotorealistisches Bokeh.
+Tiefe über Größenstaffelung, Überlappung, Perspektive und leichte atmosphärische Abschwächung — nicht über Bokeh.
 
 ## 5. Kamera-Sprache
 
-Kamera wird bewusst gewählt und darf nicht zufällig sein.
+Kamera wird nach Narrationsfunktion gewählt.
 
-Erlaubte Standardformen:
+Erlaubte Formen:
 
-- wide establishing shot: Ort, Maßstab, Belagerung, Stadt, Landschaft
-- medium-wide: Mensch + Umgebung + Handlung
-- medium: Entscheidung, Gespräch, körperlicher Zustand
-- close/object focus: Gegenstand oder konkrete Ressource
-- low angle: Macht, Mauern, Bedrohung, Monumentalität
-- high/elevated angle: Geografie, Belagerungsring, räumliches System
-- over-the-shoulder/back view: Beobachtung, Distanz, Isolation, Blickführung
-- near-same-angle continuity shot: Vorher/Nachher/Zustandsänderung
+- wide establishing shot
+- medium-wide
+- medium
+- close/object focus
+- low angle
+- high/elevated angle
+- over-the-shoulder/back view
+- topographic overview
+- near-same-angle continuity shot
+- detail-inset composition
+- cutaway composition
 
-Verboten als Standard: zufällige extreme Fisheye-Perspektiven, dutzende winzige Figuren, unmotivierte Dutch Angles, sterile Frontansicht ohne Aussage.
+Verboten als Standard: immer derselbe frontale medium-wide Character Shot.
 
 ## 6. Kompositionssprache
 
-Jedes Bild benötigt eine bewusste Blickführung.
+Jedes Bild braucht eine sichtbare Idee.
 
 Bevorzugt:
 
 - Hauptmotiv groß genug für kleine YouTube-Darstellung
-- klare asymmetrische oder zentrale Schwerpunktsetzung je nach Aussage
-- sichtbare Negativfläche, wenn Ruhe, Isolation oder Cover-Text davon profitieren
-- Straßen, Mauern, Waffen, Blicke, Schatten oder Architektur dürfen als Leading Lines dienen
-- unterstützende Elemente zeigen Ursache, Folge, Maßstab oder Kontext
-
-Ein Bild ist nicht automatisch stark, nur weil es wenige Elemente enthält.
+- klare Blickführung
+- gezielter Negativraum
+- Leading Lines über Straßen, Mauern, Blicke, Licht oder Gelände
+- räumliche Ursache/Folge statt Objektlisten
 
 ## 7. Licht und Stimmung
 
-Licht dient der Geschichte, nicht dem Fotorealismus.
+Licht dient der Geschichte.
 
-- Alltag: weicher, natürlicher, ruhiger
-- Macht/Politik: kontrollierte Lichtflächen und klare Hierarchie
-- Krieg/Belagerung: stärkerer Hell-Dunkel-Kontrast, Rauch/Staub nur bei inhaltlichem Nutzen
-- Krise/Hunger/Zerfall: kühler, leerer, härtere Schatten möglich
-- Gefahr/Katastrophe: dominante atmosphärische Form, aber Hauptmotiv weiterhin lesbar
+- Alltag: weich und natürlich
+- Macht/Politik: kontrollierte Hierarchie
+- Krieg/Krise: stärkere Kontraste bei guter Lesbarkeit
+- Gefahr: klare atmosphärische Dominante
+- Nacht: kalte Grundwelt + wenige warme Lichtquellen
 
-Warmes Akzentlicht darf gezielt eingesetzt werden, z. B. Feuer gegen kalte Umgebung.
-
-Generische Stilbegriffe wie `cinematic` oder `realistic lighting` ersetzen diese konkrete Beschreibung nicht und werden in Flow Compiler V3 als Drift-Risiko behandelt.
+Generische Wörter wie `cinematic` oder `realistic lighting` bleiben Drift-Risiko.
 
 ## 8. Farb-DNA
 
@@ -114,84 +141,98 @@ Grundpalette:
 - dunkles Grün/Oliv
 - Graublau
 - gedämpftes Rot/Rostrot
-- gedecktes Gold nur als Akzent
+- gedecktes Gold als Akzent
 
-Pro Bild maximal wenige dominante Farbfamilien. Neon, Bonbonfarben und stark gesättigte Kinderfarben vermeiden.
+Keine Neon-/Bonbonfarben.
 
 ## 9. Historische Welt
 
 Historische Plausibilität bleibt Pflicht:
 
-- Epoche, Architektur, Kleidung, Waffen, Werkzeuge, Schiffe und Alltagsobjekte passend wählen
+- Epoche, Architektur, Kleidung, Waffen, Werkzeuge und Alltagsobjekte passend wählen
 - unsichere Details neutral statt spektakulär erfinden
-- keine Fantasy-Ästhetik, wenn sie nicht historisch begründbar ist
+- keine Fantasy-Ästhetik ohne historischen Grund
 
 ## 10. Visuelle Aussage vor Inventarliste
 
-Schwacher Ansatz:
+Schwach:
 
-> Soldat + Feuer + Zelt + Burg.
+> Soldat + Feuer + Berg + Ochse.
 
-Starker Ansatz:
+Stark:
 
-> Ein wartender Soldat sitzt klein aber klar im dunkleren Vordergrund; zwischen ihm und der unbeschädigten Burg liegt eine große leere Distanz. Das Feuer ist der einzige warme Akzent. Die Bildidee lautet: Warten ist hier die Waffe.
+> Ein römischer Wachposten steht klein im dunklen Vordergrund, während sich am gegenüberliegenden Berghang eine Kette bewegter Feuerpunkte bildet. Die Bildidee lautet: Aus seiner Perspektive sieht der Hang plötzlich wie eine marschierende Truppe aus.
 
-Der Prompt muss deshalb nicht nur Objekte nennen, sondern die **visuelle Beziehung** zwischen ihnen erklären.
+Der Prompt beschreibt Beziehungen, nicht nur Gegenstände.
 
-## 11. Wiedererkennung
+## 11. Narration-first Visual Form
+
+Die Illustration darf sehr unterschiedlich aufgebaut sein, solange sie dieselbe Kanal-DNA trägt.
+
+Erlaubt sind insbesondere:
+
+- Character Scene
+- Karte
+- Objektfokus
+- Architektur
+- Prozess
+- Cause/Effect
+- Comparison
+- Overview
+- Multi-Moment Illustration
+- Detail Inset
+- Cutaway Section
+- Evidence Reconstruction
+
+Die Visual Form wird danach gewählt, **welche Aussage der Sprecher gerade macht**.
+
+## 12. Wiedererkennung
 
 Innerhalb eines Videos bleiben wiederkehrende Orte, Räume, Figuren und Props konstant.
 
-Über mehrere Videos bleibt die Zeichen-DNA konstant, auch wenn Epoche, Wetter, Architektur, Perspektive und Stimmung wechseln.
+Über Videos hinweg bleibt die Illustrations-DNA konstant, nicht die konkrete Figurenschablone.
 
-Für Flow Compiler V3 wird die videospezifische Kontinuität zusätzlich in `99-technik/FLOW_WORLD_LOCK.json` maschinenlesbar festgehalten.
+`FLOW_WORLD_LOCK.json` sichert videospezifische Kontinuität.
 
-## 12. Kontrollierte Variation statt Master-Referenzbilder
+## 13. Kontrollierte Variation statt Master-Referenzbilder
 
-Für diesen Kanal werden **keine festen globalen Master-Referenzbilder** verwendet.
-
-Grund: Zu starke visuelle Referenzen können dazu führen, dass nicht nur der Stil, sondern unbeabsichtigt auch Komposition, Kamerawinkel, Figurenhaltung oder Szenenaufbau wiederholt werden. Das würde die Bilder zu ähnlich machen.
-
-Deshalb gilt:
+Keine festen globalen Master-Referenzbilder.
 
 ### Konstant bleiben
 
 - Linienfamilie
-- Figurenkonstruktion
-- Gesichtsvereinfachung
+- Grad der menschlichen Vereinfachung
 - flache gedeckte Farbwelt
 - Cel-Shading-Logik
 - Papier-/Tuschetextur
 - Detailhierarchie
 
-### Bewusst variieren dürfen
+### Bewusst variieren
 
+- Gesicht und Körper nicht wiederkehrender Personen
+- Kleidung und Silhouette
 - Kameraabstand
 - Blickwinkel
 - Perspektive
-- Position des Hauptmotivs
+- Subject Placement
 - Vordergrund/Mittelgrund/Hintergrund
 - Negativraum
-- Lichtstimmung
+- Licht
 - Wetter
 - Tageszeit
-- emotionale Spannung
 - Visual Form
 
-**Gleicher Illustrator bedeutet nicht gleiche Aufnahme.**
+**Gleicher Illustrator bedeutet nicht gleiche Aufnahme und nicht gleiche Person.**
 
-Eine fast identische Perspektive wird nur dann wiederverwendet, wenn dies inhaltlich nützt, zum Beispiel bei Vorher/Nachher, einem sich leerenden Lagerraum oder einer anderen klaren Zustandsänderung.
+## 14. Anti-Gleichförmigkeit
 
-Das gewählte Cover darf innerhalb desselben Videos bei Bedarf als Continuity-Hilfe dienen. Es wird aber niemals zu einer globalen Stilreferenz für spätere Videos.
+Vor Freigabe prüfen:
 
-## 13. Anti-Gleichförmigkeit
+1. Wiederholt die Szene unnötig denselben Kamerawinkel?
+2. Sehen verschiedene historische Personen wie Klone aus?
+3. Sind Character Scenes zu häufig der Default?
+4. Wäre Karte, Objekt, Detail, Cutaway oder Übersicht verständlicher?
+5. Ist Kontinuität bewusst oder nur Gleichförmigkeit?
+6. Unterstützt die Illustration wirklich den aktuellen gesprochenen Beat?
 
-Vor Freigabe eines Bildplans zusätzlich prüfen:
-
-1. Wiederholt die Szene nur aus Gewohnheit denselben Kamerawinkel wie die vorherige?
-2. Sind mehrere Character Scenes hintereinander immer frontal und medium-wide?
-3. Sind Gebäude immer mittig als derselbe Wide Shot aufgebaut?
-4. Könnte eine andere Perspektive die Aussage stärker machen?
-5. Wird Kontinuität bewusst genutzt oder nur mit Gleichförmigkeit verwechselt?
-
-Wenn eine Szene ohne erzählerischen Grund wie eine Kopie der vorherigen Inszenierung wirkt, muss die Scene Direction überarbeitet werden.
+Wenn nicht: Scene Direction überarbeiten.
