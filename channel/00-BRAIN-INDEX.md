@@ -21,6 +21,7 @@ config/flow-style-lock.json
 → channel/10-STYLE-DNA-V2.md
 → channel/06-VISUAL-SYSTEM.md
 → channel/07-VISUAL-GRAMMAR.md
+→ channel/15-VISUAL-INTEREST-QC.md
 → Scene Card / videospezifische Regie
 ```
 
@@ -31,6 +32,9 @@ Wichtig:
 **Der technische Style-ID `history-stickman-adaptive-v1` bedeutet heute keine generischen Stickman-Klone. Menschen sind stilisierte, individuell gestaltete historische Figuren.**
 
 ## Zentrale Dateien
+
+### `02-TOPIC-SYSTEM.md`
+Topic Director V2: breite Themenfindung, Scoring, Diversität und harte Auswahl vor Produktionsstart.
 
 ### `03-SCRIPT-BIBLE.md`
 History Storytelling V3: konkrete Lage, Problem, Entscheidung, Folge, neue Komplikation, Reveal/Wendepunkt, Auflösung, Bedeutung.
@@ -59,25 +63,34 @@ Prompt-Freigabe ab 8/10.
 ### `14-PHASE3-ASSET-LOCK.md`
 Phase 3 darf nur vorhandene Bilder verwenden.
 
+### `15-VISUAL-INTEREST-QC.md`
+Hard Gate gegen langweilige, repetitive oder komisch wirkende Bilder. Regelt Shot-Rhythmus, Visual-Interest-Score, Weirdness-QC und die absolute Text-/Bildnummernsperre.
+
+### `16-STORY-QUALITY-GATE.md`
+Hard Gate gegen schwache Anekdotenketten. Ein Skript braucht eine größere historische Aussage, Story-Spine und Bedeutung über bloße Kuriosität hinaus.
+
 ### `99-DECISION-LOG.md`
 Chronologisches Register fester Kanalentscheidungen.
 
 ## Maschinenlesbare Kernquellen
 
 ### `config/channel-policy.json`
-History Storytelling, Upload- und Kanalregeln.
+Topic Director, Story Quality Gate, History Storytelling, Upload- und Kanalregeln.
 
 ### `config/visual-policy.json`
-Visual Forms, Narration-first-Regel, Figuren-Individualität und Prompt-QC.
+Visual Forms, Narration-first-Regel, Figuren-Individualität, Visual-Interest-Gate, Textsperre und Prompt-QC.
 
 ### `config/flow-style-lock.json`
-Maschinenlesbare Illustrations-DNA inklusive Verbot generischer Figuren-Klone.
+Maschinenlesbare Illustrations-DNA inklusive Verbot generischer Figuren-Klone, statischer Wiederholung und sichtbarer Prompt-Metadaten.
 
 ### `config/pipeline.json`
 Pacing, Bilddichte, Phase-3-Asset-Sperre und Export-Policy.
 
 ### `99-technik/FLOW_WORLD_LOCK.json`
 Videospezifische Orte, Figuren, Props und Kontinuität.
+
+### `99-technik/PHASE2_VISUAL_QC.json`
+Pflicht-QC neuer Produktionen nach der Bildgenerierung. Prüft jedes finale Bild auf Narrationspassung, Visual Interest, Stil, Weirdness und Textfreiheit.
 
 ### `99-technik/PHASE3_IMAGE_LOCK.json`
 Hash-Lock der finalen Bilder während Phase 3.
@@ -86,9 +99,12 @@ Hash-Lock der finalen Bilder während Phase 3.
 
 Mindestens lesen:
 
+- `channel/02-TOPIC-SYSTEM.md`
 - `channel/03-SCRIPT-BIBLE.md`
+- `channel/16-STORY-QUALITY-GATE.md`
 - `channel/06-VISUAL-SYSTEM.md`
 - `channel/07-VISUAL-GRAMMAR.md`
+- `channel/15-VISUAL-INTEREST-QC.md`
 - `channel/08-FLOW-PROMPTING.md`
 - `channel/09-IMAGE-PROMPT-TEMPLATE.md`
 - `channel/10-STYLE-DNA-V2.md`
@@ -103,19 +119,25 @@ Mindestens lesen:
 
 ```text
 Thema
+→ Topic Director V2
 → Recherche
 → Script V3
+→ Story Quality Gate V1
 → Story Beats
 → Viewer Takeaway
 → bestes visuelles Mittel
 → Visual Concept
 → Visual Form
+→ Shot Scale / Visual Energy / Change from Previous
 → Composition / Camera / Depth / Mood
 → Prompt QC >= 8/10
+→ Visual Interest Score >= 8/10
 → READY FLOW_WORLD_LOCK
 → Flow Compiler V3
-→ Phase-1-Validator
+→ Phase-1-Validator inkl. Anti-Monotonie
 → Google Flow
+→ Bilder prüfen
+→ PHASE2_VISUAL_QC = APPROVED
 → Phase 2
 → PHASE3_IMAGE_LOCK
 → Audio / Alignment / Timeline / Pacing
@@ -132,6 +154,25 @@ Richtwerte:
 - 120 s → häufig 32–44 Visuals
 
 Ziel durchschnittlich etwa 2,5–4,2 Sekunden pro Visual. Keine Füllbilder.
+
+### Zusätzlich für neue Produktionen
+
+- max. 2 gleiche Visual Forms hintereinander
+- max. 2 Character Scenes hintereinander
+- max. 2 gleiche Shot Scales hintereinander
+- 10-Bilder-Fenster normalerweise mindestens 3 Visual Forms
+- jedes Bild braucht einen benannten `visualEnergyDevice`
+- jedes Bild braucht einen `visualInterestScore >= 8`
+
+## Text auf Bildern
+
+### Bild 01
+Nur der exakte Cover-Text. Keine Bildnummer, keine Zusatzüberschrift, kein Label.
+
+### Bild 02–NN
+**Absolut kein sichtbarer Text.**
+
+`BILD 11`, `BILD 29`, `IMAGE`, `SCENE`, Nummern und andere Prompt-Metadaten sind intern und dürfen nie gerendert werden.
 
 ## Export
 
