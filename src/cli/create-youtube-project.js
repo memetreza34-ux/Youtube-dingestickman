@@ -26,7 +26,11 @@ async function main() {
   await mkdir(path.dirname(destination), { recursive: true });
   await copyDirectory(templateDir, destination);
 
-  const visual = await readJson(path.resolve('config/visual-policy.json'));
+  const [visual, pipeline] = await Promise.all([
+    readJson(path.resolve('config/visual-policy.json')),
+    readJson(path.resolve('config/pipeline.json'))
+  ]);
+
   const activeStyleId = visual.styleId ?? 'UNSET';
   const promptSystemVersion = Number(visual.promptSystemVersion ?? 1);
   const promptSystem = visual.promptSystem ?? (promptSystemVersion >= 3 ? 'flow-compiler-v3' : 'visual-director-v2');
@@ -36,7 +40,9 @@ async function main() {
   const now = new Date().toISOString();
   const metaPath = path.join(destination, '99-technik', 'video.json');
   const meta = await readJson(metaPath);
+
   Object.assign(meta, {
+    pipelineVersion: Number(pipeline.pipelineVersion ?? meta.pipelineVersion ?? 1),
     videoId: `${week}_${slug}`,
     weekFolder: week,
     topicSlug: slug,
@@ -48,6 +54,14 @@ async function main() {
     scenePlanningSchemaVersion,
     promptQcMinimumScore,
     flowStyleLockFile,
+    imageDensityPolicy: {
+      ...(meta.imageDensityPolicy ?? {}),
+      ...(pipeline.imagePolicy ?? {})
+    },
+    youtubeUpload: {
+      ...(meta.youtubeUpload ?? {}),
+      title
+    },
     createdAt: now,
     updatedAt: now
   });
@@ -72,6 +86,7 @@ async function main() {
   if (promptSystemVersion >= 3) {
     console.log('Hinweis: FLOW_WORLD_LOCK.json und Scene Cards vollständig ausfüllen, dann npm run build:youtube-flow ausführen.');
   }
+  console.log('Hinweis: youtubeUpload.description, hashtags und keywords in video.json vor Finalisierung pflegen; daraus entsteht 03-export/CAPTION.txt.');
 }
 
 main().catch((error) => {
