@@ -21,6 +21,8 @@
   "promptSystem": "flow-compiler-v3",
   "scenePlanningSchemaVersion": 2,
   "promptQcMinimumScore": 8,
+  "flowPromptBuiltAt": "2026-10-01T18:30:00+02:00",
+  "promptBuildStatus": "BUILT_BUT_TOPIC_REVIEW_PAUSED",
   "targetDurationSeconds": 114,
   "targetDurationRangeSeconds": [105, 120],
   "plannedImageCount": 30,
@@ -88,5 +90,5 @@
   "audioReady": false,
   "renderReady": false,
   "createdAt": "2026-10-01T11:58:00+02:00",
-  "updatedAt": "2026-10-01T13:57:00+02:00"
+  "updatedAt": "2026-10-01T18:30:00+02:00"
 }
