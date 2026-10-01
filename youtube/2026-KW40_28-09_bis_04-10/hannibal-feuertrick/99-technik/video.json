@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 2,
-  "pipelineVersion": 3,
+  "schemaVersion": 3,
+  "pipelineVersion": 4,
   "videoId": "2026-KW40_28-09_bis_04-10_hannibal-feuertrick",
   "weekFolder": "2026-KW40_28-09_bis_04-10",
   "topicSlug": "hannibal-feuertrick",
@@ -44,16 +44,28 @@
     "contentDrivenImageCountRequired": true,
     "fixedImageCountForbidden": true,
     "oneImageOneVisualPurpose": true,
+    "oneNarrativeTakeawayPerImage": true,
     "storyBeatDrivenPlanning": true,
     "newNarrativeBeatRequiresVisualReview": true,
-    "targetAverageHoldSeconds": [3, 5],
-    "reviewAboveSeconds": 6.5,
-    "preferSplitAboveSeconds": 8,
-    "hardMaximumSeconds": 10,
-    "minimumUsefulHoldSeconds": 1.8,
+    "visualMustSupportCurrentNarration": true,
+    "figuresMustNotBeDefaultFallback": true,
+    "targetAverageHoldSeconds": [2.5, 4.2],
+    "reviewAboveSeconds": 5.5,
+    "preferSplitAboveSeconds": 7,
+    "hardMaximumSeconds": 9,
+    "minimumUsefulHoldSeconds": 1.6,
     "multiMomentIllustrationAllowed": true,
     "multiMomentIllustrationMaxMoments": 3,
+    "detailInsetAllowed": true,
+    "cutawaySectionAllowed": true,
+    "evidenceReconstructionAllowed": true,
     "fillerImagesForbidden": true
+  },
+  "youtubeUpload": {
+    "title": "Wie Hannibal mit brennenden Ochsen aus einer römischen Falle entkam",
+    "description": "217 v. Chr. geriet Hannibals Heer in eine gefährliche Lage: Römische Truppen blockierten eine entscheidende Passage. Statt die Stellung frontal anzugreifen, ließ Hannibal in der Nacht einen ungewöhnlichen Täuschungsplan vorbereiten. Rund zweitausend Ochsen wurden mit brennenden Reisigbündeln in Bewegung gesetzt. Aus der Entfernung wirkten die Feuer wie Truppen am Berghang — und die römische Reaktion öffnete Hannibal den Weg. Dieses Video zeigt, wie der Trick funktionierte, warum er glaubwürdig wirkte und weshalb Hannibal die Sperre nicht erobern musste, um ihr zu entkommen.",
+    "hashtags": ["#Geschichte", "#Hannibal", "#Rom", "#Antike", "#PunischerKrieg"],
+    "keywords": ["Hannibal", "Fabius Maximus", "Zweiter Punischer Krieg", "Römisches Reich", "Karthago", "Antike", "brennende Ochsen", "Geschichte"]
   },
   "audioPolicy": {
     "singleFinalVoiceoverRequired": true,
@@ -76,5 +88,5 @@
   "audioReady": false,
   "renderReady": false,
   "createdAt": "2026-09-30T17:48:00+02:00",
-  "updatedAt": "2026-09-30T17:48:00+02:00"
+  "updatedAt": "2026-10-01T05:40:00+02:00"
 }
