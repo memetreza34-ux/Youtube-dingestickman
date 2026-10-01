@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "status": "PLANNED",
+  "reviewMethod": "human-or-vision-review",
+  "minimumNarrationSupportScore": 8,
+  "minimumVisualInterestScore": 8,
+  "minimumStyleConsistencyScore": 8,
+  "images": []
+}
