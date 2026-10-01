@@ -11,20 +11,18 @@ Chronologisches Register ausdrücklicher Kanalentscheidungen. **Neuere Entscheid
 
 ## 2026-09-28 — Grundbildwelt V1
 
-- Verbindlicher Grundstil: `history-stickman-adaptive-v1`.
+- Verbindlicher technischer Style-ID: `history-stickman-adaptive-v1`.
 - Handgezeichnete 2D-History-Explainer-Welt.
-- Historische Stickman-Figuren mit individuellen Haaren, Bärten, Kleidung, Rüstung, Props, Haltung und einfacher Mimik.
-- Nicht jedes Bild braucht Figuren; Karten, Architektur, Landschaften, Objekte, Systeme, Vergleiche und Symbolbilder sind gleichwertig.
+- Historische Figuren, Karten, Architektur, Landschaften, Objekte, Systeme, Vergleiche und Symbolbilder sind gleichwertig.
 - Historische Plausibilität vor dekorativer Coolness.
 - Der Zeichenstil bleibt konstant; Epoche, Stimmung, Licht, Kamera und Komposition dürfen sich anpassen.
 
 ## 2026-09-29 — Bildprompt-Qualität
 
-- Ein Bild = eine Kernaussage + ein dominantes Hauptmotiv.
-- Maximal 1–3 notwendige unterstützende Elemente.
+- Ein Bild braucht eine klare Kernaussage und bewusste visuelle Hierarchie.
+- Maximal 1–3 notwendige Supporting Elements bei normalen Einzelmomenten.
 - Keine Wimmelbilder, Museumstafeln oder überfüllten Schulbuchposter als Standard.
 - Wiederkehrende Orte, Figuren, Räume und Props werden innerhalb eines Videos über Continuity/World Lock konstant gehalten.
-- Gleiche Blickwinkel werden bewusst für Vorher/Nachher oder Zustandsänderungen genutzt, nicht automatisch.
 
 ## 2026-09-29 — Cover-Gate
 
@@ -36,62 +34,89 @@ Chronologisches Register ausdrücklicher Kanalentscheidungen. **Neuere Entscheid
 
 ## 2026-09-30 — Visual Director V2
 
-Die Kenilworth-/Pompeji-Tests zeigten: Die Bildwelt wurde verstanden, aber Einzelprompts waren zu oft mechanisch und inventarartig. Deshalb gilt:
-
 - Pflichtpfad: `Script → Aussage → Visual Concept → Visual Form → Composition → Camera → Mood/Light → Continuity → Prompt QC`.
-- Scene Card V2 nach `channel/11-VISUAL-DIRECTOR.md` ist Pflicht.
-- Viewer Takeaway, Visual Concept, Dominant Subject, Action/State, Composition, Camera, Depth, Lighting/Mood, Continuity und historische Plausibilität werden vor dem Prompt festgelegt.
-- Visual Form darf beim Schreiben nicht verloren gehen.
-- `comparison` zeigt beide Pole, `cause-effect` Ursache und Folge, `process-sequence` die Zustandsänderung, `system-hierarchy` eine räumliche Struktur.
-- Prompt-QC nach `channel/12-PROMPT-QC.md`; Mindestscore **8/10**.
+- Scene Card V2 ist Pflicht.
+- Prompt-QC Mindestscore **8/10**.
 
 ## 2026-09-30 — Flow Compiler V3
 
 - Prompt-System: `flow-compiler-v3`.
 - `config/flow-style-lock.json` ist die maschinenlesbare Channel-Zeichen-DNA.
-- Jedes Video besitzt `99-technik/FLOW_WORLD_LOCK.json` für videospezifische Kontinuität.
-- Der finale `google-flow-prompt.txt` wird aus Style Lock, World Lock, `video.json` und Scene Cards kompiliert, nicht frei improvisiert.
-- Jeder Bildblock enthält einen kompakten Style Anchor, der nur die Rendering-DNA sichert.
-- Generische Drift-Wörter wie `cinematic`, `epic`, `ultra detailed`, `photographic`, `realistic lighting`, `depth of field` und `bokeh` werden vermieden/blockiert.
-- Kamera, Licht, Raum und Stimmung werden konkret beschrieben.
-- Der kompilierte Flow-Prompt ist ein Build-Artefakt; Änderungen erfolgen an den Quelldaten und werden neu gebaut.
+- Jedes Video besitzt `99-technik/FLOW_WORLD_LOCK.json`.
+- Der finale Prompt wird kompiliert, nicht frei improvisiert.
+- Drift-Wörter wie `cinematic`, `epic`, `ultra detailed`, `photographic`, `realistic lighting`, `depth of field` und `bokeh` werden vermieden/blockiert.
 
-## 2026-09-30 — KEINE globalen Master-Referenzbilder
+## 2026-09-30 — Keine globalen Master-Referenzbilder
 
-Diese Entscheidung ersetzt die frühere Planung eines Packs aus neun Style-Referenzbildern vollständig.
+- Keine festen globalen Master-Referenzbilder.
+- Wiedererkennung kommt aus Style Lock + Style DNA, nicht aus wiederholten Referenzkompositionen.
+- Gleicher Stil bedeutet nicht gleiche Komposition.
 
-- Der Kanal verwendet **keine festen globalen Master-Referenzbilder**.
-- Grund: Starke Referenzbilder können unbeabsichtigt nicht nur den Zeichenstil, sondern auch Kamerawinkel, Figurenhaltung, Komposition und Szenenaufbau wiederholen. Dadurch würden Bilder zu ähnlich aussehen.
-- `channel/13-STYLE-REFERENCE-PACK.md` wird nicht mehr verwendet und wurde entfernt.
-- Die Wiedererkennung kommt aus `config/flow-style-lock.json`, `channel/10-STYLE-DNA-V2.md` und der Grundbildwelt.
-- Konstant bleiben: Linienfamilie, Figurenkonstruktion, Gesichtsvereinfachung, flache gedeckte Farbwelt, Cel-Shading, Papier-/Tuschetextur und Detailhierarchie.
-- Bewusst variieren dürfen: Kameraabstand, Blickwinkel, Perspektive, Subject Placement, Vordergrund/Mittelgrund/Hintergrund, Negativraum, Licht, Wetter, Tageszeit, Stimmung und Visual Form.
-- **Gleicher Stil bedeutet nicht gleiche Komposition.**
-- Fast identische Blickwinkel sind nur für echte Kontinuität wie Vorher/Nachher oder sichtbare Zustandsänderungen erwünscht.
-- Der ausgewählte Cover-Kandidat darf höchstens innerhalb desselben Videos als Continuity-Hilfe verwendet werden. Er wird niemals zur globalen Kanal-Style-Referenz.
-- Vor Prompt-QC wird zusätzlich geprüft, ob der Bildplan unnötig Kamera-/Kompositionsmuster wiederholt.
+## 2026-09-30 — Mehr Story-Beats und Mehrmoment-Illustrationen
 
-## 2026-09-30 — Mehr Story-Beats, höhere Bilddichte, History-Script V2
-
-Diese Entscheidung stammt aus der Auswertung des gerenderten Marschlager-Testvideos und ersetzt ältere, langsamere Bilddichte-Regeln.
-
-- Das Testvideo war grundsätzlich brauchbar, aber visuell noch zu ruhig.
-- Neue Planung folgt **Story-Beats statt Absätzen**.
-- Sobald sich Handlung, Ursache/Folge, Person, Ort, Zeit, Zustand oder zentrale Erkenntnis deutlich ändert, wird ein neuer visueller Beat geprüft.
-- Zielbereich normaler Holds: ungefähr **3–5 Sekunden**.
-- Ab ungefähr 6,5 Sekunden wird ein Split geprüft, ab 8 Sekunden stark bevorzugt; 10 Sekunden sind nur mit klarer Begründung zulässig.
-- Ein ungefähr 60-sekündiger History-Test darf typischerweise etwa **14–20 Visuals** besitzen. Das ist keine starre Quote; Inhalt gewinnt.
-- **Mehrere Momente in einer Illustration sind ausdrücklich erlaubt.**
+- Planung folgt Story-Beats statt Absätzen.
+- Mehrere eng verbundene Momente in einer Illustration sind erlaubt.
 - Neue Visual Form: `multi-moment-illustration`.
-- Eine Mehrmoment-Illustration darf zwei oder höchstens drei eng zusammengehörige Story-Momente verbinden, z. B. vorher → Veränderung → danach oder Ursache → Handlung → Folge.
-- Die ältere Regel „ein Bild = nur ein einzelner Zustand“ gilt nicht mehr absolut. Neue harte Regel: **ein Bild = ein klarer erzählerischer Takeaway**.
-- Dichte Collagen, viele kleine Panels, Wimmelbilder und unabhängige Mini-Szenen bleiben verboten.
-- `channel/03-SCRIPT-BIBLE.md` wurde auf **History-Storytelling V2** angehoben.
-- Skripte sollen stärker wie ein moderner Geschichtskanal funktionieren: konkreter Moment zuerst, dann Problem, Handlung/Entscheidung, Folge, neue Frage und größere Bedeutung.
-- Abstrakte Lexikon-Einstiege werden vermieden. Geschichte wird möglichst über konkrete Menschen, Orte, Handlungen und sichtbare Veränderungen erzählt.
-- Jeder Absatz soll die Situation oder das Verständnis des Zuschauers weiterbewegen.
-- Das Skript soll zwischen menschlicher Nahperspektive und größerem historischen Zusammenhang wechseln.
-- Das Ende beantwortet die Ausgangsfrage und kehrt wenn sinnvoll zum Bild oder Problem des Einstiegs zurück, statt nur alle Punkte zu wiederholen.
+- Ein Bild = ein klarer erzählerischer Takeaway, nicht zwingend nur ein einzelner Zeitpunkt.
+
+## 2026-10-01 — Pipeline V4: noch höhere Bilddichte
+
+Diese Entscheidung ersetzt die langsameren Richtwerte vom 30.09.
+
+- Zielbereich durchschnittlicher Holds: ungefähr **2,5–4,2 Sekunden**.
+- Ab **5,5 s** muss geprüft werden, ob die Narration bereits einen neuen visuellen Beat braucht.
+- Ab **7 s** wird Split stark bevorzugt.
+- **9 s** ist Hard-Max ohne klare visuelle Begründung.
+- Richtwerte, nicht Quoten:
+  - ca. 60 s → häufig 18–26 Visuals
+  - ca. 90 s → häufig 24–34 Visuals
+  - ca. 120 s → häufig 32–44 Visuals
+- Inhalt gewinnt immer. Keine Füllbilder nur zum Erreichen einer Zahl.
+
+## 2026-10-01 — Narration-first Visual Selection
+
+- Jedes Bild muss den aktuell gesprochenen Gedanken direkt unterstützen, erklären, verstärken oder räumlich verständlich machen.
+- Nicht zuerst „Welche Figur zeigen wir?“, sondern „Welches visuelle Mittel erklärt diesen Beat am besten?“
+- Figuren sind niemals der Standard-Fallback.
+- Gleichwertige Mittel sind u. a. Karte, Objektfokus, Architektur, Prozess, Ursache→Wirkung, Vergleich, räumliche Übersicht, Detail-Inset, Cutaway, Evidence-Reconstruction und Mehrmoment-Illustration.
+- Neue unterstützte Visual Forms:
+  - `detail-inset`
+  - `cutaway-section`
+  - `evidence-reconstruction`
+
+## 2026-10-01 — Figuren: individueller, keine generischen Stickman-Klone
+
+Diese Entscheidung ersetzt die frühere starke Betonung einer identischen Stickman-Grundfigur.
+
+- Der technische Style-ID bleibt zur Kompatibilität `history-stickman-adaptive-v1`.
+- Inhaltlich sind Menschen **stilisierte historische Figuren mit vereinfachter, aber menschlich lesbarer Anatomie**.
+- Generische identische Stickman-Klone sind verboten.
+- Prominente, nicht wiederkehrende Personen unterscheiden sich möglichst in mindestens drei Achsen: Alterseindruck, Gesicht, Haare/Bart, Kopfbedeckung, Größe/Statur, Kleidung, Ausrüstung oder Haltung.
+- Wiederkehrende Hauptfiguren bleiben erkennbar und konsistent.
+- **Gleicher Illustrator bedeutet nicht gleiche Person.**
+
+## 2026-10-01 — History Storytelling V3
+
+- Script Bible V3 ist aktiv.
+- Einstieg bevorzugt mitten in einer konkreten historischen Lage.
+- Kontext kommt just in time.
+- Story Engine: `Problem → Entscheidung → Folge → neue Komplikation → Reveal/Wendepunkt → Auflösung → Bedeutung`.
+- Informationen werden möglichst dann enthüllt, wenn sie narrativ Wirkung haben, statt die Lösung sofort vorwegzunehmen.
+- Gegner und getäuschte Parteien behalten nachvollziehbare eigene Logik.
+- Ende braucht Payoff statt bloßer Zusammenfassung.
+
+## 2026-10-01 — Caption-/Upload-Datei im Export
+
+- `03-export` enthält künftig zusätzlich **`CAPTION.txt`**.
+- `CAPTION.txt` enthält mindestens:
+  - YouTube-Titel
+  - Beschreibung
+- Optional zusätzlich:
+  - Hashtags
+  - Keywords
+  - Thumbnail-Text
+- `finalize-youtube-export.js` erzeugt die Datei automatisch aus `video.json.youtubeUpload`.
+- Neue Projekt-Templates enthalten `youtubeUpload` von Anfang an.
 
 ## Aktuelle Style-Autorität
 
@@ -100,5 +125,6 @@ neueste Nutzerentscheidung / dieses Decision Log
 → config/flow-style-lock.json
 → channel/10-STYLE-DNA-V2.md
 → channel/06-VISUAL-SYSTEM.md
+→ channel/07-VISUAL-GRAMMAR.md
 → videospezifische Scene Direction
 ```
