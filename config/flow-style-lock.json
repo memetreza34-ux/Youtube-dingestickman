@@ -1,23 +1,41 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "status": "READY",
   "styleId": "history-stickman-adaptive-v1",
   "promptSystem": "flow-compiler-v3",
-  "masterStylePrompt": "Use one consistent hand-drawn 2D historical explainer illustration language across the channel, but do not repeat the same staging from image to image. Human figures, when present, belong to one simplified stickman family: round to slightly oval warm off-white heads at roughly 1/6 to 1/7 of visible body height, two small dark eyes, simple eyebrows, a small restrained mouth, little or no nose detail, slim geometric torsos and limbs, simplified hands and feet, and no realistic anatomy. Individuality comes from historically appropriate hair, beards, headwear, clothing, armor, tools, weapons, props, posture and expression. Draw figures, architecture, objects, maps and landscapes with clean dark ink outlines of mostly consistent medium weight, flat muted historical colors, subtle cel-shading shapes and a light handmade ink-and-paper texture. Keep the dominant subject clearer and slightly higher-contrast than supporting elements; reduce background detail. Use readable depth through scale, overlap and perspective rather than photorealistic depth of field. Preserve the same illustration DNA while allowing scene-specific changes in viewpoint, framing, composition, distance, lighting, weather, mood and visual form. The result must feel mature, editorial and documentary-like, never childish, glossy or mechanically repetitive.",
-  "sceneStyleAnchor": "Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading, light paper-and-ink texture, and the same simplified 1:6-to-1:7 stickman-family construction whenever people appear. Do not copy the previous scene's composition unless continuity specifically requires it.",
+  "masterStylePrompt": "Use one consistent hand-drawn 2D historical explainer illustration language across the channel, but do not repeat the same staging from image to image. Human figures, when present, are stylized historical people rather than literal generic stick figures: readable human silhouettes, simplified anatomy, compact expressive faces, historically specific clothing and equipment, and visibly different identities from one person to another. Avoid clone-like repetition. Vary age impression, face shape, hair, beard, headwear, body build, height, posture, clothing layers, armor, accessories and props when history allows it. Recurring named people remain recognizable within the same video. Draw figures, architecture, objects, maps, diagrams and landscapes with clean dark ink outlines of mostly consistent medium weight, flat muted historical colors, subtle cel-shading shapes and a light handmade ink-and-paper texture. Keep the dominant subject clearer and slightly higher-contrast than supporting elements; reduce background detail. Use readable depth through scale, overlap and perspective rather than photorealistic depth of field. Choose the visual form that best supports the current narration: character scene, object focus, map, architecture, process, cause-effect, comparison, cutaway, detail inset, evidence reconstruction, multi-moment illustration or another approved form. Preserve the same illustration DNA while allowing scene-specific changes in viewpoint, framing, composition, distance, lighting, weather, mood and visual form. The result must feel mature, editorial, historical and documentary-like, never childish, glossy, mechanically repetitive or populated by identical stock characters.",
+  "sceneStyleAnchor": "Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Do not copy the previous scene's composition unless continuity specifically requires it.",
   "characterGeometry": {
-    "headToBodyRatio": "1:6 to 1:7",
-    "head": "round to slightly oval, warm off-white fill",
-    "face": "two small dark eyes, simple eyebrows, small restrained mouth, minimal or absent nose line",
-    "body": "slim simplified geometric torso and limbs, no realistic muscle anatomy",
-    "handsFeet": "strongly simplified readable shapes, no detailed finger studies",
-    "variationSource": "historically appropriate hair, beard, headwear, clothing, armor, props, posture and expression"
+    "headToBodyRatio": "roughly 1:6 to 1:7, with controlled variation by age, build and pose",
+    "head": "simple but human-readable round, oval or slightly angular stylized head shape",
+    "face": "small expressive eyes and eyebrows, restrained mouth, optional simplified nose line, recognizable variation between characters without portrait realism",
+    "body": "simplified readable human torso and limbs with controlled variation in height, shoulder width, build and stance; no muscle-detail realism",
+    "handsFeet": "simplified readable shapes, enough structure to support gestures, tools and historical actions",
+    "variationSource": "age impression, face shape, hair, beard, headwear, height, build, clothing silhouette, armor, accessories, props, posture and expression",
+    "cloneRule": "Unrelated people must not reuse the same face, hair, clothing silhouette and body proportions. Recurring characters intentionally keep identifying traits."
+  },
+  "characterIndividualityPolicy": {
+    "enabled": true,
+    "genericStickmanCloneForbidden": true,
+    "recurringCharacterConsistencyRequired": true,
+    "backgroundCharacterVariationRequiredWhenReadable": true,
+    "minimumVariationAxesForProminentUnrelatedCharacters": 3,
+    "variationAxes": [
+      "age impression",
+      "face shape",
+      "hair or beard",
+      "headwear",
+      "height or build",
+      "clothing silhouette",
+      "equipment or prop",
+      "posture or gesture"
+    ]
   },
   "detailBudget": {
     "dominantSubject": 5,
     "supportingElements": 3,
     "background": 2,
-    "humanAnatomy": 2,
+    "humanAnatomy": 3,
     "architecture": 4,
     "texture": 2,
     "scale": "1=minimal, 5=highest allowed channel detail"
@@ -33,14 +51,15 @@
     "restrained gold accent"
   ],
   "positivePromptRequirements": [
-    "one immediately readable visual idea",
-    "one deliberately dominant subject",
+    "one immediately readable narrative takeaway",
+    "visual form chosen because it supports the current spoken idea",
     "purposeful spatial composition",
     "specific subject state or action",
     "specific camera or viewpoint",
     "specific environment where relevant",
     "specific lighting or mood where relevant",
     "historically plausible visible details",
+    "individualized prominent characters when people are present",
     "continuity preserved only where recurring places, characters or props require it"
   ],
   "forbiddenStyleDrift": [
@@ -56,7 +75,9 @@
     "realistic portrait anatomy",
     "modern corporate infographic styling",
     "thick comic-book outlines",
-    "neon or candy-color palette"
+    "neon or candy-color palette",
+    "generic identical stickman clones",
+    "repeating the same character design for unrelated people"
   ],
   "highRiskPromptWords": [
     "cinematic",
@@ -70,7 +91,7 @@
   ],
   "controlledVariationPolicy": {
     "fixedMasterReferenceImages": false,
-    "goal": "same illustrator and rendering DNA, different scene direction",
+    "goal": "same illustrator and rendering DNA, different scene direction and individualized historical people",
     "mayVaryPerScene": [
       "camera distance",
       "viewpoint",
@@ -80,24 +101,26 @@
       "lighting direction and intensity",
       "weather",
       "mood",
-      "visual form"
+      "visual form",
+      "non-recurring character appearance"
     ],
     "mustStayStable": [
       "linework family",
-      "figure construction",
-      "face simplification",
+      "human simplification level",
       "flat muted palette character",
       "cel-shading logic",
       "paper-and-ink texture",
-      "detail hierarchy"
+      "detail hierarchy",
+      "identifying traits of recurring characters"
     ],
     "antiRepetition": [
       "Do not reuse the same composition merely for consistency.",
       "Do not default every character scene to the same medium-wide frontal view.",
       "Do not default every architecture scene to the same centered wide view.",
-      "Change viewpoint or framing when narrative understanding benefits from it.",
+      "Do not populate unrelated scenes with the same generic face, hair, tunic and body silhouette.",
+      "Change visual form, viewpoint or framing when narrative understanding benefits from it.",
       "Reuse nearly the same angle only for deliberate before-after or state-change continuity."
     ]
   },
-  "globalNegativePrompt": "Do not switch rendering style between images, but also do not mechanically repeat the same composition. No photorealism, 3D, Pixar-like animation rendering, anime, painterly realism, graphic-novel realism, realistic portrait anatomy, chibi or children's-book proportions, glossy lighting, modern corporate infographic styling, neon colors, watermarks, image numbers or pseudo-text."
+  "globalNegativePrompt": "Do not switch rendering style between images, but also do not mechanically repeat the same composition or clone unrelated characters. No generic identical stickman people, photorealism, 3D, Pixar-like animation rendering, anime, painterly realism, graphic-novel realism, realistic portrait anatomy, chibi or children's-book proportions, glossy lighting, modern corporate infographic styling, neon colors, watermarks, image numbers or pseudo-text."
 }
