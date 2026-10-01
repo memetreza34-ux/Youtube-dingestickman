@@ -1,16 +1,15 @@
 # YouTube Workflow — Geschichts-Kanal
 
-Dieses Repository enthält die kanalspezifische Produktionspipeline für den Geschichts-Kanal.
-
 ## Grundprinzip
 
 ```text
 Thema
 → Recherche
 → Story Outline
-→ History-Voice-over-Skript
+→ History-Voice-over-Skript V3
 → Story Beats
 → Viewer Takeaway
+→ bestes visuelles Mittel pro Beat
 → Visual Concept / Visual Form
 → Composition / Camera / Mood
 → Prompt QC >= 8/10
@@ -23,12 +22,12 @@ Thema
 → Phase-3-Bildlock
 → Audio / Alignment / Timeline / Pacing
 → Remotion-Render
-→ Export-QC
+→ FINAL_VIDEO + THUMBNAIL + CAPTION
 ```
 
-## 1. Skript zuerst als Geschichte bauen
+## 1. Skript als Geschichte bauen
 
-Verbindlich ist `channel/03-SCRIPT-BIBLE.md` V2.
+Verbindlich ist `channel/03-SCRIPT-BIBLE.md` **V3**.
 
 Bevorzugte Logik:
 
@@ -37,64 +36,85 @@ konkreter historischer Moment
 → Problem
 → Handlung / Entscheidung
 → Folge
-→ neues Problem oder neue Frage
-→ größere historische Bedeutung
-→ Rückkehr zur Ausgangsfrage
+→ neue Komplikation
+→ Reveal / Wendepunkt
+→ Auflösung
+→ historische Bedeutung
 ```
 
-Keine Begrüßung, kein Lexikon-Einstieg, keine reine Faktenliste. Bei kurzen Testvideos soll die zentrale Spannung meist innerhalb von 6–15 Sekunden stehen.
+Kontext kommt just in time. Keine Begrüßung, kein Lexikon-Einstieg, keine reine Faktenliste.
 
 ## 2. Story Beats markieren
 
-Bildplanung folgt **Story Beats**, nicht bloß Absätzen.
+Bildplanung folgt Story Beats, nicht Absätzen.
 
-Ein neuer visueller Beat wird geprüft, sobald sich deutlich ändert:
+Neuen Beat prüfen bei Änderung von:
 
 - Handlung
 - Ursache / Folge
-- Person oder Gruppe
+- Person / Gruppe
 - Ort
 - Zeit
 - Zustand
-- Größenordnung / Zoomstufe
-- zentrale Zuschauer-Erkenntnis
+- Größenordnung
+- Zuschauer-Erkenntnis
 
 ### Dichte
 
-Zielbereich pro normalem Bild: ungefähr **3–5 Sekunden**.
+Zielbereich durchschnittlich etwa **2,5–4,2 Sekunden pro Visual**.
 
-- ab 6,5 s: Split prüfen
-- ab 8 s: Split stark bevorzugen
-- 10 s: Hard-Max, außer bewusst begründeter Ausnahme
+- ab 5,5 s: Split prüfen
+- ab 7 s: Split stark bevorzugen
+- 9 s: Hard-Max ohne klare Begründung
 
-Für etwa 60 Sekunden sind oft ungefähr **14–20 Visuals** sinnvoll. Für etwa 120 Sekunden häufig **26–36**. Das sind Orientierungen; der Inhalt entscheidet.
+Orientierung:
 
-## 3. Mehrmoment-Illustrationen sind erlaubt
+- ca. 60 s → häufig 18–26 Visuals
+- ca. 90 s → häufig 24–34 Visuals
+- ca. 120 s → häufig 32–44 Visuals
 
-Neue Visual Form:
+Keine Füllbilder. Inhalt entscheidet.
 
-```text
-multi-moment-illustration
-```
+## 3. Narration-first Visual Selection
 
-Sie darf zwei oder höchstens drei eng zusammengehörige Momente in einer Illustration verbinden, wenn das die Geschichte klarer macht.
+Vor jedem Visual lautet die erste Frage:
 
-Erlaubt:
+> Was muss der Zuschauer genau jetzt verstehen?
 
-- links → Mitte → rechts
-- Vordergrund → Mittelgrund → Hintergrund
-- vorher → Veränderung → danach
-- Ursache → Reaktion → Folge
+Erst danach Visual Form wählen.
 
-Harte Regel:
+Gleichwertig erlaubt:
 
-**Ein Bild = ein erzählerischer Takeaway**, nicht zwingend nur ein einzelner Zustand.
+- Character Scene
+- Environment
+- Map / Geography
+- Object Focus
+- Architecture / City
+- System / Hierarchy
+- Cause → Effect
+- Process / Sequence
+- Comparison
+- Symbolic Metaphor
+- Battle / City Overview
+- Rise / Fall
+- Multi-Moment Illustration
+- Detail Inset
+- Cutaway Section
+- Evidence Reconstruction
 
-Nicht erlaubt bleiben dichte Collagen, neun kleine Panels, Wimmelbilder oder Sammlungen unabhängiger Szenen.
+**Figuren sind nie der automatische Fallback.**
 
-## 4. Scene Card V2
+## 4. Figuren
 
-Pflichtfelder pro Visual:
+Menschen sind stilisierte historische Figuren, keine generischen Stickman-Klone.
+
+Prominente nicht wiederkehrende Personen unterscheiden sich möglichst in mindestens drei Achsen wie Gesicht, Alterseindruck, Haar/Bart, Kopfbedeckung, Statur, Kleidung, Ausrüstung oder Haltung.
+
+Wiederkehrende Figuren bleiben bewusst erkennbar.
+
+## 5. Scene Card V2
+
+Pflichtfelder:
 
 - viewerTakeaway
 - visualPurpose
@@ -112,12 +132,13 @@ Pflichtfelder pro Visual:
 - historicalAccuracyNote
 - promptQcScore
 
-Verbindlicher Pfad:
+Pfad:
 
 ```text
 Script
 → Story Beat
 → Viewer Takeaway
+→ bestes visuelles Mittel
 → Visual Concept
 → Visual Form
 → Composition
@@ -127,23 +148,16 @@ Script
 → Prompt QC >= 8/10
 ```
 
-## 5. Google Flow
+## 6. Google Flow
 
-Vor Build muss `99-technik/FLOW_WORLD_LOCK.json` auf `READY` stehen.
-
-Prompt bauen:
+Vor Build muss `99-technik/FLOW_WORLD_LOCK.json` READY sein.
 
 ```bash
 npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
-```
-
-Danach:
-
-```bash
 npm run validate:youtube-phase1 -- --dir "youtube/<week>/<slug>"
 ```
 
-Der Flow Compiler erhält die Visual Form. Für `multi-moment-illustration` schreibt er ausdrücklich eine integrierte 2–3-Moment-Regel in den Szenenprompt.
+Flow Compiler V3 schützt Visual Form, Narration-first-Regel, Figuren-Individualität und World Lock.
 
 ### Cover Gate
 
@@ -160,9 +174,9 @@ Stage 2 erst nach Nutzerwahl:
 - BILD 02–NN erzeugen
 - maximal fünf aktive Generierungen
 
-## 6. Phase 2 — finale Assets
+## 7. Phase 2
 
-Bilder liegen ausschließlich unter:
+Finale Bilder ausschließlich unter:
 
 ```text
 00-bildprompts/images/Bild 01.png
@@ -170,45 +184,81 @@ Bilder liegen ausschließlich unter:
 00-bildprompts/images/Bild NN.png
 ```
 
-Genau eine finale Nutzer-Voice liegt unter `02-audio/`.
-
-Prüfung:
+Genau eine finale Nutzer-Voice unter `02-audio/`.
 
 ```bash
 npm run validate:youtube-phase2 -- --dir "youtube/<week>/<slug>"
 ```
 
-## 7. Phase 3 — nur vorhandene Bilder
+## 8. Phase 3 — nur vorhandene Bilder
 
 ```bash
 npm run phase3:youtube -- --dir "youtube/<week>/<slug>"
 ```
 
-**Phase 3 darf niemals Bilder erzeugen, ersetzen, bearbeiten, löschen oder ergänzen.**
+Phase 3 darf niemals Bilder erzeugen, ersetzen, bearbeiten, löschen oder ergänzen.
 
-Nach bestandenem Phase-2-Gate wird `99-technik/PHASE3_IMAGE_LOCK.json` mit Dateinamen, Größen und SHA-256-Hashes angelegt. Während Phase 3 werden diese Hashes wiederholt geprüft.
-
-Fehlt ein Bild oder verändert sich ein Bildbyte:
+Nach Phase 2 wird `99-technik/PHASE3_IMAGE_LOCK.json` mit Hashes angelegt. Fehlt oder verändert sich ein Bild:
 
 ```text
 ABBRUCH
 → keine Reparatur
 → keine Bildgenerierung
-→ Fehler klar an den Nutzer melden
+→ Fehler melden
 ```
 
-Danach folgen nur Audio-Optimierung, Whisper-Alignment, Timeline, Pacing, Remotion und Export.
+## 9. Upload-Metadaten und Export
 
-## 8. Audio / Ende
+In `99-technik/video.json` wird gepflegt:
 
-- Nutzer-Voice bleibt einzige finale Sprecherquelle
-- Originaldatei bleibt unverändert
-- Playback standardmäßig 1,10× bei erhaltener Tonhöhe
+```json
+"youtubeUpload": {
+  "title": "...",
+  "description": "...",
+  "hashtags": ["#Geschichte"],
+  "keywords": ["..."]
+}
+```
+
+Beim Finalisieren entstehen automatisch:
+
+```text
+03-export/
+├── FINAL_VIDEO.mp4
+├── THUMBNAIL.png
+└── CAPTION.txt
+```
+
+`CAPTION.txt` enthält:
+
+- TITLE
+- DESCRIPTION
+- optional HASHTAGS
+- optional KEYWORDS
+- THUMBNAIL_TEXT
+
+## 10. Audio / Ende
+
+- Nutzer-Voice = einzige finale Sprecherquelle
+- Original unverändert
+- Playback standardmäßig 1,10×
 - Ziel −16 LUFS
 - True Peak max. −1,5 dBTP
 - 48 kHz
-- Schluss-Hold 1,2–1,5 s, Ziel 1,3 s
+- Schluss-Hold Ziel 1,3 s
 
 ## Definition of Done
 
-Ein Video ist fertig, wenn Skript und Geschichte funktionieren, Story Beats sinnvoll visualisiert sind, keine unnötig langen Holds bestehen, Mehrmoment-Bilder nur bei klarem Nutzen eingesetzt werden, Flow-/World-Locks stimmen, Phase 1 und 2 bestehen, Phase 3 ausschließlich vorhandene Assets verwendet und der finale Render alle QC-Gates besteht.
+Ein Video ist fertig, wenn:
+
+- Script V3 funktioniert
+- jeder Absatz einen echten Story-Schritt bringt
+- Visuals die aktuelle Narration direkt unterstützen
+- Visual Forms abwechslungsreich und inhaltlich gewählt sind
+- keine generischen Figuren-Klone vorkommen
+- Bilddichte sinnvoll hoch ist
+- Flow-/World-Locks stimmen
+- Phase 1 und 2 bestehen
+- Phase 3 nur vorhandene Assets nutzt
+- FINAL_VIDEO.mp4, THUMBNAIL.png und CAPTION.txt vorhanden sind
+- Export-QC bestanden ist
