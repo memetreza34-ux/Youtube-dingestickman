@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { arg, exists, projectPaths, readJson } from '../lib/pipeline.js';
 import { findHighRiskPromptWords } from '../lib/flow-prompt.js';
+import { validateVisualInterestScene, validateVisualInterestSequence } from '../lib/visual-interest.js';
 
 function nonEmpty(value) {
   return typeof value === 'string' && value.trim().length > 0;
@@ -77,6 +78,8 @@ export async function validatePhase1(projectDirectory) {
 
   const compilerV3 = Number(meta.promptSystemVersion) >= 3 || meta.promptSystem === 'flow-compiler-v3';
   const pipelineV4 = Number(meta.pipelineVersion) >= 4;
+  const visualInterestGate = Number(meta.visualInterestGateVersion) >= 1;
+  const interestPolicy = visual.visualInterestGate ?? {};
   let styleLock = null;
   let worldLock = null;
 
@@ -104,6 +107,11 @@ export async function validatePhase1(projectDirectory) {
     if (meta.imageDensityPolicy?.figuresMustNotBeDefaultFallback !== true) errors.push('Pipeline V4 verlangt: Figuren dürfen kein automatischer Visual-Fallback sein.');
   }
 
+  if (visualInterestGate) {
+    if (meta.phase2VisualQcRequired !== true) errors.push('Visual-Interest-Gate benötigt phase2VisualQcRequired=true.');
+    if (interestPolicy.version !== 1) errors.push('config/visual-policy.json enthält nicht Visual-Interest-Gate V1.');
+  }
+
   const coverText = String(meta.coverPolicy?.coverText ?? '').trim();
   if (!coverText) errors.push('coverPolicy.coverText fehlt.');
   else {
@@ -129,6 +137,8 @@ export async function validatePhase1(projectDirectory) {
     if (!prompt.includes('PROMPT_SYSTEM: flow-compiler-v3')) errors.push('Finaler Flow-Prompt wurde nicht mit flow-compiler-v3 gebaut.');
     if (!/CHANNEL STYLE\s+—\s+IMMUTABLE:/i.test(prompt)) errors.push('Finaler Flow-Prompt enthält keinen unveränderlichen CHANNEL STYLE Lock.');
     if (!/VIDEO WORLD LOCK\s+—\s+IMMUTABLE WITHIN THIS VIDEO:/i.test(prompt)) errors.push('Finaler Flow-Prompt enthält keinen unveränderlichen VIDEO WORLD LOCK.');
+    if (visualInterestGate && !/VISUAL INTEREST RULE\s+—\s+HARD:/i.test(prompt)) errors.push('Finaler Flow-Prompt enthält keine harte Visual-Interest-Regel.');
+    if (visualInterestGate && !/INTERNAL METADATA RULE\s+—\s+HARD:/i.test(prompt)) errors.push('Finaler Flow-Prompt enthält keine harte interne-Metadaten-Sperre.');
 
     if (styleLock) {
       if (styleLock.status !== 'READY') errors.push('config/flow-style-lock.json ist nicht READY.');
@@ -175,6 +185,15 @@ export async function validatePhase1(projectDirectory) {
       errors.push(`Nicht unterstützte visualForm bei Bild ${expected}: ${image.visualForm}.`);
     }
 
+    if (visualInterestGate) {
+      errors.push(...validateVisualInterestScene(image, {
+        imageNumber: expected,
+        isCover: expected === 1,
+        policy: interestPolicy,
+        hardMaximumSeconds: meta.imageDensityPolicy?.hardMaximumSeconds
+      }));
+    }
+
     if (sceneCardV2) {
       for (const field of requiredSceneFields) {
         if (field === 'supportingElements') {
@@ -214,7 +233,11 @@ export async function validatePhase1(projectDirectory) {
           if (!block.includes(anchorLead)) errors.push(`Bild ${expected} wiederholt den kompakten Style Anchor nicht.`);
         }
         if (expected === 1 && coverText && !block.includes(`"${coverText}"`)) errors.push('BILD 01 enthält den exakten Cover-Text nicht im Prompt.');
-        if (expected > 1 && !/No visible text/i.test(block)) errors.push(`Bild ${expected} enthält keine explizite No-Text-Regel.`);
+        if (expected > 1 && !/No visible text|ZERO visible text|TEXT SAFETY/i.test(block)) errors.push(`Bild ${expected} enthält keine explizite No-Text-Regel.`);
+        if (visualInterestGate && expected === 1 && !/only visible text allowed/i.test(block)) errors.push('BILD 01 enthält keine harte Only-Cover-Text-Regel.');
+        if (visualInterestGate && expected > 1 && !/metadata only.*NEVER|metadata only and must NEVER|ZERO visible text/i.test(block)) {
+          errors.push(`Bild ${expected} enthält keine harte Sperre gegen sichtbare interne Bildnummern/Metadaten.`);
+        }
       }
     }
 
@@ -226,6 +249,10 @@ export async function validatePhase1(projectDirectory) {
     }
 
     if (!imageMarkerRegex(expected).test(prompt)) errors.push(`BILD ${String(expected).padStart(2, '0')} fehlt im Flow-Prompt.`);
+  }
+
+  if (visualInterestGate) {
+    errors.push(...validateVisualInterestSequence(images, interestPolicy));
   }
 
   return { passed: errors.length === 0, errors };
