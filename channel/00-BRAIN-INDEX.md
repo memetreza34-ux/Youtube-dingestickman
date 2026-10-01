@@ -1,6 +1,6 @@
 # Kanal-Gehirn / Brain Index
 
-Diese Dateien sind die dauerhafte Wissensbasis für den Geschichts-Kanal. Sie verhindern, dass Entscheidungen zwischen Chats, Agenten oder Produktionsphasen verloren gehen.
+Diese Dateien sind die dauerhafte Wissensbasis für den Geschichts-Kanal.
 
 ## Allgemeine Autorität / Priorität
 
@@ -11,89 +11,82 @@ Bei Widersprüchen gilt:
 3. kanalspezifische Dateien unter `channel/`
 4. `config/channel-policy.json`
 5. `config/visual-policy.json`
-6. allgemeine Pipeline-Regeln
-7. alte Beispiele oder externe Referenzkanäle
-
-Externe Kanäle dienen nur als Inspiration/Analyse, niemals als automatisch zu kopierende Identität.
+6. `config/pipeline.json`
+7. alte Beispiele
 
 ## Spezielle Autorität für die Bildwelt
-
-Für Google-Flow-Generierungen gilt:
 
 ```text
 config/flow-style-lock.json
 → channel/10-STYLE-DNA-V2.md
 → channel/06-VISUAL-SYSTEM.md
+→ channel/07-VISUAL-GRAMMAR.md
 → Scene Card / videospezifische Regie
-→ freie Modellinterpretation nur innerhalb dieser Grenzen
 ```
 
-Es gibt bewusst **keine globalen festen Master-Referenzbilder**. Die Rendering-DNA wird textlich und maschinenlesbar fixiert, während Kamera, Perspektive, Komposition, Licht und Stimmung pro Szene variieren dürfen.
+Keine globalen festen Master-Referenzbilder. Stil wird über Rendering-DNA gesichert, nicht über identische Kompositionen oder Figuren-Schablonen.
 
-`config/flow-style-lock.json` ist die maschinenlesbare Quelle für die konstante Rendering-DNA.
+Wichtig:
 
-## Dateien
+**Der technische Style-ID `history-stickman-adaptive-v1` bedeutet heute keine generischen Stickman-Klone. Menschen sind stilisierte, individuell gestaltete historische Figuren.**
 
-### `01-CHANNEL-DNA.md`
-Wofür der Kanal steht, Ziel, Ton, Zielgruppe und Abgrenzung.
-
-### `02-TOPIC-SYSTEM.md`
-Welche Themen erlaubt sind, welche nicht, wie Themen formuliert werden und welche Themenfamilien existieren.
+## Zentrale Dateien
 
 ### `03-SCRIPT-BIBLE.md`
-Verbindliche Schreibregeln: Einstieg, Storytelling, Satzstil, Mini-Hooks, Wendepunkt und Schluss.
-
-### `04-RESEARCH-POLICY.md`
-Wie historische Aussagen geprüft, Unsicherheiten behandelt und Quellen dokumentiert werden.
-
-### `05-VIDEO-BLUEPRINT.md`
-Produktionslogik eines Videos von Thema bis Übergabe an die Bildplanung.
+History Storytelling V3: konkrete Lage, Problem, Entscheidung, Folge, neue Komplikation, Reveal/Wendepunkt, Auflösung, Bedeutung.
 
 ### `06-VISUAL-SYSTEM.md`
-Grundbildwelt `history-stickman-adaptive-v1`: Figuren, Rendering, Farbwelt, Textregeln, historische Lesbarkeit, adaptive Stimmung und Nicht-Figuren-Visuals.
+Narration-first Bildwelt, individuelle Figuren, höhere Story-Beat-Dichte, flexible Visual Forms.
 
 ### `07-VISUAL-GRAMMAR.md`
-Entscheidet, welche Bildform einen Skriptsatz am besten erklärt: Figur, Karte, Objekt, Architektur, System, Vergleich, Symbolbild, Übersicht usw.
+Wählt das beste visuelle Mittel pro Story-Beat: Figur, Karte, Objekt, Architektur, Prozess, Cause/Effect, Comparison, Multi-Moment, Detail-Inset, Cutaway, Evidence-Reconstruction usw.
 
 ### `08-FLOW-PROMPTING.md`
-Verbindliches Google-Flow-System V3: Style Lock, World Lock, individuelle Scene Direction, kontrollierte Variation, Compiler und zweistufiges Cover-Gate.
+Google Flow V3: Style Lock, World Lock, Compiler und Cover-Gate.
 
 ### `09-IMAGE-PROMPT-TEMPLATE.md`
-Spezifikation, wie Scene Cards durch Flow Compiler V3 in den finalen natürlichen Prompt übersetzt werden. Der finale Prompt wird nicht manuell geschrieben.
+Wie Scene Cards in finale Flow-Prompts übersetzt werden.
 
 ### `10-STYLE-DNA-V2.md`
-Menschlich lesbare Präzisierung von Figurenproportionen, Linien, Flächen, Detailhierarchie, Raum, Kamera, Komposition, Licht, Farbe und kontrollierter Variation.
+Aktuelle menschlich lesbare Style DNA V3 trotz historischem Dateinamen.
 
 ### `11-VISUAL-DIRECTOR.md`
-Verpflichtende Zwischenstufe zwischen Skript und Prompt. Erzwingt Viewer Takeaway, Visual Concept, Dominant Subject, Action/State, Composition, Camera, Depth, Mood und Continuity.
+Viewer Takeaway, Visual Concept, Composition, Camera, Depth, Mood und Continuity.
 
 ### `12-PROMPT-QC.md`
-Prüft die geplante Szene vor dem Build. Mindestscore: **8/10**. Aussage-, Visual-Form- oder Kompositionsverlust mit 0 Punkten ist immer ein Fail.
+Prompt-Freigabe ab 8/10.
 
 ### `14-PHASE3-ASSET-LOCK.md`
-Harte Phase-3-Regel: ausschließlich bereits vorhandene Bilder verwenden. Keine Bildgenerierung, Regeneration, Bearbeitung oder automatische Reparatur. Fehlende/fehlerhafte Assets führen zum sofortigen Abbruch und werden dem Nutzer gemeldet.
+Phase 3 darf nur vorhandene Bilder verwenden.
 
 ### `99-DECISION-LOG.md`
 Chronologisches Register fester Kanalentscheidungen.
 
-## Maschinenlesbare Visual-Dateien
+## Maschinenlesbare Kernquellen
+
+### `config/channel-policy.json`
+History Storytelling, Upload- und Kanalregeln.
 
 ### `config/visual-policy.json`
-Zentrale Visual-Policy und aktive Prompt-System-Version.
+Visual Forms, Narration-first-Regel, Figuren-Individualität und Prompt-QC.
 
 ### `config/flow-style-lock.json`
-Harter Google-Flow-Style-Lock mit Figurenkonstruktion, Detailbudget, Style Anchor, Negativregeln, Drift-Risikowörtern und kontrollierter Variation.
+Maschinenlesbare Illustrations-DNA inklusive Verbot generischer Figuren-Klone.
+
+### `config/pipeline.json`
+Pacing, Bilddichte, Phase-3-Asset-Sperre und Export-Policy.
 
 ### `99-technik/FLOW_WORLD_LOCK.json`
-Videospezifischer Lock für Orte, Figuren, Props, lokale Farbigkeit und Zeit-/Wetterkontinuität.
+Videospezifische Orte, Figuren, Props und Kontinuität.
 
 ### `99-technik/PHASE3_IMAGE_LOCK.json`
-Wird beim Start von Phase 3 aus den bereits vorhandenen finalen Bildern erzeugt. Speichert Dateiname, Größe und SHA-256 jedes Bildes und macht den Bildbestand für Phase 3 technisch unveränderlich.
+Hash-Lock der finalen Bilder während Phase 3.
 
-## Pflicht für Agenten
+## Pflicht für Agenten vor Script + Bildplanung
 
-Vor Bildplanung oder Bildgenerierung mindestens lesen:
+Mindestens lesen:
 
+- `channel/03-SCRIPT-BIBLE.md`
 - `channel/06-VISUAL-SYSTEM.md`
 - `channel/07-VISUAL-GRAMMAR.md`
 - `channel/08-FLOW-PROMPTING.md`
@@ -101,45 +94,59 @@ Vor Bildplanung oder Bildgenerierung mindestens lesen:
 - `channel/10-STYLE-DNA-V2.md`
 - `channel/11-VISUAL-DIRECTOR.md`
 - `channel/12-PROMPT-QC.md`
+- `config/channel-policy.json`
 - `config/visual-policy.json`
 - `config/flow-style-lock.json`
+- `config/pipeline.json`
 
-Vor Phase 3 zusätzlich zwingend beachten:
-
-- `channel/14-PHASE3-ASSET-LOCK.md`
-- `config/pipeline.json` → `phase3AssetPolicy`
-- `GEMINI.md` / `AGENTS.md`
-
-## Verbindlicher Visual-Pfad
+## Verbindlicher Produktionspfad
 
 ```text
-Script
-→ Aussage / Viewer Takeaway
+Thema
+→ Recherche
+→ Script V3
+→ Story Beats
+→ Viewer Takeaway
+→ bestes visuelles Mittel
 → Visual Concept
 → Visual Form
-→ Composition Design
-→ Camera
-→ Depth / Mood
-→ Continuity
-→ Anti-Gleichförmigkeitscheck
+→ Composition / Camera / Depth / Mood
 → Prompt QC >= 8/10
 → READY FLOW_WORLD_LOCK
 → Flow Compiler V3
 → Phase-1-Validator
 → Google Flow
-```
-
-## Phase-3-Pfad
-
-```text
-vorhandene finale Bilder
-→ Phase-2-Validator
+→ Phase 2
 → PHASE3_IMAGE_LOCK
 → Audio / Alignment / Timeline / Pacing
-→ Remotion-Render
-→ Export-QC
+→ Render
+→ FINAL_VIDEO + THUMBNAIL + CAPTION
 ```
+
+## Bilddichte aktuell
+
+Richtwerte:
+
+- 60 s → häufig 18–26 Visuals
+- 90 s → häufig 24–34 Visuals
+- 120 s → häufig 32–44 Visuals
+
+Ziel durchschnittlich etwa 2,5–4,2 Sekunden pro Visual. Keine Füllbilder.
+
+## Export
+
+`03-export/` soll am Ende enthalten:
+
+```text
+FINAL_VIDEO.mp4
+THUMBNAIL.png
+CAPTION.txt
+```
+
+`CAPTION.txt` enthält mindestens YouTube-Titel und Beschreibung.
+
+## Phase 3
 
 Ab `PHASE3_IMAGE_LOCK` ist `00-bildprompts/images/` read-only. Bei einem Asset-Fehler: **abbrechen und melden, niemals automatisch ein Bild erzeugen.**
 
-Keine alten Kanalregeln aus anderen Repositories übernehmen. Keine fehlenden Kanalentscheidungen stillschweigend erfinden. Den kompilierten `google-flow-prompt.txt` nicht manuell umschreiben; Änderungen erfolgen an Scene Card, World Lock, Cover-Text oder Style Lock und werden anschließend neu gebaut.
+Keine alten Kanalregeln aus anderen Repositories übernehmen. Den kompilierten `google-flow-prompt.txt` nicht manuell umschreiben; Änderungen erfolgen an den Quelldaten und werden neu gebaut.
