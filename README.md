@@ -1,202 +1,182 @@
 # History YouTube Production System
 
-Dieses Repository ist die **kanalspezifische Produktionsbasis für den Geschichts-Kanal**.
+Kanalspezifische Produktionsbasis für einen deutschen **History × Storytelling × Curiosity**-Kanal.
 
-Die allgemeine technische Pipeline bleibt erhalten, ist hier aber um feste Kanal-DNA, Themenlogik, Recherche-, Skript-, Visual-Director- und Google-Flow-Regeln ergänzt.
+## Aktueller Status
 
-## Wichtig: zuerst lesen
+- History Storytelling: **V3 READY**
+- Visual System: **V2 / Narration-first READY**
+- Flow Compiler: **V3 READY**
+- Pipeline: **V4 READY**
+- Prompt-QC: **>= 8/10**
+- Phase-3-Bildlock: **READY**
+- Export mit `CAPTION.txt`: **READY**
+- globale feste Master-Referenzbilder: **NICHT VERWENDET**
 
-Das dauerhafte Kanal-Gehirn liegt unter `channel/`.
+Der technische Style-ID bleibt `history-stickman-adaptive-v1`, bedeutet aber **keine generischen Stickman-Klone**. Menschen sind stilisierte, individuell gestaltete historische Figuren in einer konsistenten handgezeichneten 2D-Illustrationswelt.
 
-Empfohlene Reihenfolge für Menschen und KI-Agenten:
+## Zuerst lesen
 
 1. `channel/00-BRAIN-INDEX.md`
-2. `channel/01-CHANNEL-DNA.md`
-3. `channel/02-TOPIC-SYSTEM.md`
-4. `channel/03-SCRIPT-BIBLE.md`
-5. `channel/04-RESEARCH-POLICY.md`
-6. `channel/05-VIDEO-BLUEPRINT.md`
-7. `channel/06-VISUAL-SYSTEM.md`
-8. `channel/07-VISUAL-GRAMMAR.md`
-9. `channel/08-FLOW-PROMPTING.md`
-10. `channel/09-IMAGE-PROMPT-TEMPLATE.md`
-11. `channel/10-STYLE-DNA-V2.md`
-12. `channel/11-VISUAL-DIRECTOR.md`
-13. `channel/12-PROMPT-QC.md`
-14. `channel/99-DECISION-LOG.md`
+2. `channel/03-SCRIPT-BIBLE.md`
+3. `channel/04-RESEARCH-POLICY.md`
+4. `channel/06-VISUAL-SYSTEM.md`
+5. `channel/07-VISUAL-GRAMMAR.md`
+6. `channel/08-FLOW-PROMPTING.md`
+7. `channel/10-STYLE-DNA-V2.md`
+8. `channel/11-VISUAL-DIRECTOR.md`
+9. `channel/12-PROMPT-QC.md`
+10. `channel/14-PHASE3-ASSET-LOCK.md`
+11. `channel/99-DECISION-LOG.md`
 
-Maschinenlesbare Visual-Kernregeln:
+Maschinenlesbar:
 
+- `config/channel-policy.json`
 - `config/visual-policy.json`
 - `config/flow-style-lock.json`
+- `config/pipeline.json`
 
-## Technische Pipeline
+## Produktionspfad
 
 ```text
 Thema
 → Recherche
 → Story Outline
-→ Voice-over-Skript
+→ Script V3
+→ Story Beats
 → Viewer Takeaway
-→ Visual Concept
-→ Visual Form
+→ bestes visuelles Mittel
+→ Visual Concept / Visual Form
 → Composition / Camera / Mood
-→ Anti-Gleichförmigkeitscheck
 → Prompt QC >= 8/10
-→ READY Flow World Lock
+→ World Lock
 → Flow Compiler V3
-→ Phase-1-Validator
-→ Google-Flow-Bildgenerierung
-→ finale Nutzer-Voice
-→ Audio-Optimierung
-→ Wort-/Anchor-Alignment
-→ Timeline
-→ Pacing-QC
-→ Remotion-Render
-→ Export-QC
+→ Phase 1
+→ Google Flow
+→ Phase 2
+→ Phase-3-Bildlock
+→ Audio / Alignment / Timeline / Pacing
+→ Remotion
+→ FINAL_VIDEO + THUMBNAIL + CAPTION
 ```
 
-Die technische Dokumentation liegt in `youtube/WORKFLOW.md`.
+## Script V3
 
-## Aktueller Kanalstatus
+Geschichte vor Erklärung.
 
-- Nische: Geschichte / Weltgeschichte
-- Sprache: Deutsch
-- Positionierung: **History × Storytelling × Curiosity**
-- Erzählweise: spannende historische Fragen und Entwicklungen statt trockener Lexikon-Zusammenfassungen
-- Themen-System: **V1 READY**
-- Recherche-System: **V1 READY**
-- Skript-System: **V1 READY**
-- Grundbildwelt: **V1 READY**
-- Visual Director: **V2 READY**
-- Prompt-QC: **READY — Mindestscore 8/10**
-- Google-Flow-Prompt-System: **Flow Compiler V3 READY**
-- maschinenlesbarer Style Lock: **READY**
-- kontrollierte Szenenvariation: **READY**
-- feste globale Master-Referenzbilder: **NICHT VERWENDET**
-- aktive Style-ID: `history-stickman-adaptive-v1`
+```text
+Moment
+→ Problem
+→ Entscheidung
+→ Folge
+→ neue Komplikation
+→ Reveal / Wendepunkt
+→ Auflösung
+→ historische Bedeutung
+```
 
-## Bildwelt in einem Satz
+Kontext wird just in time geliefert. Gegner behalten nachvollziehbare Logik. Das Ende braucht einen Payoff statt einer bloßen Wiederholung.
 
-Konsistente handgezeichnete 2D-History-Explainer-Welt mit ausdrucksstarken historischen Stickman-Figuren und gleichwertigen Nicht-Figuren-Visuals wie Karten, Architektur, Objekten, Systemen und Symbolbildern.
+## Narration-first Visuals
 
-**Stil bleibt konstant; Inszenierung, Epoche, Stimmung, Perspektive und Visual-Form dürfen sich an den Inhalt anpassen.**
+Vor jedem Bild lautet die Frage:
 
-## Was Flow Compiler V3 löst
+> **Welches visuelle Mittel erklärt genau diesen gesprochenen Beat am besten?**
 
-Früher konnte ein Agent die Bildwelt zwar lesen, den finalen Google-Flow-Prompt aber trotzdem frei interpretieren. Dadurch waren formal korrekte, aber stilistisch schwache oder driftende Prompts möglich.
+Erlaubt sind unter anderem:
 
-V3 trennt deshalb strikt:
+- Character Scene
+- Environment
+- Map / Geography
+- Object Focus
+- Architecture
+- System / Hierarchy
+- Cause → Effect
+- Process / Sequence
+- Comparison
+- Battle / City Overview
+- Multi-Moment Illustration
+- Detail Inset
+- Cutaway Section
+- Evidence Reconstruction
+
+Figuren sind nie der automatische Fallback.
+
+## Figuren
+
+- stilisiert, aber menschlich lesbar
+- keine identischen generischen Figuren-Klone
+- prominente nicht wiederkehrende Personen möglichst in mindestens drei sichtbaren Merkmalen unterscheiden
+- wiederkehrende Hauptfiguren konsistent halten
+- gleicher Illustrator ≠ gleiche Person
+
+## Bilddichte
+
+Pipeline V4:
+
+- Ziel durchschnittlich etwa **2,5–4,2 s pro Visual**
+- ab 5,5 s Split prüfen
+- ab 7 s Split stark bevorzugen
+- 9 s Hard-Max ohne klare Begründung
+
+Orientierung:
+
+- ca. 60 s → 18–26 Visuals
+- ca. 90 s → 24–34 Visuals
+- ca. 120 s → 32–44 Visuals
+
+Keine Füllbilder; Inhalt entscheidet.
+
+## Flow Compiler V3
 
 ```text
 CHANNEL STYLE LOCK
-= wie der Kanal gezeichnet wird
+= Rendering-DNA
 
 VIDEO WORLD LOCK
-= was innerhalb dieses Videos gleich bleiben muss
+= videospezifische Kontinuität
 
 SCENE CARD
-= was dieses einzelne Bild aussagen und zeigen soll
+= Aussage und Regie des einzelnen Visuals
 ```
 
-Der finale `google-flow-prompt.txt` wird daraus gebaut und nicht mehr frei improvisiert.
-
-## Konsistenz ohne Gleichförmigkeit
-
-Der Kanal verwendet **keine festen globalen Master-Referenzbilder**. Zu starke Referenzen können unbeabsichtigt nicht nur den Stil, sondern auch Kamerawinkel, Figurenhaltung und Komposition wiederholen.
-
-Stattdessen fixiert `config/flow-style-lock.json` nur die Zeichen-DNA:
-
-- Figurenproportionen
-- Gesichtsvereinfachung
-- Linienlogik
-- Farb- und Schattierungslogik
-- Textur
-- Detailbudget
-- kompakten Style Anchor pro Bild
-- globale Negativregeln
-
-Pro Szene dürfen bewusst variieren:
-
-- Kameraabstand
-- Perspektive
-- Subject Placement
-- Vordergrund/Mittelgrund/Hintergrund
-- Negativraum
-- Licht
-- Wetter
-- Tageszeit
-- Stimmung
-- Visual Form
-
-Fast identische Blickwinkel werden nur genutzt, wenn sie für Vorher/Nachher oder andere echte Kontinuität sinnvoll sind.
-
-## Flow World Lock
-
-Jedes neue Video besitzt:
-
-```text
-99-technik/FLOW_WORLD_LOCK.json
-```
-
-Darin werden wiederkehrende Orte, Figuren, Props, lokale Farbigkeit und Zeit-/Wetterlogik definiert.
-
-Vor dem Prompt-Build muss die Datei `READY` sein.
-
-## Flow-Prompt bauen
-
-Nach vollständigen Scene Cards und Prompt-QC:
+Build:
 
 ```bash
 npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
-```
-
-Danach:
-
-```bash
 npm run validate:youtube-phase1 -- --dir "youtube/<week>/<slug>"
 ```
 
-Der erzeugte `google-flow-prompt.txt` ist ein **Build-Artefakt**. Nicht direkt umschreiben. Änderungen erfolgen an Scene Card, World Lock, Cover-Text oder Style Lock und werden anschließend neu kompiliert.
+Cover-Gate bleibt zweistufig: zuerst drei Covervarianten, dann STOP bis zur Nutzerauswahl.
 
-## Harte Bildprompt-Regeln
+## Phase 3
 
-Verbindlich ist:
+Phase 3 verwendet **nur vorhandene Bilder**. Keine Generierung, Regeneration, Bearbeitung oder automatische Reparatur.
 
-```text
-Script
-→ Aussage
-→ Visual Concept
-→ Visual Form
-→ Composition
-→ Camera
-→ Depth / Mood
-→ Continuity
-→ Anti-Gleichförmigkeitscheck
-→ Prompt QC >= 8/10
-→ Compiler
+`PHASE3_IMAGE_LOCK.json` sichert Dateiname, Größe und SHA-256.
+
+Fehler = abbrechen und melden.
+
+## Export
+
+`video.json` enthält:
+
+```json
+"youtubeUpload": {
+  "title": "...",
+  "description": "...",
+  "hashtags": ["#Geschichte"],
+  "keywords": ["..."]
+}
 ```
 
-Neue Projekte verwenden `BILD_AUDIO_ZUORDNUNG.json` Schema V2 mit vollständiger Scene Card. Phase 1 schlägt unter anderem fehl, wenn Pflichtfelder, World Lock, Style Anchor, Kompositionssprache, exakter Cover-Text oder Mindest-QC fehlen.
+Finaler Ordner:
 
-Generische Style-Wörter wie `cinematic`, `epic`, `ultra detailed`, `photographic` oder `realistic lighting` werden in V3 als Drift-Risiko behandelt. Kamera, Licht und Raum sollen konkret beschrieben werden.
+```text
+03-export/
+├── FINAL_VIDEO.mp4
+├── THUMBNAIL.png
+└── CAPTION.txt
+```
 
-## Testvideos
-
-Der langfristige Arbeitsrahmen liegt bei ungefähr 8–15 Minuten, wenn ein Thema die Länge trägt. Für Pipeline- und Qualitätsprüfungen sind bewusst **kurze Testvideos bis maximal 120 Sekunden** erlaubt.
-
-## Wichtige Sperren
-
-- keine Bildwelt aus anderen Repositories übernehmen
-- keine Referenzkanal-Identität kopieren
-- keine festen globalen Master-Referenzbilder erzwingen
-- Figuren nicht in jede Szene erzwingen
-- keine Inventarlisten-Prompts als finalen Google-Flow-Prompt akzeptieren
-- geplante Visual Form beim Prompt-Schreiben nicht verlieren
-- kein Prompt unter 8/10 Prompt-QC freigeben
-- keine mechanisch gleiche Komposition über unabhängige Szenen hinweg
-- kein manuelles Umschreiben des kompilierten Flow-Prompts
-- kein Google-Flow-Einsatz vor bestandenem Phase-1-Gate
-- kein sichtbarer Remotion-Erklärungstext als Standard
-- keine Bildnummern oder Pseudo-Texte im generierten Bild
-- Nutzer-Voice bleibt die einzige finale Sprecherquelle
+`CAPTION.txt` enthält YouTube-Titel, Beschreibung, optionale Hashtags/Keywords und den Thumbnail-Text.
