@@ -1,12 +1,16 @@
-# Visual Grammar — Wie Story-Beats in Bilder übersetzt werden
+# Visual Grammar — Story-Beat → bestes visuelles Mittel
 
 ## Zweck
 
-Die Bildwelt ist nicht nur ein Stil, sondern ein Auswahl-System. Geplant wird nicht mehr nur pro Absatz oder Satz, sondern pro **Story-Beat**: Immer wenn sich Handlung, Ursache, Ort, Zeit, Perspektive oder Erkenntnis deutlich verändert, wird geprüft, ob ein neuer visueller Beat nötig ist.
+Die Bildplanung ist ein **Auswahlsystem**. Für jeden Story-Beat wird zuerst entschieden, welche visuelle Form die Aussage am schnellsten und stärksten vermittelt.
 
-Keine Regel verlangt automatisch eine Figur.
+Die Kernfrage lautet:
 
-Wichtig: Eine Visual Form ist nur die Kategorie. Vor dem finalen Prompt muss zusätzlich ein **Visual Concept** und eine konkrete **Composition** nach `11-VISUAL-DIRECTOR.md` entstehen.
+> **Was muss der Zuschauer jetzt verstehen — und welche Illustration zeigt genau das am besten?**
+
+Nicht automatisch Figuren einsetzen. Nicht automatisch Karten einsetzen. Nicht automatisch eine schöne Szene bauen. Die Aussage entscheidet.
+
+---
 
 ## Story-Beat-Regel
 
@@ -17,142 +21,318 @@ Ein neuer visueller Beat ist besonders wahrscheinlich, wenn sich mindestens eine
 - Ursache oder Folge
 - Ort
 - Zeit
-- Größenordnung / Zoomstufe
-- Zustand eines Ortes oder Objekts
+- Größenordnung
+- Zustand eines Ortes / Objekts
 - zentrale Zuschauer-Erkenntnis
 
-Ein Bild soll nicht weiterlaufen, nur weil derselbe Absatz gesprochen wird.
+Ein Bild soll nicht nur deshalb weiterlaufen, weil derselbe Absatz gesprochen wird.
 
-Für einen etwa 60-sekündigen History-Test sind häufig ungefähr **14–20 visuelle Beats** sinnvoll. Das ist eine Orientierung, keine starre Bildzahl. Inhalt gewinnt immer.
+Richtwerte für kurze Produktionen:
 
-## Visual-Formen
+- ca. 60 s → häufig 18–26 Visuals
+- ca. 90 s → häufig 24–34 Visuals
+- ca. 120 s → häufig 32–44 Visuals
 
-### 1. Character Scene
-Nutzen, wenn Menschen, Entscheidungen, Emotionen, Rollen oder soziale Beziehungen zentral sind.
+Keine starre Quote. Inhalt und Lesbarkeit entscheiden.
 
-Beispiele:
-- König verhandelt mit Adeligen
-- Bauer beginnt den Arbeitstag
-- Legionär marschiert
+---
 
-### 2. Environment Only
-Nutzen, wenn Ort, Lebensbedingungen oder Atmosphäre wichtiger sind als eine Person.
+# Visual-Formen
 
-Beispiele:
-- leeres mittelalterliches Dorf im Winter
-- zerstörte römische Straße
-- Hafenstadt bei Nacht
+## 1. Character Scene
 
-### 3. Map / Geography
-Nutzen bei Expansion, Grenzen, Handelswegen, Migration, geografischen Hindernissen oder mehreren Reichen/Regionen.
+Nutzen, wenn Menschen, Entscheidungen, Emotion, Macht, Handlung oder Beziehung zentral sind.
 
-Karten müssen im selben handgezeichneten Kanalstil bleiben.
+Gute Fragen:
 
-### 4. Object Focus
-Nutzen, wenn ein Objekt die Aussage besser trägt als eine Szene.
+- Wer handelt?
+- Was tut die Person konkret?
+- Was verändert diese Handlung?
 
-Beispiele:
-- Münzen für Inflation
-- zerbrochener Schild für militärischen Verfall
-- leeres Kornlager für Hunger
-- Schiff für Handel
+Prominente Figuren müssen individuell aussehen. Keine austauschbaren Klone.
 
-### 5. Architecture / City
-Nutzen, wenn Macht, Technik, Alltag oder Entwicklung über gebaute Umwelt erklärt werden kann.
+---
 
-### 6. System / Hierarchy
-Nutzen für abstraktere historische Strukturen. System über historische Räume, Objekte, Wege, Höhe und Beziehungen zeigen; keine moderne Business-Infografik.
+## 2. Environment Only
 
-### 7. Cause → Effect
-Nutzen, wenn eine Ursache sichtbar zu einer Folge führt. Ursache und Folge müssen beide in einer klaren räumlichen Beziehung lesbar sein.
-
-### 8. Process / Sequence
-Nutzen, wenn ein Ablauf erklärt wird. Bei Zustandsänderungen möglichst denselben Ort oder verwandten Blickwinkel nutzen, wenn das Verständnis dadurch steigt.
-
-### 9. Comparison
-Nutzen bei klaren Gegensätzen. Beide Vergleichspole müssen sichtbar vorkommen.
-
-### 10. Symbolic Metaphor
-Nur nutzen, wenn eine reale Szene die abstrakte Aussage schlechter erklärt. Symbolik muss sofort verständlich und historisch passend wirken.
-
-### 11. Battle / City Overview
-Nutzen, wenn räumliche Lage entscheidend ist. Das zentrale Verhältnis muss auch klein auf YouTube lesbar bleiben.
-
-### 12. Rise / Fall Lifecycle
-Nutzen für zeitliche Entwicklung, wenn mehrere Zustände in einem Bild verständlicher sind als getrennte Bilder.
-
-### 13. Multi-Moment Illustration
-Nutzen, wenn **zwei oder höchstens drei eng zusammengehörige Story-Momente** in einer einzigen Illustration zusammen stärker erklären als getrennte Einzelbilder.
+Nutzen, wenn Ort, Lebensbedingungen, Leere, Zerstörung, Wetter oder Atmosphäre die Aussage tragen.
 
 Beispiele:
-- links müder Legionär nach dem Marsch, Mitte Grabenbau, rechts fertiges Nachtlager
-- Vordergrund Händler mit leerem Geldbeutel, Mittelgrund teure Ware, Hintergrund Münzstätte als Ursache derselben Entwicklung
-- derselbe Ort in drei klar lesbaren Zuständen: vorher → Veränderung → danach
+
+- verlassenes Dorf
+- trockene Grenze
+- zerstörte Straße
+- enger Gebirgspass
+
+---
+
+## 3. Map / Geography
+
+Nutzen für:
+
+- Routen
+- Expansion
+- Grenzen
+- Migration
+- Blockaden
+- geografische Hindernisse
+- mehrere Regionen oder Reiche
+
+Karten bleiben illustrativ und im Kanalstil; keine moderne Corporate-Grafik.
+
+---
+
+## 4. Object Focus
+
+Nutzen, wenn ein Gegenstand die Aussage besser trägt als eine ganze Szene.
+
+Beispiele:
+
+- Münze
+- Schwert
+- Siegel
+- Werkzeug
+- Brief
+- Nahrungsvorrat
+- beschädigtes Rad
+
+---
+
+## 5. Architecture / City
+
+Nutzen, wenn gebaute Umgebung Macht, Technik, Alltag oder Entwicklung erklärt.
+
+Beispiele:
+
+- Burg
+- Stadtmauer
+- Hafen
+- Forum
+- Tempel
+- Aquädukt
+
+---
+
+## 6. System / Hierarchy
+
+Nutzen für historische Strukturen, wenn räumliche Beziehungen die Hierarchie zeigen können.
+
+Beispiele:
+
+- Burg → Dorf → Felder
+- Versorgung einer Armee
+- Hof → Adel → Verwaltung
+
+Keine Business-Boxen oder moderne Flowcharts.
+
+---
+
+## 7. Cause → Effect
+
+Nutzen, wenn Ursache und Folge gemeinsam sichtbar sein müssen.
+
+Beispiele:
+
+- fehlende Nahrung → schwächere Verteidiger
+- Graben → verlangsamter Angriff
+- blockierte Straße → keine Versorgung
+
+---
+
+## 8. Process / Sequence
+
+Nutzen, wenn der Ablauf selbst die Aussage ist.
+
+Beispiele:
+
+- Bau eines Walls
+- Münzentwertung
+- Belagerung
+- Brandentwicklung
+- Transportweg
+
+---
+
+## 9. Comparison
+
+Nutzen bei Gegensätzen.
+
+Beide Pole müssen sichtbar sein.
+
+Beispiele:
+
+- vorher / nachher
+- arm / reich
+- kleine Garnison / große Armee
+- offene Straße / blockierter Pass
+
+---
+
+## 10. Symbolic Metaphor
+
+Nur verwenden, wenn eine reale Szene die abstrakte Aussage schlechter vermittelt.
+
+Symbolik muss sofort verständlich sein.
+
+---
+
+## 11. Battle / City Overview
+
+Nutzen, wenn räumliche Lage entscheidend ist.
+
+Beispiele:
+
+- Belagerungsring
+- Passblockade
+- Flottenposition
+- Fluchtweg
+
+Das Verhältnis bleibt wichtiger als Mini-Figuren-Detail.
+
+---
+
+## 12. Rise / Fall Lifecycle
+
+Nutzen für sichtbare Entwicklung über mehrere Zustände, wenn ein Gesamtbild klarer ist als drei einzelne Bilder.
+
+---
+
+## 13. Multi-Moment Illustration
+
+Nutzen für zwei bis höchstens drei eng verbundene Momente, die gemeinsam **einen** Takeaway erklären.
+
+Mögliche Struktur:
+
+- links → rechts
+- Vordergrund → Mittelgrund → Hintergrund
+- vorher → Veränderung → danach
+- Ursache → Handlung → Folge
+
+Keine zufällige Collage.
+
+---
+
+## 14. Detail Inset
+
+Nutzen, wenn ein kleiner Gegenstand oder ein Detail innerhalb einer größeren Szene entscheidend ist.
+
+Beispiel:
+
+- Hauptbild: Ochse mit Reisigbündel
+- Inset: Nahaufnahme der Befestigung am Horn
 
 Regeln:
 
-- maximal 2–3 Momente
-- alle Momente beantworten **eine gemeinsame Zuschauerfrage**
-- ein Moment bleibt visuell dominant oder die Leserichtung ist eindeutig
-- bevorzugt integrierte räumliche Erzählung, Vordergrund/Mittelgrund/Hintergrund oder klare Links→Rechts-Bewegung
-- keine zufällige Sammlung unabhängiger Motive
-- keine dichte Fotocollage
-- keine neun kleinen Panels
-- Trennungen oder weiche Übergänge sind erlaubt, wenn sie die Geschichte klarer machen
-- sichtbare Beschriftungen bleiben standardmäßig verboten
+- genau ein Inset
+- Hauptbild bleibt dominant
+- keine Labels nötig
+- kein Infografik-Look
 
-**Mehrere Momente in einer Illustration sind ausdrücklich erlaubt.** Die alte Regel „ein Bild = nur ein einzelner Zustand“ gilt nicht mehr absolut. Entscheidend ist: **ein Bild = ein klarer erzählerischer Takeaway**.
+---
 
-## Auswahlregel
+## 15. Cutaway Section
 
-Vor jedem visuellen Beat:
+Nutzen, wenn ein verborgenes räumliches System erklärt werden muss.
 
-1. Was hat sich in der Geschichte gerade verändert?
-2. Was muss der Zuschauer jetzt verstehen?
-3. Braucht diese neue Information ein eigenes Bild?
-4. Muss ein Mensch sichtbar sein?
-5. Welche Visual Form erklärt sie am klarsten?
-6. Wäre ein Einzelmoment klarer – oder eine integrierte 2–3-Moment-Illustration?
-7. Welche Epoche/Ort/Details müssen historisch erkennbar sein?
-8. Welche visuelle Beziehung macht die Aussage sichtbar?
+Beispiele:
 
-Danach wird nach `11-VISUAL-DIRECTOR.md` das Visual Concept und die Komposition gebaut.
+- Schiffsinnenraum
+- Tunnel unter einer Mauer
+- Aufbau eines Walls
+- Wasserversorgung
 
-## Anti-Monotonie
+Schnittdarstellung einfach halten. Keine überladene technische Tafel.
 
-Ein Geschichtsvideo soll nicht aus langen Holds auf ähnlichen Bildern bestehen.
+---
 
-Abwechslung entsteht durch:
+## 16. Evidence Reconstruction
 
-- Character Scenes
-- Umgebungen
-- Objektfokus
-- Karten
-- Architektur
-- Nahaufnahmen
-- Übersichten
-- Ursache→Wirkung
-- Vorher/Nachher
-- integrierte Mehrmoment-Illustrationen
-- Wechsel zwischen menschlicher Nähe und großem historischen Bild
+Nutzen, wenn der Zuschauer verstehen soll, **woher wir etwas wissen** oder wie ein historischer Befund rekonstruiert wird.
 
-Der gemeinsame Kanalstil bleibt unverändert.
+Mögliche Kombination:
 
-## Visual-Form-Treue
+```text
+historisches Objekt / Ruine / Münze / Dokumentfragment
+→ stilisierte Rekonstruktion der dazugehörigen Situation
+```
+
+Wichtig:
+
+- keine falsche Sicherheit erzeugen
+- unsichere Details neutral halten
+- Beleg und Rekonstruktion klar visuell verbinden
+
+---
+
+# Auswahlregel pro Beat
+
+Vor jedem Bild:
+
+1. Was sagt der Sprecher genau jetzt?
+2. Was soll der Zuschauer danach verstanden haben?
+3. Was ist die sichtbarste Version dieses Gedankens?
+4. Braucht es überhaupt eine Person?
+5. Wäre Karte, Objekt, Architektur, Prozess, Vergleich, Cutaway oder Evidence-Reconstruction besser?
+6. Braucht die Aussage einen neuen Beat oder kann sie sinnvoll mit dem vorherigen verbunden werden?
+7. Welche visuelle Beziehung trägt den Gedanken?
+8. Welche Kamera macht ihn am klarsten?
+
+Erst danach entsteht die Scene Card.
+
+---
+
+# Anti-Monotonie
+
+Ein gutes Geschichtsvideo wechselt die visuelle Sprache passend zur Erzählung.
+
+Möglicher Rhythmus:
+
+```text
+Figur nah
+→ räumliche Übersicht
+→ Objektfokus
+→ Prozess
+→ Reaktion einer Figur
+→ Karte
+→ Ursache/Wirkung
+→ Detail-Inset
+→ große Auflösung
+```
+
+Variation entsteht durch **Bedeutung**, nicht durch zufälligen Stilwechsel.
+
+---
+
+# Figuren-Regel
+
+Wenn Menschen vorkommen:
+
+- Hauptpersonen wiedererkennbar halten
+- Nebenfiguren nicht klonen
+- Alter, Gesicht, Haar/Bart, Kopfbedeckung, Statur, Kleidung und Haltung variieren
+- nicht jede Szene frontal und mittig bauen
+- Figuren nicht nur dekorativ im Hintergrund verteilen
+
+---
+
+# Visual-Form-Treue
 
 Vor Freigabe prüfen:
 
-- `comparison` → sind beide Seiten sichtbar?
-- `cause-effect` → sind Ursache und Folge verbunden?
-- `process-sequence` → ist die Zustandsänderung lesbar?
-- `system-hierarchy` → ist die Struktur räumlich verständlich?
-- `battle-city-overview` → ist das räumliche Verhältnis dominant?
-- `object-focus` → trägt das Objekt wirklich die Aussage?
-- `character-scene` → zeigt Körpersprache/Handlung den Gedanken?
-- `multi-moment-illustration` → sind 2–3 Momente klar verbunden und führen zu genau einem Takeaway?
+- `comparison` → beide Seiten sichtbar?
+- `cause-effect` → Ursache und Folge sichtbar verbunden?
+- `process-sequence` → Ablauf lesbar?
+- `system-hierarchy` → Struktur räumlich verständlich?
+- `battle-city-overview` → Lage dominant?
+- `object-focus` → Objekt trägt Aussage?
+- `character-scene` → Handlung/Körpersprache trägt Gedanken?
+- `multi-moment-illustration` → 2–3 Momente, ein Takeaway?
+- `detail-inset` → nur ein wirklich notwendiges Detail vergrößert?
+- `cutaway-section` → verborgenes System klarer als ohne Schnitt?
+- `evidence-reconstruction` → Beleg und Rekonstruktion sauber getrennt, aber verständlich verbunden?
 
 ## Harte Regel
 
-**Script → Story Beat → Viewer Takeaway → Visual Concept → Visual Function → Visual Form → Composition → Camera → Prompt → QC.**
+**Script → Story Beat → Viewer Takeaway → bestes visuelles Mittel → Visual Concept → Visual Form → Composition → Camera → Prompt → QC.**
 
-Nicht direkt vom Absatz zu einem zufälligen Bildprompt springen.
+Nicht vom Satz direkt zu einem generischen Figurenbild springen.
