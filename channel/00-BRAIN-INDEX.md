@@ -23,12 +23,13 @@ config/flow-style-lock.json
 → channel/06-VISUAL-SYSTEM.md
 → channel/07-VISUAL-GRAMMAR.md
 → channel/15-VISUAL-INTEREST-QC.md
+→ channel/17-WHOLE-VIDEO-COHERENCE-GATE.md
 → Scene Card
 ```
 
 Der technische Style-ID `history-stickman-adaptive-v1` ist ein Legacy-Name. Er bedeutet keine generischen Stickman-Klone.
 
-## Preproduction ist jetzt ein technisches Gate
+## Preproduction
 
 Neue Projekte starten als `preproduction-review`.
 
@@ -39,52 +40,69 @@ Pflichtdateien:
 99-technik/STORY_QC.json
 ```
 
-Details: `channel/13-PREPRODUCTION-QUALITY-GATE.md`.
+Topic Director V3 verlangt bei neuen Scorecards zusätzlich:
 
-### `TOPIC_SCORECARD.json`
+- konkrete historische Story Core
+- `mechanismOnlyTopic = false`
+- konkrete menschliche / gesellschaftliche Stakes
+- Ereignis-/Veränderungsverlauf
+- erwarteter reiner Erkläranteil normalerweise <= 40 %
 
-Verbindet Topic Director V2 mit der Pipeline. Erfordert:
+Duplicate Check bleibt nur Neuheitsprüfung.
 
-- 30+ Rohideen
-- 12er Shortlist
-- Duplicate Check
-- Story Engine
-- größere historische Bedeutung
-- Quellenbasis
-- mindestens 3 Titelrichtungen
-- mindestens 5 Visual Forms
-- Diversity Gate
-- Score >= 7,6/10
+## Script-first
 
-Tests, Paused-, Rejected-, Archived- und Legacy-Themen blockieren den Duplicate Check nicht hart. Aktive/reservierte Produktionen dürfen blockieren.
+Maßgeblich: `channel/03-SCRIPT-BIBLE.md` V4.
 
-### `STORY_QC.json`
+Verbindlich:
 
-Technische Freigabe nach Script V3 und `16-STORY-QUALITY-GATE.md`:
-
-- zentrale Frage
-- Story-Spine
-- historische Bedeutung
-- Hook / Progression / Meaning / Payoff >= 8/10
-- zentraler Story-Anteil >= 70 %
-- Personality-/Curiosity-Anteil <= 30 %
-- höchstens 2 reine Personality-/Curiosity-Beats hintereinander
-- Ende beantwortet Ausgangsfrage
-
-Validator:
-
-```bash
-npm run validate:youtube-preproduction -- --dir "youtube/<week>/<slug>"
+```text
+Recherche
+→ vollständiger natürlicher Voice-over-Fließtext
+→ laut lesen / Sprachfluss-QC
+→ STORY_QC
+→ erst danach Story-Beats und Visuals
 ```
 
-Phase 1 führt dieses Gate bei neuen Projekten erneut aus.
+Nicht mehr zulässig:
+
+```text
+Bilder planen
+→ pro Bild einen Satz schreiben
+→ daraus Voice-over bauen
+```
+
+## Whole-Video-Coherence-Gate
+
+Neue Projekte führen zusätzlich:
+
+```text
+99-technik/WHOLE_VIDEO_QC.json
+```
+
+Maßgeblich: `channel/17-WHOLE-VIDEO-COHERENCE-GATE.md`.
+
+Pflicht:
+
+- Script ist zusammenhängender Fließtext
+- Read-aloud-QC bestanden
+- Visuals wurden erst nach Script abgeleitet
+- Bildfolge als Gesamtsequenz geprüft
+- explanation-only Visual Share <= 35 %
+- maximal 2 explanation-only Visuals hintereinander
+- nach Erklärblöcken Rückkehr zur konkreten historischen Welt
+- Redaktionstext nur bei echtem Nutzen
+- Übergänge geprüft
+- Gesamt-Kohärenz >= 8/10
+
+Phase 1 prüft dieses Gate bei neuen Projekten technisch.
 
 ## Zentrale Dateien
 
-- `02-TOPIC-SYSTEM.md` — Topic Director V2
-- `03-SCRIPT-BIBLE.md` — History Storytelling V3
+- `02-TOPIC-SYSTEM.md` — Topic Director V3
+- `03-SCRIPT-BIBLE.md` — History Storytelling V4 / Script-first
 - `04-RESEARCH-POLICY.md` — Quellen / Unsicherheit
-- `05-VIDEO-BLUEPRINT.md` — kompletter Produktionspfad V5
+- `05-VIDEO-BLUEPRINT.md` — Produktionspfad
 - `06-VISUAL-SYSTEM.md` — Narration-first Bildwelt
 - `07-VISUAL-GRAMMAR.md` — Visual Form pro Story Beat
 - `08-FLOW-PROMPTING.md` — Google Flow / Cover Gate
@@ -92,10 +110,11 @@ Phase 1 führt dieses Gate bei neuen Projekten erneut aus.
 - `10-STYLE-DNA-V2.md` — aktuelle Style DNA trotz Legacy-Dateiname
 - `11-VISUAL-DIRECTOR.md` — Scene Cards
 - `12-PROMPT-QC.md` — Prompt-QC >= 8/10
-- `13-PREPRODUCTION-QUALITY-GATE.md` — Topic Scorecard + Story QC als technische Gates
+- `13-PREPRODUCTION-QUALITY-GATE.md` — technische Preproduction
 - `14-PHASE3-ASSET-LOCK.md` — read-only Bilder in Phase 3
-- `15-VISUAL-INTEREST-QC.md` — Anti-Monotonie / Textsperre / Bild-QC
+- `15-VISUAL-INTEREST-QC.md` — Anti-Monotonie / kontrollierter Text / Bild-QC
 - `16-STORY-QUALITY-GATE.md` — Story statt Anekdoten-Kette
+- `17-WHOLE-VIDEO-COHERENCE-GATE.md` — Fließtext + Gesamtsequenz + Erkläranteil
 - `99-DECISION-LOG.md` — chronologische Entscheidungen
 
 ## Maschinenlesbare Kernquellen
@@ -108,8 +127,6 @@ config/flow-style-lock.json
 config/pipeline.json
 ```
 
-Numerische Pacing-Werte werden ausschließlich aus `config/pipeline.json` abgeleitet. Topic-Schwellen aus `config/topic-policy.json`. Visual-QC-Schwellen aus `config/visual-policy.json` bzw. `config/channel-policy.json`.
-
 ## Verbindlicher Produktionspfad
 
 ```text
@@ -118,12 +135,15 @@ Numerische Pacing-Werte werden ausschließlich aus `config/pipeline.json` abgele
 → Duplicate Check
 → TOPIC_SCORECARD APPROVED
 → Recherche
-→ Script V3
+→ kompletter Voice-over-Fließtext
+→ Read-aloud-QC
 → STORY_QC APPROVED
-→ Story Beats
-→ Viewer Takeaway
-→ Visual Form
+→ Story Beats aus dem fertigen Script ableiten
+→ Viewer Takeaway / Visual Form
 → Shot Scale / Visual Energy / Change From Previous
+→ explanationOnly markieren
+→ Redaktionstext nur gezielt planen
+→ WHOLE_VIDEO_QC APPROVED
 → Prompt QC >= 8
 → Visual Interest >= 8
 → FLOW_WORLD_LOCK READY
@@ -146,30 +166,46 @@ Neue Produktionen:
 - max. 2 gleiche Visual Forms hintereinander
 - max. 2 Character Scenes hintereinander
 - max. 2 gleiche Shot Scales hintereinander
+- max. 2 `explanationOnly=true` Visuals hintereinander
 - 10-Bilder-Fenster normalerweise mindestens 3 Visual Forms
 - jedes Bild braucht `visualEnergyDevice`
 - jedes Bild braucht `visualInterestScore >= 8`
+- Bildwechsel müssen aus der Narration begründet sein, nicht nur aus dem Wunsch nach Abwechslung
 
 ### Bild 01
+
 Nur exakter Covertext. Keine Bildnummer, Zusatzüberschrift oder Labels.
 
 ### Bild 02–NN
-Absolut kein sichtbarer Text. `BILD`, `IMAGE`, `SCENE`, Nummern, Labels, Wasserzeichen und Pseudo-Schrift sind harte Fehler.
+
+Standard: `NO_VISIBLE_TEXT`.
+
+Gezielt erlaubt: `EDITORIAL_TEXT`, wenn in der Scene Card exakt freigegeben. Geeignet sind kurze Jahreszahlen, Daten, Orte, Zeitwechsel, Orientierung oder kurze Vergleiche.
+
+Immer verboten:
+
+- `BILD`, `IMAGE`, `SCENE`
+- interne Bildnummern
+- Prompt-Metadaten
+- Wasserzeichen
+- Pseudo-Schrift
+- zusätzlicher nicht freigegebener Text
 
 ## Phase-2-Visual-QC
 
-Bei neuen Projekten verwendet `PHASE2_VISUAL_QC.json` Schema 2 und speichert pro Bild:
+Bei neuen Projekten speichert `PHASE2_VISUAL_QC.json` pro Bild `fileName` + `sha256`.
 
-```text
-fileName
-sha256
-```
+Textprüfung folgt exakt der Scene Card:
 
-Damit ist die visuelle Freigabe an exakt die geprüfte Datei gebunden. Wird das Bild danach ersetzt, fällt Phase 2 durch.
+- Cover → exakter Covertext
+- NO_VISIBLE_TEXT → kein Text
+- EDITORIAL_TEXT → exakt der freigegebene `editorialText`
+
+Wird ein freigegebenes Bild ersetzt, fällt Phase 2 durch.
 
 ## Phase 3
 
-Ab `PHASE3_IMAGE_LOCK` ist `00-bildprompts/images/` read-only. Bei Asset-Fehlern: abbrechen und melden, niemals automatisch reparieren oder Bilder erzeugen.
+Ab `PHASE3_IMAGE_LOCK` ist `00-bildprompts/images/` read-only. Bei Asset-Fehlern abbrechen und melden, niemals automatisch reparieren oder Bilder erzeugen.
 
 ## Export
 
