@@ -1,56 +1,66 @@
 # Repository Agent Rules
 
-## Preproduction — TOPIC + STORY GATES SIND PFLICHT
+## PREPRODUCTION — THEMA UND SCRIPT ZUERST
 
-Neue Produktionen mit `preproductionQualityGateVersion >= 1` dürfen Phase 1 erst erreichen, wenn beide Dateien vollständig freigegeben sind:
-
-```text
-99-technik/TOPIC_SCORECARD.json
-99-technik/STORY_QC.json
-```
-
-Prüfen mit:
-
-```bash
-npm run validate:youtube-preproduction -- --dir "youtube/<week>/<slug>"
-```
-
-Wichtig:
-
-- `APPROVED_NEW` aus dem Duplicate Check bedeutet nur: ausreichend neu.
-- Es bedeutet **nicht**: Thema ist stark genug.
-- Topic Scorecard braucht u. a. 30+ Rohideen, 12er Shortlist, Score >= 7,6, Story Engine, größere historische Bedeutung, Quellenbasis, Titelrichtungen und Visual-Form-Potenzial.
-- Story QC braucht u. a. zentrale Frage, Story-Spine, Historical Meaning, starken Hook/Progression/Payoff und darf keine Anekdoten-Kette sein.
-
-## Phase 2 — VISUAL-QC IST PFLICHT
-
-Bevor Phase 3 gestartet werden darf, müssen bei neuen Produktionen alle finalen Bilder in `00-bildprompts/images/` tatsächlich visuell geprüft werden.
+Neue Produktionen müssen vor Phase 1 die Topic- und Story-Gates bestehen.
 
 Pflicht:
 
-1. Jedes Bild gegen den zugehörigen Story-Beat und die Scene Card prüfen.
-2. Prüfen, ob das Bild den gesprochenen Gedanken klar unterstützt und nicht nur dekorativ passt.
-3. Prüfen, ob die Inszenierung interessant genug ist: klare Handlung, räumliche Spannung, Tiefenstaffelung, Größenkontrast, Detailfokus, Reveal, Ursache/Folge oder ein anderes geplantes Visual-Interest-Mittel.
-4. Unbeabsichtigt alberne Gesichter, Posen, Hände, Interaktionen oder komische Kompositionen ablehnen.
-5. Generische Klon-Figuren ablehnen.
-6. Bild 01 darf nur den exakten Cover-Text enthalten. Keine Bildnummer, Zusatzüberschrift, Labels oder zweite Textzeile.
-7. Bild 02–NN dürfen absolut keinen sichtbaren Text enthalten. Insbesondere `BILD`, `IMAGE`, `SCENE`, Bildnummern, Labels, Wasserzeichen und Pseudo-Schrift sind harte Fehler.
+1. Duplicate Check ist nur Neuheitsprüfung, keine Qualitätsfreigabe.
+2. Neue `TOPIC_SCORECARD.json` (Schema >= 2) braucht eine konkrete historische Story, menschliche/gesellschaftliche Stakes und einen Ereignisverlauf. Reine Mechanismus-Themen werden nicht freigegeben.
+3. Das vollständige Voice-over wird zuerst als natürlicher Fließtext geschrieben.
+4. Nicht für jedes geplante Bild einen separaten Satz schreiben.
+5. Script einmal zusammenhängend lesen/prüfen und Stakkato-/Stichpunktwirkung entfernen.
+6. Erst danach Story-Beats und Scene Cards ableiten.
+
+## WHOLE-VIDEO COHERENCE — PFLICHT
+
+Bei `wholeVideoCoherenceGateVersion >= 1` muss `99-technik/WHOLE_VIDEO_QC.json` vor Phase 1 APPROVED sein.
+
+- Das Video muss als zusammenhängende Geschichte funktionieren, nicht als Sammlung einzelner korrekter Bilder.
+- Normalerweise höchstens zwei `explanationOnly=true` Visuals direkt hintereinander.
+- `explanationOnlyVisualShare` normalerweise höchstens 0.35.
+- Nach abstrakten Erklärbildern wieder zu Mensch, Gruppe, Ort, Objekt, Ereignis oder sichtbarer historischer Folge zurückkehren.
+- Alle Visual-Übergänge als Sequenz prüfen: Warum kommt genau dieses Bild jetzt?
+
+Maßgeblich: `channel/17-WHOLE-VIDEO-COHERENCE-GATE.md`.
+
+## SICHTBARER TEXT
+
+- Bild 01: nur exakter Cover-Text.
+- Bild 02–NN: Standard `NO_VISIBLE_TEXT`.
+- `EDITORIAL_TEXT` ist gezielt erlaubt, wenn die Scene Card exakt `editorialText` und `editorialTextPurpose` vorgibt.
+- Sinnvolle Fälle: Jahreszahl, Datum, kurzer Ort, Zeitwechsel, kurze Vergleichsangabe oder Orientierung.
+- Nur den exakt freigegebenen Text rendern; kein zusätzlicher Text.
+- `BILD`, `IMAGE`, `SCENE`, Bildnummern, Prompt-Metadaten, Wasserzeichen und Pseudo-Schrift sind immer harte Fehler.
+
+## PHASE 2 — VISUAL-QC IST PFLICHT
+
+Bevor Phase 3 gestartet werden darf, müssen alle finalen Bilder tatsächlich visuell geprüft werden.
+
+1. Jedes Bild gegen Narration und Scene Card prüfen.
+2. Prüfen, ob das Bild den gesprochenen Gedanken klar unterstützt und nicht nur thematisch ähnlich ist.
+3. Prüfen, ob die gesamte Sequenz zusammenhängend wirkt und nicht wie zufällig gemischte Illustrationen.
+4. Langweilige Wiederholung und lange Diagramm-/Erklärketten ablehnen.
+5. Unbeabsichtigt alberne Gesichter, Posen, Hände, Interaktionen oder komische Kompositionen ablehnen.
+6. Generische Klon-Figuren ablehnen.
+7. Sichtbaren Text exakt gegen die Scene Card prüfen.
 8. Fehlerhafte Bilder werden in Phase 2 neu generiert und erneut geprüft.
-9. Für jedes Bild müssen Narration-Support, Visual Interest und Style Consistency mindestens 8/10 erreichen.
-10. Neue Hash-Gates verlangen zusätzlich `fileName` und SHA-256 der tatsächlich geprüften Datei. Wird das Bild danach ersetzt, ist die Freigabe ungültig.
+9. Narration-Support, Visual Interest und Style Consistency mindestens 8/10.
+10. Für hash-gated Produktionen `fileName` und SHA-256 jedes freigegebenen Bildes speichern.
 11. Ohne vollständig freigegebene `PHASE2_VISUAL_QC.json` darf Phase 3 nicht beginnen.
 
-## Phase 3 — HARTE ASSET-SPERRE
+## PHASE 3 — HARTE ASSET-SPERRE
 
-Wenn der Nutzer sinngemäß sagt `fang an`, `start`, `mach Phase 3`, `render das Video` oder eine andere Anweisung zum Start der Phase 3 gibt:
+Wenn der Nutzer sinngemäß `fang an`, `start`, `mach Phase 3` oder `render das Video` sagt:
 
-1. Verwende ausschließlich die bereits vorhandenen finalen Bilder aus `00-bildprompts/images/`.
-2. Erzeuge in Phase 3 niemals selbst neue Bilder.
-3. Regeneriere, bearbeite, ersetze, lösche, verschiebe oder ergänze in Phase 3 niemals Bilder.
-4. Rufe in Phase 3 kein Bildgenerierungsmodell, keine Bild-API und kein externes Bildtool auf.
-5. Fehlt `Bild NN.png`, stimmt die Bildzahl nicht oder ist eine Bilddatei ungültig, dann sofort ABBRECHEN.
-6. Bei einem Fehler nicht selbst reparieren oder Ersatz erzeugen. Dem Nutzer exakt mitteilen, welcher Asset-Fehler den Abbruch verursacht hat.
-7. `npm run phase3:youtube -- --dir "..."` darf erst nach bestandenem Phase-2-Gate inklusive Visual-QC laufen und legt dann `PHASE3_IMAGE_LOCK.json` an.
-8. Phase 3 darf Audio, Alignment, Timeline, Remotion-Render und Export bearbeiten, aber der Ordner `00-bildprompts/images/` ist read-only.
+1. Ausschließlich vorhandene finale Bilder aus `00-bildprompts/images/` verwenden.
+2. In Phase 3 niemals neue Bilder erzeugen.
+3. Bilder niemals regenerieren, bearbeiten, ersetzen, löschen, verschieben oder ergänzen.
+4. Kein Bildgenerierungsmodell oder externes Bildtool als Fallback aufrufen.
+5. Fehlt ein Bild, stimmt die Zahl nicht oder ist eine Datei ungültig: sofort abbrechen.
+6. Fehler nicht selbst reparieren; dem Nutzer exakt melden.
+7. `PHASE3_IMAGE_LOCK.json` schützt den Bildbestand per Hash.
+8. Phase 3 darf Audio, Alignment, Timeline, Remotion-Render und Export bearbeiten, aber der Bilderordner bleibt read-only.
 
-Kurzform: **Preproduction entscheidet, ob Thema + Skript gut genug sind. Phase 2 prüft und korrigiert Bilder. Phase 3 montiert ausschließlich freigegebene vorhandene Assets.**
+Kurzform: **erst flüssige Story, dann kohärente Visual-Sequenz; Phase 2 prüft und korrigiert, Phase 3 montiert nur freigegebene Assets.**
