@@ -9,7 +9,7 @@ function validScore(value, minimum) {
   return Number.isFinite(score) && score >= minimum && score <= 10;
 }
 
-async function validateVisualQc(qc, meta, images) {
+async function validateVisualQc(qc, meta, images, mapping) {
   const errors = [];
   const count = images.length;
   if (!qc || typeof qc !== 'object') return ['PHASE2_VISUAL_QC.json ist ungültig.'];
@@ -24,6 +24,7 @@ async function validateVisualQc(qc, meta, images) {
   const minimumInterest = Number(qc.minimumVisualInterestScore ?? 8);
   const minimumStyle = Number(qc.minimumStyleConsistencyScore ?? 8);
   const entries = Array.isArray(qc.images) ? qc.images : [];
+  const plannedScenes = Array.isArray(mapping?.images) ? mapping.images : [];
 
   if (entries.length !== count) errors.push(`Visual-QC enthält ${entries.length} Bilder, erwartet ${count}.`);
 
@@ -31,6 +32,7 @@ async function validateVisualQc(qc, meta, images) {
   for (let i = 1; i <= count; i += 1) {
     const entry = entries.find((item) => Number(item.imageNumber) === i);
     const image = images.find((item) => Number(item.number) === i);
+    const scene = plannedScenes.find((item) => Number(item.imageNumber) === i);
     if (!entry) {
       errors.push(`Visual-QC-Eintrag fehlt für Bild ${i}.`);
       continue;
@@ -64,8 +66,15 @@ async function validateVisualQc(qc, meta, images) {
       if (entry.visibleTextDetected !== true) errors.push('Bild 1: Cover-Text muss als sichtbarer Text erkannt und geprüft sein.');
       if (String(entry.visibleTextExact ?? '').trim() !== coverText) errors.push('Bild 1: visibleTextExact entspricht nicht exakt dem Cover-Text.');
     } else {
-      if (entry.visibleTextDetected !== false) errors.push(`Bild ${i}: Nicht-Cover-Bilder müssen visibleTextDetected=false haben.`);
-      if (String(entry.visibleTextExact ?? '').trim()) errors.push(`Bild ${i}: visibleTextExact muss leer sein.`);
+      const textPolicy = String(scene?.visibleTextPolicy ?? 'NO_VISIBLE_TEXT');
+      if (textPolicy === 'EDITORIAL_TEXT') {
+        const expectedText = String(scene?.editorialText ?? '').trim();
+        if (entry.visibleTextDetected !== true) errors.push(`Bild ${i}: freigegebener Redaktionstext muss als sichtbar erkannt und geprüft sein.`);
+        if (String(entry.visibleTextExact ?? '').trim() !== expectedText) errors.push(`Bild ${i}: visibleTextExact entspricht nicht exakt dem freigegebenen editorialText.`);
+      } else {
+        if (entry.visibleTextDetected !== false) errors.push(`Bild ${i}: Scene Card verlangt NO_VISIBLE_TEXT, visibleTextDetected muss false sein.`);
+        if (String(entry.visibleTextExact ?? '').trim()) errors.push(`Bild ${i}: visibleTextExact muss bei NO_VISIBLE_TEXT leer sein.`);
+      }
     }
   }
 
@@ -77,6 +86,7 @@ export async function validatePhase2(projectDirectory) {
   const errors = [];
   if (!(await exists(p.meta))) return { passed: false, errors: ['video.json fehlt.'] };
   const meta = await readJson(p.meta);
+  const mapping = await readJson(p.mapping, { images: [] });
   const count = Number(meta.plannedImageCount);
   if (!Number.isInteger(count) || count < 1) errors.push('plannedImageCount ist ungültig.');
 
@@ -102,7 +112,7 @@ export async function validatePhase2(projectDirectory) {
       errors.push('Neue Produktion benötigt 99-technik/PHASE2_VISUAL_QC.json vor Phase 3.');
     } else if (Number.isInteger(count) && count > 0) {
       const qc = await readJson(p.phase2VisualQc);
-      errors.push(...await validateVisualQc(qc, meta, images));
+      errors.push(...await validateVisualQc(qc, meta, images, mapping));
     }
   }
 
