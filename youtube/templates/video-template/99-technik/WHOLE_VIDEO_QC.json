@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "PLANNED",
+  "reviewMethod": "human-or-model-review",
+  "scriptContinuousProse": false,
+  "scriptReadAloudPassed": false,
+  "visualsDerivedAfterScript": false,
+  "coherentVisualArc": false,
+  "explanationOnlyVisualShare": null,
+  "maxConsecutiveExplanationOnlyVisuals": null,
+  "historicalWorldReturnsAfterExplanation": false,
+  "editorialTextUsedOnlyWhenUseful": false,
+  "transitionsReviewed": false,
+  "overallCoherenceScore": null,
+  "approved": false,
+  "notes": []
+}
