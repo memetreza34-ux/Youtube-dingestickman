@@ -166,6 +166,7 @@ test('Projekt-Template nutzt Pipeline V4, Upload-Metadaten und neue Bilddichte',
   const meta = JSON.parse(await readFile('youtube/templates/video-template/99-technik/video.json', 'utf8'));
   const mapping = JSON.parse(await readFile('youtube/templates/video-template/99-technik/BILD_AUDIO_ZUORDNUNG.json', 'utf8'));
   const worldLock = JSON.parse(await readFile('youtube/templates/video-template/99-technik/FLOW_WORLD_LOCK.json', 'utf8'));
+  const wholeVideoQc = JSON.parse(await readFile('youtube/templates/video-template/99-technik/WHOLE_VIDEO_QC.json', 'utf8'));
   const prompt = await readFile('youtube/templates/video-template/00-bildprompts/google-flow-prompt.txt', 'utf8');
 
   assert.equal(meta.schemaVersion, 3);
@@ -173,6 +174,7 @@ test('Projekt-Template nutzt Pipeline V4, Upload-Metadaten und neue Bilddichte',
   assert.equal(meta.visualStyleId, 'UNSET');
   assert.equal(meta.promptSystemVersion, 3);
   assert.equal(meta.promptSystem, 'flow-compiler-v3');
+  assert.equal(meta.wholeVideoCoherenceGateVersion, 1);
   assert.deepEqual(meta.imageDensityPolicy.targetAverageHoldSeconds, [2.5, 4.2]);
   assert.equal(meta.imageDensityPolicy.figuresMustNotBeDefaultFallback, true);
   assert.ok(Object.hasOwn(meta, 'youtubeUpload'));
@@ -181,20 +183,25 @@ test('Projekt-Template nutzt Pipeline V4, Upload-Metadaten und neue Bilddichte',
   assert.equal(mapping.schemaVersion, 2);
   assert.ok(Object.hasOwn(mapping.images[0], 'viewerTakeaway'));
   assert.ok(Object.hasOwn(mapping.images[0], 'visualConcept'));
+  assert.ok(Object.hasOwn(mapping.images[0], 'editorialText'));
+  assert.ok(Object.hasOwn(mapping.images[0], 'explanationOnly'));
   assert.equal(worldLock.status, 'PLANNED');
+  assert.equal(wholeVideoQc.status, 'PLANNED');
   assert.match(prompt, /PROMPT_SYSTEM:\s*flow-compiler-v3/i);
   assert.match(prompt, /STATUS:\s*NOT_BUILT/i);
 });
 
-test('Dokumentation verlangt History Storytelling V3, Narration-first Visuals und individuelle Figuren', async () => {
+test('Dokumentation verlangt Script V4, Narration-first Visuals und Whole-Video-Kohärenz', async () => {
   const script = await readFile('channel/03-SCRIPT-BIBLE.md', 'utf8');
   const visualSystem = await readFile('channel/06-VISUAL-SYSTEM.md', 'utf8');
   const grammar = await readFile('channel/07-VISUAL-GRAMMAR.md', 'utf8');
   const style = await readFile('channel/10-STYLE-DNA-V2.md', 'utf8');
+  const coherence = await readFile('channel/17-WHOLE-VIDEO-COHERENCE-GATE.md', 'utf8');
 
-  assert.match(script, /Geschichts-Kanal V3/i);
-  assert.match(script, /Reveal statt Vorwegnehmen/i);
-  assert.match(script, /Payoff statt Zusammenfassung/i);
+  assert.match(script, /Geschichts-Kanal V4/i);
+  assert.match(script, /Script-first ist Pflicht/i);
+  assert.match(script, /Fließtext statt Stakkato/i);
+  assert.match(script, /Read-aloud Gate/i);
   assert.match(visualSystem, /Narration-first Visual Selection/i);
   assert.match(visualSystem, /18–26 Visuals/i);
   assert.match(visualSystem, /Generische identische Figuren-Klone sind verboten/i);
@@ -204,6 +211,8 @@ test('Dokumentation verlangt History Storytelling V3, Narration-first Visuals un
   assert.match(grammar, /Evidence Reconstruction/i);
   assert.match(style, /keine generischen Stickman-Klone/i);
   assert.match(style, /Gleicher Illustrator bedeutet nicht gleiche Aufnahme und nicht gleiche Person/i);
+  assert.match(coherence, /explanationOnlyVisualShare/i);
+  assert.match(coherence, /EDITORIAL_TEXT/i);
 });
 
 test('Risikowortprüfung erkennt ganze Begriffe statt Teilstrings', async () => {
