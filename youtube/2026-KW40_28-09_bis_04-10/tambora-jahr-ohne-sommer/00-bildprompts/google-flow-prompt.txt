@@ -1,0 +1,356 @@
+GOOGLE FLOW MASTER PROMPT
+PROMPT_SYSTEM: flow-compiler-v3
+ACTIVE_STYLE_ID: history-stickman-adaptive-v1
+VIDEO: 1816: Das Jahr, in dem der Sommer ausfiel
+ASPECT RATIO: 16:9
+PLANNED IMAGES: 32
+
+CHANNEL STYLE — IMMUTABLE:
+Use one consistent hand-drawn 2D historical explainer illustration language across the video. Human figures, when present, are individualized stylized historical people rather than generic stick figures: readable simplified anatomy, compact expressive faces, historically specific clothing and equipment, and visibly different identities from one unrelated person to another. Draw people, architecture, objects, maps, diagrams and landscapes with clean dark medium-weight ink outlines, flat muted historical colors, subtle cel-shading shapes and light handmade ink-and-paper texture. Keep the dominant subject clearer than supporting elements and reduce background detail. Use readable depth through scale, overlap and perspective. Every frame needs one deliberate visual idea that directly supports the current spoken beat. Vary shot scale, viewpoint, composition, distance, weather, mood and visual form. Avoid static medium talking-character repetition, clone-like people, dense collages, poster layouts, modern corporate infographic styling, photorealism, 3D rendering, anime and children's-book proportions.
+
+VIDEO WORLD LOCK — IMMUTABLE WITHIN THIS VIDEO:
+The video moves between tropical Sumbawa in 1815, upper-atmosphere process reconstructions, Europe and New England in 1816, and label-free global geography. When Tambora reappears, preserve the same broad mountain silhouette, tropical palette and coastline logic while changing viewpoint. European and New England rural worlds must be distinguishable through architecture and landscape, never through labels. Use early-19th-century clothing, farm tools, carts, grain sacks and baskets. The unknown 1808/1809 eruption must remain visually unidentified. Atmospheric aerosol visuals are schematic but mature and physical, never text-heavy diagrams.
+
+VISUAL INTEREST RULE — HARD:
+Every image must have a purposeful visual-interest mechanism that visibly shapes the composition: movement direction, depth, scale contrast, spatial tension, reveal, detail focus, before-after relation, cause-effect relation or another beat-specific mechanism. Do not default to a static eye-level medium character shot. Make every new frame visibly distinct from the previous one unless a deliberate before-after comparison requires a matched angle.
+
+INTERNAL METADATA RULE — HARD:
+Identifiers such as BILD 01, BILD 02, IMAGE, SCENE, image numbers, prompt headings and technical instructions are metadata only. NEVER draw them inside the artwork. Bild 01 may show only the exact approved cover text. Bild 02–32 must contain zero visible writing of any kind.
+
+COVER GATE — MANDATORY:
+Stage 1: Generate exactly THREE different candidates for BILD 01 only. All three must use the exact German cover text "KEIN SOMMER 1816" and the same core historical idea, but vary staging, subject placement and composition. After three acceptable candidates exist, STOP. Do not select a winner yourself. Wait for the user to choose one. Stage 2 begins only after the selected cover is saved as Bild 01.png. Then generate BILD 02–32 individually. Never generate later images before the cover selection.
+
+GLOBAL NEGATIVE RULES:
+No generic identical stickman clones. No unrelated people with the same face, hair, body and clothing silhouette. No modern objects. No fantasy geology. No modern map labels or political borders. No dense infographic boards. No visible words, letters, numbers, captions, headings, labels, watermarks or pseudo-writing outside the exact cover text on Bild 01. No prompt metadata in artwork.
+
+BILD 01
+Viewer takeaway: Mitten im Sommer fällt Schnee — etwas stimmt fundamental nicht.
+Visual form: multi-moment-illustration.
+Visual concept: One integrated summer landscape: green crops under fresh snow, one stunned early-19th-century farmer, and a dim hazy sun above fields that should be warm. Keep the reading immediate rather than turning this into separate panels.
+Composition: Foreground frosted grain, midground farmer and field, background pale hazy sun. Reserve clean upper-right negative space for the title and keep the farmer off-center.
+Camera: wide slightly elevated view. Shot scale: wide.
+Visual-interest mechanism: seasonal contradiction plus strong negative space.
+Historical continuity: early-19th-century farming only; no modern objects.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+TEXT SAFETY — HARD RULE: the only visible text allowed anywhere in this image is exactly "KEIN SOMMER 1816". Internal prompt identifiers such as BILD 01, IMAGE 01, SCENE 01, headings and image numbers are metadata only and must never be drawn. No second text line, logo, watermark or pseudo-writing.
+
+BILD 02
+Viewer takeaway: Auch Europa erlebt einen kalten, nassen Sommer.
+Visual form: environment-only.
+Visual concept: A broad 1816 European farming valley under heavy cold rain, muddy tracks, bent grain, low gray clouds and distant farmhouses. Make the season feel wrong for midsummer without adding text.
+Composition: Foreground muddy crop rows, midground workers and one wooden cart, background farmhouses and low hills. Use diagonal rain to create movement.
+Camera: extreme-wide eye-level landscape view. Shot scale: extreme-wide.
+Visual-interest mechanism: diagonal rain and bent crop movement. Make this frame visibly different from the cover through scale and weather dominance.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: pure illustration with ZERO visible text. Do not draw any word, letter, number, caption, heading, label, image number, logo, watermark or pseudo-writing. Internal identifiers such as BILD 02, IMAGE and SCENE are metadata only and must NEVER appear inside the artwork.
+
+BILD 03
+Viewer takeaway: Das Wetter wird zur Erntekrise.
+Visual form: object-focus.
+Visual concept: Close detail of soaked grain heads, rotting stalks and cold rainwater pooling around roots, with one healthier stalk beside the damage for immediate comparison.
+Composition: Foreground damaged grain dominates the frame, one healthier stalk off-center in midground, simplified field shapes behind.
+Camera: detail close-up. Shot scale: detail.
+Visual-interest mechanism: texture contrast between healthy and rotting grain. Jump strongly from the previous wide environment into tactile detail.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: pure illustration with ZERO visible text. Internal identifiers and image numbers are metadata only and must NEVER appear.
+
+BILD 04
+Viewer takeaway: Die Ursache liegt weit außerhalb Europas.
+Visual form: map-geography.
+Visual concept: Label-free globe centered on Europe and the North Atlantic, with the Indonesian archipelago far to the southeast and a huge span of ocean emphasizing distance.
+Composition: Elevated globe with Europe upper-left and Indonesia lower-right, separated by broad empty ocean and clean space.
+Camera: elevated-overview globe view. Shot scale: elevated-overview.
+Visual-interest mechanism: extreme geographic scale contrast. Replace crop detail with global scale.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text, labels, numbers, borders, captions or pseudo-writing. BILD 04 is metadata only and must NEVER be drawn.
+
+BILD 05
+Viewer takeaway: Der Ausgangspunkt ist Sumbawa in Indonesien.
+Visual form: map-geography.
+Visual concept: Closer label-free map-like view of the Indonesian archipelago, with Sumbawa visually isolated by coastline shape and Tambora represented only through a mountain silhouette.
+Composition: Wide top-down arrangement with island chains as simple shapes, Sumbawa dominant, broad sea around it.
+Camera: wide top-down map-like view. Shot scale: wide.
+Visual-interest mechanism: island isolation inside broad empty sea. Zoom from the global map into one island chain.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text, labels, numbers, flags or pseudo-writing. BILD 05 is metadata only and must NEVER be drawn.
+
+BILD 06
+Viewer takeaway: Tambora dominiert die Landschaft vor der Katastrophe.
+Visual form: environment-only.
+Visual concept: Massive Tambora rising above tropical Sumbawa settlements and fields before the climax, with calm foreground life emphasizing mountain-to-human scale.
+Composition: Foreground village and fields, midground tropical slopes, background volcanic summit dominating the upper frame.
+Camera: extreme-wide low landscape view. Shot scale: extreme-wide.
+Visual-interest mechanism: mountain-to-human scale contrast. Move from abstract geography into the physical landscape.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text. Internal identifiers are metadata only and must NEVER appear.
+
+BILD 07
+Viewer takeaway: Der Ausbruch erreicht am 10. April seinen Höhepunkt.
+Visual form: cause-effect.
+Visual concept: Tambora's eruption column surges upward while dense pyroclastic flows race down different flanks toward the coast. The two opposing movement directions should explain the violence clearly.
+Composition: Foreground dark coastline, midground descending flows, background huge eruption column rising above the mountain.
+Camera: wide slightly elevated view. Shot scale: wide.
+Visual-interest mechanism: opposing vertical plume and downhill flow directions. Transform the calm mountain into a high-motion physical event.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text. No dates or image numbers inside the artwork.
+
+BILD 08
+Viewer takeaway: Die unmittelbare Zerstörung trifft Sumbawa selbst.
+Visual form: environment-only.
+Visual concept: Ash-darkened land, damaged vegetation and simple homes after the blast, with Tambora looming behind. Focus on the changed environment rather than gore.
+Composition: Foreground ash-covered crops, midground damaged homes and trees, background volcano beneath heavy ash sky.
+Camera: medium-wide ground-level view. Shot scale: medium-wide.
+Visual-interest mechanism: aftermath reveal through layered depth. Replace eruption motion with quiet devastation.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text. Internal identifiers are metadata only and must NEVER appear.
+
+BILD 09
+Viewer takeaway: Die entscheidende Wirkung reicht weit über die Insel hinaus.
+Visual form: comparison.
+Visual concept: Integrated comparison with devastated Sumbawa on the left and a distant normal European farm on the right under one shared sky, preparing the global shift.
+Composition: Left foreground local damage, right background calm farm, shared horizon and open sky linking both sides.
+Camera: wide lateral comparison view. Shot scale: wide.
+Visual-interest mechanism: local-versus-distant scale contrast. Expand the question from local aftermath to distant consequence.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text. BILD 09 is metadata only and must NEVER be drawn.
+
+BILD 10
+Viewer takeaway: Der entscheidende Stoff gelangt hoch über das normale Wetter.
+Visual form: cutaway-section.
+Visual concept: Section from Earth's surface into the upper atmosphere: Tambora below, a towering plume crossing ordinary clouds and carrying volcanic gas into a clearly separate high layer.
+Composition: Strong vertical axis from foreground ground through mid-level clouds to upper atmosphere.
+Camera: sectional side view. Shot scale: sectional.
+Visual-interest mechanism: vertical cutaway and layer crossing. Shift from geography to a physical mechanism.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text, labels, numbers or pseudo-writing. BILD 10 is metadata only and must NEVER be drawn.
+
+BILD 11
+Viewer takeaway: Aus den vulkanischen Gasen entstehen winzige Aerosolpartikel.
+Visual form: detail-inset.
+Visual concept: Close illustrative detail of many tiny pale sulfate aerosol particles suspended high above soft cloud layers, with sunlight entering from one side.
+Composition: Particles dominate foreground, soft cloud deck below, sunbeam entering upper-left.
+Camera: detail close-up illustration view. Shot scale: detail.
+Visual-interest mechanism: detail focus on suspended particles. Move from atmospheric section to microscopic-scale detail.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text. Never render BILD 11, IMAGE 11, SCENE 11 or any other metadata.
+
+BILD 12
+Viewer takeaway: Aerosole lenken einen Teil des Sonnenlichts zurück.
+Visual form: cause-effect.
+Visual concept: Sun rays strike a broad pale aerosol layer; part of the light is redirected upward while visibly less reaches farmland below.
+Composition: Farmland foreground at bottom, aerosol layer across mid-frame, sun high above, reflected rays creating a clear upward direction.
+Camera: wide upward-angled explanatory view. Shot scale: wide.
+Visual-interest mechanism: clear reflected-light direction. Expand the particle detail into a full physical interaction.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text, labels or symbols with writing. Internal metadata must NEVER be drawn.
+
+BILD 13
+Viewer takeaway: Weniger Sonnenenergie erreicht die Erdoberfläche.
+Visual form: process-sequence.
+Visual concept: One continuous left-to-right process: eruption gas at left, broad aerosol veil in the center, dimmer sunlight reaching cooler land at right.
+Composition: Continuous ground and sky with clear left-to-right reading direction; no boxed panels.
+Camera: medium-wide lateral process view. Shot scale: medium-wide.
+Visual-interest mechanism: left-to-right transformation. Convert one interaction into a three-step visual process.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text. No panel labels, arrows with writing, image numbers or pseudo-text.
+
+BILD 14
+Viewer takeaway: Die Atmosphäre verteilt den Effekt global.
+Visual form: map-geography.
+Visual concept: Label-free globe with thin pale atmospheric bands spreading from tropical Indonesia around large parts of both hemispheres.
+Composition: Elevated globe with broad bands wrapping around the sphere and source region near the equator.
+Camera: elevated-overview globe view. Shot scale: elevated-overview.
+Visual-interest mechanism: global wraparound movement. Shift from local process into planetary circulation.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text, map labels, country names, numbers or pseudo-writing.
+
+BILD 15
+Viewer takeaway: Die Wirkung zeigt sich Monate später als Abkühlung.
+Visual form: comparison.
+Visual concept: Same rural landscape months apart: normal seasonal warmth on the left and colder dimmer conditions on the right, with identical terrain and farmhouse for a controlled before-after comparison.
+Composition: Locked matched halves, same farmhouse and field, warm left and cool right.
+Camera: wide locked comparison view. Shot scale: wide.
+Visual-interest mechanism: locked before-after state change. Return from global circulation to one human landscape over time.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text, dates, captions or image numbers.
+
+BILD 16
+Viewer takeaway: 1816 bringt auf der Nordhalbkugel ungewöhnliche Kälte.
+Visual form: environment-only.
+Visual concept: Extreme-wide midsummer northern landscape with leafed trees and crops, but patches of snow and cold pale air interrupting normal summer activity.
+Composition: Foreground crops and snow, midground people and fence, background leafy trees and hills.
+Camera: extreme-wide eye-level view. Shot scale: extreme-wide.
+Visual-interest mechanism: winter-summer contradiction at landscape scale. Break the matched comparison into an immersive environment.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text. Metadata must NEVER appear inside the artwork.
+
+BILD 17
+Viewer takeaway: Kälte bedroht mehr als nur den Komfort.
+Visual form: character-scene.
+Visual concept: Small 1816 household around a weak fire, looking through an open doorway toward an unexpectedly cold green summer outside. Expressions restrained, not exaggerated.
+Composition: Foreground family and fire, midground doorway, background cold outdoor landscape.
+Camera: medium interior-to-exterior view. Shot scale: medium.
+Visual-interest mechanism: human reaction against open cold exterior. Move from huge landscape to intimate human scale.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text. No labels, signs or pseudo-writing.
+
+BILD 18
+Viewer takeaway: Getreide braucht geeignete Wachstumsbedingungen.
+Visual form: process-sequence.
+Visual concept: One strip of farmland progresses left to right from healthy green grain to waterlogged stalled growth to sparse poor harvest.
+Composition: Healthy shoots foreground-left, stalled wet grain center, sparse harvest right on one continuous ground plane.
+Camera: medium-wide lateral process view. Shot scale: medium-wide.
+Visual-interest mechanism: visible progression from growth to failure. Leave the household and return to agricultural mechanism.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text or panel labels.
+
+BILD 19
+Viewer takeaway: Kälte und Nässe schädigen Pflanzen direkt.
+Visual form: detail-inset.
+Visual concept: Root-level close view of grain in saturated dark soil, pale weak stems and water pooled between furrows.
+Composition: Foreground roots and water, midground pale stems, minimal field texture behind.
+Camera: detail ground-level view. Shot scale: detail.
+Visual-interest mechanism: root-level detail reveal. Zoom from the whole-field process into the cause of plant stress.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text. Internal metadata must NEVER appear.
+
+BILD 20
+Viewer takeaway: Ernteprobleme werden zu Knappheit im Alltag.
+Visual form: architecture-city.
+Visual concept: Early-19th-century European market square with sparse sacks and baskets, anxious buyers and a merchant guarding limited grain supplies. No price signs.
+Composition: Foreground limited goods and empty space, midground buyers and merchant, background market architecture.
+Camera: wide market-level view. Shot scale: wide.
+Visual-interest mechanism: scarcity through empty space around limited goods. Move from roots to public social pressure.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text, price signs, labels, numbers or watermarks.
+
+BILD 21
+Viewer takeaway: Auch Neuengland erlebt Frost und Schnee im Sommer.
+Visual form: environment-only.
+Visual concept: New England farm in summer with leafy trees and crops but fresh frost and light snow on fences and roofs, making the seasonal contradiction unmistakable.
+Composition: Foreground frosted fence and crops, midground timber farm buildings, background leafy trees beneath falling wet snow.
+Camera: extreme-wide farm view. Shot scale: extreme-wide.
+Visual-interest mechanism: seasonal contradiction plus falling snow direction. Leave the populated market for a sparse North American landscape.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text. No signs, dates, captions or image numbers.
+
+BILD 22
+Viewer takeaway: Zeitgenossen sehen die Schäden, aber nicht die entfernte Ursache.
+Visual form: character-scene.
+Visual concept: Close view of one 1816 farmer holding damaged grain and looking toward an unusual overcast sky, with no scientific instruments or modern knowledge cues.
+Composition: Foreground farmer and damaged grain, simple field midground, strange sky behind.
+Camera: close eye-level character view. Shot scale: close.
+Visual-interest mechanism: close human uncertainty and damaged prop. Move from broad landscape to one restrained reaction.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text, writing, captions or thought bubbles.
+
+BILD 23
+Viewer takeaway: Kälte, Regen und Ernteausfall wirken wie getrennte Katastrophen.
+Visual form: symbolic-metaphor.
+Visual concept: Grounded symbolic village scene where cold rain, frost and failed crops occupy different parts of one landscape around confused communities. No supernatural symbols.
+Composition: Foreground people, midground three distinct physical weather problems, background village kept simple.
+Camera: wide slightly elevated symbolic view. Shot scale: wide.
+Visual-interest mechanism: multiple symptoms converging into one spatial problem. Expand one person's uncertainty into community scale.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text. No labels or infographic headings.
+
+BILD 24
+Viewer takeaway: Ein lokales Ereignis löst globale Folgen aus.
+Visual form: multi-moment-illustration.
+Visual concept: One connected cause-effect illustration with Tambora erupting at foreground-left, a pale aerosol veil curving high through the sky, and distant cold farms on another continent at background-right.
+Composition: Continuous space with clear reading from eruption to atmosphere to distant agriculture. Do not use boxed panels.
+Camera: elevated-overview integrated global view. Shot scale: elevated-overview.
+Visual-interest mechanism: long-distance cause-effect arc. Replace disconnected symptoms with one explicit connected mechanism.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text. BILD 24 and all metadata must NEVER be drawn.
+
+BILD 25
+Viewer takeaway: Die Reichweite reicht von Indonesien bis Europa und Nordamerika.
+Visual form: map-geography.
+Visual concept: Label-free world map connecting Indonesia with Europe and eastern North America through one broad pale atmospheric belt.
+Composition: Wide globe with Indonesia lower-right and Europe plus eastern North America upper-left, linked by one sweeping atmospheric band.
+Camera: wide globe view. Shot scale: wide.
+Visual-interest mechanism: continental scale and atmospheric sweep. Convert the integrated reveal into clean geography.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text, country labels, borders, numbers or pseudo-writing.
+
+BILD 26
+Viewer takeaway: Tambora war zentral, aber nicht der einzige Faktor.
+Visual form: evidence-reconstruction.
+Visual concept: Foreground ice-core cylinder with a distinct volcanic layer and a tree-ring sample; background shows a secondary reconstruction of an unidentified early-19th-century tropical eruption.
+Composition: Physical samples large in foreground, reconstruction clearly secondary in background.
+Camera: detail evidence reconstruction view. Shot scale: detail.
+Visual-interest mechanism: evidence-to-reconstruction reveal. Move from global geography to tangible evidence.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text, dates, sample labels or museum captions.
+
+BILD 27
+Viewer takeaway: Ein früherer großer Ausbruch bleibt bis heute nicht sicher identifiziert.
+Visual form: comparison.
+Visual concept: Two volcanic disturbances share one horizon: an unidentified earlier plume on the left and the larger established Tambora 1815 plume on the right. Do not assign the left volcano a recognizable named identity.
+Composition: Left and right landforms with shared sky; Tambora visually larger and more dominant on the right.
+Camera: wide side-by-side comparison view. Shot scale: wide.
+Visual-interest mechanism: scale contrast between two eruptions. Expand evidence detail into a two-event comparison.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text, dates, names or image numbers.
+
+BILD 28
+Viewer takeaway: Natürliche Klimavariabilität wirkt zusätzlich zur Vulkanwirkung.
+Visual form: cause-effect.
+Visual concept: Layered ocean-atmosphere scene with aerosol veil, winds, ocean surface and cool land interacting as one readable physical system rather than a labeled chart.
+Composition: Foreground ocean surface, midground moving air and aerosol veil, background cool land; layers interact diagonally.
+Camera: medium-wide sectional system view. Shot scale: medium-wide.
+Visual-interest mechanism: layered interacting physical forces. Replace two-volcano comparison with an ocean-atmosphere system.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text, equations, arrows with labels or pseudo-writing.
+
+BILD 29
+Viewer takeaway: Tambora bleibt der stärkste einzelne vulkanische Schock dieser Phase.
+Visual form: evidence-reconstruction.
+Visual concept: Tree-ring cross section with noticeably narrow growth rings around the relevant early-19th-century period, paired with a small cold-forest reconstruction behind it.
+Composition: Tree-ring sample dominates foreground; background forest remains secondary and simple.
+Camera: detail evidence view. Shot scale: detail.
+Visual-interest mechanism: evidence detail with reconstructed context. Move from broad climate system to a tangible environmental record.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text. Never draw BILD 29, IMAGE 29, SCENE 29 or any labels.
+
+BILD 30
+Viewer takeaway: 1816 wird als außergewöhnlich gescheiterter Sommer erinnert.
+Visual form: environment-only.
+Visual concept: Broad 1816 rural landscape under pale weak summer light with damaged harvest and workers moving through poor fields.
+Composition: Foreground failed harvest, midground rural road and workers, background cold pale sky and low hills.
+Camera: wide rural landscape view. Shot scale: wide.
+Visual-interest mechanism: wide stillness emphasizing abnormal season. Return from evidence close-up to lived landscape.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text, title, date or image number.
+
+BILD 31
+Viewer takeaway: Klima, Ernte und Gesellschaft bilden eine historische Wirkungskette.
+Visual form: process-sequence.
+Visual concept: Three connected stages on one continuous ground plane: abnormal weather at left, weakened harvest in the center, then strained market and household life at right.
+Composition: Clear left-to-right reading direction without boxed panels; one dominant causal flow across foreground and midground.
+Camera: elevated-overview process view. Shot scale: elevated-overview.
+Visual-interest mechanism: clear causal chain across three connected stages. Convert the remembered landscape into a larger social mechanism.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text, labels or infographic headings.
+
+BILD 32
+Viewer takeaway: Menschen weit entfernt spürten die Folgen einer unsichtbaren Ursache.
+Visual form: symbolic-metaphor.
+Visual concept: Distant early-19th-century people work under a dim hazy sky on one continent while no volcano is visible anywhere on their horizon; a subtle atmospheric arc overhead implies the unseen connection.
+Composition: Foreground workers and crops, midground broad horizon, background hazy sky and quiet atmospheric arc. Keep the frame simple and final.
+Camera: wide distant landscape view. Shot scale: wide.
+Visual-interest mechanism: unseen-cause payoff through atmospheric arc. Simplify the previous causal chain into one quiet final consequence.
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. When people appear, depict individualized stylized historical humans with readable simplified anatomy and distinct silhouettes, faces, hair, clothing and posture; never default to identical generic stickman clones. Give the frame one clear visual idea and avoid a static generic medium talking-head composition. Do not copy the previous scene's composition unless continuity specifically requires it.
+No visible text. TEXT SAFETY — HARD RULE: ZERO visible text. No title, caption, image number, watermark or pseudo-writing.
+
+GLOBAL COMPOSITION RULES — HARD:
+Every image must deliver one immediately readable viewer takeaway. Most images should use one dominant subject and no more than three necessary supporting elements. Multi-moment illustrations may combine only tightly connected moments with one obvious reading flow. Do not create dense collages, museum boards, textbook posters, nine-panel grids or unrelated mini-scenes.
+
+GENERATION WORKFLOW — HARD:
+1. Generate only three BILD-01 cover candidates first.
+2. STOP and wait for the user's selection.
+3. Save the selected cover as Bild 01.png.
+4. Generate BILD 02–32 only after cover approval, one final image per numbered scene.
+5. Never render the BILD/IMAGE/SCENE identifiers or any internal prompt text inside the artwork.
+6. Every non-cover image must be a pure illustration with zero visible text.

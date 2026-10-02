@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "status": "READY",
+  "settingName": "Tambora 1815 and Northern Hemisphere climate aftermath 1816",
+  "settingDescription": "A historically grounded visual world moving between tropical Sumbawa in 1815, upper-atmosphere process reconstructions, Europe and New England in 1816, and label-free global geography. The same hand-drawn 2D historical explainer DNA must remain stable while location, weather, scale and visual form change strongly with the narration.",
+  "recurringPlaces": [
+    "Tambora and the Sanggar Peninsula on Sumbawa, shown with one consistent broad mountain silhouette and tropical coastal logic",
+    "European 1816 agricultural landscapes with muted fields, muddy roads and early-19th-century farm buildings",
+    "New England 1816 rural landscapes with visually distinct timber architecture and leafy summer vegetation"
+  ],
+  "recurringCharacters": [],
+  "recurringProps": [
+    "early-19th-century grain sheaves and field tools",
+    "simple wooden farm carts",
+    "grain sacks and baskets without written labels"
+  ],
+  "basePalette": [
+    "muted earth brown",
+    "gray-blue storm tones",
+    "olive and dull summer green",
+    "ash gray",
+    "restrained rust-red accent",
+    "pale sulfur-haze cream"
+  ],
+  "timeWeatherLogic": "Sumbawa begins warm and tropical before the eruption, shifts to ash-darkened local conditions during and after the blast; Europe and New England in 1816 use cold, wet, pale summer weather. Atmosphere diagrams remain clean and neutral rather than turning into modern corporate infographics.",
+  "continuityRules": [
+    "Whenever Tambora reappears, preserve the same broad mountain and coastline identity while changing camera and distance.",
+    "Europe and New England must remain visually distinguishable through architecture and landscape rather than labels.",
+    "No modern borders, flags, scientific UI, written map labels or visible dates inside non-cover images.",
+    "The unknown 1808/1809 eruption must remain unidentified and generic; do not assign it to a named volcano.",
+    "Atmospheric aerosol visuals must stay schematic but mature, with clear physical direction and no visible explanatory text.",
+    "Do not reuse static medium character staging merely for consistency; continuity never overrides visual-interest rules."
+  ]
+}

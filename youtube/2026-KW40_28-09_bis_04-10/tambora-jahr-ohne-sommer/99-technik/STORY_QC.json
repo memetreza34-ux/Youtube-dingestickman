@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "status": "APPROVED",
+  "reviewMethod": "model-review-with-source-check",
+  "centralQuestion": "Wie konnte ein Vulkanausbruch in Indonesien ein Jahr später Sommerwetter, Ernten und Alltag auf weit entfernten Kontinenten verändern?",
+  "storySpine": "Weil Tambora 1815 enorme Mengen vulkanischer Stoffe hoch in die Atmosphäre brachte, verringerte ein globaler Aerosolschleier die Sonneneinstrahlung; dadurch kühlte 1816 ungewöhnlich stark ab, Ernten litten und Menschen erlebten Folgen eines Vulkans, den sie nie gesehen hatten.",
+  "historicalMeaning": "Die Geschichte macht sichtbar, dass Klima, Landwirtschaft und Gesellschaft schon vor der modernen Globalisierung eng gekoppelt waren und lokale Naturereignisse globale historische Folgen auslösen konnten.",
+  "hookPromise": "Mitten im Sommer fällt Schnee – und die Ursache liegt mehr als zehntausend Kilometer entfernt.",
+  "scores": {
+    "hook": 9.3,
+    "storyProgression": 9.2,
+    "historicalMeaning": 9.4,
+    "payoff": 9.3
+  },
+  "centralStoryShare": 0.88,
+  "personalityCuriosityShare": 0.02,
+  "maxConsecutivePurePersonalityCuriosityBeats": 0,
+  "beatFunctionsReviewed": true,
+  "endingAnswersOpeningQuestion": true,
+  "approved": true,
+  "notes": [
+    "Keine berühmte-Person-Anekdote; jeder Beat trägt Ursache, Mechanismus, Folge oder historische Bedeutung.",
+    "Der 1808/1809-Ausbruch und natürliche Variabilität werden als zusätzliche Faktoren genannt, damit Tambora nicht fälschlich als alleinige Ursache dargestellt wird.",
+    "Das Ende kehrt zum Hook zurück: Menschen spürten den Vulkan, ohne ihn sehen oder den Zusammenhang kennen zu können."
+  ]
+}

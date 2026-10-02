@@ -30,6 +30,16 @@
       "title": "Piraten entführten Julius Caesar – dann kam er zurück",
       "aliases": ["Julius Caesar von Piraten entführt", "Caesar Piraten Pharmacusa", "Wie Caesar seine eigenen Entführer jagte"],
       "status": "topic-review-paused"
+    },
+    {
+      "id": "2026-KW40_28-09_bis_04-10_tambora-jahr-ohne-sommer",
+      "title": "1816: Das Jahr, in dem der Sommer ausfiel",
+      "aliases": [
+        "Wie der Tambora-Ausbruch von 1815 das Jahr ohne Sommer 1816 auslöste",
+        "Tambora 1815 und das Jahr ohne Sommer",
+        "Warum es 1816 mitten im Sommer schneite"
+      ],
+      "status": "phase1-ready"
     }
   ]
 }
