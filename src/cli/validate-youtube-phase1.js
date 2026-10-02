@@ -5,6 +5,7 @@ import path from 'node:path';
 import { arg, exists, projectPaths, readJson } from '../lib/pipeline.js';
 import { findHighRiskPromptWords } from '../lib/flow-prompt.js';
 import { validateVisualInterestScene, validateVisualInterestSequence } from '../lib/visual-interest.js';
+import { validatePreproduction } from './validate-youtube-preproduction.js';
 
 function nonEmpty(value) {
   return typeof value === 'string' && value.trim().length > 0;
@@ -75,6 +76,11 @@ export async function validatePhase1(projectDirectory) {
     readFile(p.prompt, 'utf8'),
     readFile(p.script, 'utf8')
   ]);
+
+  if (Number(meta.preproductionQualityGateVersion ?? 0) >= 1) {
+    const preproduction = await validatePreproduction(projectDirectory);
+    errors.push(...preproduction.errors.map((error) => `Preproduction: ${error}`));
+  }
 
   const compilerV3 = Number(meta.promptSystemVersion) >= 3 || meta.promptSystem === 'flow-compiler-v3';
   const pipelineV4 = Number(meta.pipelineVersion) >= 4;

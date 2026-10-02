@@ -1,8 +1,8 @@
 {
-  "channelPolicyVersion": 8,
+  "channelPolicyVersion": 9,
   "channelType": "history",
   "language": "de",
-  "status": "CHANNEL_DNA_V1_TOPIC_DIRECTOR_V2_HISTORY_STORYTELLING_V3_STORY_QUALITY_GATE_V1_VISUAL_INTEREST_GATE_V1_FLOW_COMPILER_V3_READY",
+  "status": "CHANNEL_DNA_V1_TOPIC_DIRECTOR_V2_PREPRODUCTION_GATE_V1_HISTORY_STORYTELLING_V3_STORY_QUALITY_GATE_V1_VISUAL_INTEREST_GATE_V1_FLOW_COMPILER_V3_READY",
   "positioning": "History x Storytelling x Curiosity",
   "corePromise": "Historische Geschichten spannend, verständlich, visuell klar und historisch sauber erzählen — mit echten Story-Beats, sinnvoller historischer Bedeutung und abwechslungsreichen Visuals statt trockener Erklärung oder bloßer Kuriositäten.",
   "targetDurationMinutes": {
@@ -17,6 +17,8 @@
     "director": "topic-director-v2",
     "policyFile": "config/topic-policy.json",
     "humanReadableAuthority": "channel/02-TOPIC-SYSTEM.md",
+    "scorecardFile": "99-technik/TOPIC_SCORECARD.json",
+    "technicalScorecardRequiredForNewProjects": true,
     "minimumRawCandidatesPerDiscoveryRound": 30,
     "shortlistSize": 12,
     "productionThreshold": 7.6,
@@ -42,6 +44,11 @@
   "storyQualityGate": {
     "version": 1,
     "policyFile": "channel/16-STORY-QUALITY-GATE.md",
+    "qcFile": "99-technik/STORY_QC.json",
+    "technicalQcRequiredForNewProjects": true,
+    "minimumReviewScore": 8,
+    "minimumCentralStoryShare": 0.7,
+    "maximumPersonalityCuriosityShare": 0.3,
     "meaningBeyondAnecdoteRequired": true,
     "centralStorySpineRequired": true,
     "maxConsecutivePurePersonalityCuriosityBeats": 2,
@@ -135,11 +142,20 @@
     "nonCoverVisibleTextForbidden": true,
     "imageNumbersInsideImagesForbidden": true,
     "phase2VisualQcRequiredForNewProjects": true,
+    "phase2VisualQcSha256RequiredForNewProjects": true,
     "flowWorldLockRequired": true,
     "compiledPromptRequiredForNewProjects": true,
     "doNotInferFromRepositoryName": true,
     "doNotInheritOtherRepoStyles": true,
     "doNotCopyReferenceChannelIdentity": true
+  },
+  "preproduction": {
+    "gateVersion": 1,
+    "requiredForNewProjects": true,
+    "topicScorecard": "99-technik/TOPIC_SCORECARD.json",
+    "storyQc": "99-technik/STORY_QC.json",
+    "validator": "src/cli/validate-youtube-preproduction.js",
+    "phase1MustRevalidate": true
   },
   "brainIndex": "channel/00-BRAIN-INDEX.md"
 }

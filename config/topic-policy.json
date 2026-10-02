@@ -1,8 +1,15 @@
 {
-  "topicPolicyVersion": 2,
+  "topicPolicyVersion": 3,
   "status": "READY",
   "director": "topic-director-v2",
   "purpose": "Generate broadly, score rigorously, reject weak anecdote-only ideas, and preserve channel diversity.",
+  "scorecard": {
+    "schemaVersion": 1,
+    "file": "99-technik/TOPIC_SCORECARD.json",
+    "requiredForNewProjects": true,
+    "statusRequired": "APPROVED",
+    "approvedByTopicDirectorRequired": true
+  },
   "discovery": {
     "minimumRawCandidates": 30,
     "shortlistSize": 12,
@@ -27,7 +34,8 @@
     "minimumTitleDirections": 3,
     "sourceabilityRequired": true,
     "diversityGateRequired": true,
-    "isolatedAnecdoteAloneInsufficient": true
+    "isolatedAnecdoteAloneInsufficient": true,
+    "largerHistoricalPointRequired": true
   },
   "topicFamilies": [
     "rise_power_collapse",
@@ -54,6 +62,12 @@
       "scale"
     ]
   },
+  "duplicateStatusPolicy": {
+    "softStatusPatterns": ["test", "paused", "rejected", "archived", "cancelled", "legacy"],
+    "softMatchesNeverHardBlock": true,
+    "activeOrReservedMatchesMayBlock": true,
+    "currentProjectMustBeExcludedFromSelfCheck": true
+  },
   "forbiddenDefaults": [
     "famous person plus weird anecdote plus trick as automatic choice",
     "only rulers and generals",
@@ -70,5 +84,6 @@
     "REJECT": [0.0, 6.99]
   },
   "qualityAuthority": "channel/02-TOPIC-SYSTEM.md",
-  "duplicateChecker": "src/cli/check-youtube-topic.js"
+  "duplicateChecker": "src/cli/check-youtube-topic.js",
+  "technicalValidator": "src/cli/validate-youtube-preproduction.js"
 }

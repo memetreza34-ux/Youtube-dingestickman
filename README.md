@@ -4,78 +4,95 @@ Kanalspezifische Produktionsbasis für einen deutschen **History × Storytelling
 
 ## Aktueller Status
 
+- Topic Director: **V2 + technisches Scorecard-Gate READY**
 - History Storytelling: **V3 READY**
-- Visual System: **V2 / Narration-first READY**
+- Story Quality Gate: **V1 + technisches STORY_QC READY**
+- Visual System: **Narration-first + Visual Interest Gate READY**
 - Flow Compiler: **V3 READY**
 - Pipeline: **V4 READY**
-- Prompt-QC: **>= 8/10**
+- Phase-2-Visual-QC: **SHA-256-gebunden**
 - Phase-3-Bildlock: **READY**
 - Export mit `CAPTION.txt`: **READY**
 - globale feste Master-Referenzbilder: **NICHT VERWENDET**
 
-Der technische Style-ID bleibt `history-stickman-adaptive-v1`, bedeutet aber **keine generischen Stickman-Klone**. Menschen sind stilisierte, individuell gestaltete historische Figuren in einer konsistenten handgezeichneten 2D-Illustrationswelt.
+Der technische Style-ID bleibt aus Kompatibilitätsgründen `history-stickman-adaptive-v1`, bedeutet aber **keine generischen Stickman-Klone**. Menschen sind stilisierte, individuell gestaltete historische Figuren in einer konsistenten handgezeichneten 2D-Illustrationswelt.
 
-## Zuerst lesen
-
-1. `channel/00-BRAIN-INDEX.md`
-2. `channel/03-SCRIPT-BIBLE.md`
-3. `channel/04-RESEARCH-POLICY.md`
-4. `channel/06-VISUAL-SYSTEM.md`
-5. `channel/07-VISUAL-GRAMMAR.md`
-6. `channel/08-FLOW-PROMPTING.md`
-7. `channel/10-STYLE-DNA-V2.md`
-8. `channel/11-VISUAL-DIRECTOR.md`
-9. `channel/12-PROMPT-QC.md`
-10. `channel/14-PHASE3-ASSET-LOCK.md`
-11. `channel/99-DECISION-LOG.md`
-
-Maschinenlesbar:
-
-- `config/channel-policy.json`
-- `config/visual-policy.json`
-- `config/flow-style-lock.json`
-- `config/pipeline.json`
-
-## Produktionspfad
+## Struktur
 
 ```text
-Thema
+channel/     menschlich lesbare Kanal- und Qualitätsregeln
+config/      maschinenlesbare Policies
+src/         ausführbare Pipeline und Validatoren
+test/        Regressionstests
+youtube/     Templates und konkrete Produktionen
+```
+
+## Verbindlicher Produktionspfad
+
+```text
+30+ Themenideen
+→ 12er Shortlist
+→ Duplicate Check
+→ TOPIC_SCORECARD >= 7.6/10
 → Recherche
-→ Story Outline
 → Script V3
+→ STORY_QC APPROVED
 → Story Beats
 → Viewer Takeaway
 → bestes visuelles Mittel
-→ Visual Concept / Visual Form
-→ Composition / Camera / Mood
-→ Prompt QC >= 8/10
-→ World Lock
+→ Scene Cards + Visual Interest
+→ FLOW_WORLD_LOCK READY
 → Flow Compiler V3
 → Phase 1
 → Google Flow
+→ finale Bilder
+→ PHASE2_VISUAL_QC + SHA-256
 → Phase 2
-→ Phase-3-Bildlock
+→ PHASE3_IMAGE_LOCK
 → Audio / Alignment / Timeline / Pacing
 → Remotion
 → FINAL_VIDEO + THUMBNAIL + CAPTION
 ```
 
-## Script V3
+## Preproduction: Thema und Skript
 
-Geschichte vor Erklärung.
+Neue Projekte besitzen:
 
 ```text
-Moment
-→ Problem
-→ Entscheidung
-→ Folge
-→ neue Komplikation
-→ Reveal / Wendepunkt
-→ Auflösung
-→ historische Bedeutung
+99-technik/TOPIC_SCORECARD.json
+99-technik/STORY_QC.json
 ```
 
-Kontext wird just in time geliefert. Gegner behalten nachvollziehbare Logik. Das Ende braucht einen Payoff statt einer bloßen Wiederholung.
+`TOPIC_SCORECARD.json` erzwingt unter anderem:
+
+- mindestens 30 Rohideen
+- mindestens 12 Shortlist-Kandidaten
+- Duplicate Check bestanden
+- Story Engine vorhanden
+- Bedeutung über bloße Kuriosität hinaus
+- mindestens 3 Titelrichtungen
+- mindestens 5 sinnvolle Visual Forms
+- Quellenbasis
+- Diversity Gate
+- gewichteter Gesamtscore mindestens 7,6/10
+
+`STORY_QC.json` erzwingt unter anderem:
+
+- klare zentrale Frage
+- Story-Spine
+- historische Bedeutung
+- Hook, Story Progression, Meaning und Payoff jeweils mindestens 8/10
+- zentraler Story-Anteil mindestens 70 %
+- reine Personality-/Curiosity-Anteile höchstens 30 %
+- höchstens zwei reine Personality-/Curiosity-Beats hintereinander
+
+Prüfung:
+
+```bash
+npm run validate:youtube-preproduction -- --dir "youtube/<week>/<slug>"
+```
+
+Phase 1 prüft dieses Gate bei neuen Projekten erneut.
 
 ## Narration-first Visuals
 
@@ -83,94 +100,73 @@ Vor jedem Bild lautet die Frage:
 
 > **Welches visuelle Mittel erklärt genau diesen gesprochenen Beat am besten?**
 
-Erlaubt sind unter anderem:
+Erlaubt sind unter anderem Character Scene, Environment, Map/Geography, Object Focus, Architecture, System, Cause→Effect, Process, Comparison, Multi-Moment Illustration, Detail Inset, Cutaway Section und Evidence Reconstruction.
 
-- Character Scene
-- Environment
-- Map / Geography
-- Object Focus
-- Architecture
-- System / Hierarchy
-- Cause → Effect
-- Process / Sequence
-- Comparison
-- Battle / City Overview
-- Multi-Moment Illustration
-- Detail Inset
-- Cutaway Section
-- Evidence Reconstruction
+Figuren sind nie der automatische Fallback. Prominente unabhängige Figuren unterscheiden sich sichtbar; wiederkehrende Hauptfiguren bleiben konsistent.
 
-Figuren sind nie der automatische Fallback.
+## Visual Interest
 
-## Figuren
+Neue Scene Cards benötigen zusätzlich:
 
-- stilisiert, aber menschlich lesbar
-- keine identischen generischen Figuren-Klone
-- prominente nicht wiederkehrende Personen möglichst in mindestens drei sichtbaren Merkmalen unterscheiden
-- wiederkehrende Hauptfiguren konsistent halten
-- gleicher Illustrator ≠ gleiche Person
+- `shotScale`
+- `visualEnergyDevice`
+- `visualChangeFromPrevious`
+- `visualInterestScore >= 8`
+- korrekte `visibleTextPolicy`
+
+Sequenzregeln:
+
+- max. 2 gleiche Visual Forms hintereinander
+- max. 2 Character Scenes hintereinander
+- max. 2 gleiche Shot Scales hintereinander
+- in 10 Bildern normalerweise mindestens 3 Visual Forms
+
+Bild 01 darf nur den exakten Covertext enthalten. Bild 02–NN enthalten **null sichtbaren Text**, insbesondere keine Bildnummern, Labels, Wasserzeichen oder Pseudo-Schrift.
 
 ## Bilddichte
 
-Pipeline V4:
+Die numerische Wahrheit liegt in `config/pipeline.json`.
 
-- Ziel durchschnittlich etwa **2,5–4,2 s pro Visual**
+Aktuell:
+
+- Ziel Ø 2,5–4,2 s pro Visual
 - ab 5,5 s Split prüfen
 - ab 7 s Split stark bevorzugen
 - 9 s Hard-Max ohne klare Begründung
-
-Orientierung:
-
-- ca. 60 s → 18–26 Visuals
-- ca. 90 s → 24–34 Visuals
-- ca. 120 s → 32–44 Visuals
+- 60 s häufig 18–26 Visuals
+- 90 s häufig 24–34 Visuals
+- 120 s häufig 32–44 Visuals
 
 Keine Füllbilder; Inhalt entscheidet.
 
-## Flow Compiler V3
+## Flow
 
-```text
-CHANNEL STYLE LOCK
-= Rendering-DNA
-
-VIDEO WORLD LOCK
-= videospezifische Kontinuität
-
-SCENE CARD
-= Aussage und Regie des einzelnen Visuals
-```
-
-Build:
+Vor Build muss `99-technik/FLOW_WORLD_LOCK.json` READY sein.
 
 ```bash
 npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
 npm run validate:youtube-phase1 -- --dir "youtube/<week>/<slug>"
 ```
 
-Cover-Gate bleibt zweistufig: zuerst drei Covervarianten, dann STOP bis zur Nutzerauswahl.
+Cover-Gate: Flow erzeugt zuerst genau drei Bild-01-Kandidaten und stoppt bis zur Nutzerauswahl.
+
+## Phase 2
+
+Jedes finale Bild wird in `99-technik/PHASE2_VISUAL_QC.json` geprüft auf:
+
+- Narrationspassung
+- Visual Interest
+- Style Consistency
+- Weirdness
+- Text-/Bildnummern-Leakage
+
+Bei neuen Projekten speichert jeder QC-Eintrag zusätzlich `fileName` und `sha256`. Phase 2 akzeptiert nur exakt dieselbe Datei, die visuell freigegeben wurde.
 
 ## Phase 3
 
-Phase 3 verwendet **nur vorhandene Bilder**. Keine Generierung, Regeneration, Bearbeitung oder automatische Reparatur.
-
-`PHASE3_IMAGE_LOCK.json` sichert Dateiname, Größe und SHA-256.
-
-Fehler = abbrechen und melden.
+Phase 3 verwendet ausschließlich vorhandene freigegebene Bilder. `PHASE3_IMAGE_LOCK.json` sichert Dateiname, Größe und SHA-256. Fehlt oder verändert sich ein Bild: **abbrechen und melden, niemals automatisch reparieren oder neu erzeugen.**
 
 ## Export
-
-`video.json` enthält:
-
-```json
-"youtubeUpload": {
-  "title": "...",
-  "description": "...",
-  "hashtags": ["#Geschichte"],
-  "keywords": ["..."]
-}
-```
-
-Finaler Ordner:
 
 ```text
 03-export/
@@ -179,4 +175,8 @@ Finaler Ordner:
 └── CAPTION.txt
 ```
 
-`CAPTION.txt` enthält YouTube-Titel, Beschreibung, optionale Hashtags/Keywords und den Thumbnail-Text.
+`CAPTION.txt` enthält mindestens YouTube-Titel und Beschreibung sowie optional Hashtags/Keywords und den Thumbnail-Text.
+
+## Autorität
+
+Bei Detailfragen zuerst `channel/00-BRAIN-INDEX.md` lesen. Maschinenlesbare Kernquellen sind `config/channel-policy.json`, `config/topic-policy.json`, `config/visual-policy.json`, `config/flow-style-lock.json` und `config/pipeline.json`.

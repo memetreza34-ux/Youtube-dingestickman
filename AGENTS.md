@@ -1,5 +1,20 @@
 # Agent Policy
 
+## Preproduction quality is mandatory for new projects
+
+For every AI/coding agent working in this repository, new productions with `preproductionQualityGateVersion >= 1` must pass both preproduction files before Phase 1:
+
+- `99-technik/TOPIC_SCORECARD.json`
+- `99-technik/STORY_QC.json`
+
+Run:
+
+```bash
+npm run validate:youtube-preproduction -- --dir "youtube/<week>/<slug>"
+```
+
+Do not treat a successful duplicate check as topic approval. `APPROVED_NEW` means only that the idea is sufficiently new. Topic quality still needs the weighted Topic Director score and Story Quality review.
+
 ## Phase 2 requires real visual review
 
 For every AI/coding agent working in this repository, new productions must pass a real image review before Phase 3.
@@ -11,6 +26,7 @@ For every AI/coding agent working in this repository, new productions must pass 
 - Bild 01 may contain only the exact approved cover text and no image number, extra heading, caption or label.
 - Bild 02 through Bild NN must contain zero visible text. `BILD`, `IMAGE`, `SCENE`, image numbers, prompt metadata, captions, labels, watermarks and pseudo-writing are hard failures.
 - Record the completed review in `99-technik/PHASE2_VISUAL_QC.json` with narration support, visual interest and style consistency scores of at least 8/10 per image.
+- For new hash-gated productions, record the exact `fileName` and SHA-256 of each reviewed image. Replacing the image after review invalidates Phase 2.
 - Do not enter Phase 3 until `PHASE2_VISUAL_QC.json` is fully APPROVED.
 
 See `channel/15-VISUAL-INTEREST-QC.md`.

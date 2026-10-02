@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "status": "PLANNED",
+  "reviewMethod": "human-or-model-review",
+  "centralQuestion": "",
+  "storySpine": "",
+  "historicalMeaning": "",
+  "hookPromise": "",
+  "scores": {
+    "hook": null,
+    "storyProgression": null,
+    "historicalMeaning": null,
+    "payoff": null
+  },
+  "centralStoryShare": null,
+  "personalityCuriosityShare": null,
+  "maxConsecutivePurePersonalityCuriosityBeats": null,
+  "beatFunctionsReviewed": false,
+  "endingAnswersOpeningQuestion": false,
+  "approved": false,
+  "notes": []
+}

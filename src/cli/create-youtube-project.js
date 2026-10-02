@@ -48,6 +48,7 @@ async function main() {
     topicSlug: slug,
     title,
     topic,
+    status: Number(meta.preproductionQualityGateVersion ?? 0) >= 1 ? 'preproduction-review' : meta.status,
     visualStyleId: activeStyleId,
     promptSystemVersion,
     promptSystem,
@@ -67,6 +68,17 @@ async function main() {
   });
   await writeJson(metaPath, meta);
 
+  const topicScorecardPath = path.join(destination, '99-technik', 'TOPIC_SCORECARD.json');
+  if (await exists(topicScorecardPath)) {
+    const scorecard = await readJson(topicScorecardPath);
+    Object.assign(scorecard, {
+      candidate: topic,
+      proposedTitle: title,
+      duplicateCheckDecision: topicCheck.decision
+    });
+    await writeJson(topicScorecardPath, scorecard);
+  }
+
   const promptPath = path.join(destination, '00-bildprompts', 'google-flow-prompt.txt');
   const promptTemplate = await readFile(promptPath, 'utf8');
   const prompt = promptTemplate
@@ -80,6 +92,11 @@ async function main() {
   await writeJson(registryPath, registry);
 
   console.log(`Projekt erstellt: ${path.relative(process.cwd(), destination)}`);
+  if (topicCheck.warning) console.log(`Hinweis: ${topicCheck.warning}`);
+  if (Number(meta.preproductionQualityGateVersion ?? 0) >= 1) {
+    console.log('PREPRODUCTION: TOPIC_SCORECARD.json und STORY_QC.json vollständig prüfen und auf APPROVED setzen. Phase 1 bleibt bis dahin gesperrt.');
+    console.log('Prüfen mit: npm run validate:youtube-preproduction -- --dir "youtube/<week>/<slug>"');
+  }
   if (visual.status !== 'READY' || !visual.styleId || visual.styleId === 'UNSET') {
     console.log('Hinweis: Die Bildwelt ist noch UNSET. Phase 1 bleibt bis zur Definition in config/visual-policy.json blockiert.');
   }

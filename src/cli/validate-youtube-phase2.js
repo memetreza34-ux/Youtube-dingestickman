@@ -2,18 +2,23 @@
 
 import { readdir } from 'node:fs/promises';
 import path from 'node:path';
-import { arg, discoverAudioFiles, exists, listFinalImages, projectPaths, readJson } from '../lib/pipeline.js';
+import { arg, discoverAudioFiles, exists, listFinalImages, projectPaths, readJson, sha256 } from '../lib/pipeline.js';
 
 function validScore(value, minimum) {
   const score = Number(value);
   return Number.isFinite(score) && score >= minimum && score <= 10;
 }
 
-function validateVisualQc(qc, meta, count) {
+async function validateVisualQc(qc, meta, images) {
   const errors = [];
+  const count = images.length;
   if (!qc || typeof qc !== 'object') return ['PHASE2_VISUAL_QC.json ist ungültig.'];
   if (qc.status !== 'APPROVED') errors.push('PHASE2_VISUAL_QC.json muss status=APPROVED haben.');
   if (!qc.reviewMethod || qc.reviewMethod === 'UNREVIEWED') errors.push('PHASE2_VISUAL_QC.json braucht eine echte human-or-vision Review-Methode.');
+  if (Number(meta.phase2VisualQcHashVersion ?? 0) >= 1) {
+    if (Number(qc.schemaVersion) < 2) errors.push('Hash-gebundenes Visual-QC benötigt PHASE2_VISUAL_QC.schemaVersion >= 2.');
+    if (String(qc.hashAlgorithm ?? '').toLowerCase() !== 'sha256') errors.push('PHASE2_VISUAL_QC.hashAlgorithm muss sha256 sein.');
+  }
 
   const minimumNarration = Number(qc.minimumNarrationSupportScore ?? 8);
   const minimumInterest = Number(qc.minimumVisualInterestScore ?? 8);
@@ -25,8 +30,13 @@ function validateVisualQc(qc, meta, count) {
   const coverText = String(meta.coverPolicy?.coverText ?? '').trim();
   for (let i = 1; i <= count; i += 1) {
     const entry = entries.find((item) => Number(item.imageNumber) === i);
+    const image = images.find((item) => Number(item.number) === i);
     if (!entry) {
       errors.push(`Visual-QC-Eintrag fehlt für Bild ${i}.`);
+      continue;
+    }
+    if (!image) {
+      errors.push(`Bild ${i} fehlt für die Visual-QC-Hashprüfung.`);
       continue;
     }
 
@@ -38,6 +48,17 @@ function validateVisualQc(qc, meta, count) {
     if (entry.imageNumberVisible !== false) errors.push(`Bild ${i}: sichtbare Bildnummer/interne ID erkannt oder nicht ausgeschlossen.`);
     if (entry.unexpectedTextDetected !== false) errors.push(`Bild ${i}: unerwarteter sichtbarer Text erkannt oder nicht ausgeschlossen.`);
     if (entry.pseudoTextDetected !== false) errors.push(`Bild ${i}: Pseudo-Schrift erkannt oder nicht ausgeschlossen.`);
+
+    if (Number(meta.phase2VisualQcHashVersion ?? 0) >= 1) {
+      const expectedName = `Bild ${String(i).padStart(2, '0')}.png`;
+      if (entry.fileName !== expectedName) errors.push(`Bild ${i}: Visual-QC.fileName muss ${expectedName} sein.`);
+      if (!/^[a-f0-9]{64}$/i.test(String(entry.sha256 ?? ''))) {
+        errors.push(`Bild ${i}: gültiger SHA-256 fehlt im Visual-QC.`);
+      } else {
+        const currentHash = await sha256(image.path);
+        if (String(entry.sha256).toLowerCase() !== currentHash.toLowerCase()) errors.push(`Bild ${i}: Datei wurde nach der Visual-QC-Prüfung verändert oder ersetzt (SHA-256 stimmt nicht).`);
+      }
+    }
 
     if (i === 1) {
       if (entry.visibleTextDetected !== true) errors.push('Bild 1: Cover-Text muss als sichtbarer Text erkannt und geprüft sein.');
@@ -81,7 +102,7 @@ export async function validatePhase2(projectDirectory) {
       errors.push('Neue Produktion benötigt 99-technik/PHASE2_VISUAL_QC.json vor Phase 3.');
     } else if (Number.isInteger(count) && count > 0) {
       const qc = await readJson(p.phase2VisualQc);
-      errors.push(...validateVisualQc(qc, meta, count));
+      errors.push(...await validateVisualQc(qc, meta, images));
     }
   }
 

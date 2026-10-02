@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "status": "PLANNED",
+  "candidate": "",
+  "proposedTitle": "",
+  "topicFamily": "",
+  "discovery": {
+    "rawCandidateCount": 0,
+    "shortlistSize": 0,
+    "selectedRank": null,
+    "selectedFromShortlist": false
+  },
+  "duplicateCheckDecision": "",
+  "storyEnginePresent": false,
+  "isolatedAnecdoteOnly": null,
+  "diversityGatePassed": false,
+  "largerHistoricalPoint": "",
+  "sourceabilityEvidence": "",
+  "titleDirections": [],
+  "visualForms": [],
+  "scores": {
+    "curiosityGap": null,
+    "stakes": null,
+    "storyEngine": null,
+    "visualPotential": null,
+    "historicalSignificance": null,
+    "freshnessDistinctiveness": null,
+    "titlePotential": null,
+    "sourceability": null
+  },
+  "weightedScore": null,
+  "qualityBand": "",
+  "approvedByTopicDirector": false,
+  "notes": []
+}

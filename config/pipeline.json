@@ -1,12 +1,19 @@
 {
   "pipelineVersion": 4,
-  "projectSchemaVersion": 1,
+  "projectSchemaVersion": 2,
   "languageDefault": "de",
   "aspectRatio": "16:9",
   "fps": 30,
   "resolution": {
     "width": 1920,
     "height": 1080
+  },
+  "preproductionPolicy": {
+    "gateVersion": 1,
+    "requiredForNewProjects": true,
+    "topicScorecard": "99-technik/TOPIC_SCORECARD.json",
+    "storyQc": "99-technik/STORY_QC.json",
+    "phase1MustRevalidate": true
   },
   "coverPolicy": {
     "firstSceneIsCover": true,
@@ -58,6 +65,12 @@
       "guidanceOnly": true,
       "contentDrivenAlwaysWins": true
     }
+  },
+  "phase2VisualQcPolicy": {
+    "requiredForNewProjects": true,
+    "schemaVersion": 2,
+    "hashAlgorithm": "sha256",
+    "hashMustMatchReviewedFile": true
   },
   "phase3AssetPolicy": {
     "existingImagesOnly": true,

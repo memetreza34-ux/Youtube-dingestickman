@@ -1,21 +1,26 @@
-# Video Blueprint — Geschichts-Kanal V4
+# Video Blueprint — Geschichts-Kanal V5
 
-Diese Datei verbindet Thema, Recherche, Script V3, Visual-System und technische Pipeline.
+Diese Datei verbindet Themenfindung, Recherche, Script, Visual-System und technische Pipeline.
 
-## Phase A — Thema
+## Phase A — Topic Director V2
 
-1. historische Kernidee bestimmen
-2. klare Zuschauerfrage formulieren
-3. Themen-Säule zuordnen
-4. Duplicate-/Ähnlichkeitscheck
-5. belastbare Quellen prüfen
+1. mindestens 30 Rohideen erzeugen
+2. auf 12 Kandidaten verdichten
+3. Duplicate Check ausführen
+4. Story Engine, Stakes, Visual Potential, historische Bedeutung, Neuheit, Titelpotenzial und Quellenlage bewerten
+5. mindestens 3 Titelrichtungen prüfen
+6. mindestens 5 sinnvolle Visual Forms identifizieren
+7. Diversity Gate prüfen
+8. `99-technik/TOPIC_SCORECARD.json` ausfüllen
 
-**Gate:** Ohne klare zentrale Frage kein Produktionsstart.
+**Gate:** `TOPIC_SCORECARD.status=APPROVED`, Score >= 7,6 und `approvedByTopicDirector=true`.
+
+Test-, Legacy-, Paused- und Rejected-Themen dürfen nur warnen. Aktive/reservierte Produktionen dürfen bei echter Ähnlichkeit blockieren.
 
 ## Phase B — Recherche
 
-1. Zeitrahmen und Schauplatz
-2. zentrale Personen/Akteure
+1. Zeitraum / Schauplatz
+2. zentrale Akteure
 3. Ursache-Wirkungs-Kette
 4. Wendepunkte
 5. Unsicherheiten / Streitfragen
@@ -23,9 +28,7 @@ Diese Datei verbindet Thema, Recherche, Script V3, Visual-System und technische 
 
 **Gate:** Keine zentrale Behauptung nur aus Vermutung.
 
-## Phase C — Story Outline V3
-
-Nicht als Lexikon-Kapitel denken, sondern als Geschichte:
+## Phase C — Script V3
 
 ```text
 konkreter Moment
@@ -38,106 +41,73 @@ konkreter Moment
 → historische Bedeutung
 ```
 
-Kontext kommt just in time.
+Kontext kommt just in time. Keine Anekdoten-Ketten ohne Story-Funktion.
 
-## Phase D — Voice-over-Skript
+## Phase D — Story Quality Gate V1
 
-Nach `03-SCRIPT-BIBLE.md` V3 schreiben.
+`99-technik/STORY_QC.json` muss prüfen:
 
-**Gate:** Das Skript muss ohne Bilder spannend, verständlich und historisch sauber funktionieren.
+- zentrale Frage
+- Story-Spine
+- größere historische Bedeutung
+- Hook >= 8/10
+- Story Progression >= 8/10
+- Historical Meaning >= 8/10
+- Payoff >= 8/10
+- centralStoryShare >= 0,70
+- personalityCuriosityShare <= 0,30
+- höchstens 2 reine Personality-/Curiosity-Beats hintereinander
+- Beat-Funktionen geprüft
+- Ende beantwortet Ausgangsfrage
 
-Zusätzlich vor Visual Planning:
+**Gate:** `STORY_QC.status=APPROVED` und `approved=true`.
 
-- jeder Absatz bringt einen neuen Story-Beat
-- keine lange abstrakte Vorgeschichte
-- Gegner/Akteure handeln nachvollziehbar
-- Ende liefert Payoff statt Wiederholung
-- `youtubeUpload.title` und `youtubeUpload.description` in `video.json` vorbereiten
-
-## Phase E — Story Beats und Visual Director
+## Phase E — Story Beats / Visual Director
 
 Nicht Absatz → Bild, sondern **Story Beat → bestes visuelles Mittel**.
 
 Für jeden Beat:
 
-1. `Viewer Takeaway`
-2. `Visual Purpose`
-3. `Topic Anchor`
-4. prüfen, welches visuelle Mittel den gesprochenen Gedanken am besten unterstützt
-5. `Visual Form`
-6. `Visual Concept`
-7. `Dominant Subject`
-8. `Action / State`
-9. `Composition`
-10. `Camera`
-11. `Depth Plan`
-12. `Lighting / Mood`
-13. 0–3 notwendige Supporting Elements
-14. `Continuity Note`
-15. `Historical Accuracy Note`
-16. Audio-Anker
-17. Bilddauer
-18. Prompt-QC >= 8/10
+1. Viewer Takeaway
+2. Visual Purpose
+3. Topic Anchor
+4. Visual Form
+5. Visual Concept
+6. Dominant Subject
+7. Action / State
+8. Composition
+9. Camera
+10. Shot Scale
+11. Depth Plan
+12. Lighting / Mood
+13. Visual Energy Device
+14. Visual Change From Previous
+15. Visual Interest Score
+16. Visible Text Policy
+17. 0–3 Supporting Elements
+18. Continuity Note
+19. Historical Accuracy Note
+20. Audio-Anker
+21. Bilddauer
+22. Prompt-QC
 
-### Erlaubte visuelle Mittel
+## Phase F — Visual Interest Gate
 
-- Character Scene
-- Environment
-- Map / Geography
-- Object Focus
-- Architecture / City
-- System / Hierarchy
-- Cause → Effect
-- Process / Sequence
-- Comparison
-- Symbolic Metaphor
-- Battle / City Overview
-- Rise / Fall
-- Multi-Moment Illustration
-- Detail Inset
-- Cutaway Section
-- Evidence Reconstruction
+Neue Produktionen:
 
-**Figuren sind kein Default-Fallback.**
+- Visual Interest Score >= 8/10
+- max. 2 gleiche Visual Forms hintereinander
+- max. 2 Character Scenes hintereinander
+- max. 2 gleiche Shot Scales hintereinander
+- 10-Bilder-Fenster normalerweise mindestens 3 Visual Forms
+- Bild 01: nur exakter Covertext
+- Bild 02–NN: absolut kein sichtbarer Text
 
-### Figuren
+Die Pacing-Werte werden nicht hier dupliziert. **Maschinenlesbare Autorität ist `config/pipeline.json`.**
 
-Prominente nicht wiederkehrende Personen sollen sich sichtbar unterscheiden. Generische identische Stickman-Klone sind verboten. Wiederkehrende Figuren bleiben erkennbar.
+## Phase G — World Lock
 
-## Phase F — Bilddichte
-
-Pipeline V4:
-
-- Ziel Ø ca. **2,5–4,2 s pro Visual**
-- ab 5,5 s Split prüfen
-- ab 7 s Split stark bevorzugen
-- 9 s Hard-Max ohne klare Begründung
-
-Orientierung:
-
-- 60 s → häufig 18–26 Visuals
-- 90 s → häufig 24–34 Visuals
-- 120 s → häufig 32–44 Visuals
-
-Keine Füllbilder. Ein neuer Story-Beat muss aber aktiv auf einen neuen visuellen Beat geprüft werden.
-
-## Phase G — Video World Lock
-
-Vor dem Flow-Build:
-
-```text
-99-technik/FLOW_WORLD_LOCK.json
-```
-
-mindestens:
-
-```text
-status = READY
-settingName
-settingDescription
-```
-
-Wiederkehrende Elemente zusätzlich als Places, Characters, Props, Palette, Zeit/Wetter und Continuity Rules festhalten.
+Vor Flow-Build muss `99-technik/FLOW_WORLD_LOCK.json` auf READY stehen und wiederkehrende Orte, Figuren, Props, Palette sowie Zeit-/Wetterlogik definieren.
 
 ## Phase H — Flow Compiler V3
 
@@ -145,72 +115,60 @@ Wiederkehrende Elemente zusätzlich als Places, Characters, Props, Palette, Zeit
 npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
 ```
 
-Der Compiler verwendet:
+Der Compiler verwendet Style Lock, World Lock, `video.json` und Scene Cards.
 
-- `config/flow-style-lock.json`
-- `video.json`
-- `BILD_AUDIO_ZUORDNUNG.json`
-- `FLOW_WORLD_LOCK.json`
-
-Garantien:
-
-- Narration-first-Regel
-- individueller Figurenstil statt Klone
-- Style Anchor pro Bild
-- Visual-Form-Guards
-- World Lock
-- Cover-Text
-- No-Text bei BILD 02–NN
-- zweistufiges Cover-Gate
-
-## Phase I — Phase-1-Gate
+## Phase I — Phase 1
 
 ```bash
+npm run validate:youtube-preproduction -- --dir "youtube/<week>/<slug>"
 npm run validate:youtube-phase1 -- --dir "youtube/<week>/<slug>"
 ```
 
-Für Pipeline V4 werden zusätzlich verlangt:
-
-- `youtubeUpload.title`
-- `youtubeUpload.description`
-- Narration-first Visual Planning aktiv
-- Figuren nicht als Default-Fallback
+Phase 1 revalidiert bei neuen Projekten das Preproduction-Gate.
 
 ## Phase J — Google Flow
 
-### Stage 1
+Stage 1:
 
-- genau drei Cover-Kandidaten
-- danach STOP
-- Nutzer wählt
+- genau 3 Cover-Kandidaten
+- nur exakter Covertext
+- STOP bis Nutzerauswahl
 
-### Stage 2
+Stage 2:
 
 - Gewinner = `Bild 01.png`
-- BILD 02–NN erzeugen
-- maximal fünf aktive Generierungen
+- Bild 02–NN erzeugen
+- keine sichtbaren Nummern, Labels, Wasserzeichen oder Pseudo-Schrift
 
-## Phase K — Phase 2 / Phase 3
+## Phase K — Phase 2 Visual QC
 
-Nach finalen Bildern und Nutzer-Voice:
+Jedes finale Bild erhält in `PHASE2_VISUAL_QC.json`:
+
+- narrationSupportScore
+- visualInterestScore
+- styleConsistencyScore
+- Weirdness-Prüfung
+- Text-/Bildnummern-Prüfung
+- `fileName`
+- `sha256`
+
+**Gate:** Das geprüfte Bild muss bytegenau dasselbe Bild sein, das Phase 2 freigibt.
+
+## Phase L — Phase 3
 
 ```text
-Phase 2
+Phase 2 bestanden
 → PHASE3_IMAGE_LOCK
 → Audiooptimierung
-→ Whisper Alignment
+→ Alignment
 → Timeline
 → Pacing QC
 → Remotion
 ```
 
-Phase 3 darf niemals Bilder erzeugen, ersetzen oder bearbeiten.
+Ab `PHASE3_IMAGE_LOCK` darf kein Bild erzeugt, ersetzt, bearbeitet, gelöscht oder ergänzt werden.
 
-## Phase L — Export
-
-Vor Finalisierung muss `video.json.youtubeUpload` gepflegt sein.
-
-Finaler Ordner:
+## Phase M — Export
 
 ```text
 03-export/
@@ -219,12 +177,11 @@ Finaler Ordner:
 └── CAPTION.txt
 ```
 
-`CAPTION.txt` enthält mindestens Titel + Beschreibung, optional Hashtags/Keywords und Thumbnail-Text.
-
 ## Produktionsprinzip
 
 Schwaches Thema nicht mit Länge retten.  
 Schwaches Skript nicht mit Bildern retten.  
-Unklaren Beat nicht mit einem zufälligen Figurenbild retten.  
-Unpassende Visual Form nicht mit Prompt-Länge retten.  
+Langweiligen Beat nicht mit generischer Figur retten.  
+Korrektes, aber visuell schwaches Bild nicht automatisch akzeptieren.  
+Nach Visual-QC kein anderes Bild unterschieben.  
 Fehlende Bilder in Phase 3 niemals automatisch erzeugen.
