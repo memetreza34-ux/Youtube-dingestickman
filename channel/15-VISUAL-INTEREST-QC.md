@@ -1,8 +1,8 @@
-# Visual Interest QC — Hard Gate V1
+# Visual Interest QC — Hard Gate V2
 
 ## Zweck
 
-Ein Bild darf nicht nur historisch korrekt und zum Satz passend sein. Es muss den gesprochenen Beat **visuell interessant, klar und sofort lesbar** unterstützen.
+Ein Bild darf nicht nur historisch korrekt und zum Satz passend sein. Es muss den gesprochenen Beat **visuell interessant, klar und sofort lesbar** unterstützen und zugleich in die Bildfolge des gesamten Videos passen.
 
 Der Standard lautet nicht:
 
@@ -10,76 +10,65 @@ Der Standard lautet nicht:
 
 Sondern:
 
-> Ist das die stärkste, klarste und interessanteste visuelle Umsetzung dieses Story-Beats?
+> Ist das die stärkste Umsetzung dieses Beats — und fühlt sie sich wie der nächste sinnvolle Schritt derselben Geschichte an?
 
 ---
 
-## 1. Visual-Interest-Pflicht pro Bild
+## 1. Pflicht pro Scene Card
 
-Jede neue Scene Card braucht für neue Produktionen zusätzlich:
+Neue Produktionen planen mindestens:
 
 - `shotScale`
 - `visualEnergyDevice`
 - `visualChangeFromPrevious`
 - `visualInterestScore`
 - `visibleTextPolicy`
+- `editorialText`
+- `editorialTextPurpose`
+- `explanationOnly`
 
-`visualInterestScore` muss mindestens **8/10** betragen.
-
-Ein Bild mit korrektem Inhalt, aber langweiliger Standardinszenierung, besteht die Prüfung nicht.
+`visualInterestScore` mindestens **8/10**.
 
 ---
 
-## 2. Was ein Bild interessant machen darf
+## 2. Visuelles Interesse
 
-Mindestens ein bewusstes visuelles Mittel soll den Beat tragen. Beispiele:
+Mögliche Mittel:
 
 - klare Bewegungsrichtung
-- starke Tiefenstaffelung Vordergrund → Mittelgrund → Hintergrund
+- Tiefenstaffelung
 - Größenkontrast
 - räumliche Falle / Blockade
 - asymmetrische Komposition
 - starke Silhouette
-- Nahdetail statt erneutem Figurenbild
-- extreme Übersicht statt erneutem Medium Shot
+- Nahdetail
+- extreme Übersicht
 - Vorher/Nachher
-- Ursache/Folge im selben Bild
+- Ursache/Folge
 - Objekt-Makro
 - Cutaway
 - Detail-Inset
 - sichtbare Reaktion
-- Enthüllung / Reveal
-- Negativraum mit klarer Funktion
-- Blickrichtung, die durch das Bild führt
-- bewusstes Hell/Dunkel- oder Warm/Kalt-Gefälle innerhalb der gedeckten Kanalpalette
+- Reveal
+- bedeutender Negativraum
 
 Das Mittel muss zum Inhalt passen. Keine zufällige Effekthascherei.
 
 ---
 
-## 3. Verbotene Langeweile-Muster
+## 3. Anti-Langeweile und Anti-Erklärketten
 
-Für neue Produktionen gelten als Warn- bzw. Ablehnungsmuster:
+Harte Sequenzrichtwerte:
 
-- drei ähnliche Character Scenes hintereinander
-- drei gleiche Shot-Größen hintereinander
-- wiederholt frontale Figuren auf Augenhöhe
-- wiederholt Person links + Person rechts + neutraler Hintergrund
-- wiederholt stehende Person ohne sichtbare Handlung
-- mehrere Bilder hintereinander, die nur andere Dialogsituationen darstellen
-- Karte als Füllbild ohne geografische Aussage
-- Objektbild ohne erklärende Funktion
-- dekorative Menschen, die nichts zum Beat beitragen
-- gleiche Hauptfigur in fast identischer Pose und Bildgröße ohne Continuity-Grund
+- maximal **2 gleiche Visual Forms** hintereinander
+- maximal **2 Character Scenes** hintereinander
+- maximal **2 gleiche Shot Scales** hintereinander
+- maximal **2 `explanationOnly=true` Visuals** hintereinander
+- in 10 Bildern normalerweise mindestens **3 verschiedene Visual Forms**
 
-### Harte Sequenzrichtwerte für neue Projekte
+Nach einem kurzen abstrakten Erklärblock soll das Video wieder zu einer konkreten historischen Welt zurückkehren: Mensch, Ort, Objekt, Ereignis oder sichtbare Folge.
 
-- maximal **2 gleiche Visual Forms hintereinander**
-- maximal **2 Character Scenes hintereinander**
-- maximal **2 gleiche Shot Scales hintereinander**
-- in einem Fenster von 10 Bildern normalerweise mindestens **3 verschiedene Visual Forms**
-
-Bewusste Vorher/Nachher- oder Continuity-Paare dürfen ähnlich sein. Die Ähnlichkeit muss dann in `visualChangeFromPrevious` ausdrücklich begründet werden.
+Abwechslung allein reicht nicht. Ein Wechsel ist nur gut, wenn er aus der Narration logisch folgt.
 
 ---
 
@@ -97,8 +86,6 @@ Erlaubte Standardwerte:
 - `elevated-overview`
 - `sectional`
 
-Die Kamera darf zusätzlich konkret beschrieben werden. `shotScale` existiert nur, damit die Sequenz als Ganzes auf Monotonie geprüft werden kann.
-
 ---
 
 ## 5. Figurenbilder
@@ -108,118 +95,139 @@ Character Scenes sind erlaubt und wichtig, aber nicht der Default.
 Ein Figurenbild braucht mindestens eines:
 
 - konkrete Handlung
-- klare Machtbeziehung
+- Machtbeziehung
 - sichtbare Reaktion
 - räumliches Problem
 - Entscheidung
 - körperliche Arbeit
 - Interaktion mit einem zentralen Objekt
 
-Nur „Person steht da und schaut“ reicht normalerweise nicht.
-
-Bei Gesprächen darf nicht jede Aussage als neues Medium-Two-Shot umgesetzt werden. Stattdessen prüfen:
-
-- Reaktion als Close-up?
-- wichtiges Objekt?
-- räumliche Folge?
-- Vergleich?
-- Ursache/Wirkung?
-- Übersicht?
-- Detail?
+Menschen sollen historische Folgen tragen, nicht nur dekorativ im Bild stehen.
 
 ---
 
 ## 6. Weirdness-/Plausibilitätscheck
 
-Vor Freigabe eines generierten Bildes prüfen:
+Vor Freigabe prüfen:
 
-- wirken Gesicht oder Pose unbeabsichtigt albern?
-- wirken Hände, Körper oder Interaktion unverständlich?
-- ist die historische Situation glaubwürdig?
-- erzeugt die Komposition einen unfreiwillig komischen Eindruck?
-- sehen Nebenfiguren wie Klone aus?
-- ist das Hauptmotiv sofort erkennbar?
-- wirkt das Bild wie ein Poster, Meme oder eine Infografik statt wie eine History-Illustration?
+- unbeabsichtigt albernes Gesicht / Pose?
+- Hände oder Körper unverständlich?
+- historische Situation plausibel?
+- unfreiwillig komische Komposition?
+- Klon-Nebenfiguren?
+- Hauptmotiv sofort lesbar?
+- wirkt das Bild wie Meme, Poster oder Schulbuchtafel?
 
-Bei JA zu einem negativen Punkt: Bild neu generieren, **bevor Phase 2 freigegeben wird**.
+Negativer Treffer → in Phase 2 neu generieren.
 
 ---
 
-## 7. Harte Text-Sperre
+## 7. Sichtbarer Text — kontrolliert statt pauschal verboten
 
 ### Bild 01
 
-Erlaubt ist **nur** der exakt vorgegebene Cover-Text.
+Nur der exakte Cover-Text.
 
-Verboten sind zusätzlich:
+Immer verboten:
 
 - `Bild 01`
 - `BILD 01`
 - `Image 01`
 - `Scene 01`
-- Untertitel
-- Überschrift zusätzlich zum Cover
-- Labels
-- Bildunterschriften
-- Logo
+- Zusatzüberschrift
 - Wasserzeichen
 - Pseudo-Schrift
 
 ### Bild 02 bis Bild NN
 
-**Null sichtbarer Text.**
+Standard:
 
-Das umfasst ausdrücklich:
+```text
+visibleTextPolicy = NO_VISIBLE_TEXT
+```
 
-- Bildnummern
-- interne Prompt-IDs
-- Überschriften
-- Kartenlabels
-- Erklärtexte
-- Zahlen
-- Logos
+Dann ist **null sichtbarer Text** erlaubt.
+
+Gezielte Ausnahme:
+
+```text
+visibleTextPolicy = EDITORIAL_TEXT
+editorialText = "1816"
+editorialTextPurpose = "year"
+```
+
+Dann darf genau **dieser eine freigegebene Text** erscheinen und nichts anderes.
+
+Geeignete Zwecke:
+
+- `year`
+- `date`
+- `place`
+- `time-jump`
+- `short-comparison`
+- `orientation`
+
+Richtwert: höchstens **5 Wörter** und normalerweise nur eine Informationseinheit.
+
+### Immer Hard Fail
+
+- `BILD 11`
+- `IMAGE 11`
+- `SCENE 11`
+- interne Nummern
+- Prompt-Metadaten
+- nicht freigegebene Zusatzlabels
 - Wasserzeichen
 - Pseudo-Schrift
-
-Die Bezeichnungen `BILD 01`, `BILD 02` usw. sind **nur interne Prompt-Metadaten** und dürfen niemals Teil des erzeugten Bildes werden.
 
 ---
 
 ## 8. Phase-2-Visual-QC
 
-Neue Produktionen müssen vor Phase 3 eine Datei besitzen:
+Neue Produktionen benötigen:
 
 `99-technik/PHASE2_VISUAL_QC.json`
 
-Jedes finale Bild wird dort einzeln freigegeben.
-
 Pflicht pro Bild:
 
-- Narration passt zum Bild
-- Visual Interest mindestens 8/10
-- Style Consistency mindestens 8/10
-- keine unbeabsichtigte Weirdness
-- keine sichtbare Bildnummer
+- Narration Support >= 8/10
+- Visual Interest >= 8/10
+- Style Consistency >= 8/10
+- keine Weirdness
+- keine sichtbare interne Bildnummer
 - kein unerwarteter Text
 - keine Pseudo-Schrift
 - Bild freigegeben
+- exakter SHA-256 bei hash-gated Projekten
 
-Für Bild 01 wird zusätzlich geprüft, dass der sichtbare Text exakt dem Cover-Text entspricht.
+Textprüfung:
 
-Für Bild 02–NN muss `visibleTextDetected=false` gelten.
+- Bild 01: `visibleTextExact` = exakter Cover-Text
+- `NO_VISIBLE_TEXT`: `visibleTextDetected=false`, `visibleTextExact` leer
+- `EDITORIAL_TEXT`: `visibleTextDetected=true`, `visibleTextExact` = exakt freigegebener `editorialText`
 
 Ohne vollständig freigegebenes Visual-QC darf Phase 3 nicht starten.
 
 ---
 
+## 9. Gesamtsequenz
+
+Einzeln gute Bilder können zusammen trotzdem schlecht sein. Deshalb zusätzlich `channel/17-WHOLE-VIDEO-COHERENCE-GATE.md` beachten.
+
+Prüffrage bei jedem Übergang:
+
+> Warum kommt dieses Bild genau jetzt?
+
+„Damit es abwechslungsreich ist“ reicht nicht.
+
 ## Kurzformel
 
 ```text
 Beat verstehen
-→ bestes visuelles Mittel wählen
-→ interessanten visuellen Mechanismus festlegen
-→ klar andere Einstellung zum vorherigen Bild planen
+→ bestes visuelles Mittel
+→ klare Veränderung zum vorherigen Bild
+→ kontrollierten Text nur bei echtem Nutzen
 → generieren
-→ Weirdness/Text/Passung prüfen
-→ erst dann freigeben
+→ Passung / Weirdness / Text / Sequenz prüfen
+→ freigeben
 ```
