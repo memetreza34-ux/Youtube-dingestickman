@@ -5,6 +5,7 @@ import path from 'node:path';
 import { arg, exists, projectPaths, readJson } from '../lib/pipeline.js';
 import { findHighRiskPromptWords } from '../lib/flow-prompt.js';
 import { validateVisualInterestScene, validateVisualInterestSequence } from '../lib/visual-interest.js';
+import { validateWholeVideoQc } from '../lib/whole-video-quality.js';
 import { validatePreproduction } from './validate-youtube-preproduction.js';
 
 function nonEmpty(value) {
@@ -82,10 +83,21 @@ export async function validatePhase1(projectDirectory) {
     errors.push(...preproduction.errors.map((error) => `Preproduction: ${error}`));
   }
 
+  if (Number(meta.wholeVideoCoherenceGateVersion ?? 0) >= 1) {
+    if (!(await exists(p.wholeVideoQc))) {
+      errors.push('Whole-Video-Coherence-Gate benötigt 99-technik/WHOLE_VIDEO_QC.json.');
+    } else {
+      const wholeVideoQc = await readJson(p.wholeVideoQc);
+      const wholeVideoResult = validateWholeVideoQc(wholeVideoQc, visual);
+      errors.push(...wholeVideoResult.errors.map((error) => `Whole Video: ${error}`));
+    }
+  }
+
   const compilerV3 = Number(meta.promptSystemVersion) >= 3 || meta.promptSystem === 'flow-compiler-v3';
   const pipelineV4 = Number(meta.pipelineVersion) >= 4;
   const visualInterestGate = Number(meta.visualInterestGateVersion) >= 1;
   const interestPolicy = visual.visualInterestGate ?? {};
+  const textUsagePolicy = visual.textUsagePolicy ?? {};
   let styleLock = null;
   let worldLock = null;
 
@@ -115,7 +127,7 @@ export async function validatePhase1(projectDirectory) {
 
   if (visualInterestGate) {
     if (meta.phase2VisualQcRequired !== true) errors.push('Visual-Interest-Gate benötigt phase2VisualQcRequired=true.');
-    if (interestPolicy.version !== 1) errors.push('config/visual-policy.json enthält nicht Visual-Interest-Gate V1.');
+    if (Number(interestPolicy.version ?? 0) < 1) errors.push('config/visual-policy.json enthält kein aktives Visual-Interest-Gate.');
   }
 
   const coverText = String(meta.coverPolicy?.coverText ?? '').trim();
@@ -196,6 +208,7 @@ export async function validatePhase1(projectDirectory) {
         imageNumber: expected,
         isCover: expected === 1,
         policy: interestPolicy,
+        textUsagePolicy,
         hardMaximumSeconds: meta.imageDensityPolicy?.hardMaximumSeconds
       }));
     }
@@ -239,10 +252,13 @@ export async function validatePhase1(projectDirectory) {
           if (!block.includes(anchorLead)) errors.push(`Bild ${expected} wiederholt den kompakten Style Anchor nicht.`);
         }
         if (expected === 1 && coverText && !block.includes(`"${coverText}"`)) errors.push('BILD 01 enthält den exakten Cover-Text nicht im Prompt.');
-        if (expected > 1 && !/No visible text|ZERO visible text|TEXT SAFETY/i.test(block)) errors.push(`Bild ${expected} enthält keine explizite No-Text-Regel.`);
+        if (expected > 1 && !/No visible text|ZERO visible text|TEXT SAFETY/i.test(block)) errors.push(`Bild ${expected} enthält keine explizite Text-Sicherheitsregel.`);
         if (visualInterestGate && expected === 1 && !/only visible text allowed/i.test(block)) errors.push('BILD 01 enthält keine harte Only-Cover-Text-Regel.');
         if (visualInterestGate && expected > 1 && !/metadata only.*NEVER|metadata only and must NEVER|ZERO visible text/i.test(block)) {
           errors.push(`Bild ${expected} enthält keine harte Sperre gegen sichtbare interne Bildnummern/Metadaten.`);
+        }
+        if (expected > 1 && image.visibleTextPolicy === 'EDITORIAL_TEXT' && !block.includes(`"${String(image.editorialText ?? '').trim()}"`)) {
+          errors.push(`Bild ${expected}: der finale Prompt enthält den exakt freigegebenen editorialText nicht.`);
         }
       }
     }
