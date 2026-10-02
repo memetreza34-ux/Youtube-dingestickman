@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "status": "PLANNED",
   "candidate": "",
   "proposedTitle": "",
@@ -16,6 +16,11 @@
   "diversityGatePassed": false,
   "largerHistoricalPoint": "",
   "sourceabilityEvidence": "",
+  "historicalStoryCorePresent": false,
+  "mechanismOnlyTopic": null,
+  "concreteHumanStakes": "",
+  "eventProgression": "",
+  "expectedExplanationMechanismShare": null,
   "titleDirections": [],
   "visualForms": [],
   "scores": {
