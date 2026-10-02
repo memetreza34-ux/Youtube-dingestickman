@@ -14,6 +14,14 @@ function text(value) {
   return typeof value === 'string' ? value.trim() : '';
 }
 
+function wordCount(value) {
+  return text(value).split(/\s+/).filter(Boolean).length;
+}
+
+function containsForbiddenMetadata(value) {
+  return /\b(BILD|IMAGE|SCENE)\b|Bildnummer|Image number|Scene number/i.test(text(value));
+}
+
 function maxRun(images, selector, predicate = () => true) {
   let best = 0;
   let current = 0;
@@ -51,14 +59,21 @@ export function buildVisualInterestPromptParts(scene) {
   return parts;
 }
 
-export function buildHardTextInstruction({ isCover, coverText }) {
+export function buildHardTextInstruction({ isCover, coverText, scene } = {}) {
   if (isCover) {
     return `TEXT SAFETY — HARD RULE: the only visible text allowed anywhere in this image is exactly "${text(coverText)}". Internal prompt identifiers such as BILD 01, IMAGE 01, SCENE 01, scene names, captions, labels, headings and image numbers are metadata only and must never be drawn. No second text line, no logo, no watermark and no pseudo-writing.`;
   }
+
+  const policy = text(scene?.visibleTextPolicy) || 'NO_VISIBLE_TEXT';
+  if (policy === 'EDITORIAL_TEXT') {
+    const exact = text(scene?.editorialText);
+    return `TEXT SAFETY — HARD RULE: this non-cover image may contain exactly one approved editorial text element and nothing else: "${exact}". Render that exact text correctly and clearly. Do not add any second label, caption, heading, number or word. Internal identifiers such as BILD, IMAGE, SCENE and all image numbers are metadata only and must NEVER appear. No watermark and no pseudo-writing.`;
+  }
+
   return 'No visible text. TEXT SAFETY — HARD RULE: this must be a pure illustration with ZERO visible text. Do not draw any word, letter, number, caption, heading, scene title, map label, image number, logo, watermark or pseudo-writing. Internal prompt identifiers such as BILD 02, BILD 11, BILD 29, IMAGE, SCENE and all numbering are metadata only and must NEVER appear inside the artwork.';
 }
 
-export function validateVisualInterestScene(scene, { imageNumber, isCover, policy, hardMaximumSeconds } = {}) {
+export function validateVisualInterestScene(scene, { imageNumber, isCover, policy, hardMaximumSeconds, textUsagePolicy } = {}) {
   const errors = [];
   const number = imageNumber ?? scene?.imageNumber ?? '?';
   const minimumScore = Number(policy?.minimumVisualInterestScore ?? 8);
@@ -81,9 +96,25 @@ export function validateVisualInterestScene(scene, { imageNumber, isCover, polic
     errors.push(`visualInterestScore bei Bild ${number} muss zwischen ${minimumScore} und 10 liegen.`);
   }
 
-  const expectedTextPolicy = isCover ? 'COVER_TEXT_ONLY' : 'NO_VISIBLE_TEXT';
-  if (visibleTextPolicy !== expectedTextPolicy) {
-    errors.push(`visibleTextPolicy bei Bild ${number} muss ${expectedTextPolicy} sein.`);
+  if (isCover) {
+    if (visibleTextPolicy !== 'COVER_TEXT_ONLY') errors.push(`visibleTextPolicy bei Bild ${number} muss COVER_TEXT_ONLY sein.`);
+  } else {
+    const allowedPolicies = new Set(textUsagePolicy?.allowedNonCoverPolicies ?? ['NO_VISIBLE_TEXT', 'EDITORIAL_TEXT']);
+    if (!allowedPolicies.has(visibleTextPolicy)) errors.push(`visibleTextPolicy bei Bild ${number} muss NO_VISIBLE_TEXT oder EDITORIAL_TEXT sein.`);
+
+    if (visibleTextPolicy === 'EDITORIAL_TEXT') {
+      const editorialText = text(scene?.editorialText);
+      const purpose = text(scene?.editorialTextPurpose);
+      const maxWords = Number(textUsagePolicy?.maximumEditorialTextWords ?? 5);
+      const allowedPurposes = new Set(textUsagePolicy?.allowedEditorialPurposes ?? ['year', 'date', 'place', 'time-jump', 'short-comparison', 'orientation']);
+      if (!editorialText) errors.push(`Bild ${number}: EDITORIAL_TEXT benötigt editorialText.`);
+      if (editorialText && wordCount(editorialText) > maxWords) errors.push(`Bild ${number}: editorialText darf höchstens ${maxWords} Wörter haben.`);
+      if (containsForbiddenMetadata(editorialText)) errors.push(`Bild ${number}: editorialText enthält verbotene interne Metadaten.`);
+      if (!allowedPurposes.has(purpose)) errors.push(`Bild ${number}: editorialTextPurpose ist nicht erlaubt oder fehlt.`);
+    } else {
+      if (text(scene?.editorialText)) errors.push(`Bild ${number}: editorialText muss bei NO_VISIBLE_TEXT leer sein.`);
+      if (text(scene?.editorialTextPurpose)) errors.push(`Bild ${number}: editorialTextPurpose muss bei NO_VISIBLE_TEXT leer sein.`);
+    }
   }
 
   const hold = Number(scene?.plannedHoldSeconds);
@@ -102,6 +133,7 @@ export function validateVisualInterestSequence(images, policy = {}) {
   const maxSameForm = Number(policy.maxConsecutiveSameVisualForm ?? 2);
   const maxCharacters = Number(policy.maxConsecutiveCharacterScenes ?? 2);
   const maxSameScale = Number(policy.maxConsecutiveSameShotScale ?? 2);
+  const maxExplanation = Number(policy.maxConsecutiveExplanationOnlyVisuals ?? 2);
   const minFormsPer10 = Number(policy.minimumDistinctVisualFormsPer10Images ?? 3);
 
   const sameForm = maxRun(images, (image) => text(image.visualForm));
@@ -113,6 +145,8 @@ export function validateVisualInterestSequence(images, policy = {}) {
 
   let characterRun = 0;
   let characterRunStart = 0;
+  let explanationRun = 0;
+  let explanationStart = 0;
   for (let index = 0; index < images.length; index += 1) {
     if (text(images[index].visualForm) === 'character-scene') {
       if (characterRun === 0) characterRunStart = index;
@@ -123,6 +157,19 @@ export function validateVisualInterestSequence(images, policy = {}) {
       }
     } else {
       characterRun = 0;
+    }
+  }
+
+  for (let index = 0; index < images.length; index += 1) {
+    if (images[index]?.explanationOnly === true) {
+      if (explanationRun === 0) explanationStart = index;
+      explanationRun += 1;
+      if (explanationRun > maxExplanation) {
+        errors.push(`Erklärbild-Kette: Bilder ${explanationStart + 1}–${index + 1} sind ${explanationRun} explanation-only Visuals hintereinander; erlaubt sind maximal ${maxExplanation}.`);
+        break;
+      }
+    } else {
+      explanationRun = 0;
     }
   }
 
