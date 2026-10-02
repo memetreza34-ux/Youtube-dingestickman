@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "status": "APPROVED",
+  "reviewMethod": "model-review-plus-read-aloud-check",
+  "centralQuestion": "Warum fiel Konstantinopel 1453, obwohl seine Mauern Angriffe über Jahrhunderte abgewehrt hatten?",
+  "storySpine": "Eine kleine Verteidigung hält hinter starken Mauern wochenlang stand; Mehmed erhöht den Druck mit Artillerie und einer neuen Seefront, die Verteidiger werden immer weiter gestreckt und verlieren im finalen Angriff schließlich die Fähigkeit, alle bedrohten Stellen gleichzeitig zu halten.",
+  "historicalMeaning": "Die Belagerung zeigt, dass starke Befestigungen nicht plötzlich wertlos wurden: Entscheidend war die Kombination aus Technik, Masse, Logistik, taktischer Anpassung und begrenztem Verteidigungspersonal.",
+  "hookPromise": "Die berühmtesten Mauern ihrer Zeit halten fast zwei Monate – und fallen trotzdem. Das Video erklärt die tatsächliche Kette von Entscheidungen und Folgen.",
+  "scores": {
+    "hook": 9.3,
+    "storyProgression": 9.5,
+    "historicalMeaning": 9.4,
+    "payoff": 9.5
+  },
+  "centralStoryShare": 0.92,
+  "personalityCuriosityShare": 0.02,
+  "maxConsecutivePurePersonalityCuriosityBeats": 0,
+  "beatFunctionsReviewed": true,
+  "endingAnswersOpeningQuestion": true,
+  "approved": true,
+  "notes": [
+    "Voice-over wurde zuerst als zusammenhängender Fließtext geschrieben; Visuals wurden erst danach abgeleitet.",
+    "Keine Kette aus isolierten Kuriositäten und keine vereinfachte Erzählung, nach der eine einzige Kanone oder die Schiffsverlegung allein die Stadt zu Fall brachte.",
+    "Giustinianis Verwundung wird als wichtiger Wendepunkt gezeigt, nicht als alleinige Ursache."
+  ]
+}

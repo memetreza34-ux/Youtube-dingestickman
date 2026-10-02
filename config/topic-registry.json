@@ -34,11 +34,13 @@
     {
       "id": "2026-KW40_28-09_bis_04-10_tambora-jahr-ohne-sommer",
       "title": "1816: Das Jahr, in dem der Sommer ausfiel",
-      "aliases": [
-        "Wie der Tambora-Ausbruch von 1815 das Jahr ohne Sommer 1816 auslöste",
-        "Tambora 1815 und das Jahr ohne Sommer",
-        "Warum es 1816 mitten im Sommer schneite"
-      ],
+      "aliases": ["Wie der Tambora-Ausbruch von 1815 das Jahr ohne Sommer 1816 auslöste", "Tambora 1815 und das Jahr ohne Sommer", "Warum es 1816 mitten im Sommer schneite"],
+      "status": "phase1-ready"
+    },
+    {
+      "id": "2026-KW40_28-09_bis_04-10_konstantinopel-1453-mauern",
+      "title": "Warum Konstantinopel 1453 trotz seiner Mauern fiel",
+      "aliases": ["Warum Konstantinopel 1453 trotz seiner riesigen Mauern fiel", "Fall von Konstantinopel 1453", "Warum die Theodosianischen Mauern 1453 nicht reichten"],
       "status": "phase1-ready"
     }
   ]

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 2,
+  "status": "APPROVED",
+  "candidate": "Warum Konstantinopel 1453 trotz seiner riesigen Mauern fiel",
+  "proposedTitle": "Warum Konstantinopel 1453 trotz seiner Mauern fiel",
+  "topicFamily": "war_beyond_battles",
+  "discovery": {
+    "rawCandidateCount": 30,
+    "shortlistSize": 12,
+    "selectedRank": 1,
+    "selectedFromShortlist": true
+  },
+  "duplicateCheckDecision": "APPROVED_NEW",
+  "storyEnginePresent": true,
+  "isolatedAnecdoteOnly": false,
+  "diversityGatePassed": true,
+  "largerHistoricalPoint": "Das Video zeigt, warum eine legendäre Verteidigungsanlage nicht durch einen einzelnen Trick oder eine einzelne Waffe fiel, sondern durch anhaltenden kombinierten Druck, taktische Anpassung und die Überlastung einer kleinen Verteidigungstruppe.",
+  "sourceabilityEvidence": "Mehrere zugängliche Sekundärquellen dokumentieren Belagerungsbeginn, Theodosianische Mauern, Artillerie, Hafenkette, den Durchbruch von Versorgungsschiffen, die Verlegung osmanischer Schiffe über Land, Giustinianis Verwundung und den finalen Angriff.",
+  "historicalStoryCorePresent": true,
+  "mechanismOnlyTopic": false,
+  "concreteHumanStakes": "Konstantin XI., Giustiniani und wenige Tausend Verteidiger müssen eine riesige Mauer- und Hafenfront gegen eine deutlich größere Belagerungsarmee halten; jede neue Bedrohungsrichtung zieht Menschen von einer anderen Stelle ab.",
+  "eventProgression": "Stadt hält hinter starken Mauern → Mehmed setzt Artillerie ein → Verteidiger reparieren weiter → Hafenkette blockiert die Flotte → Mehmed verlegt Schiffe über Land → Verteidigung wird weiter gestreckt → letzter Angriff in Wellen → Führungsausfall und Durchbruch → Stadt fällt.",
+  "expectedExplanationMechanismShare": 0.19,
+  "titleDirections": [
+    "Warum Konstantinopel 1453 trotz seiner Mauern fiel",
+    "Wie Mehmed II. die stärksten Mauern Europas bezwang",
+    "Die 53 Tage, die Konstantinopel zu Fall brachten"
+  ],
+  "visualForms": [
+    "battle-city-overview",
+    "character-scene",
+    "architecture-city",
+    "map-geography",
+    "cutaway-section",
+    "object-focus",
+    "cause-effect",
+    "comparison",
+    "process-sequence",
+    "environment-only",
+    "multi-moment-illustration"
+  ],
+  "scores": {
+    "curiosityGap": 9.1,
+    "stakes": 9.6,
+    "storyEngine": 9.5,
+    "visualPotential": 9.4,
+    "historicalSignificance": 9.7,
+    "freshnessDistinctiveness": 8.6,
+    "titlePotential": 9.2,
+    "sourceability": 9.4
+  },
+  "weightedScore": 9.32,
+  "qualityBand": "PRIORITY",
+  "approvedByTopicDirector": true,
+  "notes": [
+    "Gewählt statt eines mechanism-only Themas, weil konkrete Menschen, Entscheidungen, Reaktionen und ein klarer Wendepunkt die Erzählung tragen.",
+    "Die berühmte Schiffsverlegung über Land ist ein Wendepunkt innerhalb der größeren Belagerung, nicht die alleinige Prämisse des Videos."
+  ]
+}

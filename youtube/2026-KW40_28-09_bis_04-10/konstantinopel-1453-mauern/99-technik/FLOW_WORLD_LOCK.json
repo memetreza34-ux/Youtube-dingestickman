@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "status": "READY",
+  "settingName": "Konstantinopel während der Belagerung von 1453",
+  "settingDescription": "Eine konsistente spätbyzantinische Stadtwelt mit Theodosianischen Landmauern, Graben, Türmen, Goldenen Horn, Hafenmauern, osmanischem Belagerungslager und plausibler Ausrüstung des mittleren 15. Jahrhunderts.",
+  "recurringPlaces": [
+    "Theodosianische Landmauer mit derselben Staffelung aus Graben, äußerer und innerer Mauer",
+    "Goldenes Horn mit konsistenter Küstenform, Hafenkette und Stadtmauern",
+    "osmanisches Belagerungsfeld westlich der Landmauer"
+  ],
+  "recurringCharacters": [
+    "Mehmed II.: 21-jähriger schlanker Sultan, dunkler Bartansatz bis kurzer Bart, gewickelter Turban, dunkle mehrlagige osmanische Kleidung, konzentrierte Haltung",
+    "Konstantin XI.: mittelalter byzantinischer Kaiser mit dunklem Bart, praktische spätbyzantinische Rüstung, zurückhaltender rot-purpurner Mantel",
+    "Giovanni Giustiniani: klar von Konstantin unterschiedener genuesischer Kommandeur mit kurzem dunklem Bart und westlichem Rüstungsmix"
+  ],
+  "recurringProps": [
+    "großes osmanisches Bronzegeschütz mit steinernen Kugeln",
+    "provisorische Breschenfüllung aus Bruchstein, Balken und Fässern",
+    "schwere Hafenkette am Eingang des Goldenen Horns"
+  ],
+  "basePalette": [
+    "stone gray",
+    "parchment cream",
+    "muted red",
+    "dark olive",
+    "gray blue",
+    "leather brown",
+    "restrained gold accent"
+  ],
+  "timeWeatherLogic": "Normale Frühlings-Tages- und Nachtszenen während der wochenlangen Belagerung; Reparaturen nachts mit Fackellicht; letzter Angriff im kalten Morgengrauen des 29. Mai mit zunehmendem Tageslicht.",
+  "continuityRules": [
+    "For recurring locations, preserve silhouette, layout, openings, materials and defining props.",
+    "For before-after or changing-state scenes, reuse the same or nearly the same viewpoint when that makes the change clearer.",
+    "For recurring people, preserve face construction, beard, headwear, clothing colors and identifying props.",
+    "Do not make Byzantine or Ottoman soldiers into cloned identical figures; vary age, face, hair, build, clothing layers and posture.",
+    "Keep the harbor chain and the relative positions of Bosporus, Golden Horn, city and Pera consistent between maps and scene views."
+  ]
+}

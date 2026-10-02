@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "status": "APPROVED",
+  "reviewMethod": "model-sequence-review-plus-script-read-aloud",
+  "scriptContinuousProse": true,
+  "scriptReadAloudPassed": true,
+  "visualsDerivedAfterScript": true,
+  "coherentVisualArc": true,
+  "explanationOnlyVisualShare": 0.19,
+  "maxConsecutiveExplanationOnlyVisuals": 2,
+  "historicalWorldReturnsAfterExplanation": true,
+  "editorialTextUsedOnlyWhenUseful": true,
+  "transitionsReviewed": true,
+  "overallCoherenceScore": 9.2,
+  "approved": true,
+  "notes": [
+    "Visueller Bogen bleibt an denselben Mauern, denselben Hauptfiguren, dem Goldenen Horn und der fortschreitenden Belagerung verankert.",
+    "Reine Erklärbilder sind auf sieben von 37 Visuals begrenzt und werden regelmäßig von konkreten historischen Szenen unterbrochen.",
+    "Redaktionstext dient nur Zeit- oder Ortsorientierung; keine Bildnummern oder Prompt-Metadaten."
+  ]
+}
