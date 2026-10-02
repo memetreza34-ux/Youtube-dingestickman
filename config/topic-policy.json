@@ -1,10 +1,10 @@
 {
-  "topicPolicyVersion": 3,
+  "topicPolicyVersion": 4,
   "status": "READY",
-  "director": "topic-director-v2",
-  "purpose": "Generate broadly, score rigorously, reject weak anecdote-only ideas, and preserve channel diversity.",
+  "director": "topic-director-v3",
+  "purpose": "Generate broadly, score rigorously, reject weak anecdote-only or mechanism-only ideas, require a concrete historical story core, and preserve channel diversity.",
   "scorecard": {
-    "schemaVersion": 1,
+    "schemaVersion": 2,
     "file": "99-technik/TOPIC_SCORECARD.json",
     "requiredForNewProjects": true,
     "statusRequired": "APPROVED",
@@ -35,7 +35,12 @@
     "sourceabilityRequired": true,
     "diversityGateRequired": true,
     "isolatedAnecdoteAloneInsufficient": true,
-    "largerHistoricalPointRequired": true
+    "largerHistoricalPointRequired": true,
+    "historicalStoryCoreRequiredForSchema2": true,
+    "mechanismOnlyTopicForbiddenForSchema2": true,
+    "concreteHumanStakesRequiredForSchema2": true,
+    "eventProgressionRequiredForSchema2": true,
+    "maximumExpectedExplanationMechanismShare": 0.4
   },
   "topicFamilies": [
     "rise_power_collapse",
@@ -70,6 +75,9 @@
   },
   "forbiddenDefaults": [
     "famous person plus weird anecdote plus trick as automatic choice",
+    "mechanism-only topic presented as a historical story",
+    "nature event followed by a chain of explanatory diagrams with weak human story",
+    "technology function explanation without concrete historical stakes",
     "only rulers and generals",
     "only warfare",
     "three Rome or Antiquity topics in direct succession",
