@@ -160,6 +160,7 @@ export function projectPaths(projectDirectory) {
     flowWorldLock: path.join(projectDir, '99-technik', 'FLOW_WORLD_LOCK.json'),
     topicScorecard: path.join(projectDir, '99-technik', 'TOPIC_SCORECARD.json'),
     storyQc: path.join(projectDir, '99-technik', 'STORY_QC.json'),
+    wholeVideoQc: path.join(projectDir, '99-technik', 'WHOLE_VIDEO_QC.json'),
     phase2VisualQc: path.join(projectDir, '99-technik', 'PHASE2_VISUAL_QC.json'),
     renderPlan: path.join(projectDir, '99-technik', 'YOUTUBE_RENDER_PLAN.json'),
     status: path.join(projectDir, '99-technik', 'status.json'),
