@@ -61,6 +61,18 @@ export function validateTopicScorecard(scorecard, policy) {
   if (!nonEmpty(scorecard.largerHistoricalPoint)) errors.push('largerHistoricalPoint fehlt: Thema braucht Bedeutung über die Kuriosität hinaus.');
   if (!nonEmpty(scorecard.sourceabilityEvidence)) errors.push('sourceabilityEvidence fehlt.');
 
+  if (Number(scorecard.schemaVersion) >= 2) {
+    if (scorecard.historicalStoryCorePresent !== true) errors.push('Schema V2 benötigt historicalStoryCorePresent=true.');
+    if (scorecard.mechanismOnlyTopic !== false) errors.push('Schema V2 verbietet mechanismOnlyTopic=true. Das Thema braucht eine konkrete historische Story statt nur eines Sachmechanismus.');
+    if (!nonEmpty(scorecard.concreteHumanStakes)) errors.push('Schema V2 benötigt concreteHumanStakes: Wer spürt konkret, was auf dem Spiel steht?');
+    if (!nonEmpty(scorecard.eventProgression)) errors.push('Schema V2 benötigt eventProgression: konkrete Lage → Veränderung → Folge.');
+    const share = Number(scorecard.expectedExplanationMechanismShare);
+    const maxShare = Number(required.maximumExpectedExplanationMechanismShare ?? 0.4);
+    if (!Number.isFinite(share) || share < 0 || share > maxShare) {
+      errors.push(`Schema V2: expectedExplanationMechanismShare muss zwischen 0 und ${maxShare} liegen.`);
+    }
+  }
+
   const titleDirections = uniqueStrings(scorecard.titleDirections);
   const visualForms = uniqueStrings(scorecard.visualForms);
   const minTitles = Number(required.minimumTitleDirections ?? 3);
