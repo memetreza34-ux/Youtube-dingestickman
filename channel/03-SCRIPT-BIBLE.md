@@ -1,366 +1,293 @@
-# Script Bible — Geschichts-Kanal V3
+# Script Bible — Geschichts-Kanal V4
 
 ## Oberste Regel
 
-**Das Skript muss sich wie eine erzählte historische Geschichte anfühlen, nicht wie eine Erklärung mit historischen Beispielen.**
+**Zuerst entsteht ein natürlicher, flüssiger Voice-over-Fließtext. Erst danach werden Story-Beats und Visuals daraus abgeleitet.**
 
-Der Zuschauer soll möglichst oft denken: **Was passiert als Nächstes?**
+Das Skript darf nicht wie eine Liste einzelner Bildsätze klingen. Es soll sich so anhören, als würde ein guter Erzähler eine historische Geschichte zusammenhängend erzählen.
 
-Fakten bleiben historisch sauber. Spannung entsteht aus realen Situationen, Entscheidungen, Risiken, Missverständnissen, Zeitdruck, Machtverschiebungen und Folgen — nicht aus erfundener Dramatik.
+Der Zuschauer soll verstehen, was passiert, warum es passiert und warum es wichtig ist — ohne das Gefühl zu haben, Stichpunkte vorgelesen zu bekommen.
 
 ---
 
-## 1. Einstieg: mitten in eine konkrete Lage
+## 1. Script-first ist Pflicht
 
-Der Einstieg beginnt bevorzugt mit einem klaren historischen Moment, einer ungewöhnlichen Situation oder einem sichtbaren Problem.
-
-Bevorzugte Struktur:
+Verbotener Workflow:
 
 ```text
-konkreter Moment
-→ unmittelbares Problem
-→ warum die normale Lösung nicht reicht
-→ offene Frage / Versprechen
+Bilder planen
+→ für jedes Bild einen Satz schreiben
+→ Sätze zum Voice-over zusammensetzen
 ```
 
-Nicht:
+Pflicht-Workflow:
 
-> „Hannibal war ein karthagischer Feldherr im Zweiten Punischen Krieg.“
+```text
+Thema + Recherche
+→ vollständiger Voice-over-Fließtext
+→ laut lesen und Sprachfluss verbessern
+→ Story-QC
+→ Story-Beats markieren
+→ Visuals ableiten
+```
 
-Besser:
-
-> „Hannibal sitzt fest. Vor ihm blockieren Römer den entscheidenden Pass, hinter ihm drängt eine Armee mit Beute und Tieren. Ein Frontalangriff wäre teuer. Also lässt er in der Nacht etwas vorbereiten, das die Römer auf den falschen Berg schicken soll.“
-
-### Hook-Ziel
-
-- Kurzvideo: Spannung meist in **5–12 Sekunden** etablieren.
-- Längeres Video: Cold Open meist **12–25 Sekunden**.
-- keine Begrüßung
-- kein Kanalintro
-- keine lange Vorgeschichte vor dem Problem
-- keine künstliche Clickbait-Formel
+Die Anzahl der Bilder darf niemals die Satzstruktur bestimmen.
 
 ---
 
-## 2. Geschichte vor Erklärung
+## 2. Fließtext statt Stakkato
 
-Kontext wird **just in time** geliefert.
+Mehrere kurze Sätze hintereinander sind nur erlaubt, wenn sie bewusst einen dramatischen Moment verstärken. Der Normalfall sind natürlich verbundene Absätze aus kurzen und mittleren Sätzen.
 
-Nicht erst zwei Minuten erklären, wer, wann und wo — sondern nur genau das, was der Zuschauer für den nächsten Story-Schritt braucht.
+Schwach:
+
+> Im Sommer fällt Schnee. Auch Europa ist kalt. Felder verfaulen. Die Ursache liegt weit weg. Ein Vulkan war ausgebrochen.
+
+Stärker:
+
+> Im Sommer 1816 geschieht etwas, das eigentlich nicht in diese Jahreszeit passt: In Teilen Nordamerikas fällt Schnee, während in Europa ungewöhnliche Kälte und Dauerregen die Ernten treffen. Was die Menschen damals nicht wissen können, ist, dass die Ursache Tausende Kilometer entfernt liegt — auf einer indonesischen Insel, auf der im Jahr zuvor ein gewaltiger Vulkan ausgebrochen war.
+
+### Sprachfluss-Regeln
+
+- Gedanken logisch miteinander verbinden
+- Ursache, Gegensatz, Folge und Zeitwechsel sprachlich überleiten
+- Satzlängen bewusst mischen
+- nicht jeden Story-Beat in einen eigenen Ein-Satz-Absatz zerlegen
+- ein einzelner kurzer Satz nur dann allein, wenn er wirklich Gewicht bekommen soll
+- Wiederholungen und künstliche Mini-Hooks vermeiden
+
+---
+
+## 3. Einstieg: konkrete Lage statt Vorlesung
+
+Der Einstieg beginnt bevorzugt mit einem historischen Moment, Konflikt oder Problem, das sofort verständlich ist.
+
+```text
+konkrete Lage
+→ Problem / Widerspruch
+→ offene Frage
+→ Geschichte setzt sich in Bewegung
+```
+
+Keine Begrüßung, kein Kanalintro und keine lange Vorgeschichte vor dem eigentlichen Problem.
+
+---
+
+## 4. Geschichte vor Erklärung
+
+Kontext kommt just in time. Ein Erklärmechanismus darf die Geschichte unterstützen, aber nicht selbst zum Hauptvideo werden, wenn das Thema als historische Story gedacht ist.
 
 Bevorzugt:
 
 ```text
-Situation
-→ Handlung
-→ kurze Erklärung, warum sie wichtig ist
-→ Folge
-→ nächste Situation
+Mensch / Ort / Ereignis
+→ Problem
+→ Handlung oder Veränderung
+→ kurze notwendige Erklärung
+→ sichtbare Folge
+→ zurück in die historische Welt
 ```
+
+Nach höchstens zwei abstrakten Erklär-Beats hintereinander soll das Skript normalerweise wieder zu einem konkreten historischen Ort, Menschen, Objekt oder Ereignis zurückkehren.
 
 ---
 
-## 3. Story Engine: Problem → Entscheidung → Folge → neues Problem
+## 5. Story Engine
 
-Jeder größere Abschnitt soll eine Bewegung enthalten.
+Jeder größere Abschnitt braucht Bewegung:
 
 ```text
-Problem
-→ mögliche Lösung
-→ Entscheidung
-→ unmittelbare Folge
-→ neues Hindernis / neue Erkenntnis
+Ausgangslage
+→ Problem
+→ Reaktion / Entscheidung / Veränderung
+→ Folge
+→ neue Lage
+→ Wendepunkt oder Erkenntnis
+→ Payoff
 ```
 
-Wenn ein Abschnitt nur Fakten aufzählt, ist er noch nicht fertig.
+Ein Abschnitt, der nur Fakten oder Mechanismen aufzählt, ist noch kein fertiger Story-Abschnitt.
 
 ---
 
-## 4. Jeder Absatz braucht einen neuen Beat
+## 6. Jeder Absatz braucht ein „Warum jetzt?“
 
-Ein Absatz darf nicht nur denselben Gedanken ausführlicher formulieren.
-
-Mindestens eines muss sich verändern:
+Ein neuer Absatz beginnt, weil sich mindestens eines verändert:
 
 - Ort
 - Zeit
-- Person / Gruppe
-- Handlung
+- handelnde Person oder Gruppe
 - Ziel
 - Gefahr
 - Ursache
 - Folge
 - Machtverhältnis
 - Wissen des Zuschauers
-- historische Größenordnung
+- Größenordnung
 
-**Ein neuer Absatz = ein neuer erzählerischer Schritt.**
-
----
-
-## 5. Reveal statt Vorwegnehmen
-
-Wichtige Informationen möglichst dann geben, wenn sie ihre Wirkung entfalten.
-
-Nicht:
-
-> „Hannibal wollte die Römer mit brennenden Ochsen täuschen. Zuerst ließ er Reisig ...“
-
-Besser:
-
-> „Dann lässt Hannibal rund zweitausend Ochsen zusammentreiben. An ihre Hörner kommen Bündel aus trockenem Reisig. Erst als es dunkel ist, wird klar, wozu sie dienen sollen.“
-
-Der Zuschauer soll Informationen **entdecken**, statt die ganze Lösung sofort zu bekommen.
+Nicht jeder neue Satz ist automatisch ein neuer Absatz.
 
 ---
 
-## 6. Spannung durch Eskalation
+## 7. Mensch und großes Bild wechseln
 
-Die Geschichte soll auf etwas zulaufen.
+Gute History-Videos wechseln regelmäßig zwischen konkreter historischer Erfahrung und größerem Zusammenhang.
 
-Mögliche Eskalationsachsen:
-
-- Zeit wird knapp
-- Fluchtweg schließt sich
-- Gegner reagiert
-- Plan wird riskanter
-- Ressourcen werden weniger
-- Missverständnis wächst
-- mehrere Probleme treffen gleichzeitig zusammen
-- eine Entscheidung kann nicht mehr einfach rückgängig gemacht werden
-
-Nicht jeder Satz muss dramatisch sein. Aber die Richtung der Geschichte muss spürbar bleiben.
-
----
-
-## 7. Nah ↔ weit wechseln
-
-Gute History-Videos wechseln zwischen Mensch und historischem Gesamtbild.
+Beispiel:
 
 ```text
-nah:
-Ein Soldat bindet Reisig an ein Horn.
-
-weit:
-Auf einem dunklen Berghang entstehen plötzlich Dutzende wandernde Feuerpunkte.
-
-nah:
-Ein römischer Wachposten sieht die Lichter.
-
-weit:
-Die Truppen verlassen die Passage, die Hannibal eigentlich blockiert.
+nah: Ein Händler hat nur noch wenige Getreidesäcke.
+weit: In mehreren Regionen sind Ernten gleichzeitig eingebrochen.
+kurze Erklärung: Das schlechte Wetter traf dieselbe Versorgungskette an mehreren Stellen.
+nah: Auf dem Markt steigen die Preise und Käufer gehen mit weniger nach Hause.
 ```
 
-So bleibt die Geschichte anschaulich und erklärt trotzdem größere Zusammenhänge.
+Menschen sind keine Dekoration. Wenn eine Folge Menschen betrifft, soll das Skript diese Folge möglichst konkret erfahrbar machen.
 
 ---
 
-## 8. Konkrete Verben statt Schulbuchsprache
+## 8. Konkrete Sprache
 
 Bevorzugen:
 
 - blockiert
-- marschiert
-- gräbt
-- zündet
-- verliert
 - flieht
-- öffnet
-- täuscht
-- belagert
-- verhandelt
-- zerstört
-- bezahlt
+- verliert
 - hungert
+- verkauft
 - wartet
+- marschiert
+- bricht ein
+- steigt
+- sinkt
+- verbrennt
+- überschwemmt
+- schließt
+- öffnet
 
-Vermeiden, wenn eine konkrete Formulierung möglich ist:
-
-- „es kam zu einer Veränderung“
-- „dies führte zu einer Entwicklung“
-- „die operative Situation verschlechterte sich“
-
----
-
-## 9. Fakten nur mit narrativer Funktion
-
-Jede Zahl, Jahreszahl oder Bezeichnung braucht einen Grund.
-
-Eine Zahl darf z. B.:
-
-- Größenordnung zeigen
-- Gefahr verständlich machen
-- eine Überraschung verstärken
-- einen Vergleich ermöglichen
-- Zeitdruck sichtbar machen
-
-Keine Zahlenliste nur für Vollständigkeit.
+Abstrakte Formulierungen nur, wenn sie wirklich nötig sind.
 
 ---
 
-## 10. Historische Personen als handelnde Figuren
+## 9. Zahlen, Daten und Orte mit Funktion
 
-Wenn eine konkrete Person wichtig ist, muss klar werden:
+Jahreszahlen, Daten, Orte und Mengen sind willkommen, wenn sie Orientierung oder Bedeutung liefern.
 
-- was sie gerade erreichen will
-- welches Problem ihr im Weg steht
-- welche Entscheidung sie trifft
+Sie dürfen später auch gezielt als kurze redaktionelle Einblendung visualisiert werden.
+
+Gute Beispiele:
+
+- `1816`
+- `10. April 1815`
+- `Sumbawa`
+- `3 Tage später`
+
+Keine Zahlenlisten ohne narrative Funktion.
+
+---
+
+## 10. Reveal und Wendepunkte
+
+Informationen möglichst dann geben, wenn sie etwas verändern. Die Lösung nicht vollständig vorwegnehmen, wenn die reale Geschichte einen natürlichen Reveal besitzt.
+
+Spannung entsteht aus echten historischen Zusammenhängen, nicht aus künstlichen Formeln wie „Was dann geschah, war unglaublich“.
+
+---
+
+## 11. Historische Personen und Gruppen
+
+Wenn Menschen wichtig sind, muss klar werden:
+
+- was sie erreichen wollen
+- welches Problem ihnen im Weg steht
+- was sie tun oder erleben
 - was sich dadurch verändert
 
-Keine erfundenen inneren Monologe oder Gefühle als Fakten.
-
-Man darf sagen:
-
-> „Für Hannibal war ein direkter Angriff riskant.“
-
-Nicht ohne Quelle behaupten:
-
-> „Hannibal hatte panische Angst, alles zu verlieren.“
+Keine erfundenen Gedanken, Gefühle oder Zitate als Fakten.
 
 ---
 
-## 11. Gegner haben eigene Logik
+## 12. Gegner und Betroffene haben Logik
 
-Die Gegenseite darf nicht wie ein dummer Statist wirken.
-
-Wenn jemand getäuscht wird, erklären:
-
-- was diese Person tatsächlich sehen konnte
-- warum ihre Reaktion unter den Umständen plausibel war
-- welche Information ihr fehlte
-
-Das macht die Geschichte glaubwürdiger und spannender.
+Menschen dürfen nicht nur als Statisten für die Pointe benutzt werden. Reaktionen müssen aus der damaligen Informationslage plausibel sein.
 
 ---
 
-## 12. Mini-Hooks entstehen aus offenen Fragen
+## 13. Keine Erklärketten
 
-Mini-Hooks sollen nicht künstlich aufgesetzt wirken.
+Drei oder mehr abstrakte Erklärsätze hintereinander sind ein Warnsignal, besonders wenn sie später drei oder mehr Diagramm-/Prozessbilder erzwingen würden.
 
-Gute Formen:
+Dann prüfen:
 
-> „Aber genau dort lag das nächste Problem.“
+1. Kann der Mechanismus in einem starken Satz erklärt werden?
+2. Reicht ein einziges erklärendes Visual?
+3. Kann danach sofort eine historische Folge gezeigt werden?
 
-> „Der Plan funktionierte nur, wenn die Römer die Feuer falsch deuteten.“
-
-> „Und am Morgen wurde sichtbar, was in der Nacht tatsächlich den Berg hinaufgelaufen war.“
-
-Vermeiden:
-
-> „Doch was dann geschah, war unglaublich!“
+Ziel: **Erklärung dient der Geschichte, nicht umgekehrt.**
 
 ---
 
-## 13. Informationsdichte ohne Hast
+## 14. Ende: Antwort + Bedeutung
 
-Kurze Videos dürfen schnell sein, aber nicht gehetzt.
-
-Regeln:
-
-- ein Hauptgedanke pro Satz
-- kurze bis mittlere Sätze
-- unnötige Nebensätze streichen
-- Wiederholungen streichen
-- Übergänge direkt aus Ursache und Folge bauen
-- wichtige Momente dürfen einen kurzen Satz allein bekommen
-
-Beispiel:
-
-> „Die Römer bewegen sich. Der Pass wird frei. Genau darauf hat Hannibal gewartet.“
+Das Ende beantwortet die Ausgangsfrage und zeigt, warum die Geschichte historisch interessant oder folgenreich ist. Keine reine Wiederholung der bereits erzählten Fakten.
 
 ---
 
-## 14. Visuell schreibbares Skript
+## 15. Historische Unsicherheit
 
-Das Skript wird nicht für Bilder verbogen, aber gute Sätze erzeugen sichtbare Situationen.
+Unsichere Details klar markieren:
 
-Bevorzugt sind Aussagen, die man konkret visualisieren kann:
-
-- Ort
-- Handlung
-- Objekt
-- Veränderung
-- räumliches Verhältnis
-- Ursache und Folge
-- Größenunterschied
-- Vorher/Nachher
-
-Wenn drei abstrakte Sätze hintereinander keine erkennbare Szene oder Beziehung erzeugen, prüfen, ob sie konkreter erzählt werden können.
-
----
-
-## 15. Keine künstliche Vollständigkeit
-
-Ein gutes Video muss nicht jede Nebeninformation erwähnen.
-
-Priorität:
-
-1. zentrale Geschichte verstehen
-2. entscheidende Ursachen/Folgen verstehen
-3. historische Unsicherheiten korrekt markieren
-4. interessante Nebenfakten nur dann ergänzen, wenn sie den Storyfluss stärken
-
----
-
-## 16. Ende: Payoff statt Zusammenfassung
-
-Das Ende beantwortet die Ausgangsfrage und zeigt, **warum die Geschichte bemerkenswert ist**.
-
-Nicht einfach alle Fakten wiederholen.
-
-Beispiel:
-
-> „Hannibal hat die römische Sperre nicht erobert. Er hat dafür gesorgt, dass die Römer sie selbst verlassen. Genau deshalb war der Trick so wirksam.“
-
-Starker Schluss = Antwort + Bedeutung.
-
----
-
-## 17. Historische Unsicherheit
-
-Quellenlage und Forschung dürfen Spannung nicht zugunsten falscher Sicherheit verlieren.
-
-Wenn Details unsicher sind:
-
-- „laut Polybios ...“
-- „die genaue Zahl ist unsicher ...“
+- „laut der Quelle ...“
 - „wahrscheinlich ...“
-- „die Quellen berichten ...“
+- „die genaue Zahl ist unsicher ...“
+- „Forschende diskutieren ...“
 
 Keine Legende als gesicherte Tatsache verkaufen.
 
 ---
 
-## 18. Script-QC vor Visual Planning
+## 16. Read-aloud Gate
 
-Ein Skript ist erst bereit, wenn:
+Vor Visual Planning muss das komplette Skript einmal als zusammenhängender Text geprüft werden.
 
-- der Einstieg sofort eine konkrete historische Lage erzeugt
-- innerhalb weniger Sekunden ein Problem oder eine offene Frage entsteht
-- keine lange abstrakte Vorgeschichte vor der eigentlichen Geschichte steht
-- jeder Absatz einen neuen Story-Beat bringt
-- Problem → Entscheidung → Folge wiederholt erkennbar ist
-- Informationen sinnvoll enthüllt statt komplett vorweggenommen werden
-- die Geschichte eskaliert oder sich klar weiterentwickelt
-- Menschen, Orte und Handlungen regelmäßig konkret werden
-- Gegner und Entscheidungen nachvollziehbar bleiben
-- Ursache/Wirkung klar bleibt
-- Zahlen und Kontext eine Funktion haben
-- keine Wikipedia-/Schulbuchsprache dominiert
-- die Sätze visuell vorstellbar sind
-- keine erfundenen Gedanken/Zitate als Fakten erscheinen
-- das Ende die Ausgangsfrage beantwortet und einen Payoff liefert
-- das Skript auch ohne Bilder spannend vorgelesen werden kann
+Bestanden nur wenn:
 
-## Kurzformel V3
+- es ohne Bilder verständlich ist
+- Absätze natürlich ineinander übergehen
+- keine lange Kette gleich langer Einzelsätze entsteht
+- keine Stichpunktwirkung entsteht
+- der Sprecher nicht alle zwei Sekunden gedanklich neu anfangen muss
+- notwendige Erklärung kompakt bleibt
+- die Geschichte nach jeder Erklärung wieder in eine konkrete historische Welt zurückkehrt
+- das Ende aus dem Anfang logisch herauswächst
+
+---
+
+## 17. Definition of Done
+
+Ein Skript ist erst bereit für Visual Planning, wenn:
+
+- vollständiger Fließtext zuerst geschrieben wurde
+- der Text laut gelesen / auf Sprachfluss geprüft wurde
+- der Einstieg eine konkrete Lage oder Frage erzeugt
+- Story statt Faktenliste dominiert
+- Erklärmechanismen nicht die gesamte Mitte des Videos übernehmen
+- Mensch, Ort, Handlung und Folgen regelmäßig konkret werden
+- Absätze statt einzelne Bildsätze die Erzählstruktur tragen
+- Zahlen/Daten/Orte nur mit Funktion vorkommen
+- historische Unsicherheit sauber bleibt
+- das Ende einen Payoff liefert
+- Story-QC und Whole-Video-Coherence-QC freigegeben sind
+
+## Kurzformel V4
 
 ```text
-Moment
-→ Problem
-→ Handlung / Entscheidung
-→ Folge
-→ neue Komplikation
-→ Reveal / Wendepunkt
-→ Auflösung
-→ historische Bedeutung
+flüssiger Fließtext
+→ konkrete historische Lage
+→ Problem / Veränderung
+→ notwendige Erklärung
+→ zurück zur historischen Folge
+→ Wendepunkt
+→ Payoff
+→ erst danach Visual-Beats
 ```
