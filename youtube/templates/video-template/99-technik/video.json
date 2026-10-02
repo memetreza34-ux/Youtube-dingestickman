@@ -4,6 +4,8 @@
   "preproductionQualityGateVersion": 1,
   "topicScorecardRequired": true,
   "storyQcRequired": true,
+  "wholeVideoCoherenceGateVersion": 1,
+  "wholeVideoQcRequired": true,
   "visualInterestGateVersion": 1,
   "phase2VisualQcRequired": true,
   "phase2VisualQcHashVersion": 1,
