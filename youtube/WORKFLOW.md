@@ -10,7 +10,8 @@ Neue Projekte starten als `preproduction-review`.
 → Duplicate Check
 → TOPIC_SCORECARD.json APPROVED
 → Recherche
-→ Script V3
+→ vollständiger Voice-over-Fließtext
+→ Read-aloud-QC
 → STORY_QC.json APPROVED
 ```
 
@@ -20,13 +21,11 @@ Technische Prüfung:
 npm run validate:youtube-preproduction -- --dir "youtube/<week>/<slug>"
 ```
 
-Ohne bestandenes Preproduction-Gate darf Phase 1 bei neuen Projekten nicht bestehen.
+## 1. Topic Director V3
 
-## 1. Topic Director V2
+`TOPIC_SCORECARD.json` Schema 2 ist für neue Produktionen vorgesehen.
 
-`TOPIC_SCORECARD.json` ist Pflicht für neue Produktionen.
-
-Erforderlich sind unter anderem:
+Erforderlich:
 
 - mindestens 30 Rohideen
 - mindestens 12 Shortlist-Kandidaten
@@ -35,79 +34,123 @@ Erforderlich sind unter anderem:
 - größere historische Bedeutung
 - Quellenbasis
 - mindestens 3 Titelrichtungen
-- mindestens 5 sinnvolle Visual Forms
+- mindestens 5 Visual Forms
 - Diversity Gate
+- konkrete historische Story Core
+- `mechanismOnlyTopic=false`
+- konkrete menschliche / gesellschaftliche Stakes
+- Ereignis-/Veränderungsverlauf
+- reiner Erklärmechanismus-Anteil normalerweise <= 40 %
 
-Tests, pausierte oder verworfene Themen dürfen den Duplicate Check höchstens warnen, aber nicht hart blockieren. Aktive/reservierte Produktionen dürfen blockieren.
+## 2. Script V4 — Fließtext zuerst
 
-## 2. Story Quality Gate
+Nach `channel/03-SCRIPT-BIBLE.md`.
 
-Nach `channel/03-SCRIPT-BIBLE.md` schreiben und anschließend `99-technik/STORY_QC.json` ausfüllen.
-
-Bevorzugte Logik:
+Verbindlicher Ablauf:
 
 ```text
-konkreter Moment
-→ Problem
-→ Entscheidung / Handlung
-→ Folge
-→ neue Komplikation
-→ Reveal / Wendepunkt
-→ Auflösung
-→ historische Bedeutung
+Recherche
+→ vollständiger natürlicher Fließtext
+→ laut lesen / Sprachfluss verbessern
+→ Story-QC
+→ erst danach Visuals
 ```
 
-Pflicht:
+Nicht zuerst Bilder planen und dann pro Bild einen Satz schreiben.
 
-- zentrale Frage
-- klare Story-Spine
-- Bedeutung über die Anekdote hinaus
+Das Script soll als zusammenhängende Erzählung funktionieren und nach kurzen Erklärpassagen wieder in die konkrete historische Welt zurückkehren.
+
+## 3. Story Quality Gate
+
+`99-technik/STORY_QC.json` prüft zentrale Frage, Story-Spine, historische Bedeutung, Progression und Payoff.
+
+Pflicht unter anderem:
+
 - Hook / Progression / Meaning / Payoff >= 8/10
 - zentraler Story-Anteil >= 70 %
 - Personality-/Curiosity-Anteil <= 30 %
 - max. 2 reine Personality-/Curiosity-Beats hintereinander
 
-## 3. Story Beats und Visual Selection
+## 4. Story Beats und Visual Selection
 
-Bildplanung folgt Story Beats, nicht Absätzen.
+Erst nach dem fertigen Script werden Beats markiert.
 
 Vor jedem Visual:
 
-> Was muss der Zuschauer genau jetzt verstehen, und welches visuelle Mittel erklärt es am besten?
+> Was muss der Zuschauer genau jetzt sehen, verstehen oder fühlen — und welches visuelle Mittel leistet das am besten?
 
-Erlaubt sind u. a. Character Scene, Environment, Map, Object Focus, Architecture, System, Cause→Effect, Process, Comparison, Multi-Moment, Detail Inset, Cutaway und Evidence Reconstruction.
+Mögliche Werkzeuge:
 
-Figuren sind nie Default-Fallback.
+- Character Scene
+- Environment
+- Map
+- Object Focus
+- Architecture
+- Cause→Effect
+- Process
+- Comparison
+- Multi-Moment
+- Detail Inset
+- Cutaway
+- Evidence Reconstruction
+- kurze redaktionelle Jahreszahl / Datum / Ort, wenn Orientierung dadurch besser wird
 
-## 4. Scene Card + Visual Interest
+Figuren sind kein Default-Fallback. Diagramm-/Erklärbilder ebenfalls nicht.
 
-Pflichtfelder der Scene Card bleiben nach `channel/11-VISUAL-DIRECTOR.md` bestehen. Neue Produktionen benötigen zusätzlich:
+## 5. Scene Card + Visual Interest
+
+Neue Scene Cards planen zusätzlich:
 
 - `shotScale`
 - `visualEnergyDevice`
 - `visualChangeFromPrevious`
 - `visualInterestScore >= 8`
 - `visibleTextPolicy`
+- `editorialText`
+- `editorialTextPurpose`
+- `explanationOnly`
 
 Anti-Monotonie:
 
 - max. 2 gleiche Visual Forms hintereinander
 - max. 2 Character Scenes hintereinander
 - max. 2 gleiche Shot Scales hintereinander
-- 10-Bilder-Fenster normalerweise mindestens 3 Visual Forms
+- max. 2 `explanationOnly=true` Visuals hintereinander
+- in 10 Bildern normalerweise mindestens 3 Visual Forms
 
-Die Pacing-Zahlen werden ausschließlich aus `config/pipeline.json` abgeleitet. Aktuell liegt der Zielbereich bei ca. 2,5–4,2 s pro Visual.
+## 6. Whole-Video-Coherence-Gate
 
-## 5. World Lock + Flow
+Vor Phase 1 muss bei neuen Projekten:
 
-Vor Build muss `99-technik/FLOW_WORLD_LOCK.json` READY sein.
+```text
+99-technik/WHOLE_VIDEO_QC.json
+```
+
+auf `APPROVED` stehen.
+
+Geprüft werden:
+
+- Fließtext statt Stakkato
+- Script vor Visuals fertig
+- Read-aloud bestanden
+- komplette Bildfolge als Sequenz kohärent
+- explanation-only Visual Share <= 35 %
+- max. 2 Erklärvisuals hintereinander
+- Rückkehr zu Mensch / Ort / Objekt / Ereignis nach Erklärung
+- redaktioneller Text nur bei echtem Nutzen
+- Übergänge geprüft
+- Gesamt-Kohärenz >= 8/10
+
+## 7. World Lock + Flow
+
+Vor Build muss `FLOW_WORLD_LOCK.json` READY sein.
 
 ```bash
 npm run build:youtube-flow -- --dir "youtube/<week>/<slug>"
 npm run validate:youtube-phase1 -- --dir "youtube/<week>/<slug>"
 ```
 
-Phase 1 revalidiert bei neuen Projekten auch Topic- und Story-Gate.
+Phase 1 revalidiert Topic, Story und bei neuen Projekten Whole-Video-Coherence.
 
 ### Cover Gate
 
@@ -122,19 +165,30 @@ Stage 2:
 
 - Gewinner = `Bild 01.png`
 - Bild 02–NN erzeugen
-- Bild 02–NN: absolut kein sichtbarer Text
 
-## 6. Phase 2 — echte Bildprüfung
+### Text auf Nicht-Cover-Bildern
 
-Finale Bilder liegen nur unter:
+Standard:
 
 ```text
-00-bildprompts/images/Bild 01.png
-...
-00-bildprompts/images/Bild NN.png
+visibleTextPolicy = NO_VISIBLE_TEXT
 ```
 
-Vor Phase 3 wird jedes Bild in `99-technik/PHASE2_VISUAL_QC.json` geprüft auf:
+Gezielt erlaubt:
+
+```text
+visibleTextPolicy = EDITORIAL_TEXT
+editorialText = "1816"
+editorialTextPurpose = "year"
+```
+
+Dann darf genau dieser Text erscheinen und nichts anderes.
+
+Immer verboten: `BILD`, `IMAGE`, `SCENE`, interne Nummern, Prompt-Metadaten, Wasserzeichen und Pseudo-Schrift.
+
+## 8. Phase 2 — echte Bildprüfung
+
+Vor Phase 3 jedes Bild in `PHASE2_VISUAL_QC.json` prüfen:
 
 - Narrationspassung >= 8/10
 - Visual Interest >= 8/10
@@ -143,40 +197,37 @@ Vor Phase 3 wird jedes Bild in `99-technik/PHASE2_VISUAL_QC.json` geprüft auf:
 - keine sichtbare interne Bildnummer
 - kein unerwarteter Text
 - keine Pseudo-Schrift
+- sichtbarer Text entspricht exakt der Scene Card
 
-Neue Projekte verwenden QC-Schema 2 mit:
+Hash-gated Projekte speichern:
 
 ```text
 fileName
 sha256
 ```
 
-Damit ist die Freigabe an exakt die geprüfte Datei gebunden.
-
 ```bash
 npm run validate:youtube-phase2 -- --dir "youtube/<week>/<slug>"
 ```
 
-## 7. Phase 3 — Assets read-only
+## 9. Phase 3 — Assets read-only
 
 ```bash
 npm run phase3:youtube -- --dir "youtube/<week>/<slug>"
 ```
 
-Danach gilt `00-bildprompts/images/` als read-only. `PHASE3_IMAGE_LOCK.json` schützt die finalen Bilder zusätzlich per Hash.
+Ab `PHASE3_IMAGE_LOCK.json` sind Bilder read-only.
 
-Fehler bedeutet:
+Fehler:
 
 ```text
 ABBRUCH
-→ keine Reparatur
+→ keine automatische Reparatur
 → keine Bildgenerierung
 → Fehler melden
 ```
 
-## 8. Export
-
-`video.json.youtubeUpload` enthält Titel, Beschreibung und optional Hashtags/Keywords.
+## 10. Export
 
 Final:
 
@@ -189,4 +240,4 @@ Final:
 
 ## Definition of Done
 
-Ein Video ist erst fertig, wenn Topic Scorecard, Story QC, Phase 1, Phase-2-Visual-QC, Phase 2, Phase 3, Render und Export-QC bestanden sind.
+Ein Video ist erst fertig, wenn Topic Scorecard, Story QC, Whole-Video-QC, Phase 1, Phase-2-Visual-QC, Phase 2, Phase 3, Render und Export-QC bestanden sind.
