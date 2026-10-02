@@ -41,7 +41,7 @@ function hasCompositionLanguage(text) {
 }
 
 function hasComparisonLanguage(text) {
-  return /(both|two sides|two opposing|opposite|contrast|compared|versus|vs\.?|on one side|on the other side|while|whereas|left side|right side|comparison poles)/i.test(text);
+  return /(both|two sides|two opposing|opposite|contrast|compared|versus|vs\.?|on one side|on the other side|while|whereas|left side|right side|comparison poles|before[- ]after|before and after|months apart)/i.test(text);
 }
 
 function wordCount(value) {
