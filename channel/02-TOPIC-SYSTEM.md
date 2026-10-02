@@ -1,334 +1,285 @@
-# Topic Director V2 — Geschichts-Kanal
+# Topic Director V3 — Geschichts-Kanal
 
 ## Ziel
 
-Die Themenfindung darf nicht bei „irgendeine interessante historische Anekdote“ enden. Sie soll regelmäßig Themen liefern, die **groß genug für einen echten Geschichtskanal**, erzählerisch stark, visuell abwechslungsreich und trotzdem historisch sauber sind.
+Ein Thema muss nicht nur interessant oder erklärbar sein. Es muss **als historische Geschichte tragen**.
 
-Ein Thema wird erst produziert, wenn es nicht nur interessant klingt, sondern eine tragfähige **Story Engine** besitzt.
+Der Kanal priorisiert Themen, bei denen konkrete Menschen, Gruppen, Orte, Konflikte, Entscheidungen, Veränderungen oder Folgen eine echte Story bilden. Ein wissenschaftlicher, technischer oder klimatischer Mechanismus darf wichtig sein — aber er darf nicht zum Ersatz für die historische Geschichte werden.
 
 ---
 
 ## 1. Was ein starkes Thema ausmacht
 
-Ein starkes Thema hat möglichst mehrere dieser Eigenschaften gleichzeitig:
+Ein starkes Thema verbindet möglichst mehrere Punkte gleichzeitig:
 
 - sofort verständliche Neugierlücke
-- echte Stakes: Macht, Leben, Überleben, Verlust, Risiko, Zusammenbruch, Veränderung oder überraschende Konsequenz
-- klaren Konflikt oder eine sichtbare Entwicklung
-- Ursache → Entscheidung/Handlung → Folge
-- mindestens einen Wendepunkt, Reveal oder Perspektivwechsel
-- mehrere unterschiedliche visuelle Ebenen: Mensch, Ort, Objekt, Karte, System, Konsequenz
-- Bedeutung über die einzelne Anekdote hinaus
-- belastbare Quellenlage
-- einen Titel, der auch ohne künstlichen Clickbait neugierig macht
+- konkrete historische Lage
+- erkennbare Menschen oder Gruppen, die etwas erleben, riskieren, verlieren, entscheiden oder verändern
+- echte Stakes
+- klare Entwicklung statt bloßer Erklärung
+- Ursache → Handlung/Veränderung → Folge
+- Wendepunkt, Reveal oder Perspektivwechsel
+- Bedeutung über eine einzelne Anekdote hinaus
+- abwechslungsreiche Visuals
+- belastbare Quellen
+- ehrlicher starker Titel
 
-**Wichtig:** Eine bizarre Einzelgeschichte ist erlaubt, aber sie ist nicht automatisch ein gutes Kanalthema.
+### Harte Zusatzregel
+
+Ein Thema ist für diesen Kanal **nicht stark genug**, wenn seine Hauptstruktur im Kern nur lautet:
+
+```text
+Phänomen
+→ Mechanismus erklären
+→ weitere Mechanismus-Stufe
+→ allgemeine Folgen
+```
+
+Solche Themen müssen entweder in eine konkrete historische Geschichte eingebettet werden oder werden abgelehnt.
 
 ---
 
-## 2. Themenfamilien
+## 2. Historische Story Core
 
-Die Themenfindung muss breit suchen. Nicht jede Runde darf wieder mit einer berühmten Person und einer kuriosen Anekdote enden.
+Jeder Finalist muss vor Freigabe vier Fragen beantworten können:
+
+1. **Wer oder was befindet sich in einer konkreten historischen Lage?**
+2. **Was verändert sich sichtbar?**
+3. **Wer spürt die Folge konkret?**
+4. **Warum entwickelt sich daraus eine Geschichte und nicht nur eine Erklärung?**
+
+Wenn die Antworten hauptsächlich aus Naturwissenschaft, Technik oder abstrakten Systemen bestehen, ist das Thema zu erklärvideo-lastig.
+
+---
+
+## 3. Erlaubte Themenfamilien
 
 ### A. Aufstieg, Macht und Zusammenbruch
-
-- Warum ein Reich plötzlich unaufhaltsam wurde
-- Warum eine scheinbar mächtige Armee zerbrach
-- Wie ein Staat in wenigen Jahren kollabierte
-- Was einen Herrscher wirklich mächtig machte
+- Reiche, Staaten, Dynastien, Armeen, Städte
+- konkrete Entscheidungen und Wendepunkte
 
 ### B. Katastrophen und Überleben
+- Katastrophe aus Sicht der betroffenen historischen Welt
+- Evakuierung, Versorgung, Fehlentscheidungen, Überleben, Wiederaufbau
 
-- Städte, die an einem Tag verschwanden
-- Belagerungen, Hungersnöte, Seuchen, Brände, Naturkatastrophen
-- Wie Menschen unter extremen Bedingungen überlebten
-- Was bei einer historischen Katastrophe tatsächlich geschah
-
-### C. Fehlentscheidungen mit riesigen Folgen
-
-- eine Entscheidung, die einen Krieg drehte
-- ein Plan, der völlig anders endete als gedacht
-- ein politischer Fehler mit jahrzehntelangen Folgen
-- ein Sieg, der später zur Niederlage wurde
+### C. Fehlentscheidungen mit großen Folgen
+- Entscheidung → Reaktion → Eskalation → Konsequenz
 
 ### D. Verrat, Intrige, Kriminalität und Machtkampf
+- Putsche, Spionage, Piraterie, politische Morde, Machtwechsel
 
-- Putsche
-- Palastintrigen
-- Attentate
-- politische Morde
-- Entführungen
-- Piraterie
-- Spionage
-- Verrat innerhalb von Dynastien oder Armeen
-
-### E. Leben früher — aber mit echter Frage
-
-Nicht „Alltag im Mittelalter erklärt“, sondern zum Beispiel:
-
-- Wie überlebte eine Stadt ohne moderne Kanalisation?
-- Was passierte, wenn ein römischer Soldat krank wurde?
-- Wie gefährlich war eine Geburt vor 500 Jahren?
-- Wie weit kam ein normaler Mensch an einem Tag?
+### E. Leben früher — mit echter Frage
+- konkrete Alltagssituation mit Problem, nicht allgemeine Lexikon-Erklärung
 
 ### F. Technik, Infrastruktur und Systeme
-
-- wie Straßen, Aquädukte, Burgen, Schiffe, Minen oder Waffen tatsächlich funktionierten
-- warum eine Technik eine Epoche veränderte
-- welche unsichtbaren Systeme eine Stadt oder Armee am Leben hielten
+- nur stark, wenn klar wird, **wer davon abhängig war, was schiefgehen konnte und welche historische Folge daraus entstand**
 
 ### G. Grenzen, Karten und verlorene Welten
+- Veränderung, Konflikt, Handel, Migration, Teilung oder Verschwinden
 
-- verschwundene Staaten
-- geteilte Städte
-- seltsame Grenzen
-- Handelsrouten
-- isolierte Regionen
-- Städte oder Reiche, die heute kaum jemand kennt
+### H. Historische Rätsel und Rekonstruktionen
+- Beweise, konkurrierende Deutungen, Entdeckung, Rekonstruktion
 
-### H. Große historische Rätsel und Rekonstruktionen
-
-- Was wissen wir wirklich?
-- Welche Beweise existieren?
-- Was ist spätere Legende?
-- Wie rekonstruieren Historiker einen Vorgang aus wenigen Spuren?
-
-### I. Krieg — nicht nur Schlachten
-
-- Logistik
-- Täuschung
-- Belagerung
-- Versorgung
-- Flucht
-- Gelände
-- Moral
-- Kommunikation
-- Folgen für Zivilisten
+### I. Krieg jenseits von Schlachten
+- Versorgung, Flucht, Täuschung, Gelände, Kommunikation, Zivilbevölkerung
 
 ### J. Seltsame Geschichte mit größerem Punkt
-
-Kuriose Ereignisse sind gut, **wenn sie etwas Größeres zeigen**.
-
-Beispiel:
-
-Schwach:
-> „Caesar wurde von Piraten entführt.“
-
-Stärker:
-> „Warum Piraten im Mittelmeer so mächtig wurden, dass selbst Caesar ihnen ausgeliefert war.“
-
-Die Anekdote kann der Hook sein. Das Video braucht aber eine größere historische Aussage.
+- Kuriosität darf Hook sein, aber nicht das ganze Video
 
 ---
 
-## 3. Verbotener Default
+## 4. Verbotene Defaults
 
-Die Themenfindung darf nicht automatisch diesem Muster folgen:
+Nicht automatisch wählen:
 
 ```text
 berühmte Person
-→ ungewöhnliches Ereignis
+→ ungewöhnliche Anekdote
 → überraschender Trick
 → Ende
 ```
 
-Das ist nur **eine** Storyform unter vielen.
+Ebenso schwach als Default:
 
-Nach zwei personenbezogenen Anekdoten hintereinander muss die nächste Themenauswahl bevorzugt aus einer anderen Familie kommen.
+```text
+Naturereignis
+→ drei Erklärdiagramme
+→ allgemeine Auswirkungen
+```
 
-Ebenso vermeiden:
+oder:
 
-- drei Rom-/Antike-Themen direkt hintereinander
-- mehrere Videos mit derselben Konfliktform hintereinander
-- nur Könige, Feldherren und Herrscher
-- nur Krieg
-- nur „X tat etwas Verrücktes“
+```text
+Technik
+→ Funktionsweise
+→ weitere Funktionsweise
+→ Fazit
+```
+
+Stärker ist jeweils eine **historische Situation**, in der der Mechanismus nur das erklärt, was Menschen gerade erleben.
 
 ---
 
-## 4. Discovery-Pipeline
+## 5. Discovery-Pipeline
 
-Bei einer neuen Themenrunde nicht sofort die erste brauchbare Idee nehmen.
-
-### Schritt 1 — 30 Rohideen
-
-Mindestens 30 kurze Kandidaten aus unterschiedlichen Epochen und Themenfamilien sammeln.
-
-Ziel: Breite, nicht Perfektion.
+### Schritt 1 — mindestens 30 Rohideen
+Breit über Epochen, Regionen und Themenfamilien suchen.
 
 ### Schritt 2 — auf 12 reduzieren
-
-Offensichtlich schwache Kandidaten entfernen:
-
+Entfernen, wenn:
 - kaum Stakes
-- kaum Story
+- keine konkrete historische Story
+- nur ein Erklärmechanismus
 - visuell monoton
-- zu ähnlich zu bestehendem Video
-- zu klein für die gewünschte Länge
-- schlechte Quellenlage
+- zu ähnlich zu bestehenden Videos
+- schwache Quellenlage
 
 ### Schritt 3 — 12 Kandidaten bewerten
 
-Jeder Kandidat erhält 0–10 Punkte in:
+Weiterhin 0–10 in:
 
-1. **Curiosity Gap** — möchte man sofort wissen, wie/warum das passiert ist?
-2. **Stakes** — steht wirklich etwas auf dem Spiel?
-3. **Story Engine** — gibt es Entwicklung, Entscheidungen, Wendepunkte und Folgen?
-4. **Visual Potential** — ermöglicht das Thema abwechslungsreiche starke Visuals?
-5. **Historical Significance** — lernt man mehr als nur eine Anekdote?
-6. **Freshness / Distinctiveness** — fühlt es sich gegenüber den letzten Videos neu an?
-7. **Title Potential** — lässt sich daraus ein starker ehrlicher Titel bauen?
-8. **Sourceability** — ist der Kern belastbar recherchierbar?
+1. Curiosity Gap
+2. Stakes
+3. Story Engine
+4. Visual Potential
+5. Historical Significance
+6. Freshness / Distinctiveness
+7. Title Potential
+8. Sourceability
 
-### Gewichtung
+Zusätzlich als **Hard Gate**, nicht nur als Punktzahl:
 
-Besonders wichtig:
+- `historicalStoryCorePresent = true`
+- `mechanismOnlyTopic = false`
+- konkrete menschliche / gesellschaftliche Stakes benennbar
+- Ereignis- oder Veränderungsverlauf benennbar
+- erwarteter reiner Erkläranteil normalerweise höchstens ca. 40 %
+
+Ein hoher Score darf diese Hard Gates nicht überstimmen.
+
+---
+
+## 6. Gewichtung
 
 - Story Engine × 1.5
 - Curiosity Gap × 1.3
 - Visual Potential × 1.3
 - Stakes × 1.2
+- übrige Kriterien × 1.0
 
-Die übrigen Kriterien × 1.0.
+Freigabe:
 
-### Freigabe
+- 8.3–10.0 = PRIORITY
+- 7.6–8.29 = STRONG
+- 7.0–7.59 = MAYBE
+- unter 7.0 = REJECT
 
-- **8.3–10.0 = PRIORITY** — sehr stark
-- **7.6–8.29 = STRONG** — produktionswürdig
-- **7.0–7.59 = MAYBE** — nur wenn strategisch sinnvoll
-- **unter 7.0 = REJECT**
-
-Für ein neues Video soll normalerweise nur aus **PRIORITY oder STRONG** gewählt werden.
-
----
-
-## 5. Diversity Gate
-
-Die besten Scores allein entscheiden nicht. Vor Auswahl werden die letzten veröffentlichten/geplanten Themen geprüft.
-
-Der neue Kandidat soll nach Möglichkeit mindestens zwei Dinge verändern:
-
-- andere Epoche
-- andere Region/Kultur
-- andere Themenfamilie
-- andere Storyform
-- andere visuelle Hauptwelt
-- anderer Maßstab: Person ↔ Stadt ↔ Reich ↔ System
-
-Ein minimal höherer Score rechtfertigt keine monotone Kanalfolge.
+Nur PRIORITY oder STRONG wird normalerweise produziert.
 
 ---
 
-## 6. Story-Engine-Test vor Freigabe
+## 7. Story-Engine-Test
 
-Für jeden Finalisten muss sich in einem Satz eine Entwicklung formulieren lassen:
+Vor Auswahl muss ein Finalist in einer Zeile funktionieren:
 
 ```text
-Ausgangslage
+konkrete Ausgangslage
 → Problem
-→ Reaktion / Entscheidung
+→ Reaktion / Entscheidung / Veränderung
 → Eskalation
 → Wendepunkt
-→ Konsequenz
+→ konkrete Folge
 ```
 
-Wenn das nur mit künstlichen Ergänzungen möglich ist, ist das Thema zu schwach.
+Wenn stattdessen nur eine naturwissenschaftliche oder technische Prozesskette entsteht, ist das Thema für diesen Kanal noch nicht richtig gerahmt.
 
 ---
 
-## 7. Visual-Potential-Test
+## 8. Human-/World-Test
 
-Vor Freigabe mindestens fünf **verschiedene** mögliche Visual-Arten benennen können.
+Mindestens drei konkrete historische Anker müssen vor Produktion benennbar sein, z. B.:
 
-Zum Beispiel:
+- eine betroffene Person oder Gruppe
+- ein konkreter Ort
+- eine Handlung oder Entscheidung
+- ein Objekt mit historischer Funktion
+- eine sichtbare Folge im Alltag
+- ein Konflikt zwischen Gruppen
 
-- Figurenszene
+So wird verhindert, dass das Video in abstrakten Diagrammen hängen bleibt.
+
+---
+
+## 9. Visual-Potential-Test
+
+Mindestens fünf unterschiedliche visuelle Werkzeuge müssen sinnvoll sein. Dabei reicht eine Liste aus Diagrammvarianten nicht.
+
+Bevorzugte Mischung:
+
+- historische Szene
+- Mensch / Gruppe
+- Ort / Architektur
+- Objekt
 - Karte
-- Objektfokus
-- Stadt-/Landschaftsübersicht
+- Datum / kurze redaktionelle Einblendung
+- Vergleich
 - Ursache-Wirkung
 - Prozess
-- Cutaway
-- Detail-Inset
-- Evidence-Reconstruction
-- Vergleich
+- Dokument / Beleg
 
-Wenn fast das ganze Video nur aus ähnlichen Gesprächs-/Figurenszenen bestünde, Thema kritisch prüfen.
+### Warnsignal
 
----
-
-## 8. Titeltest
-
-Vor Produktionsstart mindestens drei unterschiedliche ehrliche Titelrichtungen formulieren:
-
-- **Warum-Frage**
-- **konkrete Konsequenz / Konflikt**
-- **überraschende historische Situation**
-
-Nicht produzieren, wenn das Thema nur mit übertriebenem oder irreführendem Titel interessant wirkt.
+Wenn mehr als etwa ein Drittel des geplanten Videos aus abstrakten Erklärbildern, Schnittbildern, Partikeln, Systemgrafiken oder ähnlichen Mechanismus-Visuals bestehen würde, Thema oder Story-Rahmen neu prüfen.
 
 ---
 
-## 9. Beispiele für stärkere Themenrichtungen
+## 10. Titeltest
 
-Statt nur:
-> Hannibals Feuertrick
+Mindestens drei ehrliche Titelrichtungen:
 
-kann stärker sein:
-> Wie Hannibal jahrelang mitten in Italien überleben konnte
+- Warum-Frage
+- konkrete Konsequenz / Konflikt
+- überraschende historische Situation
 
-Statt nur:
-> Caesar und die Piraten
-
-kann stärker sein:
-> Warum Rom das Mittelmeer zeitweise nicht vor Piraten schützen konnte
-
-Weitere starke Richtungen:
-
-- Warum Konstantinopel fast uneinnehmbar war — bis es das plötzlich nicht mehr war
-- Wie eine mittelalterliche Stadt einen monatelangen Belagerungsring überlebte
-- Was geschah, wenn im Römischen Reich plötzlich das Getreide ausblieb
-- Warum die Bronzezeit innerhalb weniger Jahrzehnte zusammenbrach
-- Wie Menschen die tödlichste Nacht von Pompeji erlebten
-- Warum manche Wikingerkolonien einfach verschwanden
-- Wie London vor moderner Feuerwehr immer wieder abbrannte
-- Warum eine einzige Handelsroute ganze Reiche reich machte
-- Wie Burgen tatsächlich gegen Untertunnelung verteidigt wurden
-- Warum Europas mächtigste Dynastien sich gegenseitig verheirateten — und was dabei schiefging
-- Wie ein gefälschter Brief einen politischen Konflikt verschärfen konnte
-- Warum Soldaten früher oft mehr an Krankheit als im Kampf starben
-
-Diese Beispiele sind **Richtungen**, keine automatisch freigegebenen Produktionen.
+Der Titel soll eine Geschichte versprechen, nicht nur einen Sachmechanismus.
 
 ---
 
-## 10. Duplicate Check ist nur ein Gate
+## 11. Diversity Gate
 
-`src/cli/check-youtube-topic.js` prüft, ob eine Idee zu ähnlich zu vorhandenen Themen ist.
+Der neue Kandidat soll nach Möglichkeit mindestens zwei Dinge gegenüber den letzten Videos verändern:
 
-Ein Ergebnis `APPROVED_NEW` bedeutet ausschließlich:
-
-> Das Thema ist ausreichend neu.
-
-Es bedeutet **nicht**:
-
-> Das Thema ist automatisch stark genug.
-
-Die Qualitätsentscheidung erfolgt vorher/nachher über diesen Topic Director V2.
+- Epoche
+- Region/Kultur
+- Themenfamilie
+- Storyform
+- visuelle Welt
+- Maßstab
 
 ---
 
-## Definition of Done
+## 12. Duplicate Check bleibt nur Duplicate Check
 
-Ein neues Thema ist erst produktionsbereit, wenn:
+`APPROVED_NEW` bedeutet nur: nicht zu ähnlich.
+
+Es bedeutet nicht: gutes Thema.
+
+---
+
+## Definition of Done V3
+
+Ein Thema ist erst produktionsbereit, wenn:
 
 - Duplicate Check bestanden
-- mindestens 30 Rohideen in der Discovery-Runde betrachtet wurden
-- Top-Kandidaten gegeneinander bewertet wurden
-- Score normalerweise mindestens 7.6
-- Story Engine klar ist
-- mindestens fünf sinnvolle Visual-Arten möglich sind
-- Quellenlage tragfähig ist
-- Kanalfolge nicht monoton wird
-- mindestens drei ehrliche Titelrichtungen funktionieren
-- das Thema mehr bietet als nur eine isolierte Anekdote
+- mindestens 30 Rohideen betrachtet
+- 12 Kandidaten verglichen
+- Score mindestens 7.6
+- Historical Story Core vorhanden
+- kein Mechanismus-only-Thema
+- konkrete menschliche / gesellschaftliche Stakes vorhanden
+- Ereignis-/Veränderungsverlauf vorhanden
+- Quellen tragfähig
+- mindestens fünf sinnvolle Visual-Arten
+- abstrakter Erkläranteil nicht die Story dominiert
+- mindestens drei Titelrichtungen funktionieren
+- Thema mehr bietet als Anekdote oder Sachmechanismus
