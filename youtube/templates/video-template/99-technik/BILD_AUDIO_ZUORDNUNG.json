@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 2,
   "voiceoverMaster": "01-voice-script/voice-script.txt",
   "coverImageNumber": 1,
   "videoFirstImageNumber": 1,
