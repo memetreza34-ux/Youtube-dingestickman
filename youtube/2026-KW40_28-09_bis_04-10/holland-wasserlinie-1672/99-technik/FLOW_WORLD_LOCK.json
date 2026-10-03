@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "status": "READY",
+  "settingName": "Niederländische Republik und Holland im Rampjaar 1672",
+  "settingDescription": "Eine konsistente westniederländische Polderwelt des späten 17. Jahrhunderts: flaches Land, Entwässerungsgräben, Deiche, einfache Schleusen, Kanäle, kleine Städte und Dörfer. Die Welt verändert sich chronologisch von trockenem Frühjahr über kontrollierte Inundation zu einer flachen militärischen Wasserbarriere.",
+  "recurringPlaces": [
+    "derselbe niedrige Polder mit Gräben, Deich, Baumreihe und wenigen Höfen vor und nach der Inundation",
+    "dieselbe hölzern-gemauerte Schleusenanlage zwischen höherem Wasser und tiefliegendem Polder",
+    "derselbe schmale erhöhte Deichweg, der später als bewachter Übergang durch die Wasserflächen dient"
+  ],
+  "recurringCharacters": [
+    "niederländischer Wasserbauer: mittleres Alter, wettergegerbtes schmales Gesicht, dunkle Kappe, braune Arbeitsjacke, einfache Werkzeuge",
+    "niederländischer Bauer: kräftiger Körperbau, kurzes hellbraunes Haar, einfache dunkle Hose und graubraune Jacke",
+    "französischer Feldoffizier: erwachsen, schmaler Schnurrbart, dunkler Justaucorps mit zurückhaltenden farbigen Aufschlägen, keine napoleonische Uniform"
+  ],
+  "recurringProps": [
+    "hölzernes Schleusentor mit sichtbarer einfacher Mechanik",
+    "schweres französisches Feldgeschütz mit großen Holzrädern",
+    "kleines flachgehendes niederländisches Patrouillenboot"
+  ],
+  "basePalette": [
+    "muted grass green",
+    "mud brown",
+    "gray blue water",
+    "parchment cream",
+    "weathered wood brown",
+    "brick red",
+    "dark olive"
+  ],
+  "timeWeatherLogic": "Frühjahr und Sommer 1672. Vor der Inundation trockenes flaches Land mit bewölktem oder mildem Tageslicht; während der Flutung zunehmend graublaue Wasserflächen. Keine Sturmflut. Das Wasser steigt kontrolliert und bleibt flach. Schlussbilder bleiben im Sommer 1672 und springen nicht in spätere Kriegsjahre.",
+  "continuityRules": [
+    "Dry scenes before the inundation must not contain the later flooded state.",
+    "When the same polder reappears after flooding, preserve dike, tree line, houses and ditch positions so the state change is obvious.",
+    "The recurring sluice must keep the same gate construction and orientation from decision through final payoff.",
+    "French troops must look like late-seventeenth-century soldiers, never Napoleonic or nineteenth-century troops.",
+    "Floodwater should normally read as shallow inundation across low polders, not as a deep lake, storm surge or catastrophic urban flood.",
+    "Maps must preserve a stable north-up relationship between Holland, Utrecht/eastern pressure, Zuiderzee and the Waterlinie."
+  ]
+}

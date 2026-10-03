@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 2,
+  "status": "APPROVED",
+  "candidate": "Warum die Niederländer 1672 ihr eigenes Land fluteten",
+  "proposedTitle": "Warum die Niederländer 1672 ihr eigenes Land fluteten",
+  "topicFamily": "war_beyond_battles",
+  "discovery": {
+    "rawCandidateCount": 30,
+    "shortlistSize": 12,
+    "selectedRank": 1,
+    "selectedFromShortlist": true
+  },
+  "duplicateCheckDecision": "APPROVED_NEW",
+  "storyEnginePresent": true,
+  "isolatedAnecdoteOnly": false,
+  "diversityGatePassed": true,
+  "largerHistoricalPoint": "Die Geschichte zeigt, wie zivile Wasser-Infrastruktur und Landschaft im Krieg zu einer strategischen Verteidigung werden konnten.",
+  "sourceabilityEvidence": "Mehrere belastbare niederländische Quellen dokumentieren Rampjaar 1672, Inundation, Waterlinie, Übergänge und militärische Wirkung.",
+  "historicalStoryCorePresent": true,
+  "mechanismOnlyTopic": false,
+  "concreteHumanStakes": "Der französische Vormarsch bedroht das Kerngebiet Holland, während Bauern und Bewohner für die Verteidigung eigene Äcker, Weiden und Wege verlieren.",
+  "eventProgression": "Mehrfrontenangriff → französischer Vormarsch → Holland bedroht → Entscheidung zur Inundation → Schleusen öffnen → Polder überfluten → Übergänge werden bewacht → französischer Vormarsch stockt → Republik gewinnt Zeit.",
+  "expectedExplanationMechanismShare": 0.25,
+  "titleDirections": [
+    "Warum die Niederländer 1672 ihr eigenes Land fluteten",
+    "1672: Als Holland sich selbst unter Wasser setzte",
+    "Wie Wasser eine französische Armee stoppte"
+  ],
+  "visualForms": [
+    "character-scene",
+    "map-geography",
+    "architecture-city",
+    "cause-effect",
+    "process-sequence",
+    "environment-only",
+    "object-focus",
+    "battle-city-overview"
+  ],
+  "scores": {
+    "curiosityGap": 9.2,
+    "stakes": 9.3,
+    "storyEngine": 9.4,
+    "visualPotential": 9.6,
+    "historicalSignificance": 8.8,
+    "freshnessDistinctiveness": 9.2,
+    "titlePotential": 9.4,
+    "sourceability": 9.1
+  },
+  "weightedScore": 9.27,
+  "qualityBand": "PRIORITY",
+  "approvedByTopicDirector": true,
+  "notes": [
+    "Bewusst kein Herrscher-Anekdoten-Thema und kein Mechanismus-only-Thema.",
+    "Chronologie ist natürlich und ohne Rückblende erzählbar.",
+    "Die visuelle Hauptwelt bleibt durchgehend in denselben niederländischen Poldern, Schleusen, Deichen und bedrohten Städten verankert."
+  ]
+}

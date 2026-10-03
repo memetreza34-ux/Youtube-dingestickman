@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "status": "APPROVED",
+  "reviewMethod": "model-review-plus-read-aloud-check",
+  "centralQuestion": "Warum flutete die Niederländische Republik 1672 absichtlich Teile des eigenen Landes, und wie konnte das den französischen Vormarsch bremsen?",
+  "storySpine": "Weil der französische Vormarsch das Kerngebiet Holland bedroht, entscheidet sich die Republik für kontrollierte Inundationen; dadurch wird die Landschaft selbst zur Barriere, Übergänge müssen bewacht werden und der schnelle Vormarsch verliert sein Tempo.",
+  "historicalMeaning": "Die Geschichte zeigt, dass Infrastruktur, Wasserbau und Landschaft militärische Wirkung entfalten können und dass erfolgreiche Verteidigung manchmal eigene wirtschaftliche Schäden bewusst in Kauf nimmt.",
+  "hookPromise": "Ein Land setzt eigene Felder, Straßen und Dörfer unter Wasser, um eine stärkere Armee aufzuhalten — und das funktioniert nur, weil die Flutung exakt kontrolliert wird.",
+  "scores": {
+    "hook": 9.4,
+    "storyProgression": 9.5,
+    "historicalMeaning": 9.2,
+    "payoff": 9.3
+  },
+  "centralStoryShare": 0.93,
+  "personalityCuriosityShare": 0.0,
+  "maxConsecutivePurePersonalityCuriosityBeats": 0,
+  "beatFunctionsReviewed": true,
+  "endingAnswersOpeningQuestion": true,
+  "approved": true,
+  "notes": [
+    "Voice-over wurde zuerst vollständig als Fließtext geschrieben.",
+    "Keine Rückblende und kein späteres Ereignis im Hook.",
+    "Mechanik der Wassertiefe bleibt auf wenige Sätze begrenzt und kehrt sofort zu Menschen, Landschaft und militärischer Folge zurück.",
+    "Die Waterlinie wird nicht als alleinige Kriegsursache oder magische unüberwindbare Wand dargestellt."
+  ]
+}
