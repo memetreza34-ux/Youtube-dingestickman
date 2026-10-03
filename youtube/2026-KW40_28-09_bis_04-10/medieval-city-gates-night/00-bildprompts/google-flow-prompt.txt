@@ -1,0 +1,104 @@
+ACTIVE_STYLE_ID: history-stickman-adaptive-v1
+PROMPT_SYSTEM: flow-compiler-v3
+
+GOOGLE FLOW MASTER PROMPT — Warum mittelalterliche Städte nachts ihre Tore schlossen
+
+Create 19 separate 16:9 historical explainer illustrations for one coherent German YouTube video. Story mode: WORLD-LED. The city, gate, street and changing daily rhythm are the recurring narrative subject. Do NOT invent a recurring main character. Human figures are changing representative merchants, travelers, residents and guards.
+
+CHANNEL STYLE — IMMUTABLE:
+Use one consistent hand-drawn 2D historical explainer illustration language. Clean dark ink outlines, flat muted historical colors, subtle cel-shading shapes and a light handmade ink-and-paper texture. Human figures are individualized stylized historical people with readable simplified anatomy, different silhouettes, faces, hair, clothing and posture. No generic identical stickman clones. Keep the dominant subject clearer than supporting elements and keep backgrounds controlled.
+
+VIDEO WORLD LOCK — IMMUTABLE WITHIN THIS VIDEO:
+Keep one consistent representative late-medieval English fortified town from late afternoon through dawn. Reuse the same two-towered stone gate, central arch, wooden gate leaves, wall silhouette and paved road axis whenever they recur. The gate is open before closing, closed throughout the night, and opens again only in the morning. Population density decreases from afternoon to night and returns at dawn. The town is representative, not an exact reconstruction of one named city.
+
+VISUAL INTEREST RULE — HARD:
+Every frame must support the current narration with one immediately readable idea. Change distance, viewpoint, activity, depth, light or visual form when the narration changes. Do not create a monotonous chain of beige-blue wide shots. Preserve the four planned color phases: warm late afternoon, rust-and-blue dusk, deep blue night with small warm lights, and bright amber dawn. Functional world-life details should make the town feel inhabited without overcrowding it.
+
+INTERNAL METADATA RULE — HARD:
+BILD 01 through BILD 19 are prompt metadata only. NEVER draw BILD, IMAGE, SCENE, image numbers, prompt instructions, watermarks or pseudo-writing inside the artwork.
+
+COVER TEXT:
+On every BILD 01 candidate use exactly: "NACHTS WAR DAS TOR ZU". This is the only visible text allowed on the cover. Keep it large, correctly spelled, high contrast and away from the gate opening and main figures.
+
+BILD 01
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: Stell dir eine befestigte englische Stadt im späten Mittelalter vor. TIME CONTEXT: warmer später Nachmittag. Show the same two-towered stone gate open, with the paved road leading from foreground through the centered gate into the town in the background. Use an elevated wide three-quarter view, strong foreground-midground-background depth and calm negative space in the upper right for the exact cover text. Warm sandstone, muted green and gold light; add one cart wheel and light chimney smoke as secondary life details. The only visible text is exactly "NACHTS WAR DAS TOR ZU".
+
+BILD 02
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: Am späten Nachmittag herrscht am Stadttor Hochbetrieb. TIME CONTEXT: later afternoon. Show the same gate with two clearly separated flows of merchants, residents and one pack animal moving through it. Use a medium-wide street-level view; foreground paving leads into the midground crowd and the gate remains stable in the background. Keep individual people visibly different. Warm ochre and muted green with a few rust-red textile accents. World-life detail: a dog steps around a small cart. ZERO visible text.
+
+BILD 03
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: Händler, Karren und Reisende drängen durch denselben schmalen Eingang. TIME CONTEXT: later afternoon. Create one connected multi-moment scene inside the same gate space: a cart enters from the left foreground, two travelers move through the center, and a merchant with a basket passes on the right, all using the same arch. Use a wide side three-quarter composition with one unmistakable reading direction through the gate. Keep the street and gate geometry consistent with earlier images. ZERO visible text.
+
+BILD 04
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: Das Tor ist deshalb nicht nur eine Lücke in der Mauer. TIME CONTEXT: later afternoon. Show the same gate frontally as a massive integrated part of the city wall: towers, arch, open heavy wooden leaves and long wall sections to both sides. Use a wide frontal architectural view; people are tiny in the foreground only for scale, the gate is centered in the midground and the wall spans the frame. Warm sandstone and long late-day shadows. ZERO visible text.
+
+BILD 05
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: sondern ein kontrollierter Engpass. TIME CONTEXT: later afternoon. Use an elevated overview where several roads visually converge on the single gate opening without arrows or modern diagram symbols. The gate sits slightly off-center in the midground; roads act as leading lines from foreground and background, with small groups naturally funneling toward the opening. Keep the same town geometry. The frame must communicate bottleneck and control through spatial layout alone. ZERO visible text.
+
+BILD 06
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: Für englische Städte ist belegt, dass solche Tore nachts geschlossen wurden. TIME CONTEXT: early dusk. Reconstruct the same gate just before closing. Make one wooden gate leaf large in the left foreground, a guard preparing the entrance in the midground, and the locking area clearly visible without labels. Use a medium-wide reconstruction view with concrete historical hardware, not a modern infographic. Shift the palette toward rust, dark wood and first cool blue shadows; a small guard lantern is being lit. ZERO visible text.
+
+BILD 07
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: und bei Gefahr zusätzlich gesichert werden konnten. TIME CONTEXT: early dusk. Make the heavy wooden gate leaf, iron fittings and a stout crossbar the dominant detail in a close view while the arch remains recognizable in the background. Organize depth with crossbar in foreground, hinge and ironwork in midground, gate passage behind. Show worn wood grain and practical construction. Do not imply that every town used an identical mechanism. ZERO visible text.
+
+BILD 08
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: Mit der Dämmerung verändert sich der Platz. TIME CONTEXT: dusk. Return to the same wide gate street, now visibly emptier: fewer people, longer shadows, half-cleared stalls, the gate still open. Use a wide street composition with empty paving in the foreground, reduced activity in the midground and the gate in the background. Let rust-orange fade into cool blue. World-life detail: one merchant pulls a cover over a stall. ZERO visible text.
+
+BILD 09
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: Händler räumen zusammen. TIME CONTEXT: dusk. Show two unrelated merchants actively lifting baskets and folded cloth from a small stall toward the town interior. Use a medium side view: stall in the left foreground, merchants in the midground, familiar gate in the right background. Their faces, body builds and clothing silhouettes must differ. The action of packing up is the main idea; do not turn either merchant into a recurring protagonist. ZERO visible text.
+
+BILD 10
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: Wachen übernehmen den Zugang. TIME CONTEXT: dusk turning to night. Show three visibly different guards taking positions around the same still-open gate: one at the passage in the foreground, one near the gate leaf in the midground, one carrying a lantern farther back. Use a medium-wide eye-level composition. Deep blue begins to dominate while the lantern creates one controlled warm accent. The scene must read as a change of function from market access to guarded access. ZERO visible text.
+
+BILD 11
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: und die schweren Holztore schließen sich. TIME CONTEXT: nightfall. Show the same gate frontally as the heavy wooden leaves swing inward. Two guards push from the sides; the central strip of warm town light becomes visibly narrower. Use a medium frontal view with both gate leaves dominant, guards in the midground and the shrinking light gap centered in the background. This is the major state-change beat. After this frame the gate must remain closed until dawn. ZERO visible text.
+
+BILD 12
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: Wer danach ankommt, steht vor einer echten Grenze. TIME CONTEXT: night after closing. Show one anonymous late traveler stopping several steps before the fully closed gate. Use a medium over-the-shoulder view; traveler on the left foreground, closed gate dominant in the midground, large meaningful negative space on the empty outer road. Deep blue and gray stone dominate, with only one small warm guard lantern. Do not portray imprisonment or violence, only a blocked entrance. ZERO visible text.
+
+BILD 13
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: Hinter der Mauer wird es ruhiger, draußen leert sich die Straße. TIME CONTEXT: night. Create one integrated before-after comparison of the exact same gate geometry. On the left side show the warm, busy late-afternoon state; on the right side show the cool night state with the gate closed and almost no traffic. Both sides share the same road axis and wall silhouette, with clear comparison poles and no panel border. Use a matched wide view. This must read instantly as the same place changing over time. ZERO visible text.
+
+BILD 14
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: Das geschlossene Tor erschwert unerwünschtes Eindringen. TIME CONTEXT: night. Show cause and effect in one composition: the closed wooden gate is a centered barrier, an anonymous outside figure remains on the left foreground, and a guard checks the crossbar on the inside right midground. Use a wide two-side cause-effect composition with cool outer blue and a restrained warm interior light. The gate itself is the dividing line. Do not show an invented battle. ZERO visible text.
+
+BILD 15
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: und bündelt die nächtliche Bewachung auf wenige Zugänge. TIME CONTEXT: night. Use a simplified top-down city overview: the wall forms one continuous closed contour and only three gate openings interrupt it; tiny warm watch lights appear only at these access points. Keep the city centered, streets visible inside, no labels, no arrows and no modern icons. The spatial idea is that few gates concentrate security. Deep blue dominates. ZERO visible text.
+
+BILD 16
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: In unruhigen Zeiten konnten genau diese Punkte stärker gesichert werden. TIME CONTEXT: night with increased vigilance. Return to the concrete gate world. Two different guards stand at the locked entrance in the midground and a third watches the outer road from the wall above, creating a clear vertical hierarchy. Use a medium-wide low-angle gate view. Keep the scene calm and plausible rather than showing a battle. Deep blue, dark wood and small lantern pools maintain the night color phase. ZERO visible text.
+
+BILD 17
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: Erst am Morgen wird der Querbalken gelöst und das Tor öffnet sich wieder. TIME CONTEXT: early dawn. Show two guards lifting the crossbar from its support while the familiar gate leaves begin to open. Use a medium-wide interior-facing view: crossbar in the foreground, guards in the midground, growing strip of bright morning light in the background. Let cool night blue give way to warm amber. Dust is visible in the new light. ZERO visible text.
+
+BILD 18
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: Händler, Tiere, Karren und Reisende kehren durch denselben schmalen Durchgang zurück. TIME CONTEXT: early morning with gate open. Show the same open gate filling again with one cart, one pack animal, merchants and travelers in clearly separated groups. Use a wide morning street composition: cart right foreground, merchants left, pack animal midground, gate centered behind. Bright blue, warm amber and muted green make the world feel renewed without changing the drawing style. ZERO visible text.
+
+BILD 19
+Keep the locked channel drawing DNA unchanged: flat hand-drawn 2D history-explainer illustration, clean dark ink outlines, muted flat historical colors, subtle cel shading and light paper-and-ink texture. CURRENT NARRATION BEAT: Ein Stadttor regelte damit nicht nur Verteidigung, sondern auch den täglichen Rhythmus zwischen offener Stadt und abgeschotteter Nacht. TIME CONTEXT: morning, final historical meaning. Use an extreme-wide elevated final view of the same city. The long wall spans the midground and is interrupted only by the small open gate; the road connects the outside foreground to the town in the background. People remain tiny scale figures. Bright sandstone, morning amber and a blue-green outer landscape close the color arc. The relationship between wall, gate and road must carry the final meaning. ZERO visible text.
+
+GLOBAL NEGATIVE STYLE RULE:
+Do not switch rendering style between images. No photorealism, 3D, anime, glossy animation-film look, modern corporate infographic styling, neon colors, cloned unrelated figures, poster-like non-cover compositions, internal prompt identifiers, watermarks or pseudo-text.
+
+GLOBAL COMPOSITION RULES:
+One dominant takeaway per image. Keep supporting elements secondary. Maintain the same gate identity while changing framing and activity for narrative reasons. Do not mechanically repeat centered wide views. No non-cover visible text.
+
+COLOR & WORLD ARC — HARD:
+BILD 01–05: late-afternoon-gold. BILD 06–09: dusk-rust. BILD 10–16: night-blue. BILD 17–19: dawn-amber. Preserve the same architecture while allowing time-of-day, activity and useful world-life details to evolve.
+
+MOTION DIRECTOR — HARD:
+Motion is planned per Scene Card and later executed by the renderer; do not visually fake motion blur. Static scenes should remain compositionally strong. Movement direction in the illustration must support the planned camera intent and the narration.
+
+GENERATION WORKFLOW — MANDATORY TWO-STAGE GATE:
+STAGE 1 — COVER ONLY
+- Generate exactly THREE alternatives for BILD 01.
+- Every candidate must use exactly the cover text "NACHTS WAR DAS TOR ZU" and no other visible text.
+- Reject misspelled or additional text.
+- After three acceptable candidates exist, STOP.
+- Do not generate BILD 02–19 and do not choose a winner.
+
+STAGE 2 — ONLY AFTER USER SELECTION
+- The selected cover becomes Bild 01.png.
+- Keep the CHANNEL STYLE and VIDEO WORLD LOCK unchanged.
+- Then generate BILD 02 through BILD 19 individually.
+- Internal identifiers are metadata only and must never appear in the artwork.
