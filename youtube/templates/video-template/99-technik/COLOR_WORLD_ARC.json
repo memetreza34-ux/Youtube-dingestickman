@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "status": "PLANNED",
+  "reviewMethod": "human-or-model-review",
+  "sections": [
+    {
+      "id": "arc-01",
+      "storyFunction": "",
+      "startImage": 1,
+      "endImage": null,
+      "paletteBias": "",
+      "lighting": "",
+      "atmosphere": "",
+      "worldLife": "",
+      "contrastPurpose": ""
+    }
+  ],
+  "notes": []
+}
