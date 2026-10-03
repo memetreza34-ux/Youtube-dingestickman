@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "voiceoverMaster": "01-voice-script/voice-script.txt",
   "coverImageNumber": 1,
   "videoFirstImageNumber": 1,
@@ -32,6 +32,13 @@
       "visualEnergyDevice": "",
       "visualChangeFromPrevious": "Cover establishes the visual baseline for this video.",
       "visualInterestScore": null,
+      "colorPhase": "",
+      "colorIntent": "",
+      "worldLifeDetail": "",
+      "motionType": "",
+      "motionDirection": "",
+      "motionIntensity": "",
+      "motionFocus": "",
       "visibleTextPolicy": "COVER_TEXT_ONLY",
       "editorialText": "",
       "editorialTextPurpose": "",
@@ -43,6 +50,7 @@
       "historicalAccuracyNote": "",
       "promptQcScore": null,
       "plannedHoldSeconds": null,
+      "holdReason": "",
       "actualStartSeconds": null,
       "actualEndSeconds": null,
       "alignmentConfidence": null
