@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { arg, projectPaths, readJson } from '../lib/pipeline.js';
 import { validateNarrationAlignmentProject } from '../lib/narration-alignment.js';
+import { validateDirectingPlan } from '../lib/directing.js';
 import { validatePhase1 } from './validate-youtube-phase1.js';
 
 export async function validatePhase1Full(projectDirectory) {
@@ -22,6 +23,16 @@ export async function validatePhase1Full(projectDirectory) {
     errors.push(...alignment.errors.map((error) => `Narration Alignment: ${error}`));
   }
 
+  if (Number(meta.directingGateVersion ?? 0) >= 1) {
+    const [mapping, renderPlan, policy] = await Promise.all([
+      readJson(p.mapping),
+      readJson(p.renderPlan),
+      readJson(path.resolve(meta.directingPolicyFile || 'config/directing-policy.json'))
+    ]);
+    const directing = validateDirectingPlan({ meta, mapping, renderPlan, policy });
+    errors.push(...directing.errors.map((error) => `Directing: ${error}`));
+  }
+
   return { passed: errors.length === 0, errors };
 }
 
@@ -33,7 +44,7 @@ async function main() {
     for (const error of result.errors) console.error(`- ${error}`);
     throw new Error(`${result.errors.length} Phase-1-Regel(n) verletzt.`);
   }
-  console.log('YouTube Phase 1: BESTANDEN — inklusive Narration Alignment und Chronologie.');
+  console.log('YouTube Phase 1: BESTANDEN — inklusive Narration Alignment, Chronologie und Directing Gate.');
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
