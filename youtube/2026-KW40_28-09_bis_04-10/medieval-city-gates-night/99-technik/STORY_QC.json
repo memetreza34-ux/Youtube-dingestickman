@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "status": "APPROVED",
+  "reviewMethod": "model-review-plus-read-aloud-check",
+  "centralQuestion": "Warum wurden die Tore befestigter mittelalterlicher Städte nachts geschlossen?",
+  "storySpine": "Weil sich Verkehr und Kontrolle am Stadttor bündeln, wird der offene Zugang gegen Abend schrittweise gesichert; dadurch verändert sich der Rhythmus der gesamten Stadt bis zur erneuten Öffnung am Morgen.",
+  "historicalMeaning": "Das Stadttor zeigt, wie eng Sicherheit, Bewegung, Handel und städtische Ordnung im Mittelalter miteinander verbunden waren.",
+  "hookPromise": "Ein vertrauter Teil einer mittelalterlichen Stadt verändert innerhalb weniger Stunden seine Funktion: vom belebten Eingang zur geschlossenen Grenze.",
+  "scores": {
+    "hook": 9.1,
+    "storyProgression": 9.3,
+    "historicalMeaning": 8.9,
+    "payoff": 9.1
+  },
+  "centralStoryShare": 0.92,
+  "personalityCuriosityShare": 0.0,
+  "maxConsecutivePurePersonalityCuriosityBeats": 0,
+  "beatFunctionsReviewed": true,
+  "endingAnswersOpeningQuestion": true,
+  "approved": true,
+  "notes": [
+    "World-led: keine benannte oder wiederkehrende Hauptfigur notwendig.",
+    "Das Voice-over wurde zuerst als zusammenhängender Fließtext geschrieben.",
+    "Die Geschichte folgt einem einzigen Abend-Nacht-Morgen-Ablauf ohne Rückblende.",
+    "Menschen erscheinen als repräsentative historische Akteure, nicht als erfundene Protagonisten."
+  ]
+}

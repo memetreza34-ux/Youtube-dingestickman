@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 2,
+  "motionPolicy": "content-aware-v1",
+  "colorArc": [
+    {
+      "id": "late-afternoon-gold",
+      "storyFunction": "offene belebte Stadt",
+      "paletteBias": "warmes Ocker, Sandstein, gedämpftes Grün, einzelne rote Stoffakzente",
+      "lighting": "warmes spätes Nachmittagslicht mit langen weichen Schatten"
+    },
+    {
+      "id": "dusk-rust",
+      "storyFunction": "Übergang von offen zu kontrolliert",
+      "paletteBias": "Rostrot, dunkler Sandstein, gedämpftes Orange, erstes kühles Blau",
+      "lighting": "tiefer Sonnenstand und zunehmende Schatten"
+    },
+    {
+      "id": "night-blue",
+      "storyFunction": "geschlossene Grenze und Bewachung",
+      "paletteBias": "tiefes Blau, grauer Stein, kleine warme Laternen- und Fensterakzente",
+      "lighting": "kühles Nachtlicht mit wenigen warmen Lichtinseln"
+    },
+    {
+      "id": "dawn-amber",
+      "storyFunction": "Wiederöffnung und Rückkehr des Verkehrs",
+      "paletteBias": "helles Blau, warmes Morgenamber, frisches Grün und Sandstein",
+      "lighting": "flaches klares Morgenlicht mit wachsender Helligkeit"
+    }
+  ],
+  "backgroundMusic": false,
+  "motionOverrides": [],
+  "soundEffects": []
+}

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 3,
+  "status": "APPROVED",
+  "candidate": "Warum mittelalterliche Städte nachts ihre Tore schlossen",
+  "proposedTitle": "Warum mittelalterliche Städte nachts ihre Tore schlossen",
+  "topicFamily": "daily_life_with_real_question",
+  "storyMode": "world-led",
+  "mainCharacterRequired": false,
+  "humanRepresentationPlan": "Wechselnde repräsentative Stadtbewohner, Händler, Reisende und Wachen zeigen Nutzung und Folgen des Tors; keine erfundene Hauptfigur wird durch das Video verfolgt.",
+  "discovery": {
+    "rawCandidateCount": 30,
+    "shortlistSize": 12,
+    "selectedRank": 1,
+    "selectedFromShortlist": true
+  },
+  "duplicateCheckDecision": "APPROVED_NEW",
+  "storyEnginePresent": true,
+  "isolatedAnecdoteOnly": false,
+  "diversityGatePassed": true,
+  "largerHistoricalPoint": "Stadttore waren nicht nur Architektur, sondern regulierten Sicherheit, Bewegung und den täglichen Rhythmus einer befestigten Stadt.",
+  "sourceabilityEvidence": "Historic England belegt für mittelalterliche englische Städte befestigte Tore, die nachts und bei Angriffen geschlossen wurden; Forschung zur spätmittelalterlichen Stadt London beschreibt Tore zusätzlich als Kontrollpunkte für Reisende und als militärisch schließbare Zugänge.",
+  "historicalStoryCorePresent": true,
+  "mechanismOnlyTopic": false,
+  "concreteHumanStakes": "Händler, Reisende, Bewohner und Wachen erleben unmittelbar, ob der Zugang offen, kontrolliert oder geschlossen ist.",
+  "eventProgression": "Nachmittäglicher Verkehr → Abend nähert sich → Zugang wird kontrolliert und geschlossen → Nacht mit gesicherten Zugängen → Öffnung am Morgen.",
+  "expectedExplanationMechanismShare": 0.15,
+  "titleDirections": [
+    "Warum mittelalterliche Städte nachts ihre Tore schlossen",
+    "Was nachts mit einem mittelalterlichen Stadttor passierte",
+    "Wenn die mittelalterliche Stadt ihre Tore schloss"
+  ],
+  "visualForms": [
+    "architecture-city",
+    "character-scene",
+    "object-focus",
+    "process-sequence",
+    "environment-only",
+    "cause-effect",
+    "detail-inset"
+  ],
+  "scores": {
+    "curiosityGap": 9.2,
+    "stakes": 8.5,
+    "storyEngine": 9.0,
+    "visualPotential": 9.6,
+    "historicalSignificance": 8.2,
+    "freshnessDistinctiveness": 8.8,
+    "titlePotential": 9.0,
+    "sourceability": 9.3
+  },
+  "weightedScore": 8.97,
+  "qualityBand": "PRIORITY",
+  "approvedByTopicDirector": true,
+  "notes": [
+    "Bewusster world-led Test des Story-Mode-Systems.",
+    "Keine Hauptfigur; die Stadtwelt und der Tagesrhythmus tragen die Erzählung.",
+    "Die Darstellung wird auf spätmittelalterliche befestigte englische Städte als Beispielwelt begrenzt; keine pauschale Behauptung für jede europäische Stadt."
+  ]
+}
