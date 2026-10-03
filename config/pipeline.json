@@ -15,6 +15,14 @@
     "storyQc": "99-technik/STORY_QC.json",
     "phase1MustRevalidate": true
   },
+  "directionPolicy": {
+    "gateVersion": 1,
+    "requiredForNewProjects": true,
+    "policyFile": "config/direction-policy.json",
+    "colorWorldArcFile": "99-technik/COLOR_WORLD_ARC.json",
+    "semanticPacingRequired": true,
+    "motionDirectorRequired": true
+  },
   "coverPolicy": {
     "firstSceneIsCover": true,
     "coverImageNumber": 1,
