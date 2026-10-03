@@ -62,9 +62,37 @@ Harte Sequenzrichtwerte:
 
 - maximal **2 gleiche Visual Forms** hintereinander
 - maximal **2 Character Scenes** hintereinander
-- maximal **2 gleiche Shot Scales** hintereinander
+- normalerweise maximal **2 gleiche Shot Scales** hintereinander
 - maximal **2 `explanationOnly=true` Visuals** hintereinander
 - in 10 Bildern normalerweise mindestens **3 verschiedene Visual Forms**
+
+### Präzisierung zur Shot Scale
+
+`wide`, `medium` usw. beschreiben nur die grobe Bildweite. Drei gleiche Shot-Scale-Werte sind deshalb **nur ausnahmsweise** zulässig, wenn die Regie trotzdem eindeutig wechselt.
+
+Bei drei gleichen Shot Scales hintereinander müssen alle folgenden Bedingungen erfüllt sein:
+
+- jede Szene hat eine klar andere `camera` / Perspektive
+- die drei Szenen nutzen mindestens drei unterschiedliche `visualForm`-Werte
+- jede Scene Card benennt mit `visualChangeFromPrevious` eine echte sichtbare Veränderung
+
+Beispiel einer zulässigen Folge:
+
+```text
+wide water-level view / character-scene
+→ wide over-the-shoulder / battle-city-overview
+→ wide elevated road view / cause-effect
+```
+
+Nicht zulässig:
+
+```text
+wide frontal character scene
+→ wide frontal character scene
+→ wide frontal character scene
+```
+
+Die Ausnahme soll echte Regievariation erkennen, nicht eine monotone Sequenz nachträglich rechtfertigen.
 
 Nach einem kurzen abstrakten Erklärblock soll das Video wieder zu einer konkreten historischen Welt zurückkehren: Mensch, Ort, Objekt, Ereignis oder sichtbare Folge.
 
