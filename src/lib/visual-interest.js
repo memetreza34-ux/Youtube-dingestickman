@@ -46,6 +46,18 @@ function maxRun(images, selector, predicate = () => true) {
   return { length: best, endIndex };
 }
 
+function hasMeaningfulSameScaleVariation(run) {
+  if (!Array.isArray(run) || run.length < 3) return false;
+  const cameras = run.map((image) => text(image?.camera).toLowerCase());
+  const forms = run.map((image) => text(image?.visualForm).toLowerCase());
+  const changes = run.map((image) => text(image?.visualChangeFromPrevious));
+  if (cameras.some((value) => !value) || forms.some((value) => !value) || changes.some((value) => !value)) return false;
+
+  const uniqueCameras = new Set(cameras);
+  const uniqueForms = new Set(forms);
+  return uniqueCameras.size === run.length && uniqueForms.size >= Math.min(3, run.length);
+}
+
 export function buildVisualInterestPromptParts(scene) {
   const parts = [];
   const shotScale = text(scene?.shotScale);
@@ -175,9 +187,13 @@ export function validateVisualInterestSequence(images, policy = {}) {
 
   const sameScale = maxRun(images, (image) => text(image.shotScale));
   if (sameScale.length > maxSameScale) {
-    const start = sameScale.endIndex - sameScale.length + 2;
-    const end = sameScale.endIndex + 1;
-    errors.push(`Shot-Monotonie: Bilder ${start}–${end} verwenden ${sameScale.length}x dieselbe Shot Scale hintereinander.`);
+    const runStart = sameScale.endIndex - sameScale.length + 1;
+    const run = images.slice(runStart, sameScale.endIndex + 1);
+    if (!hasMeaningfulSameScaleVariation(run)) {
+      const start = runStart + 1;
+      const end = sameScale.endIndex + 1;
+      errors.push(`Shot-Monotonie: Bilder ${start}–${end} verwenden ${sameScale.length}x dieselbe Shot Scale hintereinander ohne ausreichend unterschiedliche Kamera-/Visual-Form-Regie.`);
+    }
   }
 
   if (images.length >= 10) {
