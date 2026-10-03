@@ -84,10 +84,10 @@ test('Flow-Prompt erhält pro Bild exakten Narrations- und Zeitkontext', () => {
   assert.match(output, /lokale Bresche/);
 });
 
-test('Neue WHOLE_VIDEO_QC-Schema-Version erzwingt Bild-Skript-Passung und Klarheit', async () => {
+test('Neue WHOLE_VIDEO_QC-Schema-Version erzwingt Bild-Skript-Passung, Color Arc und Motion', async () => {
   const visual = JSON.parse(await readFile('config/visual-policy.json', 'utf8'));
   const base = {
-    schemaVersion: 3,
+    schemaVersion: 4,
     status: 'APPROVED',
     reviewMethod: 'model-review',
     scriptContinuousProse: true,
@@ -106,6 +106,13 @@ test('Neue WHOLE_VIDEO_QC-Schema-Version erzwingt Bild-Skript-Passung und Klarhe
     unclearVisualsAbsent: true,
     onePrimaryTakeawayPerVisual: true,
     futureEventLeakageAbsent: true,
+    colorWorldArcReviewed: true,
+    adjacentColorSectionsDistinct: true,
+    worldFeelsLivedIn: true,
+    semanticPacingPlanReviewed: true,
+    motionPlanReviewed: true,
+    motionSupportsNarration: true,
+    motionRepetitionAbsent: true,
     explanationOnlyVisualShare: 0.2,
     maxConsecutiveExplanationOnlyVisuals: 1,
     historicalWorldReturnsAfterExplanation: true,
@@ -117,6 +124,7 @@ test('Neue WHOLE_VIDEO_QC-Schema-Version erzwingt Bild-Skript-Passung und Klarhe
   assert.equal(validateWholeVideoQc(base, visual).passed, true);
   assert.equal(validateWholeVideoQc({ ...base, everyVisualMatchesCurrentNarration: false }, visual).passed, false);
   assert.equal(validateWholeVideoQc({ ...base, futureEventLeakageAbsent: false }, visual).passed, false);
+  assert.equal(validateWholeVideoQc({ ...base, motionSupportsNarration: false }, visual).passed, false);
 });
 
 test('Neues Projekt-Template aktiviert Narration Alignment standardmäßig', async () => {
@@ -129,6 +137,8 @@ test('Neues Projekt-Template aktiviert Narration Alignment standardmäßig', asy
   assert.equal(mapping.schemaVersion, 2);
   assert.ok(Object.hasOwn(mapping.images[0], 'narrationBeat'));
   assert.ok(Object.hasOwn(mapping.images[0], 'visualAnswer'));
-  assert.equal(whole.schemaVersion, 3);
+  assert.equal(whole.schemaVersion, 4);
   assert.ok(Object.hasOwn(whole, 'everyVisualMatchesCurrentNarration'));
+  assert.ok(Object.hasOwn(whole, 'colorWorldArcReviewed'));
+  assert.ok(Object.hasOwn(whole, 'motionPlanReviewed'));
 });
