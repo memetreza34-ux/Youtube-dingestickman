@@ -1,6 +1,26 @@
 {
-  "schemaVersion": 1,
-  "motionPolicy": "gentle-default",
+  "schemaVersion": 2,
+  "motionPolicy": "content-aware-v1",
+  "colorArc": [
+    {
+      "id": "phase-1",
+      "storyFunction": "Ausgangslage",
+      "paletteBias": "",
+      "lighting": ""
+    },
+    {
+      "id": "phase-2",
+      "storyFunction": "Eskalation / Krise",
+      "paletteBias": "",
+      "lighting": ""
+    },
+    {
+      "id": "phase-3",
+      "storyFunction": "Folge / Auflösung",
+      "paletteBias": "",
+      "lighting": ""
+    }
+  ],
   "backgroundMusic": false,
   "motionOverrides": [],
   "soundEffects": []
