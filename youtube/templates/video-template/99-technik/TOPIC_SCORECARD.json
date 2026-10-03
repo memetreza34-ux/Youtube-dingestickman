@@ -1,9 +1,12 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "status": "PLANNED",
   "candidate": "",
   "proposedTitle": "",
   "topicFamily": "",
+  "storyMode": "",
+  "mainCharacterRequired": null,
+  "humanRepresentationPlan": "",
   "discovery": {
     "rawCandidateCount": 0,
     "shortlistSize": 0,
