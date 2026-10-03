@@ -27,6 +27,17 @@ export function validateWholeVideoQc(qc, visualPolicy = {}) {
     if (qc.unnecessaryFlashbacksAbsent !== true) errors.push('Unnötige Rückblenden oder Vorgriffe müssen entfernt sein.');
   }
 
+  if (Number(qc.schemaVersion) >= 3) {
+    if (qc.chronologyMode !== 'strict-chronological') errors.push('Neue Produktionen verwenden standardmäßig chronologyMode=strict-chronological.');
+    if (qc.historicalEventOrderReviewed !== true) errors.push('Historische Ereignisreihenfolge wurde nicht geprüft.');
+    if (qc.narrationVisualAlignmentReviewed !== true) errors.push('Bild-Skript-Passung wurde nicht für die komplette Sequenz geprüft.');
+    if (qc.everyVisualMatchesCurrentNarration !== true) errors.push('Mindestens ein Visual passt nicht eindeutig zum aktuell gesprochenen Narrations-Beat.');
+    if (qc.visualClarityReviewed !== true) errors.push('Visuelle Verständlichkeit wurde nicht für alle Szenen geprüft.');
+    if (qc.unclearVisualsAbsent !== true) errors.push('Unübersichtliche oder mehrdeutige Visuals müssen vor Phase 1 entfernt sein.');
+    if (qc.onePrimaryTakeawayPerVisual !== true) errors.push('Jedes Visual braucht genau einen primären Takeaway.');
+    if (qc.futureEventLeakageAbsent !== true) errors.push('Spätere Ereignisse/Zustände dürfen nicht vorzeitig in früheren Bildern auftauchen.');
+  }
+
   const share = Number(qc.explanationOnlyVisualShare);
   if (!Number.isFinite(share) || share < 0 || share > maximumExplanationShare) {
     errors.push(`explanationOnlyVisualShare muss zwischen 0 und ${maximumExplanationShare} liegen.`);
