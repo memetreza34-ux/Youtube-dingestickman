@@ -20,6 +20,13 @@ export function validateWholeVideoQc(qc, visualPolicy = {}) {
   if (qc.visualsDerivedAfterScript !== true) errors.push('Visuals müssen nach dem fertigen Script abgeleitet worden sein.');
   if (qc.coherentVisualArc !== true) errors.push('Die Bildfolge wurde nicht als kohärenter visueller Bogen freigegeben.');
 
+  if (Number(qc.schemaVersion) >= 2) {
+    if (qc.chronologyReviewed !== true) errors.push('Chronologie wurde nicht als vollständige Sequenz geprüft.');
+    if (qc.visualOrderMatchesNarrationOrder !== true) errors.push('Bildreihenfolge muss der zeitlichen Reihenfolge der Narration folgen.');
+    if (qc.temporalJumpsExplicitlySignposted !== true) errors.push('Zeitwechsel/Rückblenden müssen ausdrücklich markiert oder als nicht vorhanden bestätigt sein.');
+    if (qc.unnecessaryFlashbacksAbsent !== true) errors.push('Unnötige Rückblenden oder Vorgriffe müssen entfernt sein.');
+  }
+
   const share = Number(qc.explanationOnlyVisualShare);
   if (!Number.isFinite(share) || share < 0 || share > maximumExplanationShare) {
     errors.push(`explanationOnlyVisualShare muss zwischen 0 und ${maximumExplanationShare} liegen.`);
