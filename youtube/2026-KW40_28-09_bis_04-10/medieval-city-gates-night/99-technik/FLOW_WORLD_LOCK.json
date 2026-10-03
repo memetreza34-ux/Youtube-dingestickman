@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "status": "READY",
+  "settingName": "spätmittelalterliche befestigte englische Stadt, Abend bis Morgen",
+  "settingDescription": "Eine repräsentative, historisch plausible befestigte englische Stadt des späten Mittelalters mit einem markanten steinernen Stadttor, Holztorflügeln, angrenzender Mauer, gepflasterter Zufahrtsstraße, dichtem Stadtkern hinter dem Tor und offener Vorstadtstraße davor. Es ist keine exakte Rekonstruktion einer einzelnen Stadt, sondern eine konsistente Beispielwelt auf Basis belegter englischer Stadttor-Praxis.",
+  "recurringPlaces": [
+    "dasselbe zweiturmige steinerne Stadttor mit zentralem Bogen",
+    "dieselbe gepflasterte Hauptstraße durch das Tor",
+    "dieselbe angrenzende Stadtmauer und Häuserzeile hinter dem Tor"
+  ],
+  "recurringCharacters": [],
+  "recurringProps": [
+    "schwere hölzerne Torflügel mit Eisenbeschlägen",
+    "einfacher Querbalken zum Verriegeln",
+    "spätmittelalterliche Karren, Körbe und Marktware"
+  ],
+  "basePalette": [
+    "warmer Sandstein",
+    "gedecktes Ocker und Rostrot",
+    "gedämpftes Grün",
+    "tiefes Nachtblau",
+    "warme Laternen- und Fensterlichter"
+  ],
+  "timeWeatherLogic": "Die Geschichte beginnt an einem trockenen späten Nachmittag, wechselt sichtbar über goldene Dämmerung in kühle blaue Nacht und endet in klarem frühem Morgenlicht. Kein Wetterwechsel; die Tageszeit ist der wichtigste visuelle Wandel.",
+  "continuityRules": [
+    "Das Haupttor behält Silhouette, Turmabstände, Bogenform, Torflügel und Straßenachse in allen wiederkehrenden Ansichten.",
+    "Die Menschen sind wechselnde repräsentative Bewohner, Händler, Reisende und Wachen; keine Person wird als versteckte Hauptfigur wiederholt.",
+    "Menschen unterscheiden sich sichtbar in Kleidung, Alterseindruck, Körperbau und Tätigkeit; keine generischen Figurenklone.",
+    "Nach der Schließung dürfen die Torflügel erst am Morgen wieder offen gezeigt werden.",
+    "Die Menschenmenge nimmt vom Nachmittag zur Nacht deutlich ab und steigt am Morgen wieder an.",
+    "Die Bildwelt bleibt lebendig durch kleine funktionale Details wie Karrenräder, Tiere, Körbe, Rauch aus Kaminen, Laternen und Bewegungen von Wachen, ohne die Szene zu überladen."
+  ]
+}
