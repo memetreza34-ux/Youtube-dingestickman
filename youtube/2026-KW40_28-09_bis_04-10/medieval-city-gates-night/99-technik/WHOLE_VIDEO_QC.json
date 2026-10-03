@@ -18,8 +18,8 @@
   "unclearVisualsAbsent": true,
   "onePrimaryTakeawayPerVisual": true,
   "futureEventLeakageAbsent": true,
-  "explanationOnlyVisualShare": 0.15,
-  "maxConsecutiveExplanationOnlyVisuals": 1,
+  "explanationOnlyVisualShare": 0.210526,
+  "maxConsecutiveExplanationOnlyVisuals": 2,
   "historicalWorldReturnsAfterExplanation": true,
   "editorialTextUsedOnlyWhenUseful": true,
   "transitionsReviewed": true,
@@ -29,6 +29,7 @@
     "Ein einziger Tagesbogen verbindet alle Bilder: belebter Nachmittag, Dämmerung, Schließung, Nacht, Öffnung am Morgen.",
     "Die Stadt und das Stadttor sind der wiederkehrende visuelle Anker; keine Hauptfigur wird künstlich eingeführt.",
     "Farbphasen und Lichtzustände verändern sich mit der Tageszeit, während Architektur und räumliche Orientierung stabil bleiben.",
-    "Erklärbilder werden sofort wieder in konkrete Stadt-, Tor- oder Menschenszenen zurückgeführt."
+    "Vier von 19 Visuals sind als explanationOnly markiert; maximal zwei liegen direkt hintereinander.",
+    "Nach Erklärbildern kehrt die Sequenz in die konkrete Stadt-, Tor- oder Menschenwelt zurück."
   ]
 }
