@@ -88,3 +88,29 @@ export function motionFromScene(scene, durationSeconds) {
   else if (type === 'pan-down') { result.yFrom = -travel / 2; result.yTo = travel / 2; }
   return result;
 }
+
+function markerRegex(imageNumber) {
+  return new RegExp(`BILD\\s+0*${Number(imageNumber)}(?:\\s|$)`, 'i');
+}
+
+export function injectDirectingIntoPrompt(prompt, mapping, renderPlan) {
+  let output = String(prompt ?? '');
+  const images = Array.isArray(mapping?.images) ? mapping.images : [];
+  if (!images.length) return output;
+
+  const arc = Array.isArray(renderPlan?.colorArc) ? renderPlan.colorArc : [];
+  const arcSummary = arc.map((phase) => `${text(phase.id)}: ${text(phase.storyFunction)}; palette ${text(phase.paletteBias)}; lighting ${text(phase.lighting)}`).join(' | ');
+  const globalBlock = `\nCOLOR & WORLD ARC — HARD:\nKeep the channel drawing style consistent, but do NOT keep every frame in the same beige-blue palette or the same flat daylight. Follow this story color arc: ${arcSummary}. Color, weather, contrast and lighting must evolve with the story while recurring objects keep their identity. Repeated locations must feel alive through specific historically plausible activity, weather, reflections, mud, smoke, wind, tools, animals, boats, vegetation or human work when relevant. Do not add random clutter.\n`;
+  const firstMarker = markerRegex(1).exec(output);
+  if (firstMarker) output = `${output.slice(0, firstMarker.index)}${globalBlock}\n${output.slice(firstMarker.index)}`;
+
+  for (let index = images.length - 1; index >= 0; index -= 1) {
+    const scene = images[index];
+    const match = markerRegex(scene.imageNumber).exec(output);
+    if (!match) continue;
+    const insertAt = match.index + match[0].length;
+    const sceneBlock = `\nDIRECTING — HARD: color phase "${text(scene.colorPhase)}". Color intent: ${text(scene.colorIntent)}. World-life detail: ${text(scene.worldLifeDetail)}. Preserve one clear subject; use the life detail only as believable supporting evidence, not clutter.`;
+    output = `${output.slice(0, insertAt)}${sceneBlock}${output.slice(insertAt)}`;
+  }
+  return output;
+}
