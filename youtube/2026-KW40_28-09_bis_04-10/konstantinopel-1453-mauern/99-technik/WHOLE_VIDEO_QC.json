@@ -1,21 +1,26 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "status": "APPROVED",
   "reviewMethod": "model-sequence-review-plus-script-read-aloud",
   "scriptContinuousProse": true,
   "scriptReadAloudPassed": true,
   "visualsDerivedAfterScript": true,
   "coherentVisualArc": true,
-  "explanationOnlyVisualShare": 0.19,
-  "maxConsecutiveExplanationOnlyVisuals": 2,
+  "chronologyReviewed": true,
+  "visualOrderMatchesNarrationOrder": true,
+  "temporalJumpsExplicitlySignposted": true,
+  "unnecessaryFlashbacksAbsent": true,
+  "explanationOnlyVisualShare": 0.22,
+  "maxConsecutiveExplanationOnlyVisuals": 1,
   "historicalWorldReturnsAfterExplanation": true,
   "editorialTextUsedOnlyWhenUseful": true,
   "transitionsReviewed": true,
-  "overallCoherenceScore": 9.2,
+  "overallCoherenceScore": 9.5,
   "approved": true,
   "notes": [
-    "Visueller Bogen bleibt an denselben Mauern, denselben Hauptfiguren, dem Goldenen Horn und der fortschreitenden Belagerung verankert.",
-    "Reine Erklärbilder sind auf sieben von 37 Visuals begrenzt und werden regelmäßig von konkreten historischen Szenen unterbrochen.",
-    "Redaktionstext dient nur Zeit- oder Ortsorientierung; keine Bildnummern oder Prompt-Metadaten."
+    "Der alte Einstieg am 29. Mai mit Rücksprung auf den 6. April wurde entfernt. Die Erzählung läuft jetzt vollständig vom Frühjahr 1453 bis zum Fall der Stadt.",
+    "Alle 32 Visuals folgen exakt derselben zeitlichen Reihenfolge wie das Voice-over: Ausgangslage → 6. April → Artillerie/Reparaturen → 20. April → 22. April → Ende Mai → 29. Mai → Fall.",
+    "Sieben von 32 Visuals sind explanation-only; nie stehen zwei explanation-only Visuals direkt hintereinander.",
+    "Redaktionstext dient nur Ort oder Datum. Interne Bildnummern bleiben verboten."
   ]
 }
