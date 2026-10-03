@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "status": "READY",
+  "requiredForNewProjects": true,
+  "colorWorldArc": {
+    "minimumDistinctColorPhases": 3,
+    "maximumConsecutiveSameColorPhase": 8,
+    "sceneFieldsRequired": ["colorPhase", "colorIntent", "worldLifeDetail"],
+    "rules": [
+      "Gleicher Zeichenstil bedeutet nicht gleiche Farbwelt in jedem Bild.",
+      "Jedes Video braucht einen geplanten Farb- und Weltbogen mit mindestens drei klar unterscheidbaren Phasen.",
+      "Farbwechsel müssen aus Story, Wetter, Ort, Tageszeit oder emotionalem Zustand begründet sein.",
+      "Wiederkehrende Landschaften brauchen innerhalb der Sequenz wechselnde Nähe, Lichtstimmung, Aktivität und konkrete Lebensdetails.",
+      "worldLifeDetail benennt pro Szene mindestens ein konkretes Detail, das die historische Welt belebt, wenn es inhaltlich sinnvoll ist."
+    ]
+  },
+  "semanticPacing": {
+    "normalHoldSeconds": [2.7, 4.5],
+    "absoluteMinimumSeconds": 2.0,
+    "reviewBelowSeconds": 2.4,
+    "reviewAboveSeconds": 5.5,
+    "hardMaximumSeconds": 6.5,
+    "finalImageHardMaximumSeconds": 5.5,
+    "allowLongerOnlyWithReason": true,
+    "maximumAdjacentDurationRatio": 2.2,
+    "rules": [
+      "Ein guter Durchschnitt darf keine extrem kurzen und extrem langen Einzelbilder verstecken.",
+      "Unter zwei Sekunden ist ein Standbild nicht zulässig.",
+      "Über 5.5 Sekunden braucht eine Szene einen ausdrücklichen Hold-Grund; über 6.5 Sekunden ist sie unzulässig.",
+      "Das letzte Bild darf nicht als langer Resthold stehen bleiben.",
+      "Stark benachbarte Tempowechsel müssen geglättet werden."
+    ]
+  },
+  "motionDirector": {
+    "sceneFieldsRequired": ["motionType", "motionDirection", "motionIntensity", "motionFocus"],
+    "allowedTypes": ["static", "push-in", "pull-out", "pan-left", "pan-right", "pan-up", "pan-down"],
+    "allowedIntensity": ["none", "subtle", "medium"],
+    "maximumMediumMotionShare": 0.25,
+    "minimumStaticOrNearStaticShare": 0.2,
+    "maximumConsecutiveSameMotionType": 2,
+    "rules": [
+      "Motion wird aus Bildinhalt und Fokus gewählt, niemals aus der Bildnummer rotiert.",
+      "Bewegungsgeschwindigkeit wird an die reale Bilddauer angepasst.",
+      "Kurze Szenen erhalten weniger Weg als lange Szenen.",
+      "Karten bewegen sich nur, wenn der Blick zu einem relevanten Ort geführt werden muss.",
+      "Weite Landschaften dürfen bewusst fast statisch bleiben.",
+      "Motion darf den Hauptfokus niemals aus dem Bild schieben."
+    ]
+  }
+}
