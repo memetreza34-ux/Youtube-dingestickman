@@ -46,6 +46,9 @@ export async function validatePreproduction(projectDirectory) {
   if (normalizeText(topicScorecard.proposedTitle) !== normalizeText(meta.title)) {
     errors.push('TOPIC_SCORECARD.proposedTitle entspricht nicht dem aktuellen video.json-Titel.');
   }
+  if (Number(topicScorecard.schemaVersion ?? 0) >= 3 && topicScorecard.storyMode !== meta.storyMode) {
+    errors.push(`TOPIC_SCORECARD.storyMode (${topicScorecard.storyMode || 'leer'}) entspricht nicht video.json.storyMode (${meta.storyMode || 'leer'}).`);
+  }
 
   const topicResult = validateTopicScorecard(topicScorecard, topicPolicy);
   errors.push(...topicResult.errors.map((error) => `Topic Gate: ${error}`));

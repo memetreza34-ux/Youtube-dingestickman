@@ -62,14 +62,32 @@ export function validateTopicScorecard(scorecard, policy) {
   if (!nonEmpty(scorecard.sourceabilityEvidence)) errors.push('sourceabilityEvidence fehlt.');
 
   if (Number(scorecard.schemaVersion) >= 2) {
-    if (scorecard.historicalStoryCorePresent !== true) errors.push('Schema V2 benötigt historicalStoryCorePresent=true.');
-    if (scorecard.mechanismOnlyTopic !== false) errors.push('Schema V2 verbietet mechanismOnlyTopic=true. Das Thema braucht eine konkrete historische Story statt nur eines Sachmechanismus.');
-    if (!nonEmpty(scorecard.concreteHumanStakes)) errors.push('Schema V2 benötigt concreteHumanStakes: Wer spürt konkret, was auf dem Spiel steht?');
-    if (!nonEmpty(scorecard.eventProgression)) errors.push('Schema V2 benötigt eventProgression: konkrete Lage → Veränderung → Folge.');
+    if (scorecard.historicalStoryCorePresent !== true) errors.push('Schema V2+ benötigt historicalStoryCorePresent=true.');
+    if (scorecard.mechanismOnlyTopic !== false) errors.push('Schema V2+ verbietet mechanismOnlyTopic=true. Das Thema braucht eine konkrete historische Story statt nur eines Sachmechanismus.');
+    if (!nonEmpty(scorecard.concreteHumanStakes)) errors.push('Schema V2+ benötigt concreteHumanStakes: Welche Menschen, Gruppen oder Gesellschaft spüren konkret, was auf dem Spiel steht? Eine benannte Hauptfigur ist dafür nicht erforderlich.');
+    if (!nonEmpty(scorecard.eventProgression)) errors.push('Schema V2+ benötigt eventProgression: konkrete Lage → Veränderung → Folge.');
     const share = Number(scorecard.expectedExplanationMechanismShare);
     const maxShare = Number(required.maximumExpectedExplanationMechanismShare ?? 0.4);
     if (!Number.isFinite(share) || share < 0 || share > maxShare) {
-      errors.push(`Schema V2: expectedExplanationMechanismShare muss zwischen 0 und ${maxShare} liegen.`);
+      errors.push(`Schema V2+: expectedExplanationMechanismShare muss zwischen 0 und ${maxShare} liegen.`);
+    }
+  }
+
+  if (Number(scorecard.schemaVersion) >= 3) {
+    const storyModes = policy?.storyModes ?? {};
+    const allowedModes = Array.isArray(storyModes.allowed) ? storyModes.allowed : ['character-led', 'event-led', 'world-led'];
+    if (!allowedModes.includes(scorecard.storyMode)) {
+      errors.push(`Schema V3 benötigt storyMode=${allowedModes.join('|')}.`);
+    }
+    if (typeof scorecard.mainCharacterRequired !== 'boolean') {
+      errors.push('Schema V3 benötigt mainCharacterRequired als Boolean.');
+    } else if (scorecard.storyMode === 'character-led' && scorecard.mainCharacterRequired !== true) {
+      errors.push('character-led benötigt mainCharacterRequired=true.');
+    } else if ((scorecard.storyMode === 'event-led' || scorecard.storyMode === 'world-led') && scorecard.mainCharacterRequired !== false) {
+      errors.push(`${scorecard.storyMode} darf keine Hauptfigur erzwingen: mainCharacterRequired muss false sein.`);
+    }
+    if (!nonEmpty(scorecard.humanRepresentationPlan)) {
+      errors.push('Schema V3 benötigt humanRepresentationPlan: Wie werden Menschen sichtbar, ohne unnötig eine Hauptfigur zu erfinden?');
     }
   }
 
