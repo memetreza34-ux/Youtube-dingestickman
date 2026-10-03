@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 4,
+  "schemaVersion": 3,
   "pipelineVersion": 4,
   "preproductionQualityGateVersion": 1,
   "topicScorecardRequired": true,
@@ -25,7 +25,7 @@
   "visualStyleId": "UNSET",
   "promptSystemVersion": 3,
   "promptSystem": "flow-compiler-v3",
-  "scenePlanningSchemaVersion": 3,
+  "scenePlanningSchemaVersion": 2,
   "promptQcMinimumScore": 8,
   "chronologyPolicy": {
     "mode": "strict-chronological",
