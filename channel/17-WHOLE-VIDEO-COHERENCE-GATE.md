@@ -1,8 +1,8 @@
-# Whole-Video Coherence Gate — V1
+# Whole-Video Coherence Gate — V2
 
 ## Zweck
 
-Ein Video darf nicht nur aus vielen einzeln „guten“ Teilen bestehen. Skript, Bildfolge und Erkläranteil müssen als **ein zusammenhängendes Geschichtsvideo** funktionieren.
+Ein Video darf nicht nur aus vielen einzeln „guten“ Teilen bestehen. Skript, Bildfolge, Chronologie und Erkläranteil müssen als **ein zusammenhängendes Geschichtsvideo** funktionieren.
 
 Dieses Gate wird vor Phase 1 geprüft und verhindert insbesondere:
 
@@ -11,6 +11,7 @@ Dieses Gate wird vor Phase 1 geprüft und verhindert insbesondere:
 - zu lange Ketten aus Diagrammen / Prozessen / abstrakten Erklärbildern
 - Bilder, die zwar zum Thema passen, aber nicht zum aktuellen Satz
 - Orientierungslosigkeit bei Zeit- und Ortswechseln
+- unnötige Rückblenden oder Vorgriffe
 - unnötiges Verbot hilfreicher Jahreszahlen, Daten oder Ortsnamen
 
 ---
@@ -49,7 +50,41 @@ Einzelne kurze Sätze bleiben als bewusstes Stilmittel erlaubt.
 
 ---
 
-## 3. Historische Welt bleibt Hauptbühne
+## 3. Chronologie ist der Standard
+
+Für historische Ereignisse gilt standardmäßig:
+
+```text
+Ausgangslage
+→ frühestes relevantes Ereignis
+→ nächste Veränderung
+→ Folge
+→ nächster Zeitpunkt
+→ Wendepunkt
+→ Ende
+```
+
+Ein Einstieg mit einem späteren Höhepunkt und anschließender Rückblende ist **nicht automatisch spannender**. Er ist nur erlaubt, wenn er das Verständnis verbessert und die Story dadurch klarer statt komplizierter wird.
+
+Neue Produktionen müssen prüfen:
+
+- `chronologyReviewed = true`
+- `visualOrderMatchesNarrationOrder = true`
+- `temporalJumpsExplicitlySignposted = true`
+- `unnecessaryFlashbacksAbsent = true`
+
+Zeitwechsel werden durch Voice-over und bei Bedarf einen kurzen redaktionellen Datums-/Zeittext klar markiert.
+
+Hard Fail:
+
+- Finalkampf zeigen und direkt danach ohne klaren Grund Wochen zurückspringen
+- spätere Schäden oder Zustände in frühere Bilder mischen
+- Schiffe, Personen oder Fronten zeigen, bevor sie in der Geschichte auftauchen
+- ein Bild chronologisch korrekt erzeugen, aber an einer falschen Stelle im Voice-over verwenden
+
+---
+
+## 4. Historische Welt bleibt Hauptbühne
 
 Erklärgrafiken sind Werkzeuge, nicht die Hauptfigur.
 
@@ -69,7 +104,7 @@ Nach einem kurzen Erklärblock soll das Video wieder zu mindestens einem konkret
 
 ---
 
-## 4. Visual Sequence statt Bilder-Sammlung
+## 5. Visual Sequence statt Bilder-Sammlung
 
 Die Bildfolge wird als Sequenz geprüft.
 
@@ -79,7 +114,7 @@ Starke Folge:
 historischer Moment
 → Detail
 → räumliche Orientierung
-→ Wendepunkt
+→ Handlung
 → kurze Erklärung
 → konkrete Folge
 ```
@@ -97,15 +132,16 @@ Figur
 → Baumring
 ```
 
-Abwechslung allein reicht nicht. Übergänge müssen **inhaltlich motiviert** sein.
+Abwechslung allein reicht nicht. Übergänge müssen **inhaltlich und zeitlich motiviert** sein.
 
 ---
 
-## 5. Jeder Visual-Wechsel braucht einen Grund
+## 6. Jeder Visual-Wechsel braucht einen Grund
 
 Vor Freigabe muss für die Sequenz geprüft sein:
 
 - neues Bild, weil der Gedanke wirklich wechselt
+- Zeitpunkt/Zustand passt exakt zur Narration
 - gewählte Visual Form erklärt diesen Gedanken besser als Alternativen
 - Wechsel von nah ↔ weit ist nachvollziehbar
 - Karte erscheint nur, wenn räumliche Orientierung nötig ist
@@ -114,7 +150,7 @@ Vor Freigabe muss für die Sequenz geprüft sein:
 
 ---
 
-## 6. Redaktioneller Text
+## 7. Redaktioneller Text
 
 Standard: `NO_VISIBLE_TEXT`.
 
@@ -149,7 +185,7 @@ Immer verboten:
 
 ---
 
-## 7. Human-/World-Return
+## 8. Human-/World-Return
 
 Wenn ein Video abstrakte Zusammenhänge erklärt, muss regelmäßig gezeigt werden, **was dieser Zusammenhang in der damaligen Welt konkret bedeutete**.
 
@@ -172,13 +208,13 @@ Mechanismus A
 
 ---
 
-## 8. Übergänge prüfen
+## 9. Übergänge prüfen
 
 Vor Phase 1 muss die komplette Bildfolge einmal als Liste gelesen werden.
 
 Für jeden Übergang fragen:
 
-> Warum kommt genau dieses Bild jetzt?
+> Warum kommt genau dieses Bild jetzt — und ist dieser Zustand zu diesem Zeitpunkt bereits möglich?
 
 Wenn die Antwort nur lautet:
 
@@ -188,7 +224,7 @@ ist der Übergang nicht stark genug.
 
 ---
 
-## 9. Whole-Video-QC
+## 10. Whole-Video-QC
 
 Neue Projekte verwenden:
 
@@ -196,13 +232,17 @@ Neue Projekte verwenden:
 99-technik/WHOLE_VIDEO_QC.json
 ```
 
-Pflichtwerte:
+Schema V2 Pflichtwerte:
 
 - `status = APPROVED`
 - `scriptContinuousProse = true`
 - `scriptReadAloudPassed = true`
 - `visualsDerivedAfterScript = true`
 - `coherentVisualArc = true`
+- `chronologyReviewed = true`
+- `visualOrderMatchesNarrationOrder = true`
+- `temporalJumpsExplicitlySignposted = true`
+- `unnecessaryFlashbacksAbsent = true`
 - `explanationOnlyVisualShare <= 0.35`
 - `maxConsecutiveExplanationOnlyVisuals <= 2`
 - `historicalWorldReturnsAfterExplanation = true`
@@ -217,4 +257,4 @@ Pflichtwerte:
 
 Das Video ist erst bereit für Phase 1, wenn es **als Ganzes** funktioniert:
 
-> flüssige Geschichte → klare visuelle Sequenz → kurze notwendige Erklärungen → regelmäßige Rückkehr zur historischen Welt → gezielte Orientierung durch Daten/Orte → sauberer Payoff.
+> flüssige Geschichte → verständliche Chronologie → klare visuelle Sequenz → kurze notwendige Erklärungen → regelmäßige Rückkehr zur historischen Welt → gezielte Orientierung durch Daten/Orte → sauberer Payoff.
