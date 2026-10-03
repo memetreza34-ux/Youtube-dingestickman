@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { arg, projectPaths, readJson } from '../lib/pipeline.js';
 import { validateNarrationAlignmentProject } from '../lib/narration-alignment.js';
+import { validateDirectionProject } from '../lib/direction-quality.js';
 import { validatePhase1 } from './validate-youtube-phase1.js';
 
 export async function validatePhase1Full(projectDirectory) {
@@ -22,6 +23,16 @@ export async function validatePhase1Full(projectDirectory) {
     errors.push(...alignment.errors.map((error) => `Narration Alignment: ${error}`));
   }
 
+  if (Number(meta.directionQualityGateVersion ?? 0) >= 1) {
+    const [mapping, colorArc, policy] = await Promise.all([
+      readJson(p.mapping),
+      readJson(p.colorWorldArc),
+      readJson(path.resolve(meta.directionPolicyFile || 'config/direction-policy.json'))
+    ]);
+    const direction = validateDirectionProject({ meta, mapping, colorArc, policy });
+    errors.push(...direction.errors.map((error) => `Direction Quality: ${error}`));
+  }
+
   return { passed: errors.length === 0, errors };
 }
 
@@ -33,7 +44,7 @@ async function main() {
     for (const error of result.errors) console.error(`- ${error}`);
     throw new Error(`${result.errors.length} Phase-1-Regel(n) verletzt.`);
   }
-  console.log('YouTube Phase 1: BESTANDEN — inklusive Narration Alignment und Chronologie.');
+  console.log('YouTube Phase 1: BESTANDEN — inklusive Narration Alignment, Chronologie, Color/World Arc, Semantic Pacing Plan und Motion Director.');
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
