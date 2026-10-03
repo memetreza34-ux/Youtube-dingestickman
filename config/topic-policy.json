@@ -1,14 +1,25 @@
 {
-  "topicPolicyVersion": 4,
+  "topicPolicyVersion": 5,
   "status": "READY",
-  "director": "topic-director-v3",
-  "purpose": "Generate broadly, score rigorously, reject weak anecdote-only or mechanism-only ideas, require a concrete historical story core, and preserve channel diversity.",
+  "director": "topic-director-v4",
+  "purpose": "Generate broadly, score rigorously, reject weak anecdote-only or mechanism-only ideas, require a concrete historical story core, support character-led, event-led and world-led storytelling, and preserve channel diversity.",
   "scorecard": {
-    "schemaVersion": 2,
+    "schemaVersion": 3,
     "file": "99-technik/TOPIC_SCORECARD.json",
     "requiredForNewProjects": true,
     "statusRequired": "APPROVED",
     "approvedByTopicDirectorRequired": true
+  },
+  "storyModes": {
+    "allowed": ["character-led", "event-led", "world-led"],
+    "defaultSelectionRule": "Choose the mode that best fits the topic; never invent or force a protagonist just to satisfy a template.",
+    "characterLed": "A recurring historical person is the main narrative spine.",
+    "eventLed": "A concrete event, crisis, conflict or sequence is the spine; different people or groups may carry different beats.",
+    "worldLed": "A place, system, everyday practice, technology, institution or historical world is the spine; representative historical people may appear without becoming recurring protagonists.",
+    "mainCharacterRequiredOnlyFor": ["character-led"],
+    "representativeHistoricalHumansAllowedFor": ["event-led", "world-led"],
+    "inventedProtagonistToHumanizeTopicForbidden": true,
+    "humanStakesDoNotRequireNamedMainCharacter": true
   },
   "discovery": {
     "minimumRawCandidates": 30,
@@ -40,6 +51,8 @@
     "mechanismOnlyTopicForbiddenForSchema2": true,
     "concreteHumanStakesRequiredForSchema2": true,
     "eventProgressionRequiredForSchema2": true,
+    "storyModeRequiredForSchema3": true,
+    "humanRepresentationPlanRequiredForSchema3": true,
     "maximumExpectedExplanationMechanismShare": 0.4
   },
   "topicFamilies": [
@@ -58,14 +71,7 @@
     "avoidThreeSameEraInRow": true,
     "avoidRepeatedPersonAnecdoteDefault": true,
     "afterTwoPersonAnecdotesPreferDifferentFamily": true,
-    "preferAtLeastTwoChangesFromRecentVideos": [
-      "era",
-      "region_or_culture",
-      "topic_family",
-      "story_form",
-      "visual_world",
-      "scale"
-    ]
+    "preferAtLeastTwoChangesFromRecentVideos": ["era", "region_or_culture", "topic_family", "story_form", "visual_world", "scale"]
   },
   "duplicateStatusPolicy": {
     "softStatusPatterns": ["test", "paused", "rejected", "archived", "cancelled", "legacy"],
@@ -75,6 +81,7 @@
   },
   "forbiddenDefaults": [
     "famous person plus weird anecdote plus trick as automatic choice",
+    "forcing a named protagonist into an event-led or world-led topic",
     "mechanism-only topic presented as a historical story",
     "nature event followed by a chain of explanatory diagrams with weak human story",
     "technology function explanation without concrete historical stakes",
