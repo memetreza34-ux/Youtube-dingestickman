@@ -1,7 +1,12 @@
 {
-  "schemaVersion": 1,
-  "motionPolicy": "gentle-default",
+  "schemaVersion": 2,
+  "motionPolicy": "scene-directed-v1",
   "backgroundMusic": false,
   "motionOverrides": [],
-  "soundEffects": []
+  "soundEffects": [],
+  "notes": [
+    "Motion kommt standardmäßig aus den Scene Cards.",
+    "motionOverrides nur für bewusste manuelle Korrekturen nach Review verwenden.",
+    "Keine indexbasierte Preset-Rotation."
+  ]
 }
