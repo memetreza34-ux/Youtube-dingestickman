@@ -2,16 +2,7 @@
 
 import path from 'node:path';
 import { arg, probeDuration, projectPaths, readJson, writeJson } from '../lib/pipeline.js';
-
-function motionFor(index) {
-  const presets = [
-    { scaleFrom: 1.01, scaleTo: 1.035, xFrom: 0, xTo: 0, yFrom: 0, yTo: 0 },
-    { scaleFrom: 1.035, scaleTo: 1.01, xFrom: -8, xTo: 8, yFrom: 0, yTo: 0 },
-    { scaleFrom: 1.015, scaleTo: 1.04, xFrom: 6, xTo: -6, yFrom: 0, yTo: 0 },
-    { scaleFrom: 1.02, scaleTo: 1.04, xFrom: 0, xTo: 0, yFrom: 4, yTo: -4 }
-  ];
-  return presets[index % presets.length];
-}
+import { buildMotionFromScene } from '../lib/direction-quality.js';
 
 export async function buildTimeline(projectDirectory) {
   const p = projectPaths(projectDirectory);
@@ -24,21 +15,39 @@ export async function buildTimeline(projectDirectory) {
   if (!images.length) throw new Error('Mapping enthält keine Bilder.');
   if (images.some((image) => !Number.isFinite(Number(image.actualStartSeconds)))) throw new Error('Nicht alle Bilder besitzen gemessene Startzeiten.');
 
+  let directionPolicy = null;
+  if (Number(meta.motionDirectorVersion ?? 0) >= 1) {
+    directionPolicy = await readJson(path.resolve(meta.directionPolicyFile || 'config/direction-policy.json'));
+  }
+
+  const overrideByImage = new Map((renderPlan.motionOverrides ?? []).map((item) => [Number(item.imageNumber), item]));
   const timelineImages = images.map((image, index) => {
     const start = index === 0 ? 0 : Number(image.actualStartSeconds);
     const next = images[index + 1];
-    const end = next ? Number(next.actualStartSeconds) : audioDuration + hold;
-    if (!(end > start)) throw new Error(`Ungültige Dauer bei Bild ${image.imageNumber}: ${start} → ${end}`);
+    const contentEnd = next ? Number(next.actualStartSeconds) : audioDuration;
+    const end = next ? contentEnd : audioDuration + hold;
+    if (!(contentEnd > start)) throw new Error(`Ungültige Inhaltsdauer bei Bild ${image.imageNumber}: ${start} → ${contentEnd}`);
+    const contentDuration = contentEnd - start;
+    const baseMotion = directionPolicy
+      ? buildMotionFromScene(image, contentDuration, directionPolicy.motionDirector)
+      : { type: 'static', direction: 'none', intensity: 'none', focus: 'center', originX: 50, originY: 50, scaleFrom: 1.015, scaleTo: 1.015, xFrom: 0, xTo: 0, yFrom: 0, yTo: 0 };
+    const motion = { ...baseMotion, ...(overrideByImage.get(Number(image.imageNumber)) ?? {}) };
     return {
       imageNumber: image.imageNumber,
       file: `__render/${meta.videoId}/images/${image.imageFile}`,
       startSeconds: Number(start.toFixed(3)),
+      contentEndSeconds: Number(contentEnd.toFixed(3)),
       endSeconds: Number(end.toFixed(3)),
+      contentDurationSeconds: Number(contentDuration.toFixed(3)),
       durationSeconds: Number((end - start).toFixed(3)),
+      plannedHoldSeconds: Number(image.plannedHoldSeconds ?? 0),
+      beatImportance: image.beatImportance ?? '',
+      holdReason: image.holdReason ?? '',
       visualPurpose: image.visualPurpose ?? '',
       topicAnchor: image.topicAnchor ?? '',
       visualForm: image.visualForm ?? '',
-      motion: motionFor(index)
+      motionReason: image.motionReason ?? '',
+      motion
     };
   });
 
@@ -48,7 +57,7 @@ export async function buildTimeline(projectDirectory) {
   }));
 
   const timeline = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     createdAt: new Date().toISOString(),
     fps: Number(meta.renderPolicy?.fps ?? pipeline.fps ?? 30),
     width: Number(meta.renderPolicy?.width ?? pipeline.resolution.width),
@@ -57,6 +66,7 @@ export async function buildTimeline(projectDirectory) {
     endHoldSeconds: hold,
     durationSeconds: Number((audioDuration + hold).toFixed(3)),
     audioFile: `__render/${meta.videoId}/audio/YOUTUBE_AUDIO_OPTIMIZED.wav`,
+    motionDirectorVersion: Number(meta.motionDirectorVersion ?? 0),
     images: timelineImages,
     sounds
   };
