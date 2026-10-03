@@ -25,8 +25,8 @@
   "scenePlanningSchemaVersion": 2,
   "promptQcMinimumScore": 8,
   "targetDurationSeconds": 118,
-  "targetDurationRangeSeconds": [110, 120],
-  "plannedImageCount": 37,
+  "targetDurationRangeSeconds": [110, 125],
+  "plannedImageCount": 32,
   "coverPolicy": {
     "firstSceneIsCover": true,
     "coverImageNumber": 1,
@@ -66,7 +66,7 @@
   },
   "youtubeUpload": {
     "title": "Warum Konstantinopel 1453 trotz seiner Mauern fiel",
-    "description": "Konstantinopels Mauern hatten Angriffe über Jahrhunderte abgewehrt. 1453 hielten sie Mehmed II. noch wochenlang auf. Dieses Video zeigt, warum die Stadt am Ende trotzdem fiel: Artillerie, eine viel größere Belagerungsarmee, die Umgehung der Hafenkette und immer größerer Druck auf eine kleine Verteidigungstruppe.",
+    "description": "Konstantinopels Mauern hatten Angriffe über Jahrhunderte abgewehrt. 1453 hielten sie Mehmed II. noch wochenlang auf. Dieses Video zeigt chronologisch, warum die Stadt am Ende trotzdem fiel: Artillerie, eine viel größere Belagerungsarmee, die Umgehung der Hafenkette und immer größerer Druck auf eine kleine Verteidigungstruppe.",
     "hashtags": ["#geschichte", "#konstantinopel", "#1453", "#byzanz", "#osmanischesreich"],
     "keywords": ["Konstantinopel 1453", "Fall von Konstantinopel", "Mehmed II", "Konstantin XI", "Theodosianische Mauern", "Goldenes Horn", "Byzantinisches Reich", "Osmanisches Reich"]
   },
@@ -86,11 +86,11 @@
     "backgroundMusic": false,
     "subtitles": false
   },
-  "flowPromptBuiltAt": "2026-10-02T19:58:00+02:00",
+  "flowPromptBuiltAt": "2026-10-03T07:20:00+02:00",
   "phase1Ready": true,
   "imagesReady": false,
   "audioReady": false,
   "renderReady": false,
   "createdAt": "2026-10-02T19:58:00+02:00",
-  "updatedAt": "2026-10-02T19:58:00+02:00"
+  "updatedAt": "2026-10-03T07:20:00+02:00"
 }
