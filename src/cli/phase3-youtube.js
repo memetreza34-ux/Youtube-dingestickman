@@ -24,7 +24,7 @@ async function main() {
   console.log('Phase 3 erzeugt, ersetzt, bearbeitet oder ergänzt KEINE Bilder. Bei fehlenden/fehlerhaften Bildern wird sofort abgebrochen.');
 
   run('src/cli/preflight-youtube.js');
-  run('src/cli/validate-youtube-phase1.js', common);
+  run('src/cli/validate-youtube-phase1-full.js', common);
   run('src/cli/validate-youtube-phase2.js', common);
 
   // Ab hier ist der Bildbestand unveränderlich. Fehlende Bilder dürfen niemals automatisch erzeugt werden.
