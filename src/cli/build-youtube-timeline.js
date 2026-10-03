@@ -2,16 +2,7 @@
 
 import path from 'node:path';
 import { arg, probeDuration, projectPaths, readJson, writeJson } from '../lib/pipeline.js';
-
-function motionFor(index) {
-  const presets = [
-    { scaleFrom: 1.01, scaleTo: 1.035, xFrom: 0, xTo: 0, yFrom: 0, yTo: 0 },
-    { scaleFrom: 1.035, scaleTo: 1.01, xFrom: -8, xTo: 8, yFrom: 0, yTo: 0 },
-    { scaleFrom: 1.015, scaleTo: 1.04, xFrom: 6, xTo: -6, yFrom: 0, yTo: 0 },
-    { scaleFrom: 1.02, scaleTo: 1.04, xFrom: 0, xTo: 0, yFrom: 4, yTo: -4 }
-  ];
-  return presets[index % presets.length];
-}
+import { motionFromScene } from '../lib/directing.js';
 
 export async function buildTimeline(projectDirectory) {
   const p = projectPaths(projectDirectory);
@@ -29,26 +20,27 @@ export async function buildTimeline(projectDirectory) {
     const next = images[index + 1];
     const end = next ? Number(next.actualStartSeconds) : audioDuration + hold;
     if (!(end > start)) throw new Error(`Ungültige Dauer bei Bild ${image.imageNumber}: ${start} → ${end}`);
+    const durationSeconds = Number((end - start).toFixed(3));
+    const motion = Number(meta.directingGateVersion ?? 0) >= 1
+      ? motionFromScene(image, durationSeconds)
+      : { scaleFrom: 1.01, scaleTo: 1.025, xFrom: 0, xTo: 0, yFrom: 0, yTo: 0 };
     return {
       imageNumber: image.imageNumber,
       file: `__render/${meta.videoId}/images/${image.imageFile}`,
       startSeconds: Number(start.toFixed(3)),
       endSeconds: Number(end.toFixed(3)),
-      durationSeconds: Number((end - start).toFixed(3)),
+      durationSeconds,
       visualPurpose: image.visualPurpose ?? '',
       topicAnchor: image.topicAnchor ?? '',
       visualForm: image.visualForm ?? '',
-      motion: motionFor(index)
+      colorPhase: image.colorPhase ?? '',
+      motion
     };
   });
 
-  const sounds = (renderPlan.soundEffects ?? []).map((sound) => ({
-    ...sound,
-    file: sound.file ?? null
-  }));
-
+  const sounds = (renderPlan.soundEffects ?? []).map((sound) => ({ ...sound, file: sound.file ?? null }));
   const timeline = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     createdAt: new Date().toISOString(),
     fps: Number(meta.renderPolicy?.fps ?? pipeline.fps ?? 30),
     width: Number(meta.renderPolicy?.width ?? pipeline.resolution.width),
@@ -56,12 +48,13 @@ export async function buildTimeline(projectDirectory) {
     audioDurationSeconds: audioDuration,
     endHoldSeconds: hold,
     durationSeconds: Number((audioDuration + hold).toFixed(3)),
+    motionPolicy: renderPlan.motionPolicy ?? 'legacy',
     audioFile: `__render/${meta.videoId}/audio/YOUTUBE_AUDIO_OPTIMIZED.wav`,
     images: timelineImages,
     sounds
   };
   await writeJson(p.timeline, timeline);
-  console.log(`Timeline gebaut: ${timelineImages.length} Bilder, ${timeline.durationSeconds}s`);
+  console.log(`Timeline gebaut: ${timelineImages.length} Bilder, ${timeline.durationSeconds}s, Motion=${timeline.motionPolicy}`);
   return timeline;
 }
 
