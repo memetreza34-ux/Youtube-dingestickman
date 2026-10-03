@@ -5,6 +5,7 @@ import path from 'node:path';
 import { arg, projectPaths, readJson, writeJson } from '../lib/pipeline.js';
 import { compileFlowPrompt } from '../lib/flow-prompt.js';
 import { injectNarrationAlignmentIntoPrompt, validateNarrationAlignmentProject } from '../lib/narration-alignment.js';
+import { injectDirectionIntoPrompt, validateDirectionProject } from '../lib/direction-quality.js';
 
 export async function buildYoutubeFlowPrompt(projectDirectory) {
   const p = projectPaths(projectDirectory);
@@ -19,21 +20,25 @@ export async function buildYoutubeFlowPrompt(projectDirectory) {
   let narrationAlignmentPolicy = null;
   if (Number(meta.narrationAlignmentGateVersion ?? 0) >= 1) {
     narrationAlignmentPolicy = await readJson(path.resolve(meta.narrationAlignmentPolicyFile || 'config/narration-alignment-policy.json'));
-    const result = validateNarrationAlignmentProject({
-      meta,
-      mapping,
-      policy: narrationAlignmentPolicy,
-      script
-    });
+    const result = validateNarrationAlignmentProject({ meta, mapping, policy: narrationAlignmentPolicy, script });
     if (!result.passed) {
       throw new Error(`Narration-Alignment-Gate blockiert den Prompt-Build:\n${result.errors.map((error) => `- ${error}`).join('\n')}`);
     }
   }
 
-  let prompt = compileFlowPrompt({ meta, mapping, styleLock, worldLock });
-  if (narrationAlignmentPolicy) {
-    prompt = injectNarrationAlignmentIntoPrompt(prompt, mapping);
+  let colorArc = null;
+  if (Number(meta.directionQualityGateVersion ?? 0) >= 1) {
+    const policy = await readJson(path.resolve(meta.directionPolicyFile || 'config/direction-policy.json'));
+    colorArc = await readJson(p.colorWorldArc);
+    const result = validateDirectionProject({ meta, mapping, colorArc, policy });
+    if (!result.passed) {
+      throw new Error(`Direction-Quality-Gate blockiert den Prompt-Build:\n${result.errors.map((error) => `- ${error}`).join('\n')}`);
+    }
   }
+
+  let prompt = compileFlowPrompt({ meta, mapping, styleLock, worldLock });
+  if (narrationAlignmentPolicy) prompt = injectNarrationAlignmentIntoPrompt(prompt, mapping);
+  if (colorArc) prompt = injectDirectionIntoPrompt(prompt, mapping, colorArc);
 
   await writeFile(p.prompt, prompt, 'utf8');
 
