@@ -1,20 +1,40 @@
 #!/usr/bin/env node
 
-import { writeFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { arg, projectPaths, readJson, writeJson } from '../lib/pipeline.js';
 import { compileFlowPrompt } from '../lib/flow-prompt.js';
+import { injectNarrationAlignmentIntoPrompt, validateNarrationAlignmentProject } from '../lib/narration-alignment.js';
 
 export async function buildYoutubeFlowPrompt(projectDirectory) {
   const p = projectPaths(projectDirectory);
-  const [meta, mapping, styleLock, worldLock] = await Promise.all([
+  const [meta, mapping, styleLock, worldLock, script] = await Promise.all([
     readJson(p.meta),
     readJson(p.mapping),
     readJson(path.resolve('config/flow-style-lock.json')),
-    readJson(p.flowWorldLock)
+    readJson(p.flowWorldLock),
+    readFile(p.script, 'utf8')
   ]);
 
-  const prompt = compileFlowPrompt({ meta, mapping, styleLock, worldLock });
+  let narrationAlignmentPolicy = null;
+  if (Number(meta.narrationAlignmentGateVersion ?? 0) >= 1) {
+    narrationAlignmentPolicy = await readJson(path.resolve(meta.narrationAlignmentPolicyFile || 'config/narration-alignment-policy.json'));
+    const result = validateNarrationAlignmentProject({
+      meta,
+      mapping,
+      policy: narrationAlignmentPolicy,
+      script
+    });
+    if (!result.passed) {
+      throw new Error(`Narration-Alignment-Gate blockiert den Prompt-Build:\n${result.errors.map((error) => `- ${error}`).join('\n')}`);
+    }
+  }
+
+  let prompt = compileFlowPrompt({ meta, mapping, styleLock, worldLock });
+  if (narrationAlignmentPolicy) {
+    prompt = injectNarrationAlignmentIntoPrompt(prompt, mapping);
+  }
+
   await writeFile(p.prompt, prompt, 'utf8');
 
   meta.promptSystemVersion = 3;
