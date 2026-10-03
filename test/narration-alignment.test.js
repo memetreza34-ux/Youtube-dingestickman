@@ -126,7 +126,7 @@ test('Neues Projekt-Template aktiviert Narration Alignment standardmäßig', asy
   assert.equal(meta.narrationAlignmentGateVersion, 1);
   assert.equal(meta.chronologyPolicy.mode, 'strict-chronological');
   assert.equal(meta.chronologyPolicy.flashbacksAllowed, false);
-  assert.equal(mapping.schemaVersion, 3);
+  assert.equal(mapping.schemaVersion, 2);
   assert.ok(Object.hasOwn(mapping.images[0], 'narrationBeat'));
   assert.ok(Object.hasOwn(mapping.images[0], 'visualAnswer'));
   assert.equal(whole.schemaVersion, 3);
