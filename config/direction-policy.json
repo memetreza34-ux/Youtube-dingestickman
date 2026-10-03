@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "status": "READY",
+  "colorWorldArc": {
+    "requiredForNewProjects": true,
+    "file": "99-technik/COLOR_WORLD_ARC.json",
+    "minimumSections": 3,
+    "maximumSections": 7,
+    "sectionsMustCoverAllImages": true,
+    "adjacentSectionsMustDiffer": true,
+    "requiredSectionFields": ["id", "storyFunction", "startImage", "endImage", "paletteBias", "lighting", "atmosphere", "worldLife", "contrastPurpose"]
+  },
+  "semanticPacing": {
+    "requiredForNewProjects": true,
+    "hardMinimumSeconds": 2.2,
+    "preferredMinimumSeconds": 2.7,
+    "preferredMaximumSeconds": 4.5,
+    "emphasisMaximumSeconds": 5.5,
+    "absoluteMaximumSeconds": 6.0,
+    "maximumPlanVsActualDeltaSeconds": 1.6,
+    "longHoldAllowedBeatImportance": ["emphasis", "reveal", "payoff"],
+    "allowedBeatImportance": ["transition", "normal", "emphasis", "reveal", "payoff"],
+    "lastSceneContentExcludesEndHold": true,
+    "hardFailBelowMinimum": true,
+    "hardFailAboveAbsoluteMaximum": true
+  },
+  "motionDirector": {
+    "requiredForNewProjects": true,
+    "allowedTypes": ["static", "push-in", "pull-out", "pan", "drift"],
+    "allowedDirections": ["none", "left", "right", "up", "down"],
+    "allowedIntensities": ["none", "subtle", "moderate"],
+    "allowedFocuses": ["center", "left", "right", "upper-left", "upper-center", "upper-right", "lower-left", "lower-center", "lower-right"],
+    "minimumStaticShare": 0.2,
+    "maximumStaticShare": 0.35,
+    "maximumModerateShare": 0.25,
+    "maximumConsecutiveSameMotionType": 2,
+    "indexBasedPresetCyclingForbidden": true,
+    "motionSpeedMustBeDurationNormalized": true,
+    "motionMustHaveNarrativeReason": true
+  },
+  "worldLife": {
+    "requiredPerScene": true,
+    "purpose": "Historical frames should feel inhabited and materially specific without becoming crowded.",
+    "examples": ["wind in clothing or reeds", "mud or wheel tracks", "water ripples", "smoke", "animals", "tools in use", "wet fabric", "market activity", "boats", "small work details"]
+  }
+}

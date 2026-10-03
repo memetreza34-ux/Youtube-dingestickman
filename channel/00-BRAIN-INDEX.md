@@ -13,8 +13,9 @@ Bei Widersprüchen gilt:
 5. `config/topic-policy.json`
 6. `config/visual-policy.json`
 7. `config/narration-alignment-policy.json`
-8. `config/pipeline.json`
-9. alte Beispiele
+8. `config/direction-policy.json`
+9. `config/pipeline.json`
+10. alte Beispiele
 
 Für die Bildwelt zusätzlich:
 
@@ -26,6 +27,7 @@ config/flow-style-lock.json
 → channel/15-VISUAL-INTEREST-QC.md
 → channel/17-WHOLE-VIDEO-COHERENCE-GATE.md
 → channel/18-NARRATION-ALIGNMENT-GATE.md
+→ channel/19-DIRECTION-PACING-MOTION-GATE.md
 → Scene Card
 ```
 
@@ -33,120 +35,131 @@ Der technische Style-ID `history-stickman-adaptive-v1` ist ein Legacy-Name. Er b
 
 ## Preproduction
 
-Neue Projekte starten als `preproduction-review`.
-
-Pflichtdateien:
-
-```text
-99-technik/TOPIC_SCORECARD.json
-99-technik/STORY_QC.json
-```
-
-Topic Director V3 verlangt bei neuen Scorecards zusätzlich:
-
-- konkrete historische Story Core
-- `mechanismOnlyTopic = false`
-- konkrete menschliche / gesellschaftliche Stakes
-- Ereignis-/Veränderungsverlauf
-- erwarteter reiner Erkläranteil normalerweise <= 40 %
-
-Duplicate Check bleibt nur Neuheitsprüfung.
+Neue Projekte starten als `preproduction-review` und brauchen `TOPIC_SCORECARD.json` + `STORY_QC.json`.
+Topic Director V3 verlangt konkrete Story Core, Stakes, Ereignisverlauf, Quellen und verbietet mechanism-only Themen als automatische Produktionswahl.
 
 ## Script-first
-
-Maßgeblich: `channel/03-SCRIPT-BIBLE.md` V4.
-
-Verbindlich:
 
 ```text
 Recherche
 → vollständiger natürlicher Voice-over-Fließtext
-→ laut lesen / Sprachfluss-QC
+→ Read-aloud-QC
 → STORY_QC
 → erst danach Story-Beats und Visuals
 ```
 
-Nicht mehr zulässig:
+Nicht zulässig: erst Bilder planen und danach pro Bild einen Satz schreiben.
 
-```text
-Bilder planen
-→ pro Bild einen Satz schreiben
-→ daraus Voice-over bauen
-```
+## Whole-Video-Coherence
 
-## Whole-Video-Coherence-Gate
+Neue Projekte führen `99-technik/WHOLE_VIDEO_QC.json`.
+Pflicht sind u. a. Fließtext, Script-first, kohärente Bildfolge, begrenzter Erklärbild-Anteil, sinnvolle Übergänge und Gesamt-Kohärenz >= 8/10.
 
-Neue Projekte führen zusätzlich:
+WHOLE_VIDEO_QC Schema V4 prüft zusätzlich:
 
-```text
-99-technik/WHOLE_VIDEO_QC.json
-```
+- Color/World Arc als Gesamtentwicklung
+- benachbarte Farb-/Lichtabschnitte sind sichtbar verschieden
+- historische Welt wirkt bewohnt statt steril
+- Semantic-Pacing-Plan wurde geprüft
+- Motion-Plan wurde geprüft
+- Motion unterstützt Narration und wiederholt sich nicht mechanisch
 
-Maßgeblich: `channel/17-WHOLE-VIDEO-COHERENCE-GATE.md`.
-
-Pflicht:
-
-- Script ist zusammenhängender Fließtext
-- Read-aloud-QC bestanden
-- Visuals wurden erst nach Script abgeleitet
-- Bildfolge als Gesamtsequenz geprüft
-- explanation-only Visual Share <= 35 %
-- maximal 2 explanation-only Visuals hintereinander
-- nach Erklärblöcken Rückkehr zur konkreten historischen Welt
-- Redaktionstext nur bei echtem Nutzen
-- Übergänge geprüft
-- Gesamt-Kohärenz >= 8/10
-
-Phase 1 prüft dieses Gate bei neuen Projekten technisch.
-
-## Narration Alignment & Chronology Gate
+## Narration Alignment & Chronology
 
 Maßgeblich: `channel/18-NARRATION-ALIGNMENT-GATE.md` und `config/narration-alignment-policy.json`.
 
-Neue Projekte sind standardmäßig `strict-chronological`.
-
-Jede neue Scene Card benötigt zusätzlich:
+Jede Scene Card benötigt:
 
 ```text
 narrationBeat
- timeContext
- chronologyStep
- visualAnswer
- narrationMatchScore >= 9
- clarityScore >= 8
+timeContext
+chronologyStep
+visualAnswer
+narrationMatchScore >= 9
+clarityScore >= 8
 ```
 
-Verbindlich:
+Neue Projekte sind standardmäßig streng chronologisch. Spätere Ereignisse dürfen nicht vorzeitig im Bild auftauchen.
 
-- `narrationBeat` ist ein exakter Ausschnitt aus dem fertigen Voice-over.
-- die Bildfolge darf historisch nicht rückwärts laufen.
-- spätere Ereignisse, Schäden, Positionen oder Folgen dürfen nicht vorzeitig sichtbar werden.
-- jedes Bild beantwortet genau den aktuell gesprochenen Beat, nicht nur das allgemeine Video-Thema.
-- jedes Bild hat einen primären Takeaway und muss schnell lesbar sein.
-- Rückblenden sind nicht der Standard und benötigen einen ausdrücklichen Projekt-Override.
+## Direction / Color / Pacing / Motion
 
-Der Flow-Prompt-Build, `validate:youtube-phase1` und Phase 3 blockieren neue Projekte, wenn dieses Gate nicht bestanden ist.
+Maßgeblich: `channel/19-DIRECTION-PACING-MOTION-GATE.md` und `config/direction-policy.json`.
+
+Neue Projekte aktivieren automatisch:
+
+```text
+directionQualityGateVersion = 1
+colorWorldArcGateVersion = 1
+semanticPacingGateVersion = 1
+motionDirectorVersion = 1
+```
+
+Pflichtdatei:
+
+```text
+99-technik/COLOR_WORLD_ARC.json
+```
+
+Jede neue Scene Card plant zusätzlich:
+
+```text
+colorArcSection
+worldLifeDetail
+beatImportance
+plannedHoldSeconds
+holdReason
+motionType
+motionDirection
+motionIntensity
+motionFocus
+motionReason
+```
+
+Pacing nach echtem Audio-Alignment:
+
+- Hard-Minimum Inhalt: 2,2 s
+- bevorzugt: 2,7–4,5 s
+- wichtige Beats bis 5,5 s
+- absolutes Maximum: 6,0 s
+- End-Hold wird getrennt vom Story-Hold behandelt
+- starke Abweichung zwischen geplantem und echtem Hold blockiert Phase 3
+
+Motion:
+
+- keine indexbasierte Preset-Rotation
+- 20–35 % statisch / praktisch statisch
+- überwiegend subtile Bewegung
+- höchstens 25 % `moderate`
+- Motion-Geschwindigkeit wird an echte Szenendauer normalisiert
+- Fokus kann links/rechts/oben/unten liegen
+
+Color/World Arc:
+
+- gleicher Zeichenstil bedeutet nicht gleiche Palette, gleichen Himmel oder gleiche Lichtstimmung
+- Story-Abschnitte verändern Palette, Licht, Wetter und Welt-Lebendigkeit bewusst
+- jede Szene bekommt mindestens ein konkretes `worldLifeDetail`
 
 ## Zentrale Dateien
 
 - `02-TOPIC-SYSTEM.md` — Topic Director V3
-- `03-SCRIPT-BIBLE.md` — History Storytelling V4 / Script-first
+- `03-SCRIPT-BIBLE.md` — Script-first
 - `04-RESEARCH-POLICY.md` — Quellen / Unsicherheit
 - `05-VIDEO-BLUEPRINT.md` — Produktionspfad
 - `06-VISUAL-SYSTEM.md` — Narration-first Bildwelt
-- `07-VISUAL-GRAMMAR.md` — Visual Form pro Story Beat
-- `08-FLOW-PROMPTING.md` — Google Flow / Cover Gate
+- `07-VISUAL-GRAMMAR.md` — Visual Form pro Beat
+- `08-FLOW-PROMPTING.md` — Flow / Cover Gate
 - `09-IMAGE-PROMPT-TEMPLATE.md` — Promptstruktur
-- `10-STYLE-DNA-V2.md` — aktuelle Style DNA trotz Legacy-Dateiname
+- `10-STYLE-DNA-V2.md` — Style DNA
 - `11-VISUAL-DIRECTOR.md` — Scene Cards
-- `12-PROMPT-QC.md` — Prompt-QC >= 8/10
-- `13-PREPRODUCTION-QUALITY-GATE.md` — technische Preproduction
-- `14-PHASE3-ASSET-LOCK.md` — read-only Bilder in Phase 3
-- `15-VISUAL-INTEREST-QC.md` — Anti-Monotonie / kontrollierter Text / Bild-QC
-- `16-STORY-QUALITY-GATE.md` — Story statt Anekdoten-Kette
-- `17-WHOLE-VIDEO-COHERENCE-GATE.md` — Fließtext + Gesamtsequenz + Erkläranteil
-- `18-NARRATION-ALIGNMENT-GATE.md` — harte Bild-Skript-Passung + Chronologie + Klarheit
-- `99-DECISION-LOG.md` — chronologische Entscheidungen
+- `12-PROMPT-QC.md` — Prompt-QC
+- `13-PREPRODUCTION-QUALITY-GATE.md` — Preproduction
+- `14-PHASE3-ASSET-LOCK.md` — read-only Bilder
+- `15-VISUAL-INTEREST-QC.md` — Anti-Monotonie
+- `16-STORY-QUALITY-GATE.md` — Story Quality
+- `17-WHOLE-VIDEO-COHERENCE-GATE.md` — Gesamtsequenz
+- `18-NARRATION-ALIGNMENT-GATE.md` — Bild-Skript-Passung + Chronologie
+- `19-DIRECTION-PACING-MOTION-GATE.md` — Color Arc + Semantic Pacing + Motion Director
+- `99-DECISION-LOG.md` — Entscheidungen
 
 ## Maschinenlesbare Kernquellen
 
@@ -155,6 +168,7 @@ config/channel-policy.json
 config/topic-policy.json
 config/visual-policy.json
 config/narration-alignment-policy.json
+config/direction-policy.json
 config/flow-style-lock.json
 config/pipeline.json
 ```
@@ -167,29 +181,24 @@ config/pipeline.json
 → Duplicate Check
 → TOPIC_SCORECARD APPROVED
 → Recherche
-→ kompletter Voice-over-Fließtext
+→ Voice-over-Fließtext
 → Read-aloud-QC
 → STORY_QC APPROVED
-→ Story Beats aus dem fertigen Script ableiten
-→ narrationBeat / timeContext / chronologyStep / visualAnswer
-→ Narration Match >= 9 / Clarity >= 8
-→ Viewer Takeaway / Visual Form
-→ Shot Scale / Visual Energy / Change From Previous
-→ explanationOnly markieren
-→ Redaktionstext nur gezielt planen
-→ WHOLE_VIDEO_QC V3 APPROVED
-→ Prompt QC >= 8
-→ Visual Interest >= 8
+→ Story Beats / Narration Alignment
+→ Color/World Arc
+→ Scene Cards mit Pacing + Motion
+→ WHOLE_VIDEO_QC V4 APPROVED
+→ Prompt QC / Visual Interest
 → FLOW_WORLD_LOCK READY
-→ Narration-Alignment-Gate
+→ Direction + Narration Gates
 → Flow Compiler V3
 → Phase 1 Full
 → Google Flow
-→ finale Bilder prüfen
-→ PHASE2_VISUAL_QC APPROVED + SHA-256
-→ Phase 2
+→ Phase 2 Visual QC + SHA-256
 → PHASE3_IMAGE_LOCK
-→ Audio / Alignment / Timeline / Pacing
+→ Audio / Alignment
+→ Semantic Pacing
+→ Motion-directed Timeline
 → Remotion
 → FINAL_VIDEO + THUMBNAIL + CAPTION
 ```
@@ -198,60 +207,17 @@ config/pipeline.json
 
 Neue Produktionen:
 
-- max. 2 gleiche Visual Forms hintereinander
-- max. 2 Character Scenes hintereinander
-- max. 2 gleiche Shot Scales hintereinander
-- max. 2 `explanationOnly=true` Visuals hintereinander
-- 10-Bilder-Fenster normalerweise mindestens 3 Visual Forms
-- jedes Bild braucht `visualEnergyDevice`
-- jedes Bild braucht `visualInterestScore >= 8`
-- jedes Bild braucht `narrationMatchScore >= 9`
-- jedes Bild braucht `clarityScore >= 8`
-- Bildwechsel müssen aus der Narration begründet sein, nicht nur aus dem Wunsch nach Abwechslung
-- zukünftige Zustände/Ereignisse dürfen nicht vorzeitig im Bild auftauchen
-
-### Bild 01
-
-Nur exakter Covertext. Keine Bildnummer, Zusatzüberschrift oder Labels.
-
-### Bild 02–NN
-
-Standard: `NO_VISIBLE_TEXT`.
-
-Gezielt erlaubt: `EDITORIAL_TEXT`, wenn in der Scene Card exakt freigegeben. Geeignet sind kurze Jahreszahlen, Daten, Orte, Zeitwechsel, Orientierung oder kurze Vergleiche.
-
-Immer verboten:
-
-- `BILD`, `IMAGE`, `SCENE`
-- interne Bildnummern
-- Prompt-Metadaten
-- Wasserzeichen
-- Pseudo-Schrift
-- zusätzlicher nicht freigegebener Text
-
-## Phase-2-Visual-QC
-
-Bei neuen Projekten speichert `PHASE2_VISUAL_QC.json` pro Bild `fileName` + `sha256`.
-
-Textprüfung folgt exakt der Scene Card:
-
-- Cover → exakter Covertext
-- NO_VISIBLE_TEXT → kein Text
-- EDITORIAL_TEXT → exakt der freigegebene `editorialText`
-
-Wird ein freigegebenes Bild ersetzt, fällt Phase 2 durch.
+- Visuals müssen zum aktuellen Narrations-Beat passen
+- keine zukünftigen Zustände vorwegnehmen
+- keine monotone Folge gleicher Visual Forms / Figurenbilder / Perspektiven
+- nicht mehr als zwei reine Erklärbilder am Stück
+- gleiche Stil-DNA, aber bewusst variierende Story-Palette, Licht, Wetter und Atmosphäre
+- historische Welt mit konkreten, aber sparsamen Lebensdetails
+- kontrollierter Redaktionstext nur bei echtem Nutzen
+- interne Bildnummern, Prompt-Metadaten, Wasserzeichen und Pseudo-Schrift immer verboten
 
 ## Phase 3
 
-Ab `PHASE3_IMAGE_LOCK` ist `00-bildprompts/images/` read-only. Bei Asset-Fehlern abbrechen und melden, niemals automatisch reparieren oder Bilder erzeugen.
-
-## Export
-
-```text
-03-export/
-FINAL_VIDEO.mp4
-THUMBNAIL.png
-CAPTION.txt
-```
+Ab `PHASE3_IMAGE_LOCK` bleibt `00-bildprompts/images/` read-only. Asset-Fehler werden gemeldet, nicht automatisch repariert.
 
 Den kompilierten `google-flow-prompt.txt` nicht manuell pflegen; Quelldaten ändern und neu bauen.

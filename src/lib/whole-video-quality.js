@@ -38,6 +38,16 @@ export function validateWholeVideoQc(qc, visualPolicy = {}) {
     if (qc.futureEventLeakageAbsent !== true) errors.push('Spätere Ereignisse/Zustände dürfen nicht vorzeitig in früheren Bildern auftauchen.');
   }
 
+  if (Number(qc.schemaVersion) >= 4) {
+    if (qc.colorWorldArcReviewed !== true) errors.push('Color/World Arc wurde nicht als Gesamtentwicklung geprüft.');
+    if (qc.adjacentColorSectionsDistinct !== true) errors.push('Benachbarte Color-Arc-Abschnitte müssen sich sichtbar in Licht, Palette oder Atmosphäre unterscheiden.');
+    if (qc.worldFeelsLivedIn !== true) errors.push('Die historische Welt wirkt noch zu steril oder leblos.');
+    if (qc.semanticPacingPlanReviewed !== true) errors.push('Semantic-Pacing-Plan wurde nicht geprüft.');
+    if (qc.motionPlanReviewed !== true) errors.push('Motion-Plan wurde nicht geprüft.');
+    if (qc.motionSupportsNarration !== true) errors.push('Mindestens eine Kamerabewegung ist nicht aus Narration oder Bildfokus begründet.');
+    if (qc.motionRepetitionAbsent !== true) errors.push('Mechanisch wiederholte Motion-Muster müssen entfernt sein.');
+  }
+
   const share = Number(qc.explanationOnlyVisualShare);
   if (!Number.isFinite(share) || share < 0 || share > maximumExplanationShare) {
     errors.push(`explanationOnlyVisualShare muss zwischen 0 und ${maximumExplanationShare} liegen.`);

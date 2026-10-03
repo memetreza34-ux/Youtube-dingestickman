@@ -5,9 +5,11 @@ function Shot({ image, durationInFrames }) {
   const frame = useCurrentFrame();
   const progress = durationInFrames <= 1 ? 0 : frame / (durationInFrames - 1);
   const motion = image.motion ?? {};
-  const scale = interpolate(progress, [0, 1], [Number(motion.scaleFrom ?? 1.01), Number(motion.scaleTo ?? 1.035)], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const scale = interpolate(progress, [0, 1], [Number(motion.scaleFrom ?? 1.015), Number(motion.scaleTo ?? 1.015)], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   const x = interpolate(progress, [0, 1], [Number(motion.xFrom ?? 0), Number(motion.xTo ?? 0)], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   const y = interpolate(progress, [0, 1], [Number(motion.yFrom ?? 0), Number(motion.yTo ?? 0)], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const originX = Number(motion.originX ?? 50);
+  const originY = Number(motion.originY ?? 50);
 
   return (
     <AbsoluteFill style={{ backgroundColor: '#111', overflow: 'hidden' }}>
@@ -18,7 +20,7 @@ function Shot({ image, durationInFrames }) {
           height: '100%',
           objectFit: 'cover',
           transform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
-          transformOrigin: 'center center'
+          transformOrigin: `${originX}% ${originY}%`
         }}
       />
     </AbsoluteFill>

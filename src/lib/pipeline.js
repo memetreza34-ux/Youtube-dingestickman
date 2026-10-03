@@ -158,6 +158,7 @@ export function projectPaths(projectDirectory) {
     meta: path.join(projectDir, '99-technik', 'video.json'),
     mapping: path.join(projectDir, '99-technik', 'BILD_AUDIO_ZUORDNUNG.json'),
     flowWorldLock: path.join(projectDir, '99-technik', 'FLOW_WORLD_LOCK.json'),
+    colorWorldArc: path.join(projectDir, '99-technik', 'COLOR_WORLD_ARC.json'),
     topicScorecard: path.join(projectDir, '99-technik', 'TOPIC_SCORECARD.json'),
     storyQc: path.join(projectDir, '99-technik', 'STORY_QC.json'),
     wholeVideoQc: path.join(projectDir, '99-technik', 'WHOLE_VIDEO_QC.json'),
