@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "status": "READY",
+  "defaultChronologyMode": "strict-chronological",
+  "minimumNarrationMatchScore": 9,
+  "minimumClarityScore": 8,
+  "requireExactNarrationBeatFromScript": true,
+  "requireTimeContext": true,
+  "requireChronologyStep": true,
+  "requireVisualAnswer": true,
+  "requireOnePrimaryTakeaway": true,
+  "futureEventLeakageForbidden": true,
+  "unnecessaryFlashbacksForbidden": true,
+  "flashbacksRequireExplicitProjectOverride": true,
+  "visualOrderMustMatchNarrationOrder": true,
+  "chronologyStepsMustBeNonDecreasing": true,
+  "chronologyStepsMayRepeatWithinSameMoment": true,
+  "maximumChronologyStepIncrease": 1,
+  "requiredSceneFields": [
+    "narrationBeat",
+    "timeContext",
+    "chronologyStep",
+    "visualAnswer",
+    "narrationMatchScore",
+    "clarityScore"
+  ],
+  "rules": [
+    "Die Standard-Erzählweise neuer Geschichtsvideos ist chronologisch. Spätere Ereignisse dürfen nicht vorweggenommen und danach wieder zurückgesprungen werden, nur um einen dramatischeren Hook zu erzeugen.",
+    "Jede Scene Card muss den exakten gerade gesprochenen Narrations-Beat aus dem Voice-over enthalten.",
+    "Jede Scene Card muss den historischen Zeitkontext dieses Beats nennen.",
+    "Jede Scene Card muss mit chronologyStep in eine nicht rückwärts laufende historische Reihenfolge eingeordnet werden.",
+    "Jede Scene Card muss mit visualAnswer beschreiben, was der Zuschauer konkret sehen soll, um genau diesen Narrations-Beat zu verstehen.",
+    "Ein Bild darf nicht nur zum allgemeinen Thema passen. Es muss zum aktuellen Satz oder Gedanken passen.",
+    "Ein Bild muss in ungefähr einer Sekunde einen primären visuellen Gedanken erkennen lassen. Unübersichtliche Mehrfachaussagen sind nicht freigabefähig.",
+    "Karten, Daten, Ortsnamen und kurze Erklärtexte sind erlaubt, wenn sie den aktuellen Beat schneller verständlich machen.",
+    "Wenn ein späterer Zustand, Schaden, Ort, Charakter oder Ereignis noch nicht erzählt wurde, darf er nicht vorzeitig im Bild auftauchen.",
+    "Rückblenden sind nur als bewusste Ausnahme erlaubt und benötigen einen expliziten Projekt-Override plus sichtbare zeitliche Orientierung."
+  ]
+}
