@@ -12,8 +12,9 @@ Bei Widersprüchen gilt:
 4. `config/channel-policy.json`
 5. `config/topic-policy.json`
 6. `config/visual-policy.json`
-7. `config/pipeline.json`
-8. alte Beispiele
+7. `config/narration-alignment-policy.json`
+8. `config/pipeline.json`
+9. alte Beispiele
 
 Für die Bildwelt zusätzlich:
 
@@ -24,6 +25,7 @@ config/flow-style-lock.json
 → channel/07-VISUAL-GRAMMAR.md
 → channel/15-VISUAL-INTEREST-QC.md
 → channel/17-WHOLE-VIDEO-COHERENCE-GATE.md
+→ channel/18-NARRATION-ALIGNMENT-GATE.md
 → Scene Card
 ```
 
@@ -97,6 +99,34 @@ Pflicht:
 
 Phase 1 prüft dieses Gate bei neuen Projekten technisch.
 
+## Narration Alignment & Chronology Gate
+
+Maßgeblich: `channel/18-NARRATION-ALIGNMENT-GATE.md` und `config/narration-alignment-policy.json`.
+
+Neue Projekte sind standardmäßig `strict-chronological`.
+
+Jede neue Scene Card benötigt zusätzlich:
+
+```text
+narrationBeat
+ timeContext
+ chronologyStep
+ visualAnswer
+ narrationMatchScore >= 9
+ clarityScore >= 8
+```
+
+Verbindlich:
+
+- `narrationBeat` ist ein exakter Ausschnitt aus dem fertigen Voice-over.
+- die Bildfolge darf historisch nicht rückwärts laufen.
+- spätere Ereignisse, Schäden, Positionen oder Folgen dürfen nicht vorzeitig sichtbar werden.
+- jedes Bild beantwortet genau den aktuell gesprochenen Beat, nicht nur das allgemeine Video-Thema.
+- jedes Bild hat einen primären Takeaway und muss schnell lesbar sein.
+- Rückblenden sind nicht der Standard und benötigen einen ausdrücklichen Projekt-Override.
+
+Der Flow-Prompt-Build, `validate:youtube-phase1` und Phase 3 blockieren neue Projekte, wenn dieses Gate nicht bestanden ist.
+
 ## Zentrale Dateien
 
 - `02-TOPIC-SYSTEM.md` — Topic Director V3
@@ -115,6 +145,7 @@ Phase 1 prüft dieses Gate bei neuen Projekten technisch.
 - `15-VISUAL-INTEREST-QC.md` — Anti-Monotonie / kontrollierter Text / Bild-QC
 - `16-STORY-QUALITY-GATE.md` — Story statt Anekdoten-Kette
 - `17-WHOLE-VIDEO-COHERENCE-GATE.md` — Fließtext + Gesamtsequenz + Erkläranteil
+- `18-NARRATION-ALIGNMENT-GATE.md` — harte Bild-Skript-Passung + Chronologie + Klarheit
 - `99-DECISION-LOG.md` — chronologische Entscheidungen
 
 ## Maschinenlesbare Kernquellen
@@ -123,6 +154,7 @@ Phase 1 prüft dieses Gate bei neuen Projekten technisch.
 config/channel-policy.json
 config/topic-policy.json
 config/visual-policy.json
+config/narration-alignment-policy.json
 config/flow-style-lock.json
 config/pipeline.json
 ```
@@ -139,16 +171,19 @@ config/pipeline.json
 → Read-aloud-QC
 → STORY_QC APPROVED
 → Story Beats aus dem fertigen Script ableiten
+→ narrationBeat / timeContext / chronologyStep / visualAnswer
+→ Narration Match >= 9 / Clarity >= 8
 → Viewer Takeaway / Visual Form
 → Shot Scale / Visual Energy / Change From Previous
 → explanationOnly markieren
 → Redaktionstext nur gezielt planen
-→ WHOLE_VIDEO_QC APPROVED
+→ WHOLE_VIDEO_QC V3 APPROVED
 → Prompt QC >= 8
 → Visual Interest >= 8
 → FLOW_WORLD_LOCK READY
+→ Narration-Alignment-Gate
 → Flow Compiler V3
-→ Phase 1
+→ Phase 1 Full
 → Google Flow
 → finale Bilder prüfen
 → PHASE2_VISUAL_QC APPROVED + SHA-256
@@ -170,7 +205,10 @@ Neue Produktionen:
 - 10-Bilder-Fenster normalerweise mindestens 3 Visual Forms
 - jedes Bild braucht `visualEnergyDevice`
 - jedes Bild braucht `visualInterestScore >= 8`
+- jedes Bild braucht `narrationMatchScore >= 9`
+- jedes Bild braucht `clarityScore >= 8`
 - Bildwechsel müssen aus der Narration begründet sein, nicht nur aus dem Wunsch nach Abwechslung
+- zukünftige Zustände/Ereignisse dürfen nicht vorzeitig im Bild auftauchen
 
 ### Bild 01
 
