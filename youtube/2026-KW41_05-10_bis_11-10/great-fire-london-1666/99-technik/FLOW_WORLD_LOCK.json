@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "status": "READY",
+  "settingName": "City of London während des Großen Brandes 1666",
+  "settingDescription": "Konsistente handgezeichnete Rekonstruktion der dicht bebauten City of London vom frühen 2. September bis zum Wiederaufbau nach dem Brand. Enge unregelmäßige Straßen, mehrgeschossige Fachwerkhäuser mit auskragenden Obergeschossen, Stein- und Ziegelfundamente, Werkhöfe, Markt- und Lagerbereiche, Themse-Ufer und Old St Paul’s. Die Welt entwickelt sich chronologisch von trockener intakter Stadt über Rauch und Feuer zu Ruinen und frühem Wiederaufbau.",
+  "storyMode": "event-led",
+  "mainCharacter": null,
+  "recurringPlaces": [
+    {
+      "id": "pudding-lane",
+      "description": "enge abfallende Straße nahe der Themse; dichte Holzhäuser, Farriners Bäckerei als schmale Straßenfront; vor dem Brand trocken und intakt, danach zunehmend beschädigt"
+    },
+    {
+      "id": "dense-city-street",
+      "description": "repräsentative enge City-Straße mit gegeneinander auskragenden oberen Stockwerken, unregelmäßigen Fachwerkfassaden und schmalem Himmelsspalt"
+    },
+    {
+      "id": "thames-waterfront",
+      "description": "Themse mit kleinen Booten, Kais, Lagerhäusern, Fässern, Seilen und Waren; London Bridge nur zeigen, wenn räumlich sinnvoll"
+    },
+    {
+      "id": "old-st-pauls",
+      "description": "mittelalterliche Old-St-Paul’s-Kathedrale ohne heutige Wren-Kuppel; massiver langer Steinkörper, Turm/Laternenturm teilweise von Holzgerüst umgeben"
+    },
+    {
+      "id": "moorfields",
+      "description": "offenes Feld außerhalb der dicht bebauten City, später mit provisorischen Lagern, geretteten Kisten, Decken und einfachen Unterständen"
+    }
+  ],
+  "recurringPeople": [
+    {
+      "name": "Thomas Farriner",
+      "role": "Bäcker in Pudding Lane",
+      "appearance": "mittelalter Mann, praktische 1660er Arbeitskleidung, Schürze, dunkles kurzes Haar; nur wenige frühe Szenen"
+    },
+    {
+      "name": "Thomas Bludworth",
+      "role": "Lord Mayor",
+      "appearance": "älterer wohlhabender Amtsträger, dunkler Mantel, weißer Kragen, kontrollierte Körpersprache; nicht karikieren"
+    },
+    {
+      "name": "Samuel Pepys",
+      "role": "Navy Board official und Augenzeuge",
+      "appearance": "33-jähriger Mann, schulterlanges dunkles Haar im 1660er Stil, dunkler Mantel mit weißem Kragen; wiedererkennbar in wenigen Beobachtungs-/Berichtsszenen"
+    },
+    {
+      "name": "Charles II",
+      "role": "König",
+      "appearance": "großer schlanker Mann mit langem dunklem Haar und Schnurrbart, dunkle elegante 1660er Kleidung; nur bei der Abrissanordnung"
+    },
+    {
+      "name": "Christopher Wren",
+      "role": "Architekt im Wiederaufbau",
+      "appearance": "junger erwachsener Gelehrter/Architekt, dunkles Haar, schlichte vornehme Kleidung; nur im Nachspiel"
+    }
+  ],
+  "representativePeople": "Bewohner, Handwerker, Händler, Bootsleute, Pfarrei-Helfer, Soldaten, Seeleute und Flüchtende wechseln von Szene zu Szene. Keine identischen Statisten und keine erfundene wiederkehrende Ersatz-Hauptfigur.",
+  "recurringProps": [
+    "Leder- und Holzeimer",
+    "lange Feuerhaken",
+    "Äxte",
+    "einfache handbetriebene Wasserspritzen",
+    "Holzkarren und Truhen",
+    "kleine Themse-Boote",
+    "Fässer, Seilbündel und Holzwaren in Lagerbereichen",
+    "schwere Holzbalken und Abrisswerkzeug",
+    "Holzgerüst an Old St Paul’s",
+    "kleine Schießpulverladungen für Abriss",
+    "Vermessungsstäbe und Baupläne im Wiederaufbau"
+  ],
+  "historicalHardRules": [
+    "Keine moderne London-Skyline, keine heutige St-Paul’s-Kuppel während des Brandes.",
+    "Keine moderne Feuerwehr, Schläuche, Hydranten, Motorpumpen oder moderne Uniformen.",
+    "Keine viktorianischen oder mittelalterlich-fantastischen Kostüme; Kleidung und Architektur bleiben 1660er England.",
+    "Brandfortschritt ist chronologisch: spätere Ruinen nicht in frühen Bildern zeigen.",
+    "Old St Paul’s vor dem Brand als mittelalterliche Kathedrale mit damaligem Gerüst darstellen.",
+    "Wren-Neubau und Monument nur im Nachspiel, niemals während des Brandes.",
+    "Wren-Stadtplan als nicht realisierte Idee markieren, nicht als tatsächlich gebaute neue Straßenordnung."
+  ],
+  "paletteBase": [
+    "warmer trockener Ocker",
+    "Holzbraun",
+    "Rußgrau",
+    "gedämpftes Ziegelrot",
+    "tiefes Nachtblau",
+    "Feuerorange als kontrollierter Story-Akzent",
+    "Rauchgrau",
+    "später kühles Ruinenbeige und frisches Ziegelrot"
+  ],
+  "continuityRule": "Der Brand darf visuell eskalieren, aber wiederkehrende Orte behalten Geometrie und Orientierung. Farbwelt, Rauchdichte, Menschenmenge und Beschädigung verändern sich mit der Chronologie; Zeichenstil und historische Welt bleiben konstant."
+}
