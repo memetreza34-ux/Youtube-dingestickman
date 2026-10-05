@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "status": "READY",
+  "settingName": "City of London während des Großen Brandes 1666",
+  "settingDescription": "Konsistente 1660er City of London vom intakten trockenen Stadtgewebe über den viertägigen Brand bis zu Ruinen und frühem Wiederaufbau; enge Fachwerkstraßen, Themse-Ufer, Lagerhäuser und Old St Paul’s bleiben historisch und räumlich plausibel.",
+  "recurringPlaces": [
+    "Pudding Lane: enge abfallende Straße nahe der Themse mit Farriners schmaler Bäckereifront; vor dem Brand intakt, später nur entsprechend der erzählten Chronologie beschädigt",
+    "repräsentative enge City-Straße: auskragende Fachwerk-Obergeschosse, schmaler Himmelsspalt, unregelmäßige Fassaden und Pflasterachse",
+    "Themse-Ufer: kleine Boote, Kais, Lagerhäuser, Fässer, Seile und Holzwaren; keine moderne Uferbebauung",
+    "Old St Paul’s: mittelalterliche Kathedrale ohne heutige Wren-Kuppel, massiver Steinkörper und damaliges Holzgerüst am Turm",
+    "Moorfields: offenes Feld außerhalb der dichten City, später provisorische Unterstände und geretteter Hausrat"
+  ],
+  "recurringCharacters": [
+    "Thomas Farriner: mittelalter Mann in praktischer 1660er Arbeitskleidung und Schürze; nur frühe Pudding-Lane-Szenen",
+    "Thomas Bludworth: älterer wohlhabender Lord Mayor mit dunklem Mantel und weißem Kragen; sachlich, nicht karikiert",
+    "Samuel Pepys: 33-jähriger Mann mit schulterlangem dunklem Haar, dunklem Mantel und weißem Kragen; wiedererkennbar bei Beobachtung und Bericht",
+    "Charles II: großer schlanker Mann mit langem dunklem Haar und Schnurrbart in eleganter dunkler 1660er Kleidung; nur bei der Abrissanordnung",
+    "Christopher Wren: junger erwachsener Gelehrter und Architekt in vornehmer 1660er Kleidung; nur im Nachspiel"
+  ],
+  "recurringProps": [
+    "Leder- und Holzeimer, lange Feuerhaken, Äxte und einfache Wasserspritzen",
+    "Holzkarren, Truhen und kleine Themse-Boote",
+    "Fässer, Seilbündel und Holzwaren an Lagerhäusern",
+    "Holzgerüst an Old St Paul’s",
+    "Abrissseile, kleine Schießpulverladungen und später Vermessungswerkzeug"
+  ],
+  "basePalette": [
+    "trockener Ocker und Holzbraun",
+    "Rußgrau und Rauchgrau",
+    "gedämpftes Ziegelrot",
+    "tiefes Nachtblau",
+    "kontrolliertes Feuerorange nur dort, wo die Chronologie echtes Feuer verlangt",
+    "im Wiederaufbau frisches Ziegelrot, warmer Stein und klareres Himmelsblau"
+  ],
+  "timeWeatherLogic": "2. September startet tief in der Nacht, geht über rauchigen Morgen und windgetriebenen Tag; 3.–4. September werden Rauch, Feuerdichte und Zerstörung stärker; am 5. September lässt der Wind nach; danach kühles Ruinenlicht und schließlich klareres Wiederaufbaulicht.",
+  "continuityRules": [
+    "Keine moderne London-Skyline, heutige St-Paul’s-Kuppel, moderne Feuerwehr, Schläuche, Hydranten, Motorpumpen oder moderne Uniformen.",
+    "Keine viktorianischen oder Fantasy-Kostüme; Architektur und Kleidung bleiben 1660er England.",
+    "Spätere Ruinen, Sprengungen oder Wiederaufbauzustände niemals vor der entsprechenden Narration zeigen.",
+    "Old St Paul’s während des Brandes als mittelalterliche Kathedrale mit zeitgenössischem Gerüst darstellen.",
+    "Wren-Neubau, neue Ziegelbauten und Wiederaufbaupläne erscheinen nur im Nachspiel; Wrens Idealplan darf nicht wie der tatsächlich gebaute Stadtgrundriss wirken.",
+    "Wechselnde Bürger, Helfer, Soldaten und Flüchtende sind repräsentative historische Menschen; keine erfundene wiederkehrende Ersatz-Hauptfigur und keine identischen Klone."
+  ]
+}

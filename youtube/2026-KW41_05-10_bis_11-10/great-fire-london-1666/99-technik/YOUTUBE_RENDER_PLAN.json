@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 2,
+  "motionPolicy": "content-aware-v1",
+  "colorArc": [
+    {
+      "id": "spark-night",
+      "storyFunction": "Hook: first fire",
+      "paletteBias": "deep navy, warm oven amber, small isolated orange",
+      "lighting": "night darkness with contained local light"
+    },
+    {
+      "id": "tinder-city",
+      "storyFunction": "Why London was vulnerable",
+      "paletteBias": "dry ochre, timber brown, dusty muted gold",
+      "lighting": "dry late-summer contextual light"
+    },
+    {
+      "id": "pudding-lane",
+      "storyFunction": "Local fire becomes street fire",
+      "paletteBias": "dark blue, smoke gray, growing orange",
+      "lighting": "night into predawn with rising fire glow"
+    },
+    {
+      "id": "delay-firebreak",
+      "storyFunction": "Early response and delayed demolition",
+      "paletteBias": "charcoal blue, muted red, harsh fire orange",
+      "lighting": "predawn smoke and uneven fire light"
+    },
+    {
+      "id": "river-fuel",
+      "storyFunction": "Wind and warehouses",
+      "paletteBias": "river gray-blue, tar brown, rust red, hot orange",
+      "lighting": "early morning haze with wind-driven sparks"
+    },
+    {
+      "id": "citizen-firefighting",
+      "storyFunction": "No professional brigade",
+      "paletteBias": "wet stone gray, leather brown, restrained orange",
+      "lighting": "morning light mixed with smoke"
+    },
+    {
+      "id": "escape-command",
+      "storyFunction": "Pepys, evacuation and royal order",
+      "paletteBias": "pale morning gray, river blue, muted burgundy",
+      "lighting": "daylight filtered through smoke"
+    },
+    {
+      "id": "monday-inferno",
+      "storyFunction": "City loses control",
+      "paletteBias": "dirty amber, dense smoke gray, ember red",
+      "lighting": "daylight darkened by smoke"
+    },
+    {
+      "id": "st-pauls-crisis",
+      "storyFunction": "Old St Paul’s and radical escalation",
+      "paletteBias": "stone gray, black scaffold, fierce copper-orange",
+      "lighting": "afternoon into firelit night"
+    },
+    {
+      "id": "firebreak-turn",
+      "storyFunction": "Explosions, weakening wind, containment",
+      "paletteBias": "ash gray, dark brown, restrained orange",
+      "lighting": "night into calmer Wednesday air"
+    },
+    {
+      "id": "ruins-human-cost",
+      "storyFunction": "Ruins and displacement",
+      "paletteBias": "cool ash beige, soot gray, faded blue",
+      "lighting": "post-fire daylight with low-contrast haze"
+    },
+    {
+      "id": "rebuild-payoff",
+      "storyFunction": "Rebuilding and meaning",
+      "paletteBias": "fresh brick red, warm stone, parchment cream, cleaner sky blue",
+      "lighting": "clearer rebuilding daylight"
+    }
+  ],
+  "backgroundMusic": false,
+  "motionOverrides": [],
+  "soundEffects": []
+}

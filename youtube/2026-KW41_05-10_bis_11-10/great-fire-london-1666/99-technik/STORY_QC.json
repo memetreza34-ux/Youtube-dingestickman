@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "status": "APPROVED",
+  "reviewMethod": "model-review-plus-read-aloud-check",
+  "centralQuestion": "Warum konnte ein einzelner Brand in Pudding Lane zu einem viertägigen Stadtbrand werden, der große Teile der City of London zerstörte?",
+  "storySpine": "Ein lokaler Nachtbrand trifft auf eine extrem brandanfällige Stadtstruktur; Wind, Lagergüter und unzureichende Löschorganisation lassen ihn eskalieren, zu späte Feuerbreschen verschärfen die Lage, Flucht und Zerstörung wachsen, bis radikalere Abrisse plus nachlassender Wind die Ausbreitung bremsen und der Wiederaufbau die Stadt dauerhaft verändert.",
+  "historicalMeaning": "Die Katastrophe zeigt, dass urbane Risiken selten an einem einzigen Auslöser hängen: Bauweise, Infrastruktur, Organisation, Wetter und Entscheidungen können sich gegenseitig verstärken und spätere Regeln dauerhaft prägen.",
+  "hookPromise": "Ein kleines Feuer beginnt nachts in einer Bäckerei – wenige Stunden später brennen ganze Straßenzüge. Das Video erklärt Schritt für Schritt, warum London vier Tage lang kaum Kontrolle über den Brand bekam.",
+  "scores": {
+    "hook": 9.5,
+    "storyProgression": 9.7,
+    "historicalMeaning": 9.4,
+    "payoff": 9.6
+  },
+  "centralStoryShare": 0.96,
+  "personalityCuriosityShare": 0.02,
+  "maxConsecutivePurePersonalityCuriosityBeats": 0,
+  "beatFunctionsReviewed": true,
+  "endingAnswersOpeningQuestion": true,
+  "approved": true,
+  "notes": [
+    "Voice-over wurde vollständig als Fließtext vor der Bildplanung geschrieben.",
+    "Hook startet chronologisch am Brandbeginn; keine Zukunftsszene mit späterer Rückblende.",
+    "Einleitung erklärt nur die Faktoren, die unmittelbar für die spätere Eskalation benötigt werden.",
+    "Hauptteil wechselt zwischen Ausbreitung, Menschen, Löschversuchen, räumlicher Entwicklung und Wendepunkten.",
+    "Schluss beantwortet die Leitfrage mit einer Kombination aus Stadtstruktur, Wetter, Material, Organisation und verspäteten Feuerbreschen und führt anschließend zum Wiederaufbau.",
+    "Pepys ist Augenzeuge und Handlungsträger in wenigen Beats, nicht Hauptcharakter des Videos."
+  ]
+}
