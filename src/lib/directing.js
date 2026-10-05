@@ -90,7 +90,9 @@ export function motionFromScene(scene, durationSeconds) {
 }
 
 function markerRegex(imageNumber) {
-  return new RegExp(`BILD\\s+0*${Number(imageNumber)}(?:\\s|$)`, 'i');
+  // Nur echte Scene-Header treffen. Globale Regeln dürfen Begriffe wie
+  // "BILD 01 through BILD 84" erwähnen, ohne dass dort Directing-Blöcke landen.
+  return new RegExp(`^BILD\\s+0*${Number(imageNumber)}\\s*$`, 'im');
 }
 
 export function injectDirectingIntoPrompt(prompt, mapping, renderPlan) {
