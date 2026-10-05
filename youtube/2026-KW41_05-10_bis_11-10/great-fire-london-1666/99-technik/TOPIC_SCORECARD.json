@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 3,
+  "status": "APPROVED",
+  "candidate": "Warum der Große Brand von London 1666 vier Tage nicht zu stoppen war",
+  "proposedTitle": "Warum der Große Brand von London 1666 vier Tage nicht zu stoppen war",
+  "topicFamily": "disaster_survival",
+  "storyMode": "event-led",
+  "mainCharacterRequired": false,
+  "humanRepresentationPlan": "Das Ereignis trägt die Story. Bewohner, Händler, Bootsleute, Abrissmannschaften, Soldaten und Flüchtende wechseln je nach Beat. Pepys, Bludworth und Charles II erscheinen nur als historisch relevante Akteure; keiner wird künstlich zum dauerhaften Protagonisten gemacht.",
+  "discovery": {
+    "rawCandidateCount": 30,
+    "shortlistSize": 12,
+    "selectedRank": 1,
+    "selectedFromShortlist": true
+  },
+  "duplicateCheckDecision": "APPROVED_NEW",
+  "storyEnginePresent": true,
+  "isolatedAnecdoteOnly": false,
+  "diversityGatePassed": true,
+  "largerHistoricalPoint": "Der Brand zeigt, wie Stadtstruktur, Baumaterial, Wetter, Lagerwirtschaft, Organisation und verzögerte Entscheidungen gemeinsam eine lokale Störung in eine urbane Katastrophe verwandeln – und wie diese Katastrophe Bauordnung und Brandvorsorge veränderte.",
+  "sourceabilityEvidence": "London Museum, London Fire Brigade, St Paul’s Cathedral, City of London und The Monument dokumentieren Beginn, Ausbreitung, Brandbekämpfung, Zerstörung und Wiederaufbau.",
+  "historicalStoryCorePresent": true,
+  "mechanismOnlyTopic": false,
+  "concreteHumanStakes": "Bewohner verlieren Häuser und Besitz, Straßen werden zu Fluchtwegen, ungefähr 100.000 Menschen werden obdachlos und müssen in provisorische Lager ausweichen.",
+  "eventProgression": "kleiner Brand in Pudding Lane → rasche Ausbreitung durch dichte trockene Stadt → verspätete Feuerbreschen und überforderte Löschmittel → Flucht und großflächige Zerstörung → radikalere Sprengungen plus nachlassender Wind → Brand unter Kontrolle → Wiederaufbau und neue Regeln",
+  "expectedExplanationMechanismShare": 0.18,
+  "titleDirections": [
+    "Warum der Große Brand von London 1666 vier Tage nicht zu stoppen war",
+    "Wie ein kleines Feuer London vier Tage lang in Brand setzte",
+    "1666: Warum Londons Feuer immer größer wurde"
+  ],
+  "visualForms": [
+    "character-scene",
+    "architecture-city",
+    "map-geography",
+    "object-focus",
+    "cause-effect",
+    "process-sequence",
+    "comparison",
+    "environment-only",
+    "battle-city-overview",
+    "detail-inset",
+    "evidence-reconstruction"
+  ],
+  "scores": {
+    "curiosityGap": 9.4,
+    "stakes": 9.6,
+    "storyEngine": 9.7,
+    "visualPotential": 9.8,
+    "historicalSignificance": 9.2,
+    "freshnessDistinctiveness": 8.8,
+    "titlePotential": 9.3,
+    "sourceability": 9.7
+  },
+  "weightedScore": 9.47,
+  "qualityBand": "PRIORITY",
+  "approvedByTopicDirector": true,
+  "notes": [
+    "Erstes reguläres 6–7-Minuten-Longform nach Abschluss der Kurztestphase.",
+    "Keine erfundene Hauptfigur; Story bleibt event-led.",
+    "Visuelle Vielfalt ist bereits auf Themenebene ein Hard-Ziel: Feuerbilder werden durch Stadtstruktur, Objekte, Wasser, Karten, Flucht, Abriss, Kathedrale, Ruinen und Wiederaufbau unterbrochen."
+  ]
+}
