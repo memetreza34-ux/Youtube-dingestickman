@@ -59,6 +59,24 @@ test('Flow-Prompt erhält Color- und World-Life-Regie', () => {
   assert.match(output, /mud and wind/);
 });
 
+test('Directing-Injektion verändert globale BILD-Metadatenregel nicht', () => {
+  const prompt = 'INTERNAL METADATA RULE — HARD:\nThe headings BILD 01 through BILD 02 are prompt metadata only.\n\nBILD 01\nScene one\n\nBILD 02\nScene two';
+  const mapping = { images: [
+    { imageNumber: 1, colorPhase: 'start', colorIntent: 'night blue', worldLifeDetail: 'closed windows' },
+    { imageNumber: 2, colorPhase: 'end', colorIntent: 'dawn amber', worldLifeDetail: 'market cart' }
+  ] };
+  const renderPlan = { colorArc: [
+    { id: 'start', storyFunction: 'Start', paletteBias: 'night blue', lighting: 'night' },
+    { id: 'middle', storyFunction: 'Mitte', paletteBias: 'gray', lighting: 'overcast' },
+    { id: 'end', storyFunction: 'Ende', paletteBias: 'amber', lighting: 'dawn' }
+  ] };
+  const output = injectDirectingIntoPrompt(prompt, mapping, renderPlan);
+  assert.match(output, /The headings BILD 01 through BILD 02 are prompt metadata only\./);
+  assert.equal((output.match(/DIRECTING — HARD:/g) ?? []).length, 2);
+  assert.match(output, /BILD 01\nDIRECTING — HARD:/);
+  assert.match(output, /BILD 02\nDIRECTING — HARD:/);
+});
+
 test('Neues Template aktiviert Directing Gate und Regiefelder', async () => {
   const meta = JSON.parse(await readFile('youtube/templates/video-template/99-technik/video.json', 'utf8'));
   const mapping = JSON.parse(await readFile('youtube/templates/video-template/99-technik/BILD_AUDIO_ZUORDNUNG.json', 'utf8'));
