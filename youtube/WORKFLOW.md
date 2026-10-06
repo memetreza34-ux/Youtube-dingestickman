@@ -235,8 +235,13 @@ Final:
 03-export/
 ├── FINAL_VIDEO.mp4
 ├── THUMBNAIL.png
-└── CAPTION.txt
+├── CAPTION.txt
+└── SUBTITLES.srt
 ```
+
+Die Datei `SUBTITLES.srt` wird aus den **gemessenen Whisper-/Audio-Alignment-Zeiten** der Scene Cards erzeugt. Jeder Eintrag enthält den zugehörigen `narrationBeat` mit echtem Start- und Endzeitpunkt und kann direkt als deutsche Untertiteldatei bei YouTube hochgeladen werden. Geschätzte Zeitcodes ohne Alignment sind nicht erlaubt.
+
+Audio-Geschwindigkeit: Standard für neue Videos ist **1,05×**. Ein projektspezifischer Wert in `video.json.audioPolicy.playbackRate` hat Vorrang vor dem globalen Standard.
 
 ## Definition of Done
 
