@@ -37,6 +37,7 @@ test('Great-Fire-London ist ein echtes 6–7-Minuten-Longform und besteht alle P
   assert.equal(meta.storyMode, 'event-led');
   assert.equal(scorecard.mainCharacterRequired, false);
   assert.equal(meta.targetDurationSeconds, 375);
+  assert.equal(meta.audioPolicy.playbackRate, 1.05);
   assert.deepEqual(meta.targetDurationRangeSeconds, [360, 420]);
   assert.equal(meta.plannedImageCount, 84);
   assert.equal(mapping.images.length, 84);
