@@ -37,7 +37,10 @@
     "fixedImageCountForbidden": true,
     "oneImageOneVisualPurpose": true,
     "oneNarrativeTakeawayPerImage": true,
-    "targetAverageHoldSeconds": [2.5, 4.2],
+    "targetAverageHoldSeconds": [
+      2.5,
+      4.2
+    ],
     "reviewAboveSeconds": 5.5,
     "preferSplitAboveSeconds": 7,
     "hardMaximumSeconds": 9,
@@ -59,9 +62,18 @@
     "evidenceReconstructionAllowed": true,
     "denseCollageStillForbidden": true,
     "shortVideoVisualGuidance": {
-      "approximately60Seconds": [18, 26],
-      "approximately90Seconds": [24, 34],
-      "approximately120Seconds": [32, 44],
+      "approximately60Seconds": [
+        18,
+        26
+      ],
+      "approximately90Seconds": [
+        24,
+        34
+      ],
+      "approximately120Seconds": [
+        32,
+        44
+      ],
       "guidanceOnly": true,
       "contentDrivenAlwaysWins": true
     }
@@ -89,7 +101,7 @@
     "sourceDirectory": "00-bildprompts/images"
   },
   "audioPolicy": {
-    "playbackRate": 1.1,
+    "playbackRate": 1.05,
     "silenceThresholdDb": -35,
     "minimumLongPauseSeconds": 0.24,
     "retainedPauseSeconds": 0.05,
@@ -119,6 +131,9 @@
     "captionContainsDescription": true,
     "captionMayContainHashtags": true,
     "captionMayContainKeywords": true,
-    "thumbnailTextIncludedInCaption": true
+    "thumbnailTextIncludedInCaption": true,
+    "subtitleFile": "03-export/SUBTITLES.srt",
+    "subtitleRequired": true,
+    "subtitleTimingSource": "whisper-aligned-scene-cards"
   }
 }

@@ -62,7 +62,10 @@
     "fixedImageCountForbidden": true,
     "oneImageOneVisualPurpose": true,
     "oneNarrativeTakeawayPerImage": true,
-    "targetAverageHoldSeconds": [2.5, 4.2],
+    "targetAverageHoldSeconds": [
+      2.5,
+      4.2
+    ],
     "reviewAboveSeconds": 5.5,
     "preferSplitAboveSeconds": 7,
     "hardMaximumSeconds": 9,
@@ -85,7 +88,7 @@
   "audioPolicy": {
     "singleFinalVoiceoverRequired": true,
     "userOriginalMustRemainUntouched": true,
-    "playbackRate": 1.1,
+    "playbackRate": 1.05,
     "loudnessTargetLufs": -16,
     "truePeakDbtp": -1.5,
     "sampleRateHz": 48000

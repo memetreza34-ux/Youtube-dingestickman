@@ -5,7 +5,13 @@
   "status": "TOPIC_DIRECTOR_V4_STORY_MODES_V1_SCRIPT_V4_WHOLE_VIDEO_COHERENCE_V1_VISUAL_POLICY_V12_READY",
   "positioning": "History x Storytelling x Curiosity",
   "corePromise": "Historische Geschichten flüssig, spannend, verständlich, visuell zusammenhängend und historisch sauber erzählen — als Character-, Event- oder World-led Story, ohne künstlich eine Hauptfigur zu erzwingen.",
-  "targetDurationMinutes": {"preferredMin": 8, "preferredMax": 15, "contentDriven": true, "shortTestVideosAllowed": true, "shortTestMaximumSeconds": 120},
+  "targetDurationMinutes": {
+    "preferredMin": 8,
+    "preferredMax": 15,
+    "contentDriven": true,
+    "shortTestVideosAllowed": true,
+    "shortTestMaximumSeconds": 120
+  },
   "topicSystem": {
     "version": 4,
     "director": "topic-director-v4",
@@ -24,7 +30,11 @@
     "historicalStoryCoreRequired": true,
     "concreteHumanStakesRequired": true,
     "namedMainCharacterRequired": false,
-    "allowedStoryModes": ["character-led", "event-led", "world-led"],
+    "allowedStoryModes": [
+      "character-led",
+      "event-led",
+      "world-led"
+    ],
     "inventedProtagonistToHumanizeTopicForbidden": true,
     "representativeHistoricalHumansAllowed": true,
     "eventProgressionRequired": true,
@@ -33,9 +43,48 @@
     "minimumDifferentVisualForms": 5,
     "minimumTitleDirections": 3
   },
-  "topicPillars": ["rise_power_collapse","disaster_survival","decisions_with_massive_consequences","betrayal_intrigue_crime_power","daily_life_with_real_question","technology_infrastructure_systems","borders_maps_lost_worlds","historical_mysteries_reconstruction","war_beyond_battles","strange_history_with_larger_point"],
-  "storyQualityGate": {"version":1,"policyFile":"channel/16-STORY-QUALITY-GATE.md","qcFile":"99-technik/STORY_QC.json","technicalQcRequiredForNewProjects":true,"minimumReviewScore":8,"minimumCentralStoryShare":0.7,"maximumPersonalityCuriosityShare":0.3,"meaningBeyondAnecdoteRequired":true,"centralStorySpineRequired":true,"maxConsecutivePurePersonalityCuriosityBeats":2,"minorAnecdotesMustBeCompressedOrCutWhenNonEssential":true,"everyBeatNeedsStoryFunction":true,"endingNeedsHistoricalMeaningBeyondResolution":true,"rejectFamousPersonDoesSomethingWeirdAsSolePremise":true},
-  "wholeVideoCoherenceGate": {"version":1,"policyFile":"channel/17-WHOLE-VIDEO-COHERENCE-GATE.md","qcFile":"99-technik/WHOLE_VIDEO_QC.json","technicalQcRequiredForNewProjects":true,"minimumScore":8,"maximumExplanationOnlyVisualShare":0.35,"maximumConsecutiveExplanationOnlyVisuals":2,"scriptContinuousProseRequired":true,"scriptReadAloudRequired":true,"visualsDerivedAfterScriptRequired":true,"historicalWorldReturnRequired":true,"transitionsReviewedRequired":true},
+  "topicPillars": [
+    "rise_power_collapse",
+    "disaster_survival",
+    "decisions_with_massive_consequences",
+    "betrayal_intrigue_crime_power",
+    "daily_life_with_real_question",
+    "technology_infrastructure_systems",
+    "borders_maps_lost_worlds",
+    "historical_mysteries_reconstruction",
+    "war_beyond_battles",
+    "strange_history_with_larger_point"
+  ],
+  "storyQualityGate": {
+    "version": 1,
+    "policyFile": "channel/16-STORY-QUALITY-GATE.md",
+    "qcFile": "99-technik/STORY_QC.json",
+    "technicalQcRequiredForNewProjects": true,
+    "minimumReviewScore": 8,
+    "minimumCentralStoryShare": 0.7,
+    "maximumPersonalityCuriosityShare": 0.3,
+    "meaningBeyondAnecdoteRequired": true,
+    "centralStorySpineRequired": true,
+    "maxConsecutivePurePersonalityCuriosityBeats": 2,
+    "minorAnecdotesMustBeCompressedOrCutWhenNonEssential": true,
+    "everyBeatNeedsStoryFunction": true,
+    "endingNeedsHistoricalMeaningBeyondResolution": true,
+    "rejectFamousPersonDoesSomethingWeirdAsSolePremise": true
+  },
+  "wholeVideoCoherenceGate": {
+    "version": 1,
+    "policyFile": "channel/17-WHOLE-VIDEO-COHERENCE-GATE.md",
+    "qcFile": "99-technik/WHOLE_VIDEO_QC.json",
+    "technicalQcRequiredForNewProjects": true,
+    "minimumScore": 8,
+    "maximumExplanationOnlyVisualShare": 0.35,
+    "maximumConsecutiveExplanationOnlyVisuals": 2,
+    "scriptContinuousProseRequired": true,
+    "scriptReadAloudRequired": true,
+    "visualsDerivedAfterScriptRequired": true,
+    "historicalWorldReturnRequired": true,
+    "transitionsReviewedRequired": true
+  },
   "scriptRules": {
     "scriptVersion": 4,
     "continuousProseFirstRequired": true,
@@ -49,8 +98,14 @@
     "openingConcreteMomentRequired": true,
     "centralProblemEarlyRequired": true,
     "centralQuestionEarlyRequired": true,
-    "coldOpenTargetSecondsLongVideo": [12,25],
-    "coldOpenTargetSecondsShortVideo": [5,12],
+    "coldOpenTargetSecondsLongVideo": [
+      12,
+      25
+    ],
+    "coldOpenTargetSecondsShortVideo": [
+      5,
+      12
+    ],
     "storyBeforeExplanation": true,
     "contextJustInTime": true,
     "problemDecisionConsequenceRhythmPreferred": true,
@@ -76,14 +131,81 @@
     "personalityTriviaMustNotReplaceHistoricalMechanism": true,
     "minorSourceAnecdoteChainsForbidden": true
   },
-  "researchRules": {"sourceDocumentationRequired":true,"uncertaintyMustBeMarked":true,"inventedQuotesForbidden":true,"inventedThoughtsAsFactsForbidden":true,"centralContestedClaimsNeedCare":true},
-  "uploadRules": {"captionFileRequired":true,"captionFile":"03-export/CAPTION.txt","titleRequired":true,"descriptionRequired":true,"hashtagsOptional":true,"keywordsOptional":true,"thumbnailTextIncluded":true},
-  "channelSeparation": {"generalPhilosophyPsychologyWhatIf":"other_future_channel","modernCIAdayInLifeWithoutHistoricalCore":"other_future_channel"},
-  "visualSystem": {
-    "status":"READY","styleId":"history-stickman-adaptive-v1","promptSystemVersion":3,"promptSystem":"flow-compiler-v3","scenePlanningSchemaVersion":2,"visualInterestGateVersion":2,
-    "visualPolicyFile":"config/visual-policy.json","flowStyleLockFile":"config/flow-style-lock.json","visualSystemFile":"channel/06-VISUAL-SYSTEM.md","visualGrammarFile":"channel/07-VISUAL-GRAMMAR.md","visualInterestQcFile":"channel/15-VISUAL-INTEREST-QC.md","storyQualityGateFile":"channel/16-STORY-QUALITY-GATE.md","wholeVideoCoherenceGateFile":"channel/17-WHOLE-VIDEO-COHERENCE-GATE.md","flowPromptingFile":"channel/08-FLOW-PROMPTING.md","imagePromptTemplateFile":"channel/09-IMAGE-PROMPT-TEMPLATE.md","styleDnaFile":"channel/10-STYLE-DNA-V2.md","visualDirectorFile":"channel/11-VISUAL-DIRECTOR.md","promptQcFile":"channel/12-PROMPT-QC.md","flowPromptCompilerFile":"src/lib/flow-prompt.js","flowPromptBuilderFile":"src/cli/build-youtube-flow-prompt.js","flowWorldLockTemplate":"youtube/templates/video-template/99-technik/FLOW_WORLD_LOCK.json","phase2VisualQcTemplate":"youtube/templates/video-template/99-technik/PHASE2_VISUAL_QC.json","wholeVideoQcTemplate":"youtube/templates/video-template/99-technik/WHOLE_VIDEO_QC.json",
-    "promptQcMinimumScore":8,"humanCharactersRequired":false,"namedMainCharacterRequired":false,"representativeHistoricalHumansAllowed":true,"genericStickmanCloneForbidden":true,"prominentCharacterIndividualityRequired":true,"narrationFirstVisualSelectionRequired":true,"visualInterestRequired":true,"defaultNonCoverVisibleTextPolicy":"NO_VISIBLE_TEXT","controlledEditorialTextAllowed":true,"editorialTextMaximumWords":5,"imageNumbersInsideImagesForbidden":true,"phase2VisualQcRequiredForNewProjects":true,"phase2VisualQcSha256RequiredForNewProjects":true,"flowWorldLockRequired":true,"compiledPromptRequiredForNewProjects":true,"doNotInferFromRepositoryName":true,"doNotInheritOtherRepoStyles":true,"doNotCopyReferenceChannelIdentity":true
+  "researchRules": {
+    "sourceDocumentationRequired": true,
+    "uncertaintyMustBeMarked": true,
+    "inventedQuotesForbidden": true,
+    "inventedThoughtsAsFactsForbidden": true,
+    "centralContestedClaimsNeedCare": true
   },
-  "preproduction": {"gateVersion":1,"requiredForNewProjects":true,"topicScorecard":"99-technik/TOPIC_SCORECARD.json","storyQc":"99-technik/STORY_QC.json","validator":"src/cli/validate-youtube-preproduction.js","phase1MustRevalidate":true},
-  "brainIndex":"channel/00-BRAIN-INDEX.md"
+  "uploadRules": {
+    "captionFileRequired": true,
+    "captionFile": "03-export/CAPTION.txt",
+    "titleRequired": true,
+    "descriptionRequired": true,
+    "hashtagsOptional": true,
+    "keywordsOptional": true,
+    "thumbnailTextIncluded": true,
+    "subtitleFileRequired": true,
+    "subtitleFile": "03-export/SUBTITLES.srt",
+    "subtitleFormat": "srt",
+    "subtitleTimingSource": "whisper-aligned-scene-cards"
+  },
+  "channelSeparation": {
+    "generalPhilosophyPsychologyWhatIf": "other_future_channel",
+    "modernCIAdayInLifeWithoutHistoricalCore": "other_future_channel"
+  },
+  "visualSystem": {
+    "status": "READY",
+    "styleId": "history-stickman-adaptive-v1",
+    "promptSystemVersion": 3,
+    "promptSystem": "flow-compiler-v3",
+    "scenePlanningSchemaVersion": 2,
+    "visualInterestGateVersion": 2,
+    "visualPolicyFile": "config/visual-policy.json",
+    "flowStyleLockFile": "config/flow-style-lock.json",
+    "visualSystemFile": "channel/06-VISUAL-SYSTEM.md",
+    "visualGrammarFile": "channel/07-VISUAL-GRAMMAR.md",
+    "visualInterestQcFile": "channel/15-VISUAL-INTEREST-QC.md",
+    "storyQualityGateFile": "channel/16-STORY-QUALITY-GATE.md",
+    "wholeVideoCoherenceGateFile": "channel/17-WHOLE-VIDEO-COHERENCE-GATE.md",
+    "flowPromptingFile": "channel/08-FLOW-PROMPTING.md",
+    "imagePromptTemplateFile": "channel/09-IMAGE-PROMPT-TEMPLATE.md",
+    "styleDnaFile": "channel/10-STYLE-DNA-V2.md",
+    "visualDirectorFile": "channel/11-VISUAL-DIRECTOR.md",
+    "promptQcFile": "channel/12-PROMPT-QC.md",
+    "flowPromptCompilerFile": "src/lib/flow-prompt.js",
+    "flowPromptBuilderFile": "src/cli/build-youtube-flow-prompt.js",
+    "flowWorldLockTemplate": "youtube/templates/video-template/99-technik/FLOW_WORLD_LOCK.json",
+    "phase2VisualQcTemplate": "youtube/templates/video-template/99-technik/PHASE2_VISUAL_QC.json",
+    "wholeVideoQcTemplate": "youtube/templates/video-template/99-technik/WHOLE_VIDEO_QC.json",
+    "promptQcMinimumScore": 8,
+    "humanCharactersRequired": false,
+    "namedMainCharacterRequired": false,
+    "representativeHistoricalHumansAllowed": true,
+    "genericStickmanCloneForbidden": true,
+    "prominentCharacterIndividualityRequired": true,
+    "narrationFirstVisualSelectionRequired": true,
+    "visualInterestRequired": true,
+    "defaultNonCoverVisibleTextPolicy": "NO_VISIBLE_TEXT",
+    "controlledEditorialTextAllowed": true,
+    "editorialTextMaximumWords": 5,
+    "imageNumbersInsideImagesForbidden": true,
+    "phase2VisualQcRequiredForNewProjects": true,
+    "phase2VisualQcSha256RequiredForNewProjects": true,
+    "flowWorldLockRequired": true,
+    "compiledPromptRequiredForNewProjects": true,
+    "doNotInferFromRepositoryName": true,
+    "doNotInheritOtherRepoStyles": true,
+    "doNotCopyReferenceChannelIdentity": true
+  },
+  "preproduction": {
+    "gateVersion": 1,
+    "requiredForNewProjects": true,
+    "topicScorecard": "99-technik/TOPIC_SCORECARD.json",
+    "storyQc": "99-technik/STORY_QC.json",
+    "validator": "src/cli/validate-youtube-preproduction.js",
+    "phase1MustRevalidate": true
+  },
+  "brainIndex": "channel/00-BRAIN-INDEX.md"
 }
