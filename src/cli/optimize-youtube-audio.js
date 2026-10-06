@@ -12,6 +12,19 @@ function loudnormFilter(policy, print = false) {
   return print ? `${base}:print_format=json` : base;
 }
 
+export function resolveAudioPolicy(pipelinePolicy = {}, projectPolicy = {}) {
+  const merged = { ...pipelinePolicy };
+  for (const [key, value] of Object.entries(projectPolicy ?? {})) {
+    if (value !== undefined && value !== null) merged[key] = value;
+  }
+  merged.outputSampleRateHz = Number(
+    projectPolicy?.sampleRateHz ??
+    projectPolicy?.outputSampleRateHz ??
+    pipelinePolicy?.outputSampleRateHz
+  );
+  return merged;
+}
+
 function buildFilter(policy) {
   const threshold = Number(policy.silenceThresholdDb);
   const longPause = Number(policy.minimumLongPauseSeconds);
@@ -43,8 +56,11 @@ function parseLoudness(output) {
 
 export async function optimizeAudio(projectDirectory) {
   const p = projectPaths(projectDirectory);
-  const pipeline = await readJson(path.resolve('config/pipeline.json'));
-  const policy = pipeline.audioPolicy;
+  const [pipeline, meta] = await Promise.all([
+    readJson(path.resolve('config/pipeline.json')),
+    readJson(p.meta)
+  ]);
+  const policy = resolveAudioPolicy(pipeline.audioPolicy, meta.audioPolicy);
   const audioFiles = await discoverAudioFiles(p.audioDir);
   if (audioFiles.length !== 1) throw new Error(`Genau eine Nutzer-Voice-over-Datei erwartet; gefunden: ${audioFiles.length}.`);
   const source = audioFiles[0];
