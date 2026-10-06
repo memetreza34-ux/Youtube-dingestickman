@@ -6,6 +6,7 @@ import test from 'node:test';
 
 import { evaluateTopic } from '../src/cli/check-youtube-topic.js';
 import { finalizeYoutubeExport } from '../src/cli/finalize-youtube-export.js';
+import { resolveAudioPolicy } from '../src/cli/optimize-youtube-audio.js';
 import { createPhase3ImageLock, verifyPhase3ImageLock } from '../src/cli/phase3-image-lock.js';
 import { validatePhase1 } from '../src/cli/validate-youtube-phase1.js';
 import { findHighRiskPromptWords } from '../src/lib/flow-prompt.js';
@@ -59,6 +60,8 @@ test('Repo besitzt Narration-first History-Bildwelt und Flow Compiler V3', async
   assert.equal(channel.scriptRules?.endingNeedsPayoffNotSummary, true);
   assert.equal(channel.uploadRules?.captionFileRequired, true);
   assert.equal(channel.uploadRules?.captionFile, '03-export/CAPTION.txt');
+  assert.equal(channel.uploadRules?.subtitleFileRequired, true);
+  assert.equal(channel.uploadRules?.subtitleFile, '03-export/SUBTITLES.srt');
 
   assert.ok(Array.isArray(registry.entries));
   for (const entry of registry.entries) {
@@ -92,6 +95,9 @@ test('Pipeline V4 erzwingt höhere Story-Beat-Dichte, offene Visual-Formen und A
   assert.deepEqual(policy.imagePolicy.shortVideoVisualGuidance?.approximately120Seconds, [32, 44]);
   assert.equal(policy.exportPolicy.captionRequired, true);
   assert.equal(policy.exportPolicy.captionFile, '03-export/CAPTION.txt');
+  assert.equal(policy.audioPolicy.playbackRate, 1.05);
+  assert.equal(policy.exportPolicy.subtitleRequired, true);
+  assert.equal(policy.exportPolicy.subtitleFile, '03-export/SUBTITLES.srt');
 
   assert.equal(policy.phase3AssetPolicy.existingImagesOnly, true);
   assert.equal(policy.phase3AssetPolicy.imageGenerationForbidden, true);
@@ -101,6 +107,17 @@ test('Pipeline V4 erzwingt höhere Story-Beat-Dichte, offene Visual-Formen und A
   assert.equal(policy.phase3AssetPolicy.abortOnMissingImage, true);
   assert.equal(policy.phase3AssetPolicy.abortOnImageMutation, true);
   assert.equal(policy.phase3AssetPolicy.agentMustReportErrorInsteadOfRepairing, true);
+});
+
+
+test('Projekt-Audiowert überschreibt den globalen Playback-Standard', () => {
+  const resolved = resolveAudioPolicy(
+    { playbackRate: 1.05, outputSampleRateHz: 48000, loudnessTargetLufs: -16 },
+    { playbackRate: 1.0, sampleRateHz: 44100 }
+  );
+  assert.equal(resolved.playbackRate, 1.0);
+  assert.equal(resolved.outputSampleRateHz, 44100);
+  assert.equal(resolved.loudnessTargetLufs, -16);
 });
 
 test('Phase-3-Bildlock erlaubt vorhandene Bilder und erkennt jede spätere Änderung', async () => {
@@ -126,7 +143,7 @@ test('Phase-3-Bildlock erlaubt vorhandene Bilder und erkennt jede spätere Ände
   }
 });
 
-test('Export erzeugt FINAL_VIDEO, Thumbnail und CAPTION.txt mit Upload-Metadaten', async () => {
+test('Export erzeugt FINAL_VIDEO, Thumbnail, CAPTION.txt und YouTube-SRT mit echten Zeitcodes', async () => {
   const temp = await mkdtemp(path.join(tmpdir(), 'youtube-export-v4-'));
   try {
     const imageDir = path.join(temp, '00-bildprompts', 'images');
@@ -148,15 +165,28 @@ test('Export erzeugt FINAL_VIDEO, Thumbnail und CAPTION.txt mit Upload-Metadaten
         keywords: ['Geschichte', 'Test']
       }
     }));
+    await writeFile(path.join(techDir, 'BILD_AUDIO_ZUORDNUNG.json'), JSON.stringify({
+      images: [
+        { imageNumber: 1, narrationBeat: 'Erster gesprochener Satz.', actualStartSeconds: 0, actualEndSeconds: 4.25 },
+        { imageNumber: 2, narrationBeat: 'Danach folgt der zweite Satz.', actualStartSeconds: 4.25, actualEndSeconds: 8.7 }
+      ]
+    }));
 
     const report = await finalizeYoutubeExport(temp);
     assert.equal(report.captionFile, '03-export/CAPTION.txt');
+    assert.equal(report.subtitleFile, '03-export/SUBTITLES.srt');
+    assert.equal(report.subtitleCueCount, 2);
     assert.equal(report.thumbnailIdenticalToCover, true);
     const caption = await readFile(path.join(exportDir, 'CAPTION.txt'), 'utf8');
     assert.match(caption, /TITLE:\nStarker YouTube-Titel/);
     assert.match(caption, /DESCRIPTION:\nEine vollständige Beschreibung/);
     assert.match(caption, /#Geschichte #Test/);
     assert.match(caption, /THUMBNAIL_TEXT:\nTEST COVER/);
+    const subtitles = await readFile(path.join(exportDir, 'SUBTITLES.srt'), 'utf8');
+    assert.match(subtitles, /00:00:00,000 --> 00:00:04,250/);
+    assert.match(subtitles, /Erster gesprochener Satz\./);
+    assert.match(subtitles, /00:00:04,250 --> 00:00:08,700/);
+    assert.match(subtitles, /Danach folgt der zweite Satz\./);
   } finally {
     await rm(temp, { recursive: true, force: true });
   }
@@ -180,6 +210,7 @@ test('Projekt-Template nutzt Pipeline V4, Upload-Metadaten und neue Bilddichte',
   assert.ok(Object.hasOwn(meta, 'youtubeUpload'));
   assert.equal(meta.youtubeUpload.title, '');
   assert.equal(meta.youtubeUpload.description, '');
+  assert.equal(meta.audioPolicy.playbackRate, 1.05);
   assert.equal(mapping.schemaVersion, 2);
   assert.ok(Object.hasOwn(mapping.images[0], 'viewerTakeaway'));
   assert.ok(Object.hasOwn(mapping.images[0], 'visualConcept'));
