@@ -42,31 +42,79 @@ function buildCaption(meta) {
   return `${sections.join('\n')}\n`;
 }
 
+function subtitleText(value) {
+  return String(value ?? '').replace(/\s+/g, ' ').trim();
+}
+
+function srtTimestamp(seconds) {
+  const value = Number(seconds);
+  if (!Number.isFinite(value) || value < 0) throw new Error(`Ungültiger Untertitel-Zeitwert: ${seconds}`);
+  const totalMs = Math.round(value * 1000);
+  const hours = Math.floor(totalMs / 3_600_000);
+  const minutes = Math.floor((totalMs % 3_600_000) / 60_000);
+  const secs = Math.floor((totalMs % 60_000) / 1000);
+  const ms = totalMs % 1000;
+  return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')},${String(ms).padStart(3, '0')}`;
+}
+
+export function buildSrt(mapping) {
+  const images = Array.isArray(mapping?.images) ? mapping.images : [];
+  if (!images.length) throw new Error('SUBTITLES.srt benötigt Scene Cards in BILD_AUDIO_ZUORDNUNG.json.');
+
+  const cues = images.map((image, index) => {
+    const start = Number(image.actualStartSeconds);
+    const end = Number(image.actualEndSeconds);
+    const text = subtitleText(image.narrationBeat);
+
+    if (!Number.isFinite(start) || !Number.isFinite(end) || !(end > start)) {
+      throw new Error(`SUBTITLES.srt benötigt echte Audio-Zeitwerte bei Bild ${image.imageNumber ?? index + 1}. Erst Auto-Alignment ausführen.`);
+    }
+    if (!text) {
+      throw new Error(`narrationBeat fehlt für Untertitel bei Bild ${image.imageNumber ?? index + 1}.`);
+    }
+
+    return `${index + 1}\n${srtTimestamp(start)} --> ${srtTimestamp(end)}\n${text}`;
+  });
+
+  return `${cues.join('\n\n')}\n`;
+}
+
 export async function finalizeYoutubeExport(projectDirectory) {
   const p = projectPaths(projectDirectory);
   const video = path.join(p.exportDir, 'FINAL_VIDEO.mp4');
   const cover = path.join(p.imagesDir, 'Bild 01.png');
   const thumbnail = path.join(p.exportDir, 'THUMBNAIL.png');
   const caption = path.join(p.exportDir, 'CAPTION.txt');
+  const subtitles = path.join(p.exportDir, 'SUBTITLES.srt');
 
   if (!(await exists(video))) throw new Error('FINAL_VIDEO.mp4 fehlt.');
   if (!(await exists(cover))) throw new Error('Bild 01.png fehlt.');
 
-  const meta = await readJson(p.meta);
+  const [meta, mapping] = await Promise.all([
+    readJson(p.meta),
+    readJson(p.mapping)
+  ]);
+
   await mkdir(p.exportDir, { recursive: true });
   await copyFile(cover, thumbnail);
   await writeFile(caption, buildCaption(meta), 'utf8');
+  const srt = buildSrt(mapping);
+  await writeFile(subtitles, srt, 'utf8');
 
   const report = {
-    schemaVersion: 2,
+    schemaVersion: 3,
     createdAt: new Date().toISOString(),
     videoFile: '03-export/FINAL_VIDEO.mp4',
     thumbnailFile: '03-export/THUMBNAIL.png',
     captionFile: '03-export/CAPTION.txt',
+    subtitleFile: '03-export/SUBTITLES.srt',
+    subtitleCueCount: Array.isArray(mapping.images) ? mapping.images.length : 0,
+    subtitleTimingSource: '99-technik/BILD_AUDIO_ZUORDNUNG.json actualStartSeconds/actualEndSeconds',
     thumbnailSource: '00-bildprompts/images/Bild 01.png',
     coverSha256: await sha256(cover),
     thumbnailSha256: await sha256(thumbnail),
-    captionSha256: await sha256(caption)
+    captionSha256: await sha256(caption),
+    subtitleSha256: await sha256(subtitles)
   };
   report.thumbnailIdenticalToCover = report.coverSha256 === report.thumbnailSha256;
   if (!report.thumbnailIdenticalToCover) throw new Error('Thumbnail ist nicht identisch zu Bild 01.');
@@ -78,7 +126,7 @@ async function main() {
   const dir = arg('--dir');
   if (!dir) throw new Error('Nutzung: npm run finalize:youtube-export -- --dir "youtube/<week>/<slug>"');
   const report = await finalizeYoutubeExport(dir);
-  console.log(`Export finalisiert: FINAL_VIDEO.mp4 + THUMBNAIL.png + CAPTION.txt (${report.captionFile})`);
+  console.log(`Export finalisiert: FINAL_VIDEO.mp4 + THUMBNAIL.png + CAPTION.txt + SUBTITLES.srt (${report.subtitleCueCount} Untertitel)`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
