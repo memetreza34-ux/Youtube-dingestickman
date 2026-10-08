@@ -1,0 +1,632 @@
+[
+  {
+    "visualForm": "object-focus",
+    "shotScale": "detail",
+    "dominantSubject": "versiegelter Brief",
+    "visualConcept": "Ein versiegelter Brief im Licht einer Lampe auf einem stillen Pariser Schreibtisch",
+    "worldLifeDetail": "Feder, Tintenfass"
+  },
+  {
+    "visualForm": "battle-city-overview",
+    "shotScale": "extreme-wide",
+    "dominantSubject": "gesperrte Stadtstraße",
+    "visualConcept": "Deutsche Truppen sperren außerhalb der Mauern eine Straße; leerer Postwagen bleibt auf der Stadtseite",
+    "worldLifeDetail": "Schlagbaum, Pferde"
+  },
+  {
+    "visualForm": "cutaway-section",
+    "shotScale": "sectional",
+    "dominantSubject": "unterbrochener Telegraf",
+    "visualConcept": "Getrennte Telegraphenstationen mit sichtbar gerissener Verbindung statt moderner Kabel",
+    "worldLifeDetail": "Morseapparat, Leitung"
+  },
+  {
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "wartende Bewohner im Postamt",
+    "visualConcept": "Viele verschiedene Pariser stehen vor einem Schalter ohne funktionierende Außenpost",
+    "worldLifeDetail": "Kinderhand, Hut"
+  },
+  {
+    "visualForm": "environment-only",
+    "shotScale": "wide",
+    "dominantSubject": "freier Himmel über blockierter Stadt",
+    "visualConcept": "Gesicherte Ausfahrt und Dächer darunter; darüber ein riesiger offener Himmel, noch ohne Ballon",
+    "worldLifeDetail": "Schornsteinrauch"
+  },
+  {
+    "visualForm": "symbolic-metaphor",
+    "shotScale": "elevated-overview",
+    "dominantSubject": "Straße ohne Ausgang",
+    "visualConcept": "Geschlossener Straßenring bildet ein visuelles Hindernis unter weiter freier Luft",
+    "worldLifeDetail": "Stadtmauer"
+  },
+  {
+    "visualForm": "map-geography",
+    "shotScale": "top-down",
+    "dominantSubject": "Paris im Belagerungsring",
+    "visualConcept": "Historische Karte zeigt Paris und ringförmige deutsche Stellungen 1870",
+    "worldLifeDetail": "Seine"
+  },
+  {
+    "visualForm": "evidence-reconstruction",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Nachricht über Sedan",
+    "visualConcept": "Zeitgenössische Zeitung mit Druckspuren neben kleinem sachlichen Bild der Niederlage bei Sedan",
+    "worldLifeDetail": "Zeitung, Uniformstoff"
+  },
+  {
+    "visualForm": "character-scene",
+    "shotScale": "medium",
+    "dominantSubject": "Regierungsrat in Paris",
+    "visualConcept": "Neue republikanische Beamte versammeln sich über Karten und amtlichen Dokumenten",
+    "worldLifeDetail": "Sitzungsraum, Lampe"
+  },
+  {
+    "visualForm": "architecture-city",
+    "shotScale": "extreme-wide",
+    "dominantSubject": "lebendige Hauptstadt",
+    "visualConcept": "Dichte Pariser Dächer und Straßenzüge mit Soldaten, Händlern und alltäglichem Gedränge",
+    "worldLifeDetail": "Pferdebahn, Marktstände"
+  },
+  {
+    "visualForm": "multi-moment-illustration",
+    "shotScale": "wide",
+    "dominantSubject": "abgeschnittene Verkehrswege",
+    "visualConcept": "Zug hält vor zerstörter Verbindung, Wagen vor Wachposten, Telegraf vor gerissenem Draht",
+    "worldLifeDetail": "Gleise, Wagenrad"
+  },
+  {
+    "visualForm": "comparison",
+    "shotScale": "wide",
+    "dominantSubject": "Stadt vor und nach der Blockade",
+    "visualConcept": "Identisches Stadttor links voller Handel, rechts von Wachen versperrt",
+    "worldLifeDetail": "Wagentor"
+  },
+  {
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "getrennte Familie",
+    "visualConcept": "Ein Elternteil schaut mit Kindern über Paris, ein versiegelter Brief wartet auf der Fensterbank",
+    "worldLifeDetail": "Laterne, Fenster"
+  },
+  {
+    "visualForm": "architecture-city",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Postamt voller Rückstau",
+    "visualConcept": "Hohe Postsack-Stapel türmen sich vor unbenutzten Versandschaltern",
+    "worldLifeDetail": "Sackkarre, Pult"
+  },
+  {
+    "visualForm": "object-focus",
+    "shotScale": "detail",
+    "dominantSubject": "ein einzelner Familienbrief",
+    "visualConcept": "Versiegelter Brief vor einer riesigen Straßenkarte, kleiner Gegenstand mit großer Bedeutung",
+    "worldLifeDetail": "Wachssiegel"
+  },
+  {
+    "visualForm": "multi-moment-illustration",
+    "shotScale": "wide",
+    "dominantSubject": "Botschaften für Angehörige",
+    "visualConcept": "Zusammenhängendes Bild zeigt Kind, kranke Mutter und daheim Wartende rund um einen Brief",
+    "worldLifeDetail": "Decke, Bett"
+  },
+  {
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "französische Amtsnachrichten",
+    "visualConcept": "Beamte schreiben wichtige Nachrichten für Truppen außerhalb von Paris",
+    "worldLifeDetail": "Regierungskarte"
+  },
+  {
+    "visualForm": "character-scene",
+    "shotScale": "medium",
+    "dominantSubject": "gefährdeter Kurier",
+    "visualConcept": "Ein einzelner Bote hält vor einer streng bewachten deutschen Straßensperre",
+    "worldLifeDetail": "Pferd, Schlagbaum"
+  },
+  {
+    "visualForm": "comparison",
+    "shotScale": "wide",
+    "dominantSubject": "Kurier neben tausenden Briefen",
+    "visualConcept": "Ein Kurier kann nur wenige Briefe tragen, riesige Postsäcke stehen daneben",
+    "worldLifeDetail": "Sackstapel"
+  },
+  {
+    "visualForm": "symbolic-metaphor",
+    "shotScale": "elevated-overview",
+    "dominantSubject": "Suche nach einem anderen Weg",
+    "visualConcept": "Postbeamte betrachten von einer Dachterrasse die blockierten Straßen, Himmel offen",
+    "worldLifeDetail": "Fernglas, Mauer"
+  },
+  {
+    "visualForm": "object-focus",
+    "shotScale": "medium",
+    "dominantSubject": "Ballonplan auf Arbeitstisch",
+    "visualConcept": "Einfacher Gasballonentwurf mit Korb und Netzen liegt zwischen Briefen und Stoffstücken",
+    "worldLifeDetail": "Lineal"
+  },
+  {
+    "visualForm": "cause-effect",
+    "shotScale": "wide",
+    "dominantSubject": "Gasballon über Stadtmauer",
+    "visualConcept": "Ballon schwebt über bewaffneten Linien von Paris ins freie Umland, kein Angriff",
+    "worldLifeDetail": "Mauer, Posten"
+  },
+  {
+    "visualForm": "evidence-reconstruction",
+    "shotScale": "detail",
+    "dominantSubject": "zeitgenössische Ballonzeichnung",
+    "visualConcept": "Historischer Stich eines Ballons neben sachlicher kleinen Materialrekonstruktion",
+    "worldLifeDetail": "Zeichenfeder"
+  },
+  {
+    "visualForm": "comparison",
+    "shotScale": "wide",
+    "dominantSubject": "Stadtgas statt Flamme",
+    "visualConcept": "Links kleine frühere Heißluftidee, rechts riesige mit Stadtgas befüllte Ballonhülle",
+    "worldLifeDetail": "Füllschlauch"
+  },
+  {
+    "visualForm": "cutaway-section",
+    "shotScale": "sectional",
+    "dominantSubject": "Gasballon im Schnitt",
+    "visualConcept": "Klare Querschnittsansicht zeigt Gasraum, Netz, Seile, Gondel und Postsack ohne modernen Motor",
+    "worldLifeDetail": "Ventil, Korb"
+  },
+  {
+    "visualForm": "architecture-city",
+    "shotScale": "wide",
+    "dominantSubject": "Bahnhof wird Ballonwerkstatt",
+    "visualConcept": "Hohe Pariser Bahnhofshalle voll halb genähter Ballonhüllen und Arbeitsstationen",
+    "worldLifeDetail": "Glasdach, Werkbank"
+  },
+  {
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "gemeinsame Ballonproduktion",
+    "visualConcept": "Näherinnen, Arbeiter und Postbeamte teilen die große Produktion in einzelne Handgriffe",
+    "worldLifeDetail": "Schere, Stoffballen"
+  },
+  {
+    "visualForm": "object-focus",
+    "shotScale": "detail",
+    "dominantSubject": "Stoffbahn mit Schnittmuster",
+    "visualConcept": "Große Stoffbahn wird auf einem langen Tisch mit Schere und Maßband zugeschnitten",
+    "worldLifeDetail": "Nadel, Kreide"
+  },
+  {
+    "visualForm": "process-sequence",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Nähen der Ballonhülle",
+    "visualConcept": "Drei verständliche Handgriffe: Stoff nähen, Nähte prüfen, Ballonhaut zusammenlegen",
+    "worldLifeDetail": "Faden, Schere"
+  },
+  {
+    "visualForm": "architecture-city",
+    "shotScale": "wide",
+    "dominantSubject": "riesige unfertige Ballonhaut",
+    "visualConcept": "Arbeiter ziehen Ballonhülle über Bahnhofsboden, während Korb und Netze bereitliegen",
+    "worldLifeDetail": "Korb, Seile"
+  },
+  {
+    "visualForm": "character-scene",
+    "shotScale": "medium",
+    "dominantSubject": "Briefsortierer unter Zeitdruck",
+    "visualConcept": "Pariser Postangestellte legen Briefe in Versandkisten, keine namenlose Klonfigur",
+    "worldLifeDetail": "Briefstempel"
+  },
+  {
+    "visualForm": "detail-inset",
+    "shotScale": "detail",
+    "dominantSubject": "dünnes Briefpapier auf Waage",
+    "visualConcept": "Sehr dünnes Blatt wird gewogen, vergrößerte Kante zeigt Materialstärke",
+    "worldLifeDetail": "Waage, Feder"
+  },
+  {
+    "visualForm": "cause-effect",
+    "shotScale": "wide",
+    "dominantSubject": "knapper Platz im Ballonkorb",
+    "visualConcept": "Postsäcke drücken in einen engen Korb, ein Helfer prüft die Gewichtsgrenze",
+    "worldLifeDetail": "Ballastsack, Seil"
+  },
+  {
+    "visualForm": "system-hierarchy",
+    "shotScale": "elevated-overview",
+    "dominantSubject": "improvisierte Luftpostkette",
+    "visualConcept": "Briefschreiber, Sortierer, Näher, Gasarbeiter und Pilot arbeiten in zusammenhängender Bahnhofshalle",
+    "worldLifeDetail": "Gasrohr, Tisch"
+  },
+  {
+    "visualForm": "architecture-city",
+    "shotScale": "wide",
+    "dominantSubject": "Le Neptune am 23. September",
+    "visualConcept": "Erster Ballon steht auf Platz Saint-Pierre in Montmartre startbereit zwischen Helfern",
+    "worldLifeDetail": "Hausfassaden, Menschen"
+  },
+  {
+    "visualForm": "object-focus",
+    "shotScale": "close",
+    "dominantSubject": "125 Kilogramm Briefsäcke",
+    "visualConcept": "Der Korb von Le Neptune ist voller Postsäcke; ein Gewicht liegt daneben, keine Fantasiezahl im Bild",
+    "worldLifeDetail": "Netz, Seil"
+  },
+  {
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "wartende Angehörige am Start",
+    "visualConcept": "Besorgte Menschen beobachten letzte Vorbereitungen; unterschiedlich gekleidete historische Figuren",
+    "worldLifeDetail": "Hut, Tasche"
+  },
+  {
+    "visualForm": "battle-city-overview",
+    "shotScale": "extreme-wide",
+    "dominantSubject": "erster Ballon über Paris",
+    "visualConcept": "Ein einzelner Gasballon hebt über dächerreiches Paris, Stellungen bleiben weit unten",
+    "worldLifeDetail": "Mauerring, Seine"
+  },
+  {
+    "visualForm": "symbolic-metaphor",
+    "shotScale": "wide",
+    "dominantSubject": "Korb über gesperrten Wegen",
+    "visualConcept": "Blick vom Ballonkorb auf winzige blockierte Straßen, freier Himmel dominiert",
+    "worldLifeDetail": "Korbgeflecht"
+  },
+  {
+    "visualForm": "environment-only",
+    "shotScale": "wide",
+    "dominantSubject": "Landung im ländlichen Feld",
+    "visualConcept": "Le Neptune landet außerhalb des Rings auf einem Feld, Bauern halten Korb fest",
+    "worldLifeDetail": "Acker, Bauernwagen"
+  },
+  {
+    "visualForm": "process-sequence",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Postsäcke gehen weiter",
+    "visualConcept": "Post wird vom gelandeten Ballon auf eine ländliche Postkutsche umgeladen",
+    "worldLifeDetail": "Pferd, Kiste"
+  },
+  {
+    "visualForm": "object-focus",
+    "shotScale": "detail",
+    "dominantSubject": "Ventilseil und Ballastsack",
+    "visualConcept": "Hände eines Piloten bedienen Höhenkontrolle, kein Lenkrad und keine Propeller",
+    "worldLifeDetail": "Sand, Seil"
+  },
+  {
+    "visualForm": "cutaway-section",
+    "shotScale": "sectional",
+    "dominantSubject": "Höhensteuerung im Ballon",
+    "visualConcept": "Klarer Querschnitt mit Ventil oben und Ballast unten, Seitenwind bleibt unbeeinflussbar",
+    "worldLifeDetail": "Gondel"
+  },
+  {
+    "visualForm": "map-geography",
+    "shotScale": "top-down",
+    "dominantSubject": "Ideale Ballonroute",
+    "visualConcept": "Kleine Karte zeigt erhofften Weg über den Belagerungsring ins sichere Hinterland",
+    "worldLifeDetail": "Paris, Seine"
+  },
+  {
+    "visualForm": "cause-effect",
+    "shotScale": "wide",
+    "dominantSubject": "Ballon im Seitenwind",
+    "visualConcept": "Wind drückt großen Ballon schräg über Felder, Flugrichtung weicht von geplantem Weg ab",
+    "worldLifeDetail": "Wolken"
+  },
+  {
+    "visualForm": "comparison",
+    "shotScale": "elevated-overview",
+    "dominantSubject": "kurze und lange Ballonflüge",
+    "visualConcept": "Zwei landende Ballons an nahen und fernen Orten, eindeutiger Größenkontrast",
+    "worldLifeDetail": "Dorf, Feld"
+  },
+  {
+    "visualForm": "map-geography",
+    "shotScale": "top-down",
+    "dominantSubject": "Ballonflug bis Norwegen",
+    "visualConcept": "Historische Europa-Karte mit einer Ausnahmeroute von Paris nach Norwegen",
+    "worldLifeDetail": "Küstenlinie"
+  },
+  {
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Landung im besetzten Gebiet",
+    "visualConcept": "Pilot versteckt Postsack hinter Bauernwagen, im Hintergrund nähert sich deutsche Patrouille",
+    "worldLifeDetail": "Stroh, Scheune"
+  },
+  {
+    "visualForm": "detail-inset",
+    "shotScale": "detail",
+    "dominantSubject": "Windfahne am Startplatz",
+    "visualConcept": "Helfer prüft Windsack und flatterndes Seil vor neuer Abfahrt",
+    "worldLifeDetail": "Handschuh"
+  },
+  {
+    "visualForm": "environment-only",
+    "shotScale": "wide",
+    "dominantSubject": "Startfenster im Regen",
+    "visualConcept": "Über nassem Platz öffnet sich Wolkendecke, Mannschaft hält Ballon für Start bereit",
+    "worldLifeDetail": "Pfützen"
+  },
+  {
+    "visualForm": "cause-effect",
+    "shotScale": "wide",
+    "dominantSubject": "gefährlicher Sinkflug",
+    "visualConcept": "Ballonkorb streift beinahe hohe Baumkronen bei starkem Wetter",
+    "worldLifeDetail": "Baum, Seil"
+  },
+  {
+    "visualForm": "evidence-reconstruction",
+    "shotScale": "medium-wide",
+    "dominantSubject": "verlorene Postladung",
+    "visualConcept": "Historischer Umschlag neben Rekonstruktion beschädigter Ballonhülle und verstreuter Postsäcke",
+    "worldLifeDetail": "Stoffriss"
+  },
+  {
+    "visualForm": "character-scene",
+    "shotScale": "medium",
+    "dominantSubject": "Post trotz Gefahren",
+    "visualConcept": "Erschöpfte Postbeamte beladen erneut einen Ballon während Pilot Handschuhe anlegt",
+    "worldLifeDetail": "Briefstapel"
+  },
+  {
+    "visualForm": "multi-moment-illustration",
+    "shotScale": "wide",
+    "dominantSubject": "regelmäßige Luftpost",
+    "visualConcept": "Entlang einer Bahnhofshalle sind Gasfüllung, Briefverladung und Start als Arbeitsfolge sichtbar",
+    "worldLifeDetail": "Käfig, Netz"
+  },
+  {
+    "visualForm": "comparison",
+    "shotScale": "wide",
+    "dominantSubject": "sicherer Brief und verlorene Ladung",
+    "visualConcept": "Zugestellter Brief kontrastiert mit gerissenem Postsack nach missglückter Landung",
+    "worldLifeDetail": "Stempel"
+  },
+  {
+    "visualForm": "object-focus",
+    "shotScale": "detail",
+    "dominantSubject": "Brief am Ziel ohne Antwortweg",
+    "visualConcept": "Außerhalb von Paris sortiert ein Postbeamter angekommenen Brief auf leerem Rückposttisch",
+    "worldLifeDetail": "Posttasche"
+  },
+  {
+    "visualForm": "cause-effect",
+    "shotScale": "wide",
+    "dominantSubject": "kein Rückwind für den Ballon",
+    "visualConcept": "Gleicher Wind bläst zwei Gasballons von Paris weg, kein verlässlicher Rückweg in die Stadt",
+    "worldLifeDetail": "Wolkenstreifen"
+  },
+  {
+    "visualForm": "architecture-city",
+    "shotScale": "wide",
+    "dominantSubject": "Rückweg von Posten versperrt",
+    "visualConcept": "Landstraße Richtung Paris mit Postwagen vor deutschem Wachtposten",
+    "worldLifeDetail": "Schranke"
+  },
+  {
+    "visualForm": "symbolic-metaphor",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Taube als neue Postidee",
+    "visualConcept": "Kleiner Brieftaubenkäfig neben gewaltigen liegengebliebenen Rückpostsäcken",
+    "worldLifeDetail": "Federn"
+  },
+  {
+    "visualForm": "object-focus",
+    "shotScale": "close",
+    "dominantSubject": "Tauben in Transportkäfig",
+    "visualConcept": "Brieftauben sitzen in Käfig im Ballonkorb zwischen Postsäcken",
+    "worldLifeDetail": "Tränke, Korb"
+  },
+  {
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Tauben außerhalb Paris freilassen",
+    "visualConcept": "Ländliche Postbeamte öffnen Käfig, erste Brieftaube startet Richtung Hauptstadt",
+    "worldLifeDetail": "Hof, Gras"
+  },
+  {
+    "visualForm": "battle-city-overview",
+    "shotScale": "extreme-wide",
+    "dominantSubject": "Taube findet Heimweg",
+    "visualConcept": "Brieftaube über Feldern unterwegs zu entferntem Paris, kein Ballon als Hauptmotiv",
+    "worldLifeDetail": "Kirchtürme"
+  },
+  {
+    "visualForm": "object-focus",
+    "shotScale": "detail",
+    "dominantSubject": "Gewichtsproblem der Taubenpost",
+    "visualConcept": "Eine Taube und daneben riesiger Postsack zeigen unmögliche Ladungsgröße",
+    "worldLifeDetail": "Briefpapier"
+  },
+  {
+    "visualForm": "detail-inset",
+    "shotScale": "close",
+    "dominantSubject": "Mikrofotografie mit winzigen Botschaften",
+    "visualConcept": "Winziger transparenter Film wird mit Lupe untersucht, kein lesbarer erfundener Text",
+    "worldLifeDetail": "Filmhalter"
+  },
+  {
+    "visualForm": "process-sequence",
+    "shotScale": "medium-wide",
+    "dominantSubject": "fotografisches Verkleinern",
+    "visualConcept": "Fotograf nimmt Schreiben mit Großkamera auf und fertigt kleine Filmstücke",
+    "worldLifeDetail": "Glasplatte"
+  },
+  {
+    "visualForm": "object-focus",
+    "shotScale": "detail",
+    "dominantSubject": "Filmröhrchen an Vogelfeder",
+    "visualConcept": "Eine kleine Kapsel wird am Schwanzgefieder einer Taube befestigt",
+    "worldLifeDetail": "Feder, Kapsel"
+  },
+  {
+    "visualForm": "cutaway-section",
+    "shotScale": "sectional",
+    "dominantSubject": "Mikrofilm wird projiziert",
+    "visualConcept": "Historische Projektionslaterne vergrößert Fotofilm auf Leinwand, keine modernen Beamer",
+    "worldLifeDetail": "Linsen"
+  },
+  {
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Schreibstube entziffert Post",
+    "visualConcept": "Postbeamte lesen vergrößerte Botschaften und schreiben Telegramme neu ab",
+    "worldLifeDetail": "Pulte, Feder"
+  },
+  {
+    "visualForm": "environment-only",
+    "shotScale": "wide",
+    "dominantSubject": "Taube fliegt durch kalten Sturm",
+    "visualConcept": "Ein Vogel über winterlichen Feldern kämpft gegen Wind und Regen",
+    "worldLifeDetail": "kahle Bäume"
+  },
+  {
+    "visualForm": "character-scene",
+    "shotScale": "medium",
+    "dominantSubject": "ankommende Taubennachricht",
+    "visualConcept": "Pariserin erhält Telegramm von Postbeamtem; ruhige glaubwürdige Erleichterung",
+    "worldLifeDetail": "Schal, Schalter"
+  },
+  {
+    "visualForm": "architecture-city",
+    "shotScale": "wide",
+    "dominantSubject": "Paris im Belagerungswinter",
+    "visualConcept": "Straße mit leeren Marktständen, fröstelnden Menschen und schwachem Nachmittagslicht",
+    "worldLifeDetail": "Schnee"
+  },
+  {
+    "visualForm": "character-scene",
+    "shotScale": "medium-wide",
+    "dominantSubject": "knappe Vorräte im Winter",
+    "visualConcept": "Wartende Menschen vor spärlichen Lebensmitteln, keine reißerische Hungerinszenierung",
+    "worldLifeDetail": "Korb"
+  },
+  {
+    "visualForm": "character-scene",
+    "shotScale": "medium",
+    "dominantSubject": "Nachricht gibt Hoffnung",
+    "visualConcept": "Lesender Briefempfänger steht am warmen Postamtsofen, andere warten schweigend",
+    "worldLifeDetail": "Ofen"
+  },
+  {
+    "visualForm": "environment-only",
+    "shotScale": "medium-wide",
+    "dominantSubject": "Postamt ohne Antwort",
+    "visualConcept": "Wartende Frau betrachtet leeren Schalter in kalter Beleuchtung",
+    "worldLifeDetail": "Bank, Uhr"
+  },
+  {
+    "visualForm": "comparison",
+    "shotScale": "wide",
+    "dominantSubject": "Ballonpost kann keinen Hunger lösen",
+    "visualConcept": "Kleiner Ballon mit Briefen hoch oben, unten große Lebensmittelknappheit in Paris",
+    "worldLifeDetail": "leerer Markt"
+  },
+  {
+    "visualForm": "cause-effect",
+    "shotScale": "wide",
+    "dominantSubject": "Luftverbindung trotz Belagerung",
+    "visualConcept": "Wachtposten bleiben auf dem Boden, eine einzelne Kommunikation läuft durch die Luft",
+    "worldLifeDetail": "Stadtwall"
+  },
+  {
+    "visualForm": "object-focus",
+    "shotScale": "detail",
+    "dominantSubject": "Zinkkugel für Briefe",
+    "visualConcept": "Januar 1871: verschlossene metallene Kugel liegt am Seine-Ufer bereit",
+    "worldLifeDetail": "Zange"
+  },
+  {
+    "visualForm": "cutaway-section",
+    "shotScale": "sectional",
+    "dominantSubject": "Zinkkugel im Fluss",
+    "visualConcept": "Seine-Querschnitt mit schwerer verschlossener Postkugel in der Strömung",
+    "worldLifeDetail": "Flusssteine"
+  },
+  {
+    "visualForm": "cause-effect",
+    "shotScale": "wide",
+    "dominantSubject": "Netz soll Kugeln fangen",
+    "visualConcept": "Historisches Fangnetz überspannt ruhigen Flussabschnitt, keine Kugeln darin",
+    "worldLifeDetail": "Holzpfosten"
+  },
+  {
+    "visualForm": "character-scene",
+    "shotScale": "medium",
+    "dominantSubject": "vergebliches Suchen nach Kugeln",
+    "visualConcept": "Postbedienstete prüfen im Winter ein leeres Fangnetz am Ufer",
+    "worldLifeDetail": "Stiefel"
+  },
+  {
+    "visualForm": "comparison",
+    "shotScale": "wide",
+    "dominantSubject": "gescheiterte Rückpost per Fluss",
+    "visualConcept": "Leeres Fangnetz der Seine steht einer unbeantworteten Posttasche gegenüber, Verzweiflung des Versuchs deutlich",
+    "worldLifeDetail": "Netz, nasses Ufer"
+  },
+  {
+    "visualForm": "system-hierarchy",
+    "shotScale": "wide",
+    "dominantSubject": "viele Postsäcke werden geflogen",
+    "visualConcept": "Sortierte Postsäcke auf Laderampe und mehrere nacheinander startbereite Hüllen",
+    "worldLifeDetail": "Seil, Waage"
+  },
+  {
+    "visualForm": "system-hierarchy",
+    "shotScale": "wide",
+    "dominantSubject": "viele Ballonflüge tragen Post",
+    "visualConcept": "Mehrere vorbereitete Gasballonhüllen und lange Reihe Postsäcke im 1870er Bahnhof zeigen den Umfang der Luftpost",
+    "worldLifeDetail": "Waage, Seil"
+  },
+  {
+    "visualForm": "map-geography",
+    "shotScale": "top-down",
+    "dominantSubject": "Waffenstillstand am 28. Januar 1871",
+    "visualConcept": "Historische Karte zeigt Ende des geschlossenen Belagerungsrings nach Waffenstillstand, ohne spätere Kriegsszenen",
+    "worldLifeDetail": "Seine, Stadtumriss"
+  },
+  {
+    "visualForm": "comparison",
+    "shotScale": "wide",
+    "dominantSubject": "Post war kein Kriegsgewinn",
+    "visualConcept": "Zwei klar getrennte Wirkungen: ankommender Brief auf Posttisch gegenüber weiterhin bestehenden militärischen Stellungen",
+    "worldLifeDetail": "Poststempel, Wall"
+  },
+  {
+    "visualForm": "symbolic-metaphor",
+    "shotScale": "extreme-wide",
+    "dominantSubject": "Paris findet neuen Nachrichtenweg",
+    "visualConcept": "Über abgeschirmter Stadt zieht ein Gasballon hinaus, eine Taube kehrt in Richtung Dächer zurück",
+    "worldLifeDetail": "Stadtmauer, Fluss"
+  },
+  {
+    "visualForm": "object-focus",
+    "shotScale": "close",
+    "dominantSubject": "historischer Stempel auf Brief",
+    "visualConcept": "Naher Blick auf gebrauchten Poststempel und Briefmarke, keine erfundenen lesbaren Daten",
+    "worldLifeDetail": "Papierfasern"
+  },
+  {
+    "visualForm": "character-scene",
+    "shotScale": "medium",
+    "dominantSubject": "anonymer Briefempfänger",
+    "visualConcept": "Person faltet angekommenen Brief sorgfältig vor sich zusammen",
+    "worldLifeDetail": "Lampe"
+  },
+  {
+    "visualForm": "rise-fall-lifecycle",
+    "shotScale": "wide",
+    "dominantSubject": "Luftpost entsteht aus Not",
+    "visualConcept": "In einer zusammenhängenden Folge gehen Blockade und sortierte Post in startenden Ballon über",
+    "worldLifeDetail": "Postsack"
+  },
+  {
+    "visualForm": "architecture-city",
+    "shotScale": "extreme-wide",
+    "dominantSubject": "letzter Gasballon über Paris",
+    "visualConcept": "Ein Gasballon hebt in goldenem Licht über Paris ab, einzelne Häuser und Seine geben Maßstab",
+    "worldLifeDetail": "Dachlandschaft"
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "chapters": [
+    {
+      "title": "Hook: Die letzte Straße ist gesperrt",
+      "startHint": "00:00"
+    },
+    {
+      "title": "Die Stadt verliert alle Verbindungen",
+      "startHint": "00:35"
+    },
+    {
+      "title": "Ein verrückter Plan im Postamt",
+      "startHint": "01:25"
+    },
+    {
+      "title": "Der erste Ballon verlässt Paris",
+      "startHint": "02:30"
+    },
+    {
+      "title": "Wenn der Wind das Ziel bestimmt",
+      "startHint": "03:10"
+    },
+    {
+      "title": "Brieftauben mit Mikrofotografie",
+      "startHint": "04:25"
+    },
+    {
+      "title": "Winter und die Grenzen der Lösung",
+      "startHint": "05:25"
+    },
+    {
+      "title": "Waffenstillstand und das Vermächtnis",
+      "startHint": "06:15"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "status": "READY",
+  "settingName": "Paris während der Belagerung 1870–1871",
+  "settingDescription": "Zusammenhängende historisch illustrierte Pariser Stadtwelt von September 1870 bis Januar 1871: Boulevards, Haussmann-Architektur, Postämter, Befestigungen, Bahnhofshallen, Montmartre, Seine und in den Wintermonaten dieselben Orte kälter und karger.",
+  "recurringPlaces": [
+    "Paris 1870: steinerne Boulevards mit 19.-Jh.-Fassaden und dunklen Mansarddächern, Schornsteinen und Pferdewagen, kein Eiffelturm",
+    "Stadtbefestigungsring: niedrige Wallabschnitte, Erdwerke, bewachte Straßen mit einfachen Schlagbäumen; keine mittelalterliche Burgkulisse",
+    "Pariser Postamt: hölzerner Schalter, Brieftische, Lederbeutel, Schalterlampen und geordnete Postsäcke; in späteren Szenen derselbe Raum",
+    "Bahnhofshalle als Ballonwerkstatt: großes verglastes historisches Dach, Handarbeitstische, Gasversorgung, Stoffhüllen, Seilrollen",
+    "Place Saint-Pierre auf Montmartre: zeitlich passender Startort des Le Neptune; keine modernen Betonbauten",
+    "Französisches Umland: Herbstfelder, Bauernwagen und einfache Dorfpostämter, später winterlich",
+    "Seine: zeittypisches Ufer, Brücken und Flussströmung; Fangnetze für Zinkkugeln nur im Januar"
+  ],
+  "recurringCharacters": [],
+  "recurringProps": [
+    "Papierumschlag mit natürlichem historischen Papier und rotem Siegel ohne erfundene lesbare Textzeilen",
+    "Stadtgasballon: gewebte runde Hülle mit Netz, Seilen, Korb und Gasfüllung, ohne Propeller oder heiße Brenner",
+    "Korb und Postsäcke: immer vergleichbare Textur, Seile, Eisenbeschläge und Federwaage",
+    "Brieftaubenkäfig und wenige klar unterscheidbare echte Brieftauben",
+    "Mikrofotografie und Projektionslaterne, historische Linsen und handgeschriebene Telegramme",
+    "Zinkpostkugeln: kleine versiegelte metallene Kugel und historisch plausible Fangeinrichtungen"
+  ],
+  "basePalette": [
+    "steinfarbenes warmes Beige des Pariser Straßenbilds",
+    "warmes Messing und Burgunder der Werkstätten",
+    "klares Oktoberblau und Stadtgasballon-Gold",
+    "winterliches Blaugrau, Kaltgrün und Ziegelrot",
+    "Archivbraun für erhaltene Briefe"
+  ],
+  "timeWeatherLogic": "September startet als normaler städtischer Herbst mit abrupten Verkehrssperren; Ballonaufbau im Herbst ist hell und handwerklich; Flüge entwickeln windige Wolkenstimmungen; Ende 1870 zunehmend kühl und knapper; im Januar 1871 winterliche Seine und schließlich heller stiller Rückblick.",
+  "continuityRules": [
+    "Nie einen Eiffelturm, kein motorisiertes Auto, modernes Flugzeug, Funkgerät oder modernes Pariser Postamt zeichnen.",
+    "Gasballons sind keine Heißluftballons mit Brennern; niemand kann sie gezielt gegen den Wind lenken.",
+    "Keine Taubenpost vor dem Zeitpunkt der Rückantwort-Idee; keine Zinkkugeln vor Januar 1871 zeigen.",
+    "Auf Postbriefen kein erfundener lesbarer langer Text; nur exakte vom Scene Card freigegebene redaktionelle Worte.",
+    "Postbeamte, Näherinnen, Piloten, Empfänger und Soldaten sind wechselnde individuelle historische Menschen, keine identischen Figuren und kein Ersatz-Hauptcharakter.",
+    "Ballonstart Montmartre, anschließend Windflug und Landung; spätere Rückkommunikation über Tauben, nicht per Rückballon.",
+    "Keine dramatische heroische Kriegsfantasie; Hauptgegenstand ist Kommunikation und ziviles Leben."
+  ]
+}

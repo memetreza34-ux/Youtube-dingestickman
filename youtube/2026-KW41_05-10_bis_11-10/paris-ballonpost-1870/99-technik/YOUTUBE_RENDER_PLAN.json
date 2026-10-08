@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 2,
+  "motionPolicy": "content-aware-v1",
+  "colorArc": [
+    {
+      "id": "sep-ring",
+      "storyFunction": "Belagerung wird sichtbar",
+      "paletteBias": "deep indigo, fog gray, dark copper",
+      "lighting": "cool September dawn"
+    },
+    {
+      "id": "sedan-paris",
+      "storyFunction": "Regierungswechsel und volle Stadt",
+      "paletteBias": "dusty olive, limestone beige, muted uniform blue",
+      "lighting": "clear autumn daylight"
+    },
+    {
+      "id": "post-silence",
+      "storyFunction": "Persönliche und politische Isolation",
+      "paletteBias": "parchment cream, ink blue, umber wood",
+      "lighting": "warm indoor lamps with cold exterior"
+    },
+    {
+      "id": "balloon-plan",
+      "storyFunction": "Idee der Gasballonpost",
+      "paletteBias": "brass gold, ink blue, technical gray",
+      "lighting": "strong studio side light"
+    },
+    {
+      "id": "sewing-work",
+      "storyFunction": "Ballonwerkstätten entstehen",
+      "paletteBias": "warm linen, muted burgundy, natural timber",
+      "lighting": "busy workshop daylight"
+    },
+    {
+      "id": "neptune-launch",
+      "storyFunction": "Erster Start und Entkommen",
+      "paletteBias": "clean cobalt sky, warm sandstone, gas-envelope gold",
+      "lighting": "bright September morning"
+    },
+    {
+      "id": "wind-unknown",
+      "storyFunction": "Unkontrollierbare Flüge",
+      "paletteBias": "storm teal, pale mist, steel gray",
+      "lighting": "varied aerial weather"
+    },
+    {
+      "id": "flight-risk",
+      "storyFunction": "Gefahr und Ausdauer",
+      "paletteBias": "cool slate, copper brown, rain blue",
+      "lighting": "stormy autumn skies"
+    },
+    {
+      "id": "return-problem",
+      "storyFunction": "Brieftauben als Rückweg",
+      "paletteBias": "moss green, soft brass, blue gray",
+      "lighting": "rural autumn daylight"
+    },
+    {
+      "id": "micro-post",
+      "storyFunction": "Mikrofotografie und Nachricht",
+      "paletteBias": "dark walnut, glass teal, warm lamplight",
+      "lighting": "interior laboratory light"
+    },
+    {
+      "id": "winter-city",
+      "storyFunction": "Überleben und Warten",
+      "paletteBias": "icy blue, soot gray, dull brick rose",
+      "lighting": "short winter daylight"
+    },
+    {
+      "id": "river-attempt",
+      "storyFunction": "Zinkkugeln scheitern",
+      "paletteBias": "river green, pewter, brown stone",
+      "lighting": "cold January mist"
+    },
+    {
+      "id": "postal-memory",
+      "storyFunction": "Waffenstillstand und Bedeutung der Luftpost",
+      "paletteBias": "archive sepia, warm parchment, hopeful sky blue",
+      "lighting": "soft final daylight"
+    }
+  ],
+  "backgroundMusic": false,
+  "motionOverrides": [],
+  "soundEffects": []
+}

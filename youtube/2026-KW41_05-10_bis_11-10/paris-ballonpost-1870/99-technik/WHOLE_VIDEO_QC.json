@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 3,
+  "status": "APPROVED",
+  "reviewMethod": "script-first-and-sequence-review",
+  "scriptContinuousProse": true,
+  "scriptReadAloudPassed": true,
+  "visualsDerivedAfterScript": true,
+  "coherentVisualArc": true,
+  "chronologyMode": "strict-chronological",
+  "chronologyReviewed": true,
+  "historicalEventOrderReviewed": true,
+  "visualOrderMatchesNarrationOrder": true,
+  "temporalJumpsExplicitlySignposted": true,
+  "unnecessaryFlashbacksAbsent": true,
+  "narrationVisualAlignmentReviewed": true,
+  "everyVisualMatchesCurrentNarration": true,
+  "visualClarityReviewed": true,
+  "unclearVisualsAbsent": true,
+  "onePrimaryTakeawayPerVisual": true,
+  "futureEventLeakageAbsent": true,
+  "explanationOnlyVisualShare": 0.16666666666666666,
+  "maxConsecutiveExplanationOnlyVisuals": 1,
+  "historicalWorldReturnsAfterExplanation": true,
+  "editorialTextUsedOnlyWhenUseful": true,
+  "transitionsReviewed": true,
+  "overallCoherenceScore": 9.1,
+  "approved": true,
+  "notes": [
+    "90 Beats aus vollständigem Sprechertext abgeleitet, nicht umgekehrt.",
+    "Keine Hauptfigur; individuelle Pariser als wechselnde Darsteller.",
+    "Wiederkehrende Gasballons dürfen nicht in identischen Ansichten wiederholt werden."
+  ]
+}

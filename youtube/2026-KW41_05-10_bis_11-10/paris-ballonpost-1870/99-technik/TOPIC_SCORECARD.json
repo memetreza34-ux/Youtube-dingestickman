@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 3,
+  "status": "APPROVED",
+  "candidate": "Warum Paris 1870 seine Briefe mit Ballons verschickte",
+  "proposedTitle": "Warum Paris 1870 seine Briefe mit Ballons verschickte",
+  "topicFamily": "technology_infrastructure_systems",
+  "storyMode": "world-led",
+  "mainCharacterRequired": false,
+  "humanRepresentationPlan": "Die von allen Postwegen abgeschnittene Stadt trägt die Geschichte. Postbeamte, Näherinnen, Ballonpiloten, Familien, Taubenbetreuer und Schreiber sind wechselnde glaubwürdige Darsteller; keine erzwungene Hauptfigur.",
+  "discovery": {
+    "rawCandidateCount": 30,
+    "shortlistSize": 12,
+    "selectedRank": 1,
+    "selectedFromShortlist": true
+  },
+  "duplicateCheckDecision": "APPROVED_NEW",
+  "storyEnginePresent": true,
+  "isolatedAnecdoteOnly": false,
+  "diversityGatePassed": true,
+  "largerHistoricalPoint": "Die belagerte Millionenstadt erfindet aus der Not eine Luftpost-Infrastruktur: Kommunikation und Technik verändern sich unter dem Druck einer konkreten Krise.",
+  "sourceabilityEvidence": "Smithsonian National Postal Museum (Siege of Paris Mail, Balloon and Zeppelin Mail), französisches Musée de La Poste, Comité pour l'histoire de la Poste und Musée Carnavalet dokumentieren Blockade, Ballons, Brieftauben und Mikrofotografie.",
+  "historicalStoryCorePresent": true,
+  "mechanismOnlyTopic": false,
+  "concreteHumanStakes": "Von Angehörigen getrennte Pariser wollen über den Belagerungsring hinweg Lebenszeichen senden; amtliche Nachrichten müssen die französischen Provinzen erreichen, während die Belagerung die Bevölkerung zunehmend belastet.",
+  "eventProgression": "19. September 1870 geschlossene Stadt → verstopfte Post → Gasballonplan → 23. September erster Flug → riskante Herbstflüge → Taubenpost mit Mikrofotografie für Rückantworten → winterliche Not und gescheiterte Zinkkugeln → Waffenstillstand und bleibende Luftpostspur.",
+  "expectedExplanationMechanismShare": 0.29,
+  "titleDirections": [
+    "Warum Paris 1870 seine Briefe mit Ballons verschickte",
+    "Als Paris abgeriegelt wurde, flog seine Post davon",
+    "1870: Warum Brieftauben und Gasballons eine Stadt verbanden"
+  ],
+  "visualForms": [
+    "object-focus",
+    "architecture-city",
+    "character-scene",
+    "map-geography",
+    "cutaway-section",
+    "process-sequence",
+    "battle-city-overview",
+    "cause-effect",
+    "evidence-reconstruction",
+    "comparison",
+    "detail-inset",
+    "environment-only"
+  ],
+  "scores": {
+    "curiosityGap": 9.3,
+    "stakes": 9.1,
+    "storyEngine": 9.3,
+    "visualPotential": 9.8,
+    "historicalSignificance": 9,
+    "freshnessDistinctiveness": 9.4,
+    "titlePotential": 9.2,
+    "sourceability": 9.7
+  },
+  "qualityBand": "PRIORITY",
+  "approvedByTopicDirector": true,
+  "notes": [
+    "Neue Epoche, Stadtlage, visuelle Technik und Story-Familie gegenüber London 1666.",
+    "World-led: keine künstliche Hauptfigur.",
+    "Historische Schwankung 66/67 Ballons wird nicht als exakte Zahl behauptet; über 60 ist sicher."
+  ]
+}
