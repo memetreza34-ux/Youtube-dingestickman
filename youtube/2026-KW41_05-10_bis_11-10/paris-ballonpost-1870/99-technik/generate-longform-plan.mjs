@@ -115,9 +115,9 @@ const images=plan.map((s,idx)=>{
    'Herbst 1870, Flug und Windrisiken',
    'Herbst und Winter 1870, weitere riskante Ballonfahrten',
    'Herbst 1870, Problem der Antworten',
-   'Herbst 1870, Brieftauben gehen hinaus und kehren zurück',
    'Herbst und Winter 1870, Mikrofilm-Taubentelegrafie',
    'Winter 1870/71, Alltag unter Belagerung',
+   'Januar 1871, Postversuch mit Zinkkugeln in der Seine',
    '28. Januar 1871, Waffenstillstand und Rückblick'
  ][para]||'Januar 1871, Ende und Rückblick';
  const visibleTextPolicy=number===1?'COVER_TEXT_ONLY':'NO_VISIBLE_TEXT';
