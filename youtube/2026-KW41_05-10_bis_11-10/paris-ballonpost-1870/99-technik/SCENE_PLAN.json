@@ -560,11 +560,11 @@
     "worldLifeDetail": "Stiefel"
   },
   {
-    "visualForm": "battle-city-overview",
-    "shotScale": "extreme-wide",
-    "dominantSubject": "Ballonpost als bessere Lösung",
-    "visualConcept": "Schneeverhangenes Paris mit wieder startendem Ballon statt Flusspost",
-    "worldLifeDetail": "Dachrauch"
+    "visualForm": "comparison",
+    "shotScale": "wide",
+    "dominantSubject": "gescheiterte Rückpost per Fluss",
+    "visualConcept": "Leeres Fangnetz der Seine steht einer unbeantworteten Posttasche gegenüber, Verzweiflung des Versuchs deutlich",
+    "worldLifeDetail": "Netz, nasses Ufer"
   },
   {
     "visualForm": "system-hierarchy",
@@ -574,32 +574,32 @@
     "worldLifeDetail": "Seil, Waage"
   },
   {
+    "visualForm": "system-hierarchy",
+    "shotScale": "wide",
+    "dominantSubject": "viele Ballonflüge tragen Post",
+    "visualConcept": "Mehrere vorbereitete Gasballonhüllen und lange Reihe Postsäcke im 1870er Bahnhof zeigen den Umfang der Luftpost",
+    "worldLifeDetail": "Waage, Seil"
+  },
+  {
     "visualForm": "map-geography",
     "shotScale": "top-down",
-    "dominantSubject": "Waffenstillstand Januar 1871",
-    "visualConcept": "Historische Karte zeigt Öffnung der Linien nach dem 28. Januar 1871",
-    "worldLifeDetail": "Seine"
+    "dominantSubject": "Waffenstillstand am 28. Januar 1871",
+    "visualConcept": "Historische Karte zeigt Ende des geschlossenen Belagerungsrings nach Waffenstillstand, ohne spätere Kriegsszenen",
+    "worldLifeDetail": "Seine, Stadtumriss"
   },
   {
     "visualForm": "comparison",
     "shotScale": "wide",
-    "dominantSubject": "Briefe ändern Krieg nicht",
-    "visualConcept": "Zugestellte Nachrichten neben noch bestehenden militärischen Stellungen, getrennte Funktion",
-    "worldLifeDetail": "Poststempel"
+    "dominantSubject": "Post war kein Kriegsgewinn",
+    "visualConcept": "Zwei klar getrennte Wirkungen: ankommender Brief auf Posttisch gegenüber weiterhin bestehenden militärischen Stellungen",
+    "worldLifeDetail": "Poststempel, Wall"
   },
   {
     "visualForm": "symbolic-metaphor",
     "shotScale": "extreme-wide",
-    "dominantSubject": "Luftpost über geschlossener Stadt",
-    "visualConcept": "Paris unter weitem Himmel, Ballon weit entfernt und Brieftaube näher, zwei Wege",
-    "worldLifeDetail": "Stadtmauer"
-  },
-  {
-    "visualForm": "evidence-reconstruction",
-    "shotScale": "detail",
-    "dominantSubject": "erhaltener Ballonbrief",
-    "visualConcept": "Alter Originalumschlag mit Stempelspuren neben kleiner sachlicher Rekonstruktion des Fluges",
-    "worldLifeDetail": "Papier"
+    "dominantSubject": "Paris findet neuen Nachrichtenweg",
+    "visualConcept": "Über abgeschirmter Stadt zieht ein Gasballon hinaus, eine Taube kehrt in Richtung Dächer zurück",
+    "worldLifeDetail": "Stadtmauer, Fluss"
   },
   {
     "visualForm": "object-focus",
