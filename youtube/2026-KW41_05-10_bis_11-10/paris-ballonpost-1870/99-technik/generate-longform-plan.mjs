@@ -30,9 +30,10 @@ function splitBeat(startsWith,separator){
   if(idx<0)throw new Error('Schnittstelle fehlt: '+startsWith);
   const entry=beats[idx], at=entry.text.indexOf(separator);
   if(at<0)throw new Error('Teiler fehlt: '+separator);
+  const endsSentence=separator.startsWith('.');
   beats.splice(idx,1,
-    {text:entry.text.slice(0,at).trim(),paragraph:entry.paragraph},
-    {text:entry.text.slice(at).trim(),paragraph:entry.paragraph});
+    {text:entry.text.slice(0,at+(endsSentence?1:0)).trim(),paragraph:entry.paragraph},
+    {text:entry.text.slice(at+(endsSentence?2:0)).trim(),paragraph:entry.paragraph});
 }
 splitBeat('Einer wird sogar bis nach Norwegen getragen.','. Und wer');
 splitBeat('Die Nachrichten werden deshalb fotografisch','dass viele Texte');
@@ -53,13 +54,11 @@ const colorArc=[
 ['neptune-launch','Erster Start und Entkommen','clean cobalt sky, warm sandstone, gas-envelope gold','bright September morning'],
 ['wind-unknown','Unkontrollierbare Flüge','storm teal, pale mist, steel gray','varied aerial weather'],
 ['flight-risk','Gefahr und Ausdauer','cool slate, copper brown, rain blue','stormy autumn skies'],
-['return-problem','Notwendiger Rückweg','wine brown, quiet parchment, gray green','late afternoon'],
-['pigeon-idea','Brieftauben fliegen hinaus','moss green, soft brass, blue gray','rural autumn daylight'],
+['return-problem','Brieftauben als Rückweg','moss green, soft brass, blue gray','rural autumn daylight'],
 ['micro-post','Mikrofotografie und Nachricht','dark walnut, glass teal, warm lamplight','interior laboratory light'],
 ['winter-city','Überleben und Warten','icy blue, soot gray, dull brick rose','short winter daylight'],
 ['river-attempt','Zinkkugeln scheitern','river green, pewter, brown stone','cold January mist'],
-['armistice','Ende der Belagerung','restrained limestone, pale sky blue, old ivory','clear winter day'],
-['postal-memory','Bedeutung der Luftpost','archive sepia, warm parchment, hopeful sky blue','soft final daylight']
+['postal-memory','Waffenstillstand und Bedeutung der Luftpost','archive sepia, warm parchment, hopeful sky blue','soft final daylight']
 ].map(([id,storyFunction,paletteBias,lighting])=>({id,storyFunction,paletteBias,lighting}));
 const phaseByParagraph=[0,1,2,3,4,5,6,7,8,9,10,11,12];
 const stages=[...colorArc];
@@ -119,7 +118,7 @@ const images=plan.map((s,idx)=>{
    'Herbst 1870, Brieftauben gehen hinaus und kehren zurück',
    'Herbst und Winter 1870, Mikrofilm-Taubentelegrafie',
    'Winter 1870/71, Alltag unter Belagerung',
-   'Januar 1871, Versuch mit schwimmenden Zinkpostkugeln'
+   '28. Januar 1871, Waffenstillstand und Rückblick'
  ][para]||'Januar 1871, Ende und Rückblick';
  const visibleTextPolicy=number===1?'COVER_TEXT_ONLY':'NO_VISIBLE_TEXT';
  return {
