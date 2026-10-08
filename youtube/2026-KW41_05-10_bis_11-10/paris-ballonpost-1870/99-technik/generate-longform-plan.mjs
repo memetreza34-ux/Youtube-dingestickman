@@ -64,7 +64,7 @@ const phaseByParagraph=[0,1,2,3,4,5,6,7,8,9,10,11,12];
 const stages=[...colorArc];
 const formsStatic=new Set(['object-focus','map-geography','detail-inset','cutaway-section','comparison','evidence-reconstruction']);
 const camera={
-'detail':'extreme detail close-up with shallow composition depth but no photographic blur',
+'detail':'extreme detail close-up, sharp ink outlines and a clearly simplified background',
 'close':'close view with one legible object action dominating and no excess scenery',
 'medium':'medium shot with an active foreground figure and contextual architecture',
 'medium-wide':'medium-wide view with clear foreground action and receding street depth',
