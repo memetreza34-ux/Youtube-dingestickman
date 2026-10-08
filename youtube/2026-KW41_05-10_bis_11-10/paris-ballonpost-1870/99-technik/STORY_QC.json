@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "status": "APPROVED",
+  "reviewMethod": "Script-first-prose-and-coherence-review",
+  "centralQuestion": "Wie konnte das im Herbst 1870 eingeschlossene Paris trotzdem Briefe hinaus und Nachrichten zurückbringen?",
+  "storySpine": "Eine große Stadt verliert Post, Bahn und Telegraph → Bewohner und Verwaltung brauchen dringend Kontakt → Gasballonpost wird aus Werkstätten improvisiert → erste Flüge gelingen, bleiben gefährlich → Rückantworten erfordern Brieftauben und Mikrofotografie → winterliche Belagerung schränkt Wirkung ein → bedeutende Kommunikationserfindung trotz militärischer Niederlage.",
+  "historicalMeaning": "Neue Kommunikationsmittel entstanden in einer Notlage; Ballonpost überwand Kommunikationsblockaden, aber nicht Hunger oder die militärische Belagerung.",
+  "hookPromise": "Ein Brief soll Paris verlassen, aber vor der Stadt steht ein militärischer Ring; wer den Brief erhält, hängt plötzlich vom Himmel ab.",
+  "scores": {
+    "hook": 9.2,
+    "storyProgression": 9.4,
+    "historicalMeaning": 9.2,
+    "payoff": 9.4
+  },
+  "centralStoryShare": 0.96,
+  "personalityCuriosityShare": 0.02,
+  "maxConsecutivePurePersonalityCuriosityBeats": 0,
+  "beatFunctionsReviewed": true,
+  "endingAnswersOpeningQuestion": true,
+  "approved": true,
+  "notes": [
+    "Vollständiger Fließtext wurde vor SCENE_PLAN.json fertiggestellt.",
+    "Chronologischer Hook ab 19. September, kein Ballon im frühen Bild vor seinem ersten Start.",
+    "Jede Sachpassage kehrt zu Menschen, Briefen, Orten oder Handlungen zurück.",
+    "Keine heroische erfundene Einzelgeschichte."
+  ]
+}
