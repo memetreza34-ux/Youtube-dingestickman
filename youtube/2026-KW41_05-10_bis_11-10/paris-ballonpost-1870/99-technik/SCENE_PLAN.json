@@ -623,13 +623,6 @@
     "worldLifeDetail": "Postsack"
   },
   {
-    "visualForm": "environment-only",
-    "shotScale": "wide",
-    "dominantSubject": "gesperrte Straßen bleiben am Boden",
-    "visualConcept": "Ruhige Stadtausfahrt mit Kontrollposten, Blick nach oben zu freiem Himmel",
-    "worldLifeDetail": "Schornsteine"
-  },
-  {
     "visualForm": "architecture-city",
     "shotScale": "extreme-wide",
     "dominantSubject": "letzter Gasballon über Paris",
