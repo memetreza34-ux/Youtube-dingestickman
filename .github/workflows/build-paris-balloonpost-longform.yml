@@ -23,6 +23,8 @@ jobs:
         run: node youtube/2026-KW41_05-10_bis_11-10/paris-ballonpost-1870/99-technik/generate-longform-plan.mjs
       - name: Flow Compiler bauen
         run: npm run build:youtube-flow -- --dir "youtube/2026-KW41_05-10_bis_11-10/paris-ballonpost-1870"
+      - name: Generiere cover-gated Flow-Batches
+        run: node youtube/2026-KW41_05-10_bis_11-10/paris-ballonpost-1870/99-technik/split-flow-batches.mjs
       - name: Phase 1 vollständig prüfen
         run: npm run validate:youtube-phase1 -- --dir "youtube/2026-KW41_05-10_bis_11-10/paris-ballonpost-1870"
       - name: Generierte Dateien commiten
