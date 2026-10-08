@@ -1,0 +1,10 @@
+{
+  "project": "paris-ballonpost-1870",
+  "storyMode": "world-led",
+  "preproduction": "APPROVED",
+  "phase1": "READY",
+  "coverSelection": "WAITING",
+  "phase2": "WAITING_FOR_IMAGES",
+  "phase3": "BLOCKED_UNTIL_PHASE2",
+  "render": "BLOCKED_UNTIL_PHASE3"
+}
